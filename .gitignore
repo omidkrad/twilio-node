@@ -17,9 +17,11 @@ node_modules
 spec/coverage
 
 ### Custom ignores ###
+.DS_Store
 config.js
 .idea
 
 ### jsdoc dir ###
 out/
-
+*.js
+*.js.map

@@ -1,0 +1,33 @@
+// Settings: https: //www.typescriptlang.org/docs/handbook/compiler-options.html
+
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2016",
+    "watch": false,
+    "strict": true,
+    "noImplicitReturns": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "preserveConstEnums": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "docs",
+  ]
+}
