@@ -1,0 +1,13 @@
+{
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/*.js.map": true
+    },
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.tsdk": "node_modules/typescript/lib"
+}
