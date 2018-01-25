@@ -13,7 +13,7 @@ var Request = function(opts) {
   this.headers = opts.headers || this.ANY;
 };
 
-Request.prototype.ANY = '*';
+ANY = '*';
 
 attributeEqual(lhs, rhs) {
   if (lhs === this.ANY || rhs === this.ANY) {

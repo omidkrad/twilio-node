@@ -88,7 +88,7 @@ IpMessagingGrant.prototype = _.create(ChatGrant.prototype, _.assign({
   'constructor': ChatGrant
 }));
 
-IpMessagingGrant.prototype.key = 'ip_messaging';
+key = 'ip_messaging';
 
 /**
   * @constructor
