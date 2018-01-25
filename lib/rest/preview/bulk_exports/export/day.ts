@@ -363,7 +363,7 @@ DayInstance = function DayInstance(version, payload, resourceType) {
   this._solution = {resourceType: resourceType, };
 };
 
-module.exports = {
+export = {
   DayList: DayList,
   DayPage: DayPage,
   DayInstance: DayInstance

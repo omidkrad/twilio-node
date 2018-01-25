@@ -949,7 +949,7 @@ Object.defineProperty(IncomingPhoneNumberContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   IncomingPhoneNumberList: IncomingPhoneNumberList,
   IncomingPhoneNumberPage: IncomingPhoneNumberPage,
   IncomingPhoneNumberInstance: IncomingPhoneNumberInstance,

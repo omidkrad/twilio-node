@@ -553,7 +553,7 @@ AlertContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   AlertList: AlertList,
   AlertPage: AlertPage,
   AlertInstance: AlertInstance,

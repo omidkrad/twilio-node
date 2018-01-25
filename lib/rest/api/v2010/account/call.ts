@@ -934,7 +934,7 @@ Object.defineProperty(CallContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   CallList: CallList,
   CallPage: CallPage,
   CallInstance: CallInstance,

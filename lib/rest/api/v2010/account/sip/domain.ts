@@ -795,7 +795,7 @@ Object.defineProperty(DomainContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   DomainList: DomainList,
   DomainPage: DomainPage,
   DomainInstance: DomainInstance,

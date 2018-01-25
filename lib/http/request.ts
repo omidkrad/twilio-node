@@ -71,4 +71,4 @@ Request.prototype.toString = function() {
   return auth + this.method + ' ' + this.url + params + data + headers;
 };
 
-module.exports = Request;
+export = Request;

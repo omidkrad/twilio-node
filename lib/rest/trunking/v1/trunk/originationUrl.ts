@@ -681,7 +681,7 @@ OriginationUrlContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   OriginationUrlList: OriginationUrlList,
   OriginationUrlPage: OriginationUrlPage,
   OriginationUrlInstance: OriginationUrlInstance,

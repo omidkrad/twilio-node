@@ -251,7 +251,7 @@ WorkspaceRealTimeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkspaceRealTimeStatisticsList: WorkspaceRealTimeStatisticsList,
   WorkspaceRealTimeStatisticsPage: WorkspaceRealTimeStatisticsPage,
   WorkspaceRealTimeStatisticsInstance: WorkspaceRealTimeStatisticsInstance,

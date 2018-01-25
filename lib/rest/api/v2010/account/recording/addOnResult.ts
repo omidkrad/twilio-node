@@ -587,7 +587,7 @@ Object.defineProperty(AddOnResultContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AddOnResultList: AddOnResultList,
   AddOnResultPage: AddOnResultPage,
   AddOnResultInstance: AddOnResultInstance,

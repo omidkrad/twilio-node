@@ -658,7 +658,7 @@ DeploymentContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   DeploymentList: DeploymentList,
   DeploymentPage: DeploymentPage,
   DeploymentInstance: DeploymentInstance,

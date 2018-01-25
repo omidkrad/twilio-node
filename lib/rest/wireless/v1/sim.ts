@@ -698,7 +698,7 @@ Object.defineProperty(SimContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   SimList: SimList,
   SimPage: SimPage,
   SimInstance: SimInstance,

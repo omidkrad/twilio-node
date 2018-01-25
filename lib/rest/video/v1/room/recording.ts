@@ -512,7 +512,7 @@ RoomRecordingContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   RoomRecordingList: RoomRecordingList,
   RoomRecordingPage: RoomRecordingPage,
   RoomRecordingInstance: RoomRecordingInstance,

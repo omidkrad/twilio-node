@@ -68,4 +68,4 @@ Holodeck.prototype.request = function(opts) {
   return deferred.promise;
 };
 
-module.exports = Holodeck;
+export = Holodeck;

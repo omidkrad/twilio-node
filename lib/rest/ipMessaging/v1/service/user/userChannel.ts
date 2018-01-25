@@ -375,7 +375,7 @@ UserChannelInstance = function UserChannelInstance(version, payload, serviceSid,
   this._solution = {serviceSid: serviceSid, userSid: userSid, };
 };
 
-module.exports = {
+export = {
   UserChannelList: UserChannelList,
   UserChannelPage: UserChannelPage,
   UserChannelInstance: UserChannelInstance

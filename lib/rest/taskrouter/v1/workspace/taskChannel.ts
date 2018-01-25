@@ -479,7 +479,7 @@ TaskChannelContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   TaskChannelList: TaskChannelList,
   TaskChannelPage: TaskChannelPage,
   TaskChannelInstance: TaskChannelInstance,

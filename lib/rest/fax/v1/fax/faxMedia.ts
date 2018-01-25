@@ -525,7 +525,7 @@ FaxMediaContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   FaxMediaList: FaxMediaList,
   FaxMediaPage: FaxMediaPage,
   FaxMediaInstance: FaxMediaInstance,

@@ -515,7 +515,7 @@ MobileInstance = function MobileInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   MobileList: MobileList,
   MobilePage: MobilePage,
   MobileInstance: MobileInstance

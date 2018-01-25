@@ -574,7 +574,7 @@ PayloadContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   PayloadList: PayloadList,
   PayloadPage: PayloadPage,
   PayloadInstance: PayloadInstance,

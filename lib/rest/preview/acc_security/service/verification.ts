@@ -191,7 +191,7 @@ VerificationInstance = function VerificationInstance(version, payload,
   this._solution = {serviceSid: serviceSid, };
 };
 
-module.exports = {
+export = {
   VerificationList: VerificationList,
   VerificationPage: VerificationPage,
   VerificationInstance: VerificationInstance

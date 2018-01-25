@@ -496,7 +496,7 @@ MachineToMachineInstance = function MachineToMachineInstance(version, payload,
   this._solution = {accountSid: accountSid, countryCode: countryCode, };
 };
 
-module.exports = {
+export = {
   MachineToMachineList: MachineToMachineList,
   MachineToMachinePage: MachineToMachinePage,
   MachineToMachineInstance: MachineToMachineInstance

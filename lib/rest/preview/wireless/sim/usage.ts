@@ -244,7 +244,7 @@ UsageContext.prototype.fetch = function fetch(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   UsageList: UsageList,
   UsagePage: UsagePage,
   UsageInstance: UsageInstance,

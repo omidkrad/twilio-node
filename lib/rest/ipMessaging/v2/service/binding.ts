@@ -546,7 +546,7 @@ BindingContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   BindingList: BindingList,
   BindingPage: BindingPage,
   BindingInstance: BindingInstance,

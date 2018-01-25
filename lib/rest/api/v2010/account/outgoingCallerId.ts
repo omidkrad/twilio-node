@@ -611,7 +611,7 @@ OutgoingCallerIdContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   OutgoingCallerIdList: OutgoingCallerIdList,
   OutgoingCallerIdPage: OutgoingCallerIdPage,
   OutgoingCallerIdInstance: OutgoingCallerIdInstance,

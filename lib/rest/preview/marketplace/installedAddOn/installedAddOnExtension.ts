@@ -559,7 +559,7 @@ InstalledAddOnExtensionContext.prototype.update = function update(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   InstalledAddOnExtensionList: InstalledAddOnExtensionList,
   InstalledAddOnExtensionPage: InstalledAddOnExtensionPage,
   InstalledAddOnExtensionInstance: InstalledAddOnExtensionInstance,

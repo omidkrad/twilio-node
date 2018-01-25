@@ -270,4 +270,4 @@ _.extend(AccessToken.prototype, {
 });
 
 
-module.exports = AccessToken;
+export = AccessToken;

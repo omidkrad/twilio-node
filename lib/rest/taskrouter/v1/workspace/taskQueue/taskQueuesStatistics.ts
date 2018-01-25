@@ -400,7 +400,7 @@ TaskQueuesStatisticsInstance = function TaskQueuesStatisticsInstance(version,
   this._solution = {workspaceSid: workspaceSid, };
 };
 
-module.exports = {
+export = {
   TaskQueuesStatisticsList: TaskQueuesStatisticsList,
   TaskQueuesStatisticsPage: TaskQueuesStatisticsPage,
   TaskQueuesStatisticsInstance: TaskQueuesStatisticsInstance

@@ -402,7 +402,7 @@ AllTimeInstance = function AllTimeInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   AllTimeList: AllTimeList,
   AllTimePage: AllTimePage,
   AllTimeInstance: AllTimeInstance

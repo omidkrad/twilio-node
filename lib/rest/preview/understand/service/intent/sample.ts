@@ -670,7 +670,7 @@ SampleContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   SampleList: SampleList,
   SamplePage: SamplePage,
   SampleInstance: SampleInstance,

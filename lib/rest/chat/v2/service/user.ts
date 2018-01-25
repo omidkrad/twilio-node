@@ -734,7 +734,7 @@ Object.defineProperty(UserContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   UserList: UserList,
   UserPage: UserPage,
   UserInstance: UserInstance,

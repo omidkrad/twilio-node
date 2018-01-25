@@ -274,7 +274,7 @@ TaskQueueStatisticsContext.prototype.fetch = function fetch(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   TaskQueueStatisticsList: TaskQueueStatisticsList,
   TaskQueueStatisticsPage: TaskQueueStatisticsPage,
   TaskQueueStatisticsInstance: TaskQueueStatisticsInstance,

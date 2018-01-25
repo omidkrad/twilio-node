@@ -138,4 +138,4 @@ _.extend(ClientCapability.prototype, {
   }
 });
 
-module.exports = ClientCapability;
+export = ClientCapability;

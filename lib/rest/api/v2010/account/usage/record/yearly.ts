@@ -402,7 +402,7 @@ YearlyInstance = function YearlyInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   YearlyList: YearlyList,
   YearlyPage: YearlyPage,
   YearlyInstance: YearlyInstance

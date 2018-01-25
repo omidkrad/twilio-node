@@ -400,7 +400,7 @@ DataSessionInstance = function DataSessionInstance(version, payload, simSid) {
   this._solution = {simSid: simSid, };
 };
 
-module.exports = {
+export = {
   DataSessionList: DataSessionList,
   DataSessionPage: DataSessionPage,
   DataSessionInstance: DataSessionInstance

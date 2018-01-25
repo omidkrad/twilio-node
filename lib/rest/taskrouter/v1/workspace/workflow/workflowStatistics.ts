@@ -273,7 +273,7 @@ WorkflowStatisticsContext.prototype.fetch = function fetch(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkflowStatisticsList: WorkflowStatisticsList,
   WorkflowStatisticsPage: WorkflowStatisticsPage,
   WorkflowStatisticsInstance: WorkflowStatisticsInstance,

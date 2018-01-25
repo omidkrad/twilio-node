@@ -243,7 +243,7 @@ WorkersRealTimeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkersRealTimeStatisticsList: WorkersRealTimeStatisticsList,
   WorkersRealTimeStatisticsPage: WorkersRealTimeStatisticsPage,
   WorkersRealTimeStatisticsInstance: WorkersRealTimeStatisticsInstance,

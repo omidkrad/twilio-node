@@ -51,4 +51,4 @@ Object.defineProperty(Accounts.prototype,
   }
 });
 
-module.exports = Accounts;
+export = Accounts;

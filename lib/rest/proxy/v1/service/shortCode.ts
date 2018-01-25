@@ -577,7 +577,7 @@ ShortCodeContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ShortCodeList: ShortCodeList,
   ShortCodePage: ShortCodePage,
   ShortCodeInstance: ShortCodeInstance,

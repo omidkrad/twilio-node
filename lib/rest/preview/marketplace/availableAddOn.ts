@@ -502,7 +502,7 @@ Object.defineProperty(AvailableAddOnContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AvailableAddOnList: AvailableAddOnList,
   AvailableAddOnPage: AvailableAddOnPage,
   AvailableAddOnInstance: AvailableAddOnInstance,

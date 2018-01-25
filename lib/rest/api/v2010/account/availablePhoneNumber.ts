@@ -705,7 +705,7 @@ Object.defineProperty(AvailablePhoneNumberCountryContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AvailablePhoneNumberCountryList: AvailablePhoneNumberCountryList,
   AvailablePhoneNumberCountryPage: AvailablePhoneNumberCountryPage,
   AvailablePhoneNumberCountryInstance: AvailablePhoneNumberCountryInstance,

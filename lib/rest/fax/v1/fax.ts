@@ -724,7 +724,7 @@ Object.defineProperty(FaxContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   FaxList: FaxList,
   FaxPage: FaxPage,
   FaxInstance: FaxInstance,

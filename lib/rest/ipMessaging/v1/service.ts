@@ -1058,7 +1058,7 @@ Object.defineProperty(ServiceContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   ServiceList: ServiceList,
   ServicePage: ServicePage,
   ServiceInstance: ServiceInstance,

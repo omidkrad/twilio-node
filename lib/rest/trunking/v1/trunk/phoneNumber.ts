@@ -609,7 +609,7 @@ PhoneNumberContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   PhoneNumberList: PhoneNumberList,
   PhoneNumberPage: PhoneNumberPage,
   PhoneNumberInstance: PhoneNumberInstance,

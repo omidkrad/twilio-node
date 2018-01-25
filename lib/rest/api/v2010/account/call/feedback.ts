@@ -378,7 +378,7 @@ FeedbackContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   FeedbackList: FeedbackList,
   FeedbackPage: FeedbackPage,
   FeedbackInstance: FeedbackInstance,

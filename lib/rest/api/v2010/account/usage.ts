@@ -74,6 +74,6 @@ UsageList = function UsageList(version, accountSid) {
   return UsageListInstance;
 };
 
-module.exports = {
+export = {
   UsageList: UsageList
 };

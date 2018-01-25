@@ -680,7 +680,7 @@ IpAddressContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   IpAddressList: IpAddressList,
   IpAddressPage: IpAddressPage,
   IpAddressInstance: IpAddressInstance,

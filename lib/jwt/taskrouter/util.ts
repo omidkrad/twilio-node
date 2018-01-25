@@ -151,7 +151,7 @@ function reservationsUrl(workspaceSid, workerSid, reservationSid) {
 }
 
 
-module.exports = {
+export = {
   defaultWorkerPolicies: defaultWorkerPolicies,
   defaultEventBridgePolicies: defaultEventBridgePolicies,
 

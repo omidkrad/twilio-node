@@ -645,7 +645,7 @@ ModelBuildContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ModelBuildList: ModelBuildList,
   ModelBuildPage: ModelBuildPage,
   ModelBuildInstance: ModelBuildInstance,

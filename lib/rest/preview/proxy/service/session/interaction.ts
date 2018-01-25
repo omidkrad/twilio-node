@@ -547,7 +547,7 @@ InteractionContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   InteractionList: InteractionList,
   InteractionPage: InteractionPage,
   InteractionInstance: InteractionInstance,

@@ -55,4 +55,4 @@ Object.defineProperty(V1.prototype,
   }
 });
 
-module.exports = V1;
+export = V1;

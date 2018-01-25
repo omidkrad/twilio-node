@@ -262,4 +262,4 @@ Object.defineProperty(V2010.prototype,
   }
 });
 
-module.exports = V2010;
+export = V2010;

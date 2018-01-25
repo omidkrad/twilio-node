@@ -85,7 +85,7 @@ function integer(i) {
   return parseNumber(i, _.parseInt);
 }
 
-module.exports = {
+export = {
   iso8601Date: iso8601Date,
   iso8601DateTime: iso8601DateTime,
   rfc2822DateTime: rfc2822DateTime,

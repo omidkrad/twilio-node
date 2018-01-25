@@ -553,7 +553,7 @@ MediaContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   MediaList: MediaList,
   MediaPage: MediaPage,
   MediaInstance: MediaInstance,

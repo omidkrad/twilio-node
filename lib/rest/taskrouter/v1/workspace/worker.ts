@@ -887,7 +887,7 @@ Object.defineProperty(WorkerContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   WorkerList: WorkerList,
   WorkerPage: WorkerPage,
   WorkerInstance: WorkerInstance,

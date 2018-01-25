@@ -181,4 +181,4 @@ Version.prototype.readLimits = function(opts) {
   };
 };
 
-module.exports = Version;
+export = Version;

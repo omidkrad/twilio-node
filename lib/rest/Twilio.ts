@@ -520,4 +520,4 @@ Object.defineProperty(Twilio.prototype,
   }
 });
 
-module.exports = Twilio;
+export = Twilio;

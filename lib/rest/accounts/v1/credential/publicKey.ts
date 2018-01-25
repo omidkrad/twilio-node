@@ -627,7 +627,7 @@ PublicKeyContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   PublicKeyList: PublicKeyList,
   PublicKeyPage: PublicKeyPage,
   PublicKeyInstance: PublicKeyInstance,

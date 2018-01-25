@@ -576,7 +576,7 @@ RecordingContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   RecordingList: RecordingList,
   RecordingPage: RecordingPage,
   RecordingInstance: RecordingInstance,

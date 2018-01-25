@@ -515,7 +515,7 @@ TollFreeInstance = function TollFreeInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   TollFreeList: TollFreeList,
   TollFreePage: TollFreePage,
   TollFreeInstance: TollFreeInstance

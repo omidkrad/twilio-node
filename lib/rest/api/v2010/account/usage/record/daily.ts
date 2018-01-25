@@ -402,7 +402,7 @@ DailyInstance = function DailyInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   DailyList: DailyList,
   DailyPage: DailyPage,
   DailyInstance: DailyInstance

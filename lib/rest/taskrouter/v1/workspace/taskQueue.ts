@@ -829,7 +829,7 @@ Object.defineProperty(TaskQueueContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   TaskQueueList: TaskQueueList,
   TaskQueuePage: TaskQueuePage,
   TaskQueueInstance: TaskQueueInstance,

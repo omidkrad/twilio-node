@@ -783,7 +783,7 @@ HostedNumberOrderContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   HostedNumberOrderList: HostedNumberOrderList,
   HostedNumberOrderPage: HostedNumberOrderPage,
   HostedNumberOrderInstance: HostedNumberOrderInstance,

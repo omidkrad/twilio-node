@@ -383,7 +383,7 @@ UsageRecordInstance = function UsageRecordInstance(version, payload, simSid) {
   this._solution = {simSid: simSid, };
 };
 
-module.exports = {
+export = {
   UsageRecordList: UsageRecordList,
   UsageRecordPage: UsageRecordPage,
   UsageRecordInstance: UsageRecordInstance

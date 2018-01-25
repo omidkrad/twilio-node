@@ -59,4 +59,4 @@ Object.defineProperty(Monitor.prototype,
   }
 });
 
-module.exports = Monitor;
+export = Monitor;

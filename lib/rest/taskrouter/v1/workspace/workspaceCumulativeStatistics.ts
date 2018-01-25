@@ -290,7 +290,7 @@ WorkspaceCumulativeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkspaceCumulativeStatisticsList: WorkspaceCumulativeStatisticsList,
   WorkspaceCumulativeStatisticsPage: WorkspaceCumulativeStatisticsPage,
   WorkspaceCumulativeStatisticsInstance: WorkspaceCumulativeStatisticsInstance,

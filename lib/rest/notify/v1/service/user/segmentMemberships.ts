@@ -354,7 +354,7 @@ SegmentMembershipContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   SegmentMembershipList: SegmentMembershipList,
   SegmentMembershipPage: SegmentMembershipPage,
   SegmentMembershipInstance: SegmentMembershipInstance,

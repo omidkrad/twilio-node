@@ -43,4 +43,4 @@ Object.defineProperty(Studio.prototype,
   }
 });
 
-module.exports = Studio;
+export = Studio;

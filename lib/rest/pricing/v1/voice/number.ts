@@ -223,7 +223,7 @@ NumberContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   NumberList: NumberList,
   NumberPage: NumberPage,
   NumberInstance: NumberInstance,

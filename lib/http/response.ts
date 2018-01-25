@@ -9,4 +9,4 @@ Response.prototype.toString = function() {
   return 'HTTP ' + this.statusCode + ' ' + this.body;
 };
 
-module.exports = Response;
+export = Response;

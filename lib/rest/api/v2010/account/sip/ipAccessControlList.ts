@@ -681,7 +681,7 @@ Object.defineProperty(IpAccessControlListContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   IpAccessControlListList: IpAccessControlListList,
   IpAccessControlListPage: IpAccessControlListPage,
   IpAccessControlListInstance: IpAccessControlListInstance,

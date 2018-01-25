@@ -747,7 +747,7 @@ Object.defineProperty(ParticipantContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   ParticipantList: ParticipantList,
   ParticipantPage: ParticipantPage,
   ParticipantInstance: ParticipantInstance,

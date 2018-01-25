@@ -791,7 +791,7 @@ Object.defineProperty(MessageContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   MessageList: MessageList,
   MessagePage: MessagePage,
   MessageInstance: MessageInstance,

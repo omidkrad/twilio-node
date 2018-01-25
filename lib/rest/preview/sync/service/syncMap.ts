@@ -648,7 +648,7 @@ Object.defineProperty(SyncMapContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   SyncMapList: SyncMapList,
   SyncMapPage: SyncMapPage,
   SyncMapInstance: SyncMapInstance,

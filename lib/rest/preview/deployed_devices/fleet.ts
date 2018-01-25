@@ -752,7 +752,7 @@ Object.defineProperty(FleetContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   FleetList: FleetList,
   FleetPage: FleetPage,
   FleetInstance: FleetInstance,

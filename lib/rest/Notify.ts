@@ -59,4 +59,4 @@ Object.defineProperty(Notify.prototype,
   }
 });
 
-module.exports = Notify;
+export = Notify;

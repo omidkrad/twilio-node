@@ -673,7 +673,7 @@ Object.defineProperty(AuthorizationDocumentContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AuthorizationDocumentList: AuthorizationDocumentList,
   AuthorizationDocumentPage: AuthorizationDocumentPage,
   AuthorizationDocumentInstance: AuthorizationDocumentInstance,

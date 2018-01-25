@@ -577,7 +577,7 @@ IpAccessControlListContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   IpAccessControlListList: IpAccessControlListList,
   IpAccessControlListPage: IpAccessControlListPage,
   IpAccessControlListInstance: IpAccessControlListInstance,

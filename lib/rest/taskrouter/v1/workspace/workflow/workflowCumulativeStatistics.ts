@@ -314,7 +314,7 @@ WorkflowCumulativeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkflowCumulativeStatisticsList: WorkflowCumulativeStatisticsList,
   WorkflowCumulativeStatisticsPage: WorkflowCumulativeStatisticsPage,
   WorkflowCumulativeStatisticsInstance: WorkflowCumulativeStatisticsInstance,

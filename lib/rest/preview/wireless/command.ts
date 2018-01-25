@@ -557,7 +557,7 @@ CommandContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   CommandList: CommandList,
   CommandPage: CommandPage,
   CommandInstance: CommandInstance,

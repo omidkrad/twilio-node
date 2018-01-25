@@ -979,7 +979,7 @@ Object.defineProperty(WorkspaceContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   WorkspaceList: WorkspaceList,
   WorkspacePage: WorkspacePage,
   WorkspaceInstance: WorkspaceInstance,

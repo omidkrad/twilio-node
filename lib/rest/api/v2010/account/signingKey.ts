@@ -583,7 +583,7 @@ SigningKeyContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   SigningKeyList: SigningKeyList,
   SigningKeyPage: SigningKeyPage,
   SigningKeyInstance: SigningKeyInstance,

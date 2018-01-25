@@ -71,4 +71,4 @@ Object.defineProperty(IpMessaging.prototype,
   }
 });
 
-module.exports = IpMessaging;
+export = IpMessaging;

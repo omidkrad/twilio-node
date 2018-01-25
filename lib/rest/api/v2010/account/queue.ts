@@ -682,7 +682,7 @@ Object.defineProperty(QueueContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   QueueList: QueueList,
   QueuePage: QueuePage,
   QueueInstance: QueueInstance,

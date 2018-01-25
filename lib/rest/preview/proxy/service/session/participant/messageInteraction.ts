@@ -607,7 +607,7 @@ MessageInteractionContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   MessageInteractionList: MessageInteractionList,
   MessageInteractionPage: MessageInteractionPage,
   MessageInteractionInstance: MessageInteractionInstance,

@@ -556,7 +556,7 @@ TranscriptionContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   TranscriptionList: TranscriptionList,
   TranscriptionPage: TranscriptionPage,
   TranscriptionInstance: TranscriptionInstance,

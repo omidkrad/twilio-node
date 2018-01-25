@@ -68,4 +68,4 @@ Object.defineProperty(Pricing.prototype,
   }
 });
 
-module.exports = Pricing;
+export = Pricing;

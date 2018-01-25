@@ -595,7 +595,7 @@ CredentialListMappingContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   CredentialListMappingList: CredentialListMappingList,
   CredentialListMappingPage: CredentialListMappingPage,
   CredentialListMappingInstance: CredentialListMappingInstance,

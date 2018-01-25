@@ -719,7 +719,7 @@ Object.defineProperty(SyncListContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   SyncListList: SyncListList,
   SyncListPage: SyncListPage,
   SyncListInstance: SyncListInstance,

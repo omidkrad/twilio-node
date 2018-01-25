@@ -171,7 +171,7 @@ NewSigningKeyInstance = function NewSigningKeyInstance(version, payload,
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   NewSigningKeyList: NewSigningKeyList,
   NewSigningKeyPage: NewSigningKeyPage,
   NewSigningKeyInstance: NewSigningKeyInstance

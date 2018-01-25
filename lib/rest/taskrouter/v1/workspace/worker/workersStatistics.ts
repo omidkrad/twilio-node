@@ -255,7 +255,7 @@ WorkersStatisticsContext.prototype.fetch = function fetch(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkersStatisticsList: WorkersStatisticsList,
   WorkersStatisticsPage: WorkersStatisticsPage,
   WorkersStatisticsInstance: WorkersStatisticsInstance,

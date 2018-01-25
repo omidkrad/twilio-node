@@ -371,7 +371,7 @@ FeedbackSummaryContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   FeedbackSummaryList: FeedbackSummaryList,
   FeedbackSummaryPage: FeedbackSummaryPage,
   FeedbackSummaryInstance: FeedbackSummaryInstance,

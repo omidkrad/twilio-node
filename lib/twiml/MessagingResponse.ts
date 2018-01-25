@@ -100,4 +100,4 @@ Message.prototype.media = function media(attributes, url) {
   this.message.ele('Media', attributes, url);
 };
 
-module.exports = MessagingResponse;
+export = MessagingResponse;

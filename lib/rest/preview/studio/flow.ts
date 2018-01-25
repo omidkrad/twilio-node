@@ -556,7 +556,7 @@ Object.defineProperty(FlowContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   FlowList: FlowList,
   FlowPage: FlowPage,
   FlowInstance: FlowInstance,

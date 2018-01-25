@@ -45,4 +45,4 @@ FaxResponse.prototype.toString = function toString() {
   return this.response.end();
 };
 
-module.exports = FaxResponse;
+export = FaxResponse;

@@ -686,7 +686,7 @@ DeviceContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   DeviceList: DeviceList,
   DevicePage: DevicePage,
   DeviceInstance: DeviceInstance,

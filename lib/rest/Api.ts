@@ -259,4 +259,4 @@ Object.defineProperty(Api.prototype,
   }
 });
 
-module.exports = Api;
+export = Api;

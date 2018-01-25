@@ -175,7 +175,7 @@ StreamMessageInstance = function StreamMessageInstance(version, payload,
   this._solution = {serviceSid: serviceSid, streamSid: streamSid, };
 };
 
-module.exports = {
+export = {
   StreamMessageList: StreamMessageList,
   StreamMessagePage: StreamMessagePage,
   StreamMessageInstance: StreamMessageInstance

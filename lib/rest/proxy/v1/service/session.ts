@@ -780,7 +780,7 @@ Object.defineProperty(SessionContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   SessionList: SessionList,
   SessionPage: SessionPage,
   SessionInstance: SessionInstance,

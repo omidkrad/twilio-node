@@ -1265,7 +1265,7 @@ Object.defineProperty(AccountContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AccountList: AccountList,
   AccountPage: AccountPage,
   AccountInstance: AccountInstance,

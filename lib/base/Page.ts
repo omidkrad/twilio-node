@@ -184,4 +184,4 @@ Page.prototype.loadPage = function(payload) {
   throw new Error('Page Records cannot be deserialized');
 };
 
-module.exports = Page;
+export = Page;

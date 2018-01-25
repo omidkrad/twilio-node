@@ -51,4 +51,4 @@ Object.defineProperty(Taskrouter.prototype,
   }
 });
 
-module.exports = Taskrouter;
+export = Taskrouter;

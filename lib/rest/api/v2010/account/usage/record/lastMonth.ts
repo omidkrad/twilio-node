@@ -402,7 +402,7 @@ LastMonthInstance = function LastMonthInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   LastMonthList: LastMonthList,
   LastMonthPage: LastMonthPage,
   LastMonthInstance: LastMonthInstance

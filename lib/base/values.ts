@@ -17,6 +17,6 @@ function of(obj) {
   return _.omitBy(obj, _.isUndefined);
 }
 
-module.exports = {
+export = {
   of: of,
 };

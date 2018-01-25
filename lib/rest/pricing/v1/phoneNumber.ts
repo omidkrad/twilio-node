@@ -130,7 +130,7 @@ PhoneNumberInstance = function PhoneNumberInstance(version, payload) {
   this._solution = {};
 };
 
-module.exports = {
+export = {
   PhoneNumberList: PhoneNumberList,
   PhoneNumberPage: PhoneNumberPage,
   PhoneNumberInstance: PhoneNumberInstance

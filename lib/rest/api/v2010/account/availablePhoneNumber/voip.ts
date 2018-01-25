@@ -489,7 +489,7 @@ VoipInstance = function VoipInstance(version, payload, accountSid, countryCode)
   this._solution = {accountSid: accountSid, countryCode: countryCode, };
 };
 
-module.exports = {
+export = {
   VoipList: VoipList,
   VoipPage: VoipPage,
   VoipInstance: VoipInstance

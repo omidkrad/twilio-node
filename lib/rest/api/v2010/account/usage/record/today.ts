@@ -402,7 +402,7 @@ TodayInstance = function TodayInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   TodayList: TodayList,
   TodayPage: TodayPage,
   TodayInstance: TodayInstance

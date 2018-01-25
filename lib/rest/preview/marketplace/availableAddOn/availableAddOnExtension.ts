@@ -484,7 +484,7 @@ AvailableAddOnExtensionContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   AvailableAddOnExtensionList: AvailableAddOnExtensionList,
   AvailableAddOnExtensionPage: AvailableAddOnExtensionPage,
   AvailableAddOnExtensionInstance: AvailableAddOnExtensionInstance,

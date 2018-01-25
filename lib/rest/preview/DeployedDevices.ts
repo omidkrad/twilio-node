@@ -43,4 +43,4 @@ Object.defineProperty(DeployedDevices.prototype,
   }
 });
 
-module.exports = DeployedDevices;
+export = DeployedDevices;

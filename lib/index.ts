@@ -40,4 +40,4 @@ initializer.validateExpressRequest = webhooks.validateExpressRequest;
 initializer.webhook = webhooks.webhook;
 
 // Public module interface is a function, which passes through to RestClient constructor
-module.exports = initializer;
+export = initializer;

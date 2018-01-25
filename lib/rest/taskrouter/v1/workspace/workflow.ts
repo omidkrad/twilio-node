@@ -794,7 +794,7 @@ Object.defineProperty(WorkflowContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   WorkflowList: WorkflowList,
   WorkflowPage: WorkflowPage,
   WorkflowInstance: WorkflowInstance,

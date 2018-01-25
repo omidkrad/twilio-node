@@ -780,7 +780,7 @@ Object.defineProperty(TrunkContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   TrunkList: TrunkList,
   TrunkPage: TrunkPage,
   TrunkInstance: TrunkInstance,

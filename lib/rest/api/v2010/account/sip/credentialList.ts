@@ -675,7 +675,7 @@ Object.defineProperty(CredentialListContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   CredentialListList: CredentialListList,
   CredentialListPage: CredentialListPage,
   CredentialListInstance: CredentialListInstance,

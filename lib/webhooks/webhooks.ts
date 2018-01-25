@@ -162,7 +162,7 @@ function webhook() {
   };
 }
 
-module.exports = {
+export = {
   validateRequest: validateRequest,
   validateExpressRequest: validateExpressRequest,
   webhook: webhook

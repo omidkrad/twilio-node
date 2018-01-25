@@ -558,7 +558,7 @@ UserBindingContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   UserBindingList: UserBindingList,
   UserBindingPage: UserBindingPage,
   UserBindingInstance: UserBindingInstance,

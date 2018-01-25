@@ -581,7 +581,7 @@ ConnectAppContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ConnectAppList: ConnectAppList,
   ConnectAppPage: ConnectAppPage,
   ConnectAppInstance: ConnectAppInstance,

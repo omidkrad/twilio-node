@@ -595,7 +595,7 @@ FieldContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   FieldList: FieldList,
   FieldPage: FieldPage,
   FieldInstance: FieldInstance,

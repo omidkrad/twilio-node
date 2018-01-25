@@ -531,7 +531,7 @@ AssignedAddOnExtensionContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   AssignedAddOnExtensionList: AssignedAddOnExtensionList,
   AssignedAddOnExtensionPage: AssignedAddOnExtensionPage,
   AssignedAddOnExtensionInstance: AssignedAddOnExtensionInstance,

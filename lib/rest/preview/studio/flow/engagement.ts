@@ -624,7 +624,7 @@ Object.defineProperty(EngagementContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   EngagementList: EngagementList,
   EngagementPage: EngagementPage,
   EngagementInstance: EngagementInstance,

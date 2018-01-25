@@ -460,7 +460,7 @@ CountryContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   CountryList: CountryList,
   CountryPage: CountryPage,
   CountryInstance: CountryInstance,

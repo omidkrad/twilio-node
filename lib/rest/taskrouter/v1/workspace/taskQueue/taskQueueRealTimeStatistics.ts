@@ -276,7 +276,7 @@ TaskQueueRealTimeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   TaskQueueRealTimeStatisticsList: TaskQueueRealTimeStatisticsList,
   TaskQueueRealTimeStatisticsPage: TaskQueueRealTimeStatisticsPage,
   TaskQueueRealTimeStatisticsInstance: TaskQueueRealTimeStatisticsInstance,

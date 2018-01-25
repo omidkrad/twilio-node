@@ -647,7 +647,7 @@ Object.defineProperty(RecordingContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   RecordingList: RecordingList,
   RecordingPage: RecordingPage,
   RecordingInstance: RecordingInstance,

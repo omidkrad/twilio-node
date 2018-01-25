@@ -58,4 +58,4 @@ Object.defineProperty(Marketplace.prototype,
   }
 });
 
-module.exports = Marketplace;
+export = Marketplace;

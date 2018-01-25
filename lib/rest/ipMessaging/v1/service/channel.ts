@@ -764,7 +764,7 @@ Object.defineProperty(ChannelContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   ChannelList: ChannelList,
   ChannelPage: ChannelPage,
   ChannelInstance: ChannelInstance,

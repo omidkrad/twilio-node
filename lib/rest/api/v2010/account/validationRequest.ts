@@ -184,7 +184,7 @@ ValidationRequestInstance = function ValidationRequestInstance(version, payload,
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   ValidationRequestList: ValidationRequestList,
   ValidationRequestPage: ValidationRequestPage,
   ValidationRequestInstance: ValidationRequestInstance

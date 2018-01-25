@@ -515,7 +515,7 @@ RecordInstance = function RecordInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   RecordList: RecordList,
   RecordPage: RecordPage,
   RecordInstance: RecordInstance

@@ -660,7 +660,7 @@ RatePlanContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   RatePlanList: RatePlanList,
   RatePlanPage: RatePlanPage,
   RatePlanInstance: RatePlanInstance,

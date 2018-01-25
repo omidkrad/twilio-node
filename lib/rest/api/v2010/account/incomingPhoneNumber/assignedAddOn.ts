@@ -649,7 +649,7 @@ Object.defineProperty(AssignedAddOnContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AssignedAddOnList: AssignedAddOnList,
   AssignedAddOnPage: AssignedAddOnPage,
   AssignedAddOnInstance: AssignedAddOnInstance,

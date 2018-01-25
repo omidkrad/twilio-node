@@ -777,7 +777,7 @@ ParticipantContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ParticipantList: ParticipantList,
   ParticipantPage: ParticipantPage,
   ParticipantInstance: ParticipantInstance,

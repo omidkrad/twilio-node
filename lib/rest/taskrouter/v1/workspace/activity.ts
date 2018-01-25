@@ -657,7 +657,7 @@ ActivityContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ActivityList: ActivityList,
   ActivityPage: ActivityPage,
   ActivityInstance: ActivityInstance,

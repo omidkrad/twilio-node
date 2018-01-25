@@ -170,7 +170,7 @@ NewKeyInstance = function NewKeyInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   NewKeyList: NewKeyList,
   NewKeyPage: NewKeyPage,
   NewKeyInstance: NewKeyInstance

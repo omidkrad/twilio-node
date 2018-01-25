@@ -713,7 +713,7 @@ Object.defineProperty(IntentContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   IntentList: IntentList,
   IntentPage: IntentPage,
   IntentInstance: IntentInstance,

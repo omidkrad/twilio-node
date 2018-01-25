@@ -685,7 +685,7 @@ Object.defineProperty(FieldTypeContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   FieldTypeList: FieldTypeList,
   FieldTypePage: FieldTypePage,
   FieldTypeInstance: FieldTypeInstance,

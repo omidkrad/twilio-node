@@ -490,7 +490,7 @@ AuthorizedConnectAppContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   AuthorizedConnectAppList: AuthorizedConnectAppList,
   AuthorizedConnectAppPage: AuthorizedConnectAppPage,
   AuthorizedConnectAppInstance: AuthorizedConnectAppInstance,

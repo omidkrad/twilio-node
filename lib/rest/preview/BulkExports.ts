@@ -56,4 +56,4 @@ Object.defineProperty(BulkExports.prototype,
   }
 });
 
-module.exports = BulkExports;
+export = BulkExports;

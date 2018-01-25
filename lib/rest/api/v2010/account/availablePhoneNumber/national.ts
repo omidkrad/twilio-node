@@ -494,7 +494,7 @@ NationalInstance = function NationalInstance(version, payload, accountSid,
   this._solution = {accountSid: accountSid, countryCode: countryCode, };
 };
 
-module.exports = {
+export = {
   NationalList: NationalList,
   NationalPage: NationalPage,
   NationalInstance: NationalInstance

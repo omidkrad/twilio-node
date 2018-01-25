@@ -14,4 +14,4 @@ function RestException(response) {
 
 util.inherits(RestException, Error);
 
-module.exports = RestException;
+export = RestException;

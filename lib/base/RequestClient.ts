@@ -86,4 +86,4 @@ RequestClient.prototype.request = function(opts) {
   return deferred.promise;
 };
 
-module.exports = RequestClient;
+export = RequestClient;

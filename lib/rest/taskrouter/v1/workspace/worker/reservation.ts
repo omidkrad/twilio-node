@@ -744,7 +744,7 @@ ReservationContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ReservationList: ReservationList,
   ReservationPage: ReservationPage,
   ReservationInstance: ReservationInstance,

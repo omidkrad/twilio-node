@@ -655,7 +655,7 @@ KeyContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   KeyList: KeyList,
   KeyPage: KeyPage,
   KeyInstance: KeyInstance,

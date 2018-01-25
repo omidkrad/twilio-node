@@ -36,4 +36,4 @@ Domain.prototype.request = function(opts) {
   }));
 };
 
-module.exports = Domain;
+export = Domain;

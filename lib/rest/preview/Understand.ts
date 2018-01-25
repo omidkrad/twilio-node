@@ -43,4 +43,4 @@ Object.defineProperty(Understand.prototype,
   }
 });
 
-module.exports = Understand;
+export = Understand;

@@ -179,7 +179,7 @@ FeedbackInstance = function FeedbackInstance(version, payload, accountSid,
   this._solution = {accountSid: accountSid, messageSid: messageSid, };
 };
 
-module.exports = {
+export = {
   FeedbackList: FeedbackList,
   FeedbackPage: FeedbackPage,
   FeedbackInstance: FeedbackInstance

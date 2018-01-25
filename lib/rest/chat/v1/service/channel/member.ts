@@ -679,7 +679,7 @@ MemberContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   MemberList: MemberList,
   MemberPage: MemberPage,
   MemberInstance: MemberInstance,

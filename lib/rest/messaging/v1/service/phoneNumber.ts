@@ -578,7 +578,7 @@ PhoneNumberContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   PhoneNumberList: PhoneNumberList,
   PhoneNumberPage: PhoneNumberPage,
   PhoneNumberInstance: PhoneNumberInstance,

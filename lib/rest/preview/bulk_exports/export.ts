@@ -251,7 +251,7 @@ Object.defineProperty(ExportContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   ExportList: ExportList,
   ExportPage: ExportPage,
   ExportInstance: ExportInstance,

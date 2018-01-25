@@ -776,7 +776,7 @@ ApplicationContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ApplicationList: ApplicationList,
   ApplicationPage: ApplicationPage,
   ApplicationInstance: ApplicationInstance,

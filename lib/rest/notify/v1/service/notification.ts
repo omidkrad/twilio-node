@@ -238,7 +238,7 @@ NotificationInstance = function NotificationInstance(version, payload,
   this._solution = {serviceSid: serviceSid, };
 };
 
-module.exports = {
+export = {
   NotificationList: NotificationList,
   NotificationPage: NotificationPage,
   NotificationInstance: NotificationInstance

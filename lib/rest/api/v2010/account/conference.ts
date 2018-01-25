@@ -626,7 +626,7 @@ Object.defineProperty(ConferenceContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   ConferenceList: ConferenceList,
   ConferencePage: ConferencePage,
   ConferenceInstance: ConferenceInstance,

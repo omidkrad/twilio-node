@@ -253,7 +253,7 @@ WorkspaceStatisticsContext.prototype.fetch = function fetch(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkspaceStatisticsList: WorkspaceStatisticsList,
   WorkspaceStatisticsPage: WorkspaceStatisticsPage,
   WorkspaceStatisticsInstance: WorkspaceStatisticsInstance,

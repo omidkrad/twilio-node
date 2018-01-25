@@ -691,7 +691,7 @@ SyncListItemContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   SyncListItemList: SyncListItemList,
   SyncListItemPage: SyncListItemPage,
   SyncListItemInstance: SyncListItemInstance,

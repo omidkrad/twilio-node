@@ -130,7 +130,7 @@ MessagingInstance = function MessagingInstance(version, payload) {
   this._solution = {};
 };
 
-module.exports = {
+export = {
   MessagingList: MessagingList,
   MessagingPage: MessagingPage,
   MessagingInstance: MessagingInstance

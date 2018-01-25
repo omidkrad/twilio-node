@@ -70,4 +70,4 @@ Object.defineProperty(Chat.prototype,
   }
 });
 
-module.exports = Chat;
+export = Chat;

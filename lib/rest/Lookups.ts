@@ -52,4 +52,4 @@ Object.defineProperty(Lookups.prototype,
   }
 });
 
-module.exports = Lookups;
+export = Lookups;

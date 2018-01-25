@@ -596,7 +596,7 @@ InteractionContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   InteractionList: InteractionList,
   InteractionPage: InteractionPage,
   InteractionInstance: InteractionInstance,

@@ -690,7 +690,7 @@ Object.defineProperty(InstalledAddOnContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   InstalledAddOnList: InstalledAddOnList,
   InstalledAddOnPage: InstalledAddOnPage,
   InstalledAddOnInstance: InstalledAddOnInstance,

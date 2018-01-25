@@ -51,4 +51,4 @@ Object.defineProperty(Trunking.prototype,
   }
 });
 
-module.exports = Trunking;
+export = Trunking;

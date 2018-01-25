@@ -174,7 +174,7 @@ TokenInstance = function TokenInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   TokenList: TokenList,
   TokenPage: TokenPage,
   TokenInstance: TokenInstance

@@ -612,7 +612,7 @@ FieldValueContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   FieldValueList: FieldValueList,
   FieldValuePage: FieldValuePage,
   FieldValueInstance: FieldValueInstance,

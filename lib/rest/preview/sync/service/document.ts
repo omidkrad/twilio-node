@@ -691,7 +691,7 @@ Object.defineProperty(DocumentContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   DocumentList: DocumentList,
   DocumentPage: DocumentPage,
   DocumentInstance: DocumentInstance,

@@ -763,7 +763,7 @@ Object.defineProperty(AddressContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   AddressList: AddressList,
   AddressPage: AddressPage,
   AddressInstance: AddressInstance,

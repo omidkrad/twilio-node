@@ -51,4 +51,4 @@ Object.defineProperty(Messaging.prototype,
   }
 });
 
-module.exports = Messaging;
+export = Messaging;

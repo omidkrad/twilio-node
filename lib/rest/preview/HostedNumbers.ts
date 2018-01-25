@@ -58,4 +58,4 @@ Object.defineProperty(HostedNumbers.prototype,
   }
 });
 
-module.exports = HostedNumbers;
+export = HostedNumbers;

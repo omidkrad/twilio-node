@@ -685,7 +685,7 @@ QueryContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   QueryList: QueryList,
   QueryPage: QueryPage,
   QueryInstance: QueryInstance,

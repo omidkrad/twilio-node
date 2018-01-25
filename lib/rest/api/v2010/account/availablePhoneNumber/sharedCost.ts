@@ -494,7 +494,7 @@ SharedCostInstance = function SharedCostInstance(version, payload, accountSid,
   this._solution = {accountSid: accountSid, countryCode: countryCode, };
 };
 
-module.exports = {
+export = {
   SharedCostList: SharedCostList,
   SharedCostPage: SharedCostPage,
   SharedCostInstance: SharedCostInstance

@@ -270,7 +270,7 @@ WorkersCumulativeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkersCumulativeStatisticsList: WorkersCumulativeStatisticsList,
   WorkersCumulativeStatisticsPage: WorkersCumulativeStatisticsPage,
   WorkersCumulativeStatisticsInstance: WorkersCumulativeStatisticsInstance,

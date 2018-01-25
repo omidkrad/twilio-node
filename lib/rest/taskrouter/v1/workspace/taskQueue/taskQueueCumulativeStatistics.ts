@@ -312,7 +312,7 @@ TaskQueueCumulativeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   TaskQueueCumulativeStatisticsList: TaskQueueCumulativeStatisticsList,
   TaskQueueCumulativeStatisticsPage: TaskQueueCumulativeStatisticsPage,
   TaskQueueCumulativeStatisticsInstance: TaskQueueCumulativeStatisticsInstance,

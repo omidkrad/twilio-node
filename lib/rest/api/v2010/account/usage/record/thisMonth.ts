@@ -402,7 +402,7 @@ ThisMonthInstance = function ThisMonthInstance(version, payload, accountSid) {
   this._solution = {accountSid: accountSid, };
 };
 
-module.exports = {
+export = {
   ThisMonthList: ThisMonthList,
   ThisMonthPage: ThisMonthPage,
   ThisMonthInstance: ThisMonthInstance

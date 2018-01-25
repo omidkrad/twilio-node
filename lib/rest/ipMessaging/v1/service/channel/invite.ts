@@ -603,7 +603,7 @@ InviteContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   InviteList: InviteList,
   InvitePage: InvitePage,
   InviteInstance: InviteInstance,

@@ -72,6 +72,6 @@ CredentialList = function CredentialList(version) {
   return CredentialListInstance;
 };
 
-module.exports = {
+export = {
   CredentialList: CredentialList
 };

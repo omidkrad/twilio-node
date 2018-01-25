@@ -143,7 +143,7 @@ VoiceInstance = function VoiceInstance(version, payload) {
   this._solution = {};
 };
 
-module.exports = {
+export = {
   VoiceList: VoiceList,
   VoicePage: VoicePage,
   VoiceInstance: VoiceInstance

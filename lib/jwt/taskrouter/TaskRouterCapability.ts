@@ -104,4 +104,4 @@ _.extend(TaskRouterCapability.prototype, {
   }
 });
 
-module.exports = TaskRouterCapability;
+export = TaskRouterCapability;

@@ -584,7 +584,7 @@ NotificationContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   NotificationList: NotificationList,
   NotificationPage: NotificationPage,
   NotificationInstance: NotificationInstance,

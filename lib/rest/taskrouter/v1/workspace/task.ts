@@ -770,7 +770,7 @@ Object.defineProperty(TaskContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   TaskList: TaskList,
   TaskPage: TaskPage,
   TaskInstance: TaskInstance,

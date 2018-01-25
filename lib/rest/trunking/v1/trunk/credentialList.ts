@@ -570,7 +570,7 @@ CredentialListContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   CredentialListList: CredentialListList,
   CredentialListPage: CredentialListPage,
   CredentialListInstance: CredentialListInstance,

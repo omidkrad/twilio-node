@@ -462,4 +462,4 @@ Dial.prototype.sip = function sip(attributes, sipUrl) {
   this.dial.ele('Sip', attributes, sipUrl);
 };
 
-module.exports = VoiceResponse;
+export = VoiceResponse;

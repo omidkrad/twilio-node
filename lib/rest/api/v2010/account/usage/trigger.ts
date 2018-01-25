@@ -714,7 +714,7 @@ TriggerContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   TriggerList: TriggerList,
   TriggerPage: TriggerPage,
   TriggerInstance: TriggerInstance,

@@ -708,7 +708,7 @@ MessageContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   MessageList: MessageList,
   MessagePage: MessagePage,
   MessageInstance: MessageInstance,

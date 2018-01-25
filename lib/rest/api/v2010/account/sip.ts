@@ -89,6 +89,6 @@ SipList = function SipList(version, accountSid) {
   return SipListInstance;
 };
 
-module.exports = {
+export = {
   SipList: SipList
 };

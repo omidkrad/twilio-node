@@ -59,4 +59,4 @@ Object.defineProperty(Video.prototype,
   }
 });
 
-module.exports = Video;
+export = Video;

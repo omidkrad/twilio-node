@@ -458,7 +458,7 @@ DependentHostedNumberOrderInstance = function
   this._solution = {signingDocumentSid: signingDocumentSid, };
 };
 
-module.exports = {
+export = {
   DependentHostedNumberOrderList: DependentHostedNumberOrderList,
   DependentHostedNumberOrderPage: DependentHostedNumberOrderPage,
   DependentHostedNumberOrderInstance: DependentHostedNumberOrderInstance

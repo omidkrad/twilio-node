@@ -51,4 +51,4 @@ Object.defineProperty(Sync.prototype,
   }
 });
 
-module.exports = Sync;
+export = Sync;

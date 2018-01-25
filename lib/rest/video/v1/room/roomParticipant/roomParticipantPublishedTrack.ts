@@ -499,7 +499,7 @@ PublishedTrackContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   PublishedTrackList: PublishedTrackList,
   PublishedTrackPage: PublishedTrackPage,
   PublishedTrackInstance: PublishedTrackInstance,

@@ -50,7 +50,7 @@ function TrunkingClient(sid, tkn, options) {
 util.inherits(TrunkingClient, ObsoleteClient);
 
 
-module.exports = {
+export = {
   RestClient: RestClient,
   IpMessagingClient: IpMessagingClient,
   PricingClient: PricingClient,

@@ -590,7 +590,7 @@ ShortCodeContext.prototype.update = function update(opts, callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   ShortCodeList: ShortCodeList,
   ShortCodePage: ShortCodePage,
   ShortCodeInstance: ShortCodeInstance,

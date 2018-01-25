@@ -367,7 +367,7 @@ SegmentInstance = function SegmentInstance(version, payload, serviceSid) {
   this._solution = {serviceSid: serviceSid, };
 };
 
-module.exports = {
+export = {
   SegmentList: SegmentList,
   SegmentPage: SegmentPage,
   SegmentInstance: SegmentInstance

@@ -682,7 +682,7 @@ Object.defineProperty(SyncStreamContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   SyncStreamList: SyncStreamList,
   SyncStreamPage: SyncStreamPage,
   SyncStreamInstance: SyncStreamInstance,

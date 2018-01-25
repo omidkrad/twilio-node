@@ -416,7 +416,7 @@ DependentPhoneNumberInstance = function DependentPhoneNumberInstance(version,
   this._solution = {accountSid: accountSid, addressSid: addressSid, };
 };
 
-module.exports = {
+export = {
   DependentPhoneNumberList: DependentPhoneNumberList,
   DependentPhoneNumberPage: DependentPhoneNumberPage,
   DependentPhoneNumberInstance: DependentPhoneNumberInstance

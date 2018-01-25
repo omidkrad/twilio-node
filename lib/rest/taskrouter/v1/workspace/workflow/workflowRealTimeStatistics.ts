@@ -270,7 +270,7 @@ WorkflowRealTimeStatisticsContext.prototype.fetch = function fetch(opts,
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   WorkflowRealTimeStatisticsList: WorkflowRealTimeStatisticsList,
   WorkflowRealTimeStatisticsPage: WorkflowRealTimeStatisticsPage,
   WorkflowRealTimeStatisticsInstance: WorkflowRealTimeStatisticsInstance,

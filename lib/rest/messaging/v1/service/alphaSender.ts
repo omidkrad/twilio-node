@@ -576,7 +576,7 @@ AlphaSenderContext.prototype.remove = function remove(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   AlphaSenderList: AlphaSenderList,
   AlphaSenderPage: AlphaSenderPage,
   AlphaSenderInstance: AlphaSenderInstance,

@@ -496,7 +496,7 @@ StepContext.prototype.fetch = function fetch(callback) {
   return deferred.promise;
 };
 
-module.exports = {
+export = {
   StepList: StepList,
   StepPage: StepPage,
   StepInstance: StepInstance,

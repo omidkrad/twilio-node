@@ -494,7 +494,7 @@ LocalInstance = function LocalInstance(version, payload, accountSid,
   this._solution = {accountSid: accountSid, countryCode: countryCode, };
 };
 
-module.exports = {
+export = {
   LocalList: LocalList,
   LocalPage: LocalPage,
   LocalInstance: LocalInstance

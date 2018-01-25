@@ -696,7 +696,7 @@ Object.defineProperty(RoomContext.prototype,
   }
 });
 
-module.exports = {
+export = {
   RoomList: RoomList,
   RoomPage: RoomPage,
   RoomInstance: RoomInstance,
