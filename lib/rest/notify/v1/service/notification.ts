@@ -32,7 +32,7 @@ var NotificationInstance;
  */
 /* jshint ignore:end */
 NotificationList = class NotificationList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function notifications
@@ -45,7 +45,7 @@ NotificationList = class NotificationList {
    */
   /* jshint ignore:end */
   class NotificationListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return NotificationListInstance.get(sid);
   }
 
@@ -151,7 +151,7 @@ NotificationList = class NotificationList {
  */
 /* jshint ignore:end */
 NotificationPage = class NotificationPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

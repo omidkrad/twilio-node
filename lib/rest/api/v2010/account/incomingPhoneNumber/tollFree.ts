@@ -32,7 +32,7 @@ var TollFreeInstance;
  */
 /* jshint ignore:end */
 TollFreeList = class TollFreeList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function tollFree
@@ -45,7 +45,7 @@ TollFreeList = class TollFreeList {
    */
   /* jshint ignore:end */
   class TollFreeListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TollFreeListInstance.get(sid);
   }
 
@@ -413,7 +413,7 @@ TollFreeList = class TollFreeList {
  */
 /* jshint ignore:end */
 TollFreePage = class TollFreePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -481,7 +481,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 TollFreeInstance = class TollFreeInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

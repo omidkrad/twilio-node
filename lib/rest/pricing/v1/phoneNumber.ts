@@ -26,7 +26,7 @@ var PhoneNumberInstance;
  */
 /* jshint ignore:end */
 PhoneNumberList = class PhoneNumberList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function phoneNumbers
@@ -39,7 +39,7 @@ PhoneNumberList = class PhoneNumberList {
    */
   /* jshint ignore:end */
   class PhoneNumberListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return PhoneNumberListInstance.get(sid);
   }
 
@@ -79,7 +79,7 @@ PhoneNumberList = class PhoneNumberList {
  */
 /* jshint ignore:end */
 PhoneNumberPage = class PhoneNumberPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -121,7 +121,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 PhoneNumberInstance = class PhoneNumberInstance {
-  constructor(version, payload) {
+  constructor(public version, public payload) {
   this._version = version;
 
   // Marshaled Properties

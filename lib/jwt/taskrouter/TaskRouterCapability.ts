@@ -15,7 +15,7 @@ var _ = require('lodash');
  * @param {boolean} [options.allowed] - Allow the policy
  */
 class Policy {
-  constructor(options) {
+  constructor(public options) {
   options = options || {};
   this.url = options.url;
   this.method = options.method || 'GET';
@@ -48,7 +48,7 @@ _.extend(Policy.prototype, {
  * @param {string} [options.version] - taskrouter version
  */
 class TaskRouterCapability {
-  constructor(options) {
+  constructor(public options) {
   if (_.isUndefined(options)) {
     throw new Error('Required parameter "options" missing.');
   }

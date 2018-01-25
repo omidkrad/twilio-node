@@ -31,7 +31,7 @@ var TranscriptionContext;
  */
 /* jshint ignore:end */
 TranscriptionList = class TranscriptionList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function transcriptions
@@ -44,7 +44,7 @@ TranscriptionList = class TranscriptionList {
    */
   /* jshint ignore:end */
   class TranscriptionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TranscriptionListInstance.get(sid);
   }
 
@@ -325,7 +325,7 @@ TranscriptionList = class TranscriptionList {
  */
 /* jshint ignore:end */
 TranscriptionPage = class TranscriptionPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -464,7 +464,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 TranscriptionContext = class TranscriptionContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

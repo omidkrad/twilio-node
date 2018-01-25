@@ -50,7 +50,7 @@ IncomingPhoneNumberList = function IncomingPhoneNumberList(version, accountSid)
    */
   /* jshint ignore:end */
   class IncomingPhoneNumberListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return IncomingPhoneNumberListInstance.get(sid);
   }
 

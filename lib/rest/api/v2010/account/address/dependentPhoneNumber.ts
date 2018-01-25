@@ -44,7 +44,7 @@ DependentPhoneNumberList = function DependentPhoneNumberList(version,
    */
   /* jshint ignore:end */
   class DependentPhoneNumberListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DependentPhoneNumberListInstance.get(sid);
   }
 

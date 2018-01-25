@@ -33,7 +33,7 @@ var InteractionContext;
  */
 /* jshint ignore:end */
 InteractionList = class InteractionList {
-  constructor(version, serviceSid, sessionSid) {
+  constructor(public version, public serviceSid, public sessionSid) {
   /* jshint ignore:start */
   /**
    * @function interactions
@@ -46,7 +46,7 @@ InteractionList = class InteractionList {
    */
   /* jshint ignore:end */
   class InteractionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return InteractionListInstance.get(sid);
   }
 
@@ -355,7 +355,7 @@ InteractionList = class InteractionList {
  */
 /* jshint ignore:end */
 InteractionPage = class InteractionPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

@@ -34,7 +34,7 @@ var RecordingContext;
  */
 /* jshint ignore:end */
 RecordingList = class RecordingList {
-  constructor(version, accountSid, callSid) {
+  constructor(public version, public accountSid, public callSid) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -47,7 +47,7 @@ RecordingList = class RecordingList {
    */
   /* jshint ignore:end */
   class RecordingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RecordingListInstance.get(sid);
   }
 
@@ -347,7 +347,7 @@ RecordingList = class RecordingList {
  */
 /* jshint ignore:end */
 RecordingPage = class RecordingPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

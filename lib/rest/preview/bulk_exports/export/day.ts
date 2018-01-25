@@ -31,7 +31,7 @@ var DayInstance;
  */
 /* jshint ignore:end */
 DayList = class DayList {
-  constructor(version, resourceType) {
+  constructor(public version, public resourceType) {
   /* jshint ignore:start */
   /**
    * @function days
@@ -44,7 +44,7 @@ DayList = class DayList {
    */
   /* jshint ignore:end */
   class DayListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DayListInstance.get(sid);
   }
 
@@ -309,7 +309,7 @@ DayList = class DayList {
  */
 /* jshint ignore:end */
 DayPage = class DayPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -353,7 +353,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 DayInstance = class DayInstance {
-  constructor(version, payload, resourceType) {
+  constructor(public version, public payload, public resourceType) {
   this._version = version;
 
   // Marshaled Properties

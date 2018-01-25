@@ -46,7 +46,7 @@ IpAccessControlListList = function IpAccessControlListList(version, accountSid)
    */
   /* jshint ignore:end */
   class IpAccessControlListListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return IpAccessControlListListInstance.get(sid);
   }
 

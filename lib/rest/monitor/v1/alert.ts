@@ -31,7 +31,7 @@ var AlertContext;
  */
 /* jshint ignore:end */
 AlertList = class AlertList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function alerts
@@ -44,7 +44,7 @@ AlertList = class AlertList {
    */
   /* jshint ignore:end */
   class AlertListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AlertListInstance.get(sid);
   }
 
@@ -344,7 +344,7 @@ AlertList = class AlertList {
  */
 /* jshint ignore:end */
 AlertPage = class AlertPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -401,7 +401,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 AlertInstance = class AlertInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -484,7 +484,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 AlertContext = class AlertContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

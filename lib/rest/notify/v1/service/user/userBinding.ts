@@ -35,7 +35,7 @@ var UserBindingContext;
  */
 /* jshint ignore:end */
 UserBindingList = class UserBindingList {
-  constructor(version, serviceSid, identity) {
+  constructor(public version, public serviceSid, public identity) {
   /* jshint ignore:start */
   /**
    * @function bindings
@@ -48,7 +48,7 @@ UserBindingList = class UserBindingList {
    */
   /* jshint ignore:end */
   class UserBindingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return UserBindingListInstance.get(sid);
   }
 
@@ -414,7 +414,7 @@ UserBindingList = class UserBindingList {
  */
 /* jshint ignore:end */
 UserBindingPage = class UserBindingPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

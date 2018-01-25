@@ -32,7 +32,7 @@ var AlphaSenderContext;
  */
 /* jshint ignore:end */
 AlphaSenderList = class AlphaSenderList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function alphaSenders
@@ -45,7 +45,7 @@ AlphaSenderList = class AlphaSenderList {
    */
   /* jshint ignore:end */
   class AlphaSenderListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AlphaSenderListInstance.get(sid);
   }
 
@@ -375,7 +375,7 @@ AlphaSenderList = class AlphaSenderList {
  */
 /* jshint ignore:end */
 AlphaSenderPage = class AlphaSenderPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -501,7 +501,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 AlphaSenderContext = class AlphaSenderContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -34,7 +34,7 @@ var SharedCostInstance;
  */
 /* jshint ignore:end */
 SharedCostList = class SharedCostList {
-  constructor(version, accountSid, countryCode) {
+  constructor(public version, public accountSid, public countryCode) {
   /* jshint ignore:start */
   /**
    * @function sharedCost
@@ -47,7 +47,7 @@ SharedCostList = class SharedCostList {
    */
   /* jshint ignore:end */
   class SharedCostListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SharedCostListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ SharedCostList = class SharedCostList {
  */
 /* jshint ignore:end */
 SharedCostPage = class SharedCostPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

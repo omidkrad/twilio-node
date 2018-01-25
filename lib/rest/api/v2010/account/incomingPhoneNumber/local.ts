@@ -32,7 +32,7 @@ var LocalInstance;
  */
 /* jshint ignore:end */
 LocalList = class LocalList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function local
@@ -45,7 +45,7 @@ LocalList = class LocalList {
    */
   /* jshint ignore:end */
   class LocalListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return LocalListInstance.get(sid);
   }
 
@@ -413,7 +413,7 @@ LocalList = class LocalList {
  */
 /* jshint ignore:end */
 LocalPage = class LocalPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -481,7 +481,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 LocalInstance = class LocalInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

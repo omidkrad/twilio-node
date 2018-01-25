@@ -33,7 +33,7 @@ var SyncStreamContext;
  */
 /* jshint ignore:end */
 SyncStreamList = class SyncStreamList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function syncStreams
@@ -46,7 +46,7 @@ SyncStreamList = class SyncStreamList {
    */
   /* jshint ignore:end */
   class SyncStreamListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SyncStreamListInstance.get(sid);
   }
 
@@ -376,7 +376,7 @@ SyncStreamList = class SyncStreamList {
  */
 /* jshint ignore:end */
 SyncStreamPage = class SyncStreamPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -543,7 +543,7 @@ streamMessages() {
  */
 /* jshint ignore:end */
 SyncStreamContext = class SyncStreamContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

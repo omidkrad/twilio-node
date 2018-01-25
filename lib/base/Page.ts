@@ -14,7 +14,7 @@ var RestException = require('./RestException');
  * @param {Object} solution - path solution
  */
 class Page {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   var payload = this.processResponse(response);
 
   this._version = version;
@@ -118,7 +118,7 @@ nextPage() {
   });
 
   promise = promise.then(function(response) {
-    return new this.constructor(this._version, response, this._solution);
+    return new this.constructor(public this._version, response, this._solution);
   }.bind(this));
 
   return promise;
@@ -140,7 +140,7 @@ previousPage() {
   });
 
   promise = promise.then(function(response) {
-    return new this.constructor(this._version, response, this._solution);
+    return new this.constructor(public this._version, response, this._solution);
   }.bind(this));
 
   return promise;

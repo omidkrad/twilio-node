@@ -32,7 +32,7 @@ var MessageContext;
  */
 /* jshint ignore:end */
 MessageList = class MessageList {
-  constructor(version, serviceSid, channelSid) {
+  constructor(public version, public serviceSid, public channelSid) {
   /* jshint ignore:start */
   /**
    * @function messages
@@ -45,7 +45,7 @@ MessageList = class MessageList {
    */
   /* jshint ignore:end */
   class MessageListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MessageListInstance.get(sid);
   }
 
@@ -390,7 +390,7 @@ MessageList = class MessageList {
  */
 /* jshint ignore:end */
 MessagePage = class MessagePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -556,7 +556,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 MessageContext = class MessageContext {
-  constructor(version, serviceSid, channelSid, sid) {
+  constructor(public version, public serviceSid, public channelSid, public sid) {
   this._version = version;
 
   // Path Solution

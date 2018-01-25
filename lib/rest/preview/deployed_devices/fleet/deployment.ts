@@ -32,7 +32,7 @@ var DeploymentContext;
  */
 /* jshint ignore:end */
 DeploymentList = class DeploymentList {
-  constructor(version, fleetSid) {
+  constructor(public version, public fleetSid) {
   /* jshint ignore:start */
   /**
    * @function deployments
@@ -45,7 +45,7 @@ DeploymentList = class DeploymentList {
    */
   /* jshint ignore:end */
   class DeploymentListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DeploymentListInstance.get(sid);
   }
 
@@ -380,7 +380,7 @@ DeploymentList = class DeploymentList {
  */
 /* jshint ignore:end */
 DeploymentPage = class DeploymentPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -530,7 +530,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 DeploymentContext = class DeploymentContext {
-  constructor(version, fleetSid, sid) {
+  constructor(public version, public fleetSid, public sid) {
   this._version = version;
 
   // Path Solution

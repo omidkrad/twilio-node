@@ -31,7 +31,7 @@ var EventContext;
  */
 /* jshint ignore:end */
 EventList = class EventList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function events
@@ -44,7 +44,7 @@ EventList = class EventList {
    */
   /* jshint ignore:end */
   class EventListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return EventListInstance.get(sid);
   }
 
@@ -359,7 +359,7 @@ EventList = class EventList {
  */
 /* jshint ignore:end */
 EventPage = class EventPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -413,7 +413,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 EventInstance = class EventInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -476,7 +476,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 EventContext = class EventContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

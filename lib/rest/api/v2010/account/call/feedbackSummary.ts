@@ -34,7 +34,7 @@ var FeedbackSummaryContext;
  */
 /* jshint ignore:end */
 FeedbackSummaryList = class FeedbackSummaryList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function feedbackSummaries
@@ -47,7 +47,7 @@ FeedbackSummaryList = class FeedbackSummaryList {
    */
   /* jshint ignore:end */
   class FeedbackSummaryListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FeedbackSummaryListInstance.get(sid);
   }
 

@@ -45,7 +45,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    */
   /* jshint ignore:end */
   class PublishedTrackListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return PublishedTrackListInstance.get(sid);
   }
 
@@ -331,7 +331,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
  */
 /* jshint ignore:end */
 PublishedTrackPage = class PublishedTrackPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

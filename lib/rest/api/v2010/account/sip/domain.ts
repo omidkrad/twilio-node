@@ -38,7 +38,7 @@ var DomainContext;
  */
 /* jshint ignore:end */
 DomainList = class DomainList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function domains
@@ -51,7 +51,7 @@ DomainList = class DomainList {
    */
   /* jshint ignore:end */
   class DomainListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DomainListInstance.get(sid);
   }
 
@@ -407,7 +407,7 @@ DomainList = class DomainList {
  */
 /* jshint ignore:end */
 DomainPage = class DomainPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -472,7 +472,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 DomainInstance = class DomainInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -622,7 +622,7 @@ DomainInstance.prototype.credentialListMappings = function
  */
 /* jshint ignore:end */
 DomainContext = class DomainContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

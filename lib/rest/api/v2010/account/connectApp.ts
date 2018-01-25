@@ -30,7 +30,7 @@ var ConnectAppContext;
  */
 /* jshint ignore:end */
 ConnectAppList = class ConnectAppList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function connectApps
@@ -43,7 +43,7 @@ ConnectAppList = class ConnectAppList {
    */
   /* jshint ignore:end */
   class ConnectAppListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ConnectAppListInstance.get(sid);
   }
 
@@ -324,7 +324,7 @@ ConnectAppList = class ConnectAppList {
  */
 /* jshint ignore:end */
 ConnectAppPage = class ConnectAppPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -471,7 +471,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 ConnectAppContext = class ConnectAppContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -31,7 +31,7 @@ var PhoneNumberContext;
  */
 /* jshint ignore:end */
 PhoneNumberList = class PhoneNumberList {
-  constructor(version, trunkSid) {
+  constructor(public version, public trunkSid) {
   /* jshint ignore:start */
   /**
    * @function phoneNumbers
@@ -44,7 +44,7 @@ PhoneNumberList = class PhoneNumberList {
    */
   /* jshint ignore:end */
   class PhoneNumberListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return PhoneNumberListInstance.get(sid);
   }
 
@@ -373,7 +373,7 @@ PhoneNumberList = class PhoneNumberList {
  */
 /* jshint ignore:end */
 PhoneNumberPage = class PhoneNumberPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -534,7 +534,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 PhoneNumberContext = class PhoneNumberContext {
-  constructor(version, trunkSid, sid) {
+  constructor(public version, public trunkSid, public sid) {
   this._version = version;
 
   // Path Solution

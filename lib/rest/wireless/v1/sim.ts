@@ -33,7 +33,7 @@ var SimContext;
  */
 /* jshint ignore:end */
 SimList = class SimList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function sims
@@ -46,7 +46,7 @@ SimList = class SimList {
    */
   /* jshint ignore:end */
   class SimListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SimListInstance.get(sid);
   }
 
@@ -357,7 +357,7 @@ SimList = class SimList {
  */
 /* jshint ignore:end */
 SimPage = class SimPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -421,7 +421,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 SimInstance = class SimInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -563,7 +563,7 @@ dataSessions() {
  */
 /* jshint ignore:end */
 SimContext = class SimContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

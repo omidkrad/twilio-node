@@ -34,7 +34,7 @@ var AuthorizationDocumentContext;
  */
 /* jshint ignore:end */
 AuthorizationDocumentList = class AuthorizationDocumentList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function authorizationDocuments
@@ -47,7 +47,7 @@ AuthorizationDocumentList = class AuthorizationDocumentList {
    */
   /* jshint ignore:end */
   class AuthorizationDocumentListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AuthorizationDocumentListInstance.get(sid);
   }
 

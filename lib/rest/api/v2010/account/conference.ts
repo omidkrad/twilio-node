@@ -33,7 +33,7 @@ var ConferenceContext;
  */
 /* jshint ignore:end */
 ConferenceList = class ConferenceList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function conferences
@@ -46,7 +46,7 @@ ConferenceList = class ConferenceList {
    */
   /* jshint ignore:end */
   class ConferenceListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ConferenceListInstance.get(sid);
   }
 
@@ -371,7 +371,7 @@ ConferenceList = class ConferenceList {
  */
 /* jshint ignore:end */
 ConferencePage = class ConferencePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -519,7 +519,7 @@ participants() {
  */
 /* jshint ignore:end */
 ConferenceContext = class ConferenceContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

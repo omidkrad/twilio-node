@@ -33,7 +33,7 @@ var DeviceContext;
  */
 /* jshint ignore:end */
 DeviceList = class DeviceList {
-  constructor(version, fleetSid) {
+  constructor(public version, public fleetSid) {
   /* jshint ignore:start */
   /**
    * @function devices
@@ -46,7 +46,7 @@ DeviceList = class DeviceList {
    */
   /* jshint ignore:end */
   class DeviceListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DeviceListInstance.get(sid);
   }
 
@@ -399,7 +399,7 @@ DeviceList = class DeviceList {
  */
 /* jshint ignore:end */
 DevicePage = class DevicePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -453,7 +453,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 DeviceInstance = class DeviceInstance {
-  constructor(version, payload, fleetSid, sid) {
+  constructor(public version, public payload, public fleetSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -556,7 +556,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 DeviceContext = class DeviceContext {
-  constructor(version, fleetSid, sid) {
+  constructor(public version, public fleetSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -34,7 +34,7 @@ var VoipInstance;
  */
 /* jshint ignore:end */
 VoipList = class VoipList {
-  constructor(version, accountSid, countryCode) {
+  constructor(public version, public accountSid, public countryCode) {
   /* jshint ignore:start */
   /**
    * @function voip
@@ -47,7 +47,7 @@ VoipList = class VoipList {
    */
   /* jshint ignore:end */
   class VoipListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return VoipListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ VoipList = class VoipList {
  */
 /* jshint ignore:end */
 VoipPage = class VoipPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

@@ -32,7 +32,7 @@ var CertificateContext;
  */
 /* jshint ignore:end */
 CertificateList = class CertificateList {
-  constructor(version, fleetSid) {
+  constructor(public version, public fleetSid) {
   /* jshint ignore:start */
   /**
    * @function certificates
@@ -45,7 +45,7 @@ CertificateList = class CertificateList {
    */
   /* jshint ignore:end */
   class CertificateListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CertificateListInstance.get(sid);
   }
 
@@ -396,7 +396,7 @@ CertificateList = class CertificateList {
  */
 /* jshint ignore:end */
 CertificatePage = class CertificatePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -547,7 +547,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 CertificateContext = class CertificateContext {
-  constructor(version, fleetSid, sid) {
+  constructor(public version, public fleetSid, public sid) {
   this._version = version;
 
   // Path Solution

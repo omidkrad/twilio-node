@@ -30,7 +30,7 @@ var V2 = require('./chat/V2');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Chat {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://chat.twilio.com');
 
   // Versions

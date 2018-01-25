@@ -52,7 +52,7 @@ AvailablePhoneNumberCountryList = function
    */
   /* jshint ignore:end */
   class AvailablePhoneNumberCountryListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AvailablePhoneNumberCountryListInstance.get(sid);
   }
 

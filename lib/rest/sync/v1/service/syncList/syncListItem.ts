@@ -35,7 +35,7 @@ var SyncListItemContext;
  */
 /* jshint ignore:end */
 SyncListItemList = class SyncListItemList {
-  constructor(version, serviceSid, listSid) {
+  constructor(public version, public serviceSid, public listSid) {
   /* jshint ignore:start */
   /**
    * @function syncListItems
@@ -48,7 +48,7 @@ SyncListItemList = class SyncListItemList {
    */
   /* jshint ignore:end */
   class SyncListItemListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SyncListItemListInstance.get(sid);
   }
 
@@ -404,7 +404,7 @@ SyncListItemList = class SyncListItemList {
  */
 /* jshint ignore:end */
 SyncListItemPage = class SyncListItemPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

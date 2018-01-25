@@ -45,7 +45,7 @@ WorkflowRealTimeStatisticsList = function
    */
   /* jshint ignore:end */
   class WorkflowRealTimeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkflowRealTimeStatisticsListInstance.get(sid);
   }
 

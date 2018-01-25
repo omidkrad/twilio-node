@@ -37,7 +37,7 @@ var CallContext;
  */
 /* jshint ignore:end */
 CallList = class CallList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function calls
@@ -50,7 +50,7 @@ CallList = class CallList {
    */
   /* jshint ignore:end */
   class CallListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CallListInstance.get(sid);
   }
 
@@ -506,7 +506,7 @@ CallList = class CallList {
  */
 /* jshint ignore:end */
 CallPage = class CallPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -589,7 +589,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 CallInstance = class CallInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -759,7 +759,7 @@ feedback() {
  */
 /* jshint ignore:end */
 CallContext = class CallContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -27,7 +27,7 @@ var V1 = require('./messaging/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Messaging {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://messaging.twilio.com');
 
   // Versions

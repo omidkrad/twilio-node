@@ -30,7 +30,7 @@ var UsageContext;
  */
 /* jshint ignore:end */
 UsageList = class UsageList {
-  constructor(version, simSid) {
+  constructor(public version, public simSid) {
   /* jshint ignore:start */
   /**
    * @function usage
@@ -43,7 +43,7 @@ UsageList = class UsageList {
    */
   /* jshint ignore:end */
   class UsageListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return UsageListInstance.get(sid);
   }
 
@@ -84,7 +84,7 @@ UsageList = class UsageList {
  */
 /* jshint ignore:end */
 UsagePage = class UsagePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -134,7 +134,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 UsageInstance = class UsageInstance {
-  constructor(version, payload, simSid) {
+  constructor(public version, public payload, public simSid) {
   this._version = version;
 
   // Marshaled Properties
@@ -196,7 +196,7 @@ fetch(opts, callback) {
  */
 /* jshint ignore:end */
 UsageContext = class UsageContext {
-  constructor(version, simSid) {
+  constructor(public version, public simSid) {
   this._version = version;
 
   // Path Solution

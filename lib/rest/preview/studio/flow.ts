@@ -32,7 +32,7 @@ var FlowContext;
  */
 /* jshint ignore:end */
 FlowList = class FlowList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function flows
@@ -45,7 +45,7 @@ FlowList = class FlowList {
    */
   /* jshint ignore:end */
   class FlowListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FlowListInstance.get(sid);
   }
 
@@ -327,7 +327,7 @@ FlowList = class FlowList {
  */
 /* jshint ignore:end */
 FlowPage = class FlowPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -379,7 +379,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 FlowInstance = class FlowInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -474,7 +474,7 @@ engagements() {
  */
 /* jshint ignore:end */
 FlowContext = class FlowContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

@@ -58,7 +58,7 @@ var AccountContext;
  */
 /* jshint ignore:end */
 AccountList = class AccountList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function accounts
@@ -71,7 +71,7 @@ AccountList = class AccountList {
    */
   /* jshint ignore:end */
   class AccountListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AccountListInstance.get(sid);
   }
 
@@ -409,7 +409,7 @@ AccountList = class AccountList {
  */
 /* jshint ignore:end */
 AccountPage = class AccountPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -462,7 +462,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 AccountInstance = class AccountInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -930,7 +930,7 @@ validationRequests() {
  */
 /* jshint ignore:end */
 AccountContext = class AccountContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

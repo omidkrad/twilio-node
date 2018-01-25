@@ -33,7 +33,7 @@ var FaxContext;
  */
 /* jshint ignore:end */
 FaxList = class FaxList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function faxes
@@ -46,7 +46,7 @@ FaxList = class FaxList {
    */
   /* jshint ignore:end */
   class FaxListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FaxListInstance.get(sid);
   }
 
@@ -420,7 +420,7 @@ FaxList = class FaxList {
  */
 /* jshint ignore:end */
 FaxPage = class FaxPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -479,7 +479,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 FaxInstance = class FaxInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -600,7 +600,7 @@ media() {
  */
 /* jshint ignore:end */
 FaxContext = class FaxContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

@@ -32,7 +32,7 @@ var QueryContext;
  */
 /* jshint ignore:end */
 QueryList = class QueryList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function queries
@@ -45,7 +45,7 @@ QueryList = class QueryList {
    */
   /* jshint ignore:end */
   class QueryListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return QueryListInstance.get(sid);
   }
 
@@ -409,7 +409,7 @@ QueryList = class QueryList {
  */
 /* jshint ignore:end */
 QueryPage = class QueryPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -463,7 +463,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 QueryInstance = class QueryInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -563,7 +563,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 QueryContext = class QueryContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

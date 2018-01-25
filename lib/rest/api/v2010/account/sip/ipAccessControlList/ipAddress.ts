@@ -45,7 +45,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    */
   /* jshint ignore:end */
   class IpAddressListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return IpAddressListInstance.get(sid);
   }
 
@@ -390,7 +390,7 @@ IpAddressList = function IpAddressList(version, accountSid,
  */
 /* jshint ignore:end */
 IpAddressPage = class IpAddressPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

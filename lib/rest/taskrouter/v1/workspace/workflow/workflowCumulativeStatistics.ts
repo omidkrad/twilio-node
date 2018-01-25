@@ -47,7 +47,7 @@ WorkflowCumulativeStatisticsList = function
    */
   /* jshint ignore:end */
   class WorkflowCumulativeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkflowCumulativeStatisticsListInstance.get(sid);
   }
 

@@ -2,7 +2,7 @@
 var util = require('util');
 
 class RestException {
-  constructor(response) {
+  constructor(public response) {
   Error.call('[HTTP ' + response.statusCode + '] Failed to execute request');
 
   var body = JSON.parse(response.body);

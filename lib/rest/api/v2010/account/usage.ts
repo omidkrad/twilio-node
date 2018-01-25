@@ -26,7 +26,7 @@ var UsageList;
  */
 /* jshint ignore:end */
 UsageList = class UsageList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function usage
@@ -39,7 +39,7 @@ UsageList = class UsageList {
    */
   /* jshint ignore:end */
   class UsageListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return UsageListInstance.get(sid);
   }
 

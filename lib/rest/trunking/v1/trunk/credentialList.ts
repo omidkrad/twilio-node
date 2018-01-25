@@ -31,7 +31,7 @@ var CredentialListContext;
  */
 /* jshint ignore:end */
 CredentialListList = class CredentialListList {
-  constructor(version, trunkSid) {
+  constructor(public version, public trunkSid) {
   /* jshint ignore:start */
   /**
    * @function credentialsLists
@@ -44,7 +44,7 @@ CredentialListList = class CredentialListList {
    */
   /* jshint ignore:end */
   class CredentialListListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CredentialListListInstance.get(sid);
   }
 
@@ -373,7 +373,7 @@ CredentialListList = class CredentialListList {
  */
 /* jshint ignore:end */
 CredentialListPage = class CredentialListPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -495,7 +495,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 CredentialListContext = class CredentialListContext {
-  constructor(version, trunkSid, sid) {
+  constructor(public version, public trunkSid, public sid) {
   this._version = version;
 
   // Path Solution

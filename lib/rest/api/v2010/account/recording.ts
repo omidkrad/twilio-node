@@ -34,7 +34,7 @@ var RecordingContext;
  */
 /* jshint ignore:end */
 RecordingList = class RecordingList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -47,7 +47,7 @@ RecordingList = class RecordingList {
    */
   /* jshint ignore:end */
   class RecordingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RecordingListInstance.get(sid);
   }
 
@@ -357,7 +357,7 @@ RecordingList = class RecordingList {
  */
 /* jshint ignore:end */
 RecordingPage = class RecordingPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -540,7 +540,7 @@ addOnResults() {
  */
 /* jshint ignore:end */
 RecordingContext = class RecordingContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

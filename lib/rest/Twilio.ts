@@ -113,7 +113,7 @@ var Wireless = require('./Wireless');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Twilio {
-  constructor(username, password, opts) {
+  constructor(public username, public password, public opts) {
   opts = opts || {};
   var env = opts.env || process.env;
 

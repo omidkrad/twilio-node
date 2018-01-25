@@ -31,7 +31,7 @@ var CommandContext;
  */
 /* jshint ignore:end */
 CommandList = class CommandList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function commands
@@ -44,7 +44,7 @@ CommandList = class CommandList {
    */
   /* jshint ignore:end */
   class CommandListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CommandListInstance.get(sid);
   }
 
@@ -407,7 +407,7 @@ CommandList = class CommandList {
  */
 /* jshint ignore:end */
 CommandPage = class CommandPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -459,7 +459,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 CommandInstance = class CommandInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -520,7 +520,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 CommandContext = class CommandContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

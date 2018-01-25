@@ -33,7 +33,7 @@ var StepContext;
  */
 /* jshint ignore:end */
 StepList = class StepList {
-  constructor(version, flowSid, engagementSid) {
+  constructor(public version, public flowSid, public engagementSid) {
   /* jshint ignore:start */
   /**
    * @function steps
@@ -46,7 +46,7 @@ StepList = class StepList {
    */
   /* jshint ignore:end */
   class StepListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return StepListInstance.get(sid);
   }
 
@@ -328,7 +328,7 @@ StepList = class StepList {
  */
 /* jshint ignore:end */
 StepPage = class StepPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -452,7 +452,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 StepContext = class StepContext {
-  constructor(version, flowSid, engagementSid, sid) {
+  constructor(public version, public flowSid, public engagementSid, public sid) {
   this._version = version;
 
   // Path Solution

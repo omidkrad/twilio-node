@@ -27,7 +27,7 @@ var V1 = require('./trunking/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Trunking {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://trunking.twilio.com');
 
   // Versions

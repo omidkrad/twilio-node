@@ -45,7 +45,7 @@ WorkerStatisticsList = function WorkerStatisticsList(version, workspaceSid,
    */
   /* jshint ignore:end */
   class WorkerStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkerStatisticsListInstance.get(sid);
   }
 

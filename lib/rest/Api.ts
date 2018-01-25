@@ -67,7 +67,7 @@ var V2010 = require('./api/V2010');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Api {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://api.twilio.com');
 
   // Versions

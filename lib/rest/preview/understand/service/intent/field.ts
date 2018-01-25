@@ -33,7 +33,7 @@ var FieldContext;
  */
 /* jshint ignore:end */
 FieldList = class FieldList {
-  constructor(version, serviceSid, intentSid) {
+  constructor(public version, public serviceSid, public intentSid) {
   /* jshint ignore:start */
   /**
    * @function fields
@@ -46,7 +46,7 @@ FieldList = class FieldList {
    */
   /* jshint ignore:end */
   class FieldListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FieldListInstance.get(sid);
   }
 
@@ -384,7 +384,7 @@ FieldList = class FieldList {
  */
 /* jshint ignore:end */
 FieldPage = class FieldPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -519,7 +519,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 FieldContext = class FieldContext {
-  constructor(version, serviceSid, intentSid, sid) {
+  constructor(public version, public serviceSid, public intentSid, public sid) {
   this._version = version;
 
   // Path Solution

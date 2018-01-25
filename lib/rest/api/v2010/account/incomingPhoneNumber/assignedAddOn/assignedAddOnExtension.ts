@@ -46,7 +46,7 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
    */
   /* jshint ignore:end */
   class AssignedAddOnExtensionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AssignedAddOnExtensionListInstance.get(sid);
   }
 

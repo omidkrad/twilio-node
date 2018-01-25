@@ -32,7 +32,7 @@ var KeyContext;
  */
 /* jshint ignore:end */
 KeyList = class KeyList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function keys
@@ -45,7 +45,7 @@ KeyList = class KeyList {
    */
   /* jshint ignore:end */
   class KeyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return KeyListInstance.get(sid);
   }
 
@@ -326,7 +326,7 @@ KeyList = class KeyList {
  */
 /* jshint ignore:end */
 KeyPage = class KeyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -371,7 +371,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 KeyInstance = class KeyInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -461,7 +461,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 KeyContext = class KeyContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

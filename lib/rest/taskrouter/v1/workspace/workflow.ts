@@ -37,7 +37,7 @@ var WorkflowContext;
  */
 /* jshint ignore:end */
 WorkflowList = class WorkflowList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function workflows
@@ -50,7 +50,7 @@ WorkflowList = class WorkflowList {
    */
   /* jshint ignore:end */
   class WorkflowListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkflowListInstance.get(sid);
   }
 
@@ -402,7 +402,7 @@ WorkflowList = class WorkflowList {
  */
 /* jshint ignore:end */
 WorkflowPage = class WorkflowPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -614,7 +614,7 @@ WorkflowInstance.prototype.cumulativeStatistics = function
  */
 /* jshint ignore:end */
 WorkflowContext = class WorkflowContext {
-  constructor(version, workspaceSid, sid) {
+  constructor(public version, public workspaceSid, public sid) {
   this._version = version;
 
   // Path Solution

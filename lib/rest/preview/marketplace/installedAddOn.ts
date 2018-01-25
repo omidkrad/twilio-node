@@ -34,7 +34,7 @@ var InstalledAddOnContext;
  */
 /* jshint ignore:end */
 InstalledAddOnList = class InstalledAddOnList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function installedAddOns
@@ -47,7 +47,7 @@ InstalledAddOnList = class InstalledAddOnList {
    */
   /* jshint ignore:end */
   class InstalledAddOnListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return InstalledAddOnListInstance.get(sid);
   }
 
@@ -387,7 +387,7 @@ InstalledAddOnList = class InstalledAddOnList {
  */
 /* jshint ignore:end */
 InstalledAddOnPage = class InstalledAddOnPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -559,7 +559,7 @@ extensions() {
  */
 /* jshint ignore:end */
 InstalledAddOnContext = class InstalledAddOnContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

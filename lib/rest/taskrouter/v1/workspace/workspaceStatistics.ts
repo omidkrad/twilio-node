@@ -43,7 +43,7 @@ WorkspaceStatisticsList = function WorkspaceStatisticsList(version,
    */
   /* jshint ignore:end */
   class WorkspaceStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkspaceStatisticsListInstance.get(sid);
   }
 

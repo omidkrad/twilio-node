@@ -32,7 +32,7 @@ var ModelBuildContext;
  */
 /* jshint ignore:end */
 ModelBuildList = class ModelBuildList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function modelBuilds
@@ -45,7 +45,7 @@ ModelBuildList = class ModelBuildList {
    */
   /* jshint ignore:end */
   class ModelBuildListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ModelBuildListInstance.get(sid);
   }
 
@@ -378,7 +378,7 @@ ModelBuildList = class ModelBuildList {
  */
 /* jshint ignore:end */
 ModelBuildPage = class ModelBuildPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -523,7 +523,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 ModelBuildContext = class ModelBuildContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

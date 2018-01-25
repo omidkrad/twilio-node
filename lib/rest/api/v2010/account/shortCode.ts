@@ -31,7 +31,7 @@ var ShortCodeContext;
  */
 /* jshint ignore:end */
 ShortCodeList = class ShortCodeList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function shortCodes
@@ -44,7 +44,7 @@ ShortCodeList = class ShortCodeList {
    */
   /* jshint ignore:end */
   class ShortCodeListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ShortCodeListInstance.get(sid);
   }
 
@@ -339,7 +339,7 @@ ShortCodeList = class ShortCodeList {
  */
 /* jshint ignore:end */
 ShortCodePage = class ShortCodePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -484,7 +484,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 ShortCodeContext = class ShortCodeContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

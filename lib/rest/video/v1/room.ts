@@ -33,7 +33,7 @@ var RoomContext;
  */
 /* jshint ignore:end */
 RoomList = class RoomList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function rooms
@@ -46,7 +46,7 @@ RoomList = class RoomList {
    */
   /* jshint ignore:end */
   class RoomListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RoomListInstance.get(sid);
   }
 
@@ -412,7 +412,7 @@ RoomList = class RoomList {
  */
 /* jshint ignore:end */
 RoomPage = class RoomPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -471,7 +471,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 RoomInstance = class RoomInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -592,7 +592,7 @@ participants() {
  */
 /* jshint ignore:end */
 RoomContext = class RoomContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

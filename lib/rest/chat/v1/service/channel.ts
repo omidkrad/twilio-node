@@ -35,7 +35,7 @@ var ChannelContext;
  */
 /* jshint ignore:end */
 ChannelList = class ChannelList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function channels
@@ -48,7 +48,7 @@ ChannelList = class ChannelList {
    */
   /* jshint ignore:end */
   class ChannelListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ChannelListInstance.get(sid);
   }
 
@@ -393,7 +393,7 @@ ChannelList = class ChannelList {
  */
 /* jshint ignore:end */
 ChannelPage = class ChannelPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -448,7 +448,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 ChannelInstance = class ChannelInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -602,7 +602,7 @@ invites() {
  */
 /* jshint ignore:end */
 ChannelContext = class ChannelContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

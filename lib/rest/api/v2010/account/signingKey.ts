@@ -32,7 +32,7 @@ var SigningKeyContext;
  */
 /* jshint ignore:end */
 SigningKeyList = class SigningKeyList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function signingKeys
@@ -45,7 +45,7 @@ SigningKeyList = class SigningKeyList {
    */
   /* jshint ignore:end */
   class SigningKeyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SigningKeyListInstance.get(sid);
   }
 
@@ -326,7 +326,7 @@ SigningKeyList = class SigningKeyList {
  */
 /* jshint ignore:end */
 SigningKeyPage = class SigningKeyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -461,7 +461,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 SigningKeyContext = class SigningKeyContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

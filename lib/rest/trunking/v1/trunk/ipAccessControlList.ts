@@ -31,7 +31,7 @@ var IpAccessControlListContext;
  */
 /* jshint ignore:end */
 IpAccessControlListList = class IpAccessControlListList {
-  constructor(version, trunkSid) {
+  constructor(public version, public trunkSid) {
   /* jshint ignore:start */
   /**
    * @function ipAccessControlLists
@@ -44,7 +44,7 @@ IpAccessControlListList = class IpAccessControlListList {
    */
   /* jshint ignore:end */
   class IpAccessControlListListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return IpAccessControlListListInstance.get(sid);
   }
 

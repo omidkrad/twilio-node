@@ -34,7 +34,7 @@ var ReservationContext;
  */
 /* jshint ignore:end */
 ReservationList = class ReservationList {
-  constructor(version, workspaceSid, workerSid) {
+  constructor(public version, public workspaceSid, public workerSid) {
   /* jshint ignore:start */
   /**
    * @function reservations
@@ -47,7 +47,7 @@ ReservationList = class ReservationList {
    */
   /* jshint ignore:end */
   class ReservationListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ReservationListInstance.get(sid);
   }
 
@@ -342,7 +342,7 @@ ReservationList = class ReservationList {
  */
 /* jshint ignore:end */
 ReservationPage = class ReservationPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

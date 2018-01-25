@@ -11,7 +11,7 @@ var RestException = require('./RestException');
  * @param {Version} version api version
  */
 class Version {
-  constructor(domain, version) {
+  constructor(public domain, public version) {
   this._domain = domain;
   this._version = version;
 }

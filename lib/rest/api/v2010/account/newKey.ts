@@ -31,7 +31,7 @@ var NewKeyInstance;
  */
 /* jshint ignore:end */
 NewKeyList = class NewKeyList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function newKeys
@@ -44,7 +44,7 @@ NewKeyList = class NewKeyList {
    */
   /* jshint ignore:end */
   class NewKeyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return NewKeyListInstance.get(sid);
   }
 
@@ -115,7 +115,7 @@ NewKeyList = class NewKeyList {
  */
 /* jshint ignore:end */
 NewKeyPage = class NewKeyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -159,7 +159,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 NewKeyInstance = class NewKeyInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

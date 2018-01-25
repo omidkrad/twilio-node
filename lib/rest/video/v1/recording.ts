@@ -31,7 +31,7 @@ var RecordingContext;
  */
 /* jshint ignore:end */
 RecordingList = class RecordingList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -44,7 +44,7 @@ RecordingList = class RecordingList {
    */
   /* jshint ignore:end */
   class RecordingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RecordingListInstance.get(sid);
   }
 
@@ -354,7 +354,7 @@ RecordingList = class RecordingList {
  */
 /* jshint ignore:end */
 RecordingPage = class RecordingPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -407,7 +407,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 RecordingInstance = class RecordingInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -486,7 +486,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 RecordingContext = class RecordingContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

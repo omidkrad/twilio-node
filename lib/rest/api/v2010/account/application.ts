@@ -32,7 +32,7 @@ var ApplicationContext;
  */
 /* jshint ignore:end */
 ApplicationList = class ApplicationList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function applications
@@ -45,7 +45,7 @@ ApplicationList = class ApplicationList {
    */
   /* jshint ignore:end */
   class ApplicationListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ApplicationListInstance.get(sid);
   }
 
@@ -420,7 +420,7 @@ ApplicationList = class ApplicationList {
  */
 /* jshint ignore:end */
 ApplicationPage = class ApplicationPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -616,7 +616,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 ApplicationContext = class ApplicationContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

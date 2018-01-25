@@ -35,7 +35,7 @@ var ServiceContext;
  */
 /* jshint ignore:end */
 ServiceList = class ServiceList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function services
@@ -48,7 +48,7 @@ ServiceList = class ServiceList {
    */
   /* jshint ignore:end */
   class ServiceListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ServiceListInstance.get(sid);
   }
 
@@ -402,7 +402,7 @@ ServiceList = class ServiceList {
  */
 /* jshint ignore:end */
 ServicePage = class ServicePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -464,7 +464,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 ServiceInstance = class ServiceInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -636,7 +636,7 @@ alphaSenders() {
  */
 /* jshint ignore:end */
 ServiceContext = class ServiceContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

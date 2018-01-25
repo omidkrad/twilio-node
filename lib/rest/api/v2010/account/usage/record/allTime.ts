@@ -33,7 +33,7 @@ var AllTimeInstance;
  */
 /* jshint ignore:end */
 AllTimeList = class AllTimeList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function allTime
@@ -46,7 +46,7 @@ AllTimeList = class AllTimeList {
    */
   /* jshint ignore:end */
   class AllTimeListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AllTimeListInstance.get(sid);
   }
 
@@ -329,7 +329,7 @@ AllTimeList = class AllTimeList {
  */
 /* jshint ignore:end */
 AllTimePage = class AllTimePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -382,7 +382,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 AllTimeInstance = class AllTimeInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

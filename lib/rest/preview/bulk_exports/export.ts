@@ -30,7 +30,7 @@ var ExportContext;
  */
 /* jshint ignore:end */
 ExportList = class ExportList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function exports
@@ -43,7 +43,7 @@ ExportList = class ExportList {
    */
   /* jshint ignore:end */
   class ExportListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ExportListInstance.get(sid);
   }
 
@@ -86,7 +86,7 @@ ExportList = class ExportList {
  */
 /* jshint ignore:end */
 ExportPage = class ExportPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -130,7 +130,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 ExportInstance = class ExportInstance {
-  constructor(version, payload, resourceType) {
+  constructor(public version, public payload, public resourceType) {
   this._version = version;
 
   // Marshaled Properties
@@ -201,7 +201,7 @@ days() {
  */
 /* jshint ignore:end */
 ExportContext = class ExportContext {
-  constructor(version, resourceType) {
+  constructor(public version, public resourceType) {
   this._version = version;
 
   // Path Solution

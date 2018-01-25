@@ -30,7 +30,7 @@ var UsageRecordInstance;
  */
 /* jshint ignore:end */
 UsageRecordList = class UsageRecordList {
-  constructor(version, simSid) {
+  constructor(public version, public simSid) {
   /* jshint ignore:start */
   /**
    * @function usageRecords
@@ -43,7 +43,7 @@ UsageRecordList = class UsageRecordList {
    */
   /* jshint ignore:end */
   class UsageRecordListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return UsageRecordListInstance.get(sid);
   }
 
@@ -327,7 +327,7 @@ UsageRecordList = class UsageRecordList {
  */
 /* jshint ignore:end */
 UsageRecordPage = class UsageRecordPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -372,7 +372,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 UsageRecordInstance = class UsageRecordInstance {
-  constructor(version, payload, simSid) {
+  constructor(public version, public payload, public simSid) {
   this._version = version;
 
   // Marshaled Properties

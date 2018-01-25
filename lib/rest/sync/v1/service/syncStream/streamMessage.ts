@@ -32,7 +32,7 @@ var StreamMessageInstance;
  */
 /* jshint ignore:end */
 StreamMessageList = class StreamMessageList {
-  constructor(version, serviceSid, streamSid) {
+  constructor(public version, public serviceSid, public streamSid) {
   /* jshint ignore:start */
   /**
    * @function streamMessages
@@ -45,7 +45,7 @@ StreamMessageList = class StreamMessageList {
    */
   /* jshint ignore:end */
   class StreamMessageListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return StreamMessageListInstance.get(sid);
   }
 
@@ -119,7 +119,7 @@ StreamMessageList = class StreamMessageList {
  */
 /* jshint ignore:end */
 StreamMessagePage = class StreamMessagePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

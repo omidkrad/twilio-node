@@ -31,7 +31,7 @@ var TaskChannelContext;
  */
 /* jshint ignore:end */
 TaskChannelList = class TaskChannelList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function taskChannels
@@ -44,7 +44,7 @@ TaskChannelList = class TaskChannelList {
    */
   /* jshint ignore:end */
   class TaskChannelListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TaskChannelListInstance.get(sid);
   }
 
@@ -325,7 +325,7 @@ TaskChannelList = class TaskChannelList {
  */
 /* jshint ignore:end */
 TaskChannelPage = class TaskChannelPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -436,7 +436,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 TaskChannelContext = class TaskChannelContext {
-  constructor(version, workspaceSid, sid) {
+  constructor(public version, public workspaceSid, public sid) {
   this._version = version;
 
   // Path Solution

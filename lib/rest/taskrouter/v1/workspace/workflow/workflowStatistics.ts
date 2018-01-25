@@ -45,7 +45,7 @@ WorkflowStatisticsList = function WorkflowStatisticsList(version, workspaceSid,
    */
   /* jshint ignore:end */
   class WorkflowStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkflowStatisticsListInstance.get(sid);
   }
 

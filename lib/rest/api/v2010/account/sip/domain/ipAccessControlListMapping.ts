@@ -45,7 +45,7 @@ IpAccessControlListMappingList = function
    */
   /* jshint ignore:end */
   class IpAccessControlListMappingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return IpAccessControlListMappingListInstance.get(sid);
   }
 

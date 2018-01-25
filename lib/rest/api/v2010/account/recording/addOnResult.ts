@@ -33,7 +33,7 @@ var AddOnResultContext;
  */
 /* jshint ignore:end */
 AddOnResultList = class AddOnResultList {
-  constructor(version, accountSid, referenceSid) {
+  constructor(public version, public accountSid, public referenceSid) {
   /* jshint ignore:start */
   /**
    * @function addOnResults
@@ -46,7 +46,7 @@ AddOnResultList = class AddOnResultList {
    */
   /* jshint ignore:end */
   class AddOnResultListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AddOnResultListInstance.get(sid);
   }
 
@@ -332,7 +332,7 @@ AddOnResultList = class AddOnResultList {
  */
 /* jshint ignore:end */
 AddOnResultPage = class AddOnResultPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

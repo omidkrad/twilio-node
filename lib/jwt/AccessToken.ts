@@ -13,7 +13,7 @@ var deprecate = require('deprecate');
  * @param {string} options.role - The role of the grant
  */
 class TaskRouterGrant {
-  constructor(options) {
+  constructor(public options) {
   options = options || {};
   this.workspaceSid = options.workspaceSid;
   this.workerSid = options.workerSid;
@@ -43,7 +43,7 @@ _.extend(TaskRouterGrant.prototype, {
  * @param {string} options.pushCredentialSid - The Push Credentials SID
  */
 class ChatGrant {
-  constructor(options) {
+  constructor(public options) {
   options = options || {};
   this.serviceSid = options.serviceSid;
   this.endpointId = options.endpointId;
@@ -78,7 +78,7 @@ _.extend(ChatGrant.prototype, {
  * @param {string} options.pushCredentialSid - The Push Credentials SID
  */
 class IpMessagingGrant {
-  constructor(options) {
+  constructor(public options) {
   deprecate('IpMessagingGrant is deprecated, use ChatGrant instead.');
   ChatGrant.call(this, options);
 }
@@ -97,7 +97,7 @@ IpMessagingGrant.prototype.key = 'ip_messaging';
   *                 profile unique ID
   */
 class ConversationsGrant {
-  constructor(options) {
+  constructor(public options) {
   deprecate('ConversationsGrant is deprecated, use VideoGrant instead.');
   options = options || {};
   this.configurationProfileSid = options.configurationProfileSid;
@@ -120,7 +120,7 @@ _.extend(ConversationsGrant.prototype, {
  * @param {string} options.room - The Room name or Room sid.
  */
 class VideoGrant {
-  constructor(options) {
+  constructor(public options) {
   options = options || {};
   this.room = options.room;
 }
@@ -140,7 +140,7 @@ _.extend(VideoGrant.prototype, {
  * @param {string} options.endpointId - The endpoint ID
  */
 class SyncGrant {
-  constructor(options) {
+  constructor(public options) {
   options = options || {};
   this.serviceSid = options.serviceSid;
   this.endpointId = options.endpointId;
@@ -167,7 +167,7 @@ _.extend(SyncGrant.prototype, {
  *                 to direct calls to a specific endpoint when multiple devices are associated with a single identity
  */
 class VoiceGrant {
-  constructor(options) {
+  constructor(public options) {
   options = options || {};
   this.outgoingApplicationSid = options.outgoingApplicationSid;
   this.outgoingApplicationParams = options.outgoingApplicationParams;
@@ -209,7 +209,7 @@ _.extend(VoiceGrant.prototype, {
  * @param {number} [options.nbf] - Time from epoch in seconds for not before value
  */
 class AccessToken {
-  constructor(accountSid, keySid, secret, options) {
+  constructor(public accountSid, public keySid, public secret, public options) {
   if (!accountSid) { throw new Error('accountSid is required'); }
   if (!keySid) { throw new Error('keySid is required'); }
   if (!secret) { throw new Error('secret is required'); }

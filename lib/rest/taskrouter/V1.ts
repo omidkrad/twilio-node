@@ -26,7 +26,7 @@ var WorkspaceList = require('./v1/workspace').WorkspaceList;
  */
 /* jshint ignore:end */
 class V1 {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, 'v1');
 
   // Resources

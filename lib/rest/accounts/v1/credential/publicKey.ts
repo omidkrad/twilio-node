@@ -30,7 +30,7 @@ var PublicKeyContext;
  */
 /* jshint ignore:end */
 PublicKeyList = class PublicKeyList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function publicKey
@@ -43,7 +43,7 @@ PublicKeyList = class PublicKeyList {
    */
   /* jshint ignore:end */
   class PublicKeyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return PublicKeyListInstance.get(sid);
   }
 
@@ -375,7 +375,7 @@ PublicKeyList = class PublicKeyList {
  */
 /* jshint ignore:end */
 PublicKeyPage = class PublicKeyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -423,7 +423,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 PublicKeyInstance = class PublicKeyInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -515,7 +515,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 PublicKeyContext = class PublicKeyContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

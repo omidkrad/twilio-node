@@ -35,7 +35,7 @@ var ParticipantContext;
  */
 /* jshint ignore:end */
 ParticipantList = class ParticipantList {
-  constructor(version, accountSid, conferenceSid) {
+  constructor(public version, public accountSid, public conferenceSid) {
   /* jshint ignore:start */
   /**
    * @function participants
@@ -48,7 +48,7 @@ ParticipantList = class ParticipantList {
    */
   /* jshint ignore:end */
   class ParticipantListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ParticipantListInstance.get(sid);
   }
 
@@ -467,7 +467,7 @@ ParticipantList = class ParticipantList {
  */
 /* jshint ignore:end */
 ParticipantPage = class ParticipantPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

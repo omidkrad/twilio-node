@@ -32,7 +32,7 @@ var RoomRecordingContext;
  */
 /* jshint ignore:end */
 RoomRecordingList = class RoomRecordingList {
-  constructor(version, roomSid) {
+  constructor(public version, public roomSid) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -45,7 +45,7 @@ RoomRecordingList = class RoomRecordingList {
    */
   /* jshint ignore:end */
   class RoomRecordingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RoomRecordingListInstance.get(sid);
   }
 
@@ -350,7 +350,7 @@ RoomRecordingList = class RoomRecordingList {
  */
 /* jshint ignore:end */
 RoomRecordingPage = class RoomRecordingPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -469,7 +469,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 RoomRecordingContext = class RoomRecordingContext {
-  constructor(version, roomSid, sid) {
+  constructor(public version, public roomSid, public sid) {
   this._version = version;
 
   // Path Solution

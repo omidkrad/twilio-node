@@ -44,7 +44,7 @@ InstalledAddOnExtensionList = function InstalledAddOnExtensionList(version,
    */
   /* jshint ignore:end */
   class InstalledAddOnExtensionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return InstalledAddOnExtensionListInstance.get(sid);
   }
 

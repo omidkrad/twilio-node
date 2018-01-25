@@ -31,7 +31,7 @@ var FeedbackInstance;
  */
 /* jshint ignore:end */
 FeedbackList = class FeedbackList {
-  constructor(version, accountSid, messageSid) {
+  constructor(public version, public accountSid, public messageSid) {
   /* jshint ignore:start */
   /**
    * @function feedback
@@ -44,7 +44,7 @@ FeedbackList = class FeedbackList {
    */
   /* jshint ignore:end */
   class FeedbackListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FeedbackListInstance.get(sid);
   }
 
@@ -116,7 +116,7 @@ FeedbackList = class FeedbackList {
  */
 /* jshint ignore:end */
 FeedbackPage = class FeedbackPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

@@ -35,7 +35,7 @@ var FleetContext;
  */
 /* jshint ignore:end */
 FleetList = class FleetList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function fleets
@@ -48,7 +48,7 @@ FleetList = class FleetList {
    */
   /* jshint ignore:end */
   class FleetListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FleetListInstance.get(sid);
   }
 
@@ -373,7 +373,7 @@ FleetList = class FleetList {
  */
 /* jshint ignore:end */
 FleetPage = class FleetPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -424,7 +424,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 FleetInstance = class FleetInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -590,7 +590,7 @@ keys() {
  */
 /* jshint ignore:end */
 FleetContext = class FleetContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

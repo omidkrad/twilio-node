@@ -64,7 +64,7 @@ var Wireless = require('./preview/Wireless');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Preview {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://preview.twilio.com');
 
   // Versions

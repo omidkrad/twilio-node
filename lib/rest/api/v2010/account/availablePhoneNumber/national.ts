@@ -34,7 +34,7 @@ var NationalInstance;
  */
 /* jshint ignore:end */
 NationalList = class NationalList {
-  constructor(version, accountSid, countryCode) {
+  constructor(public version, public accountSid, public countryCode) {
   /* jshint ignore:start */
   /**
    * @function national
@@ -47,7 +47,7 @@ NationalList = class NationalList {
    */
   /* jshint ignore:end */
   class NationalListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return NationalListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ NationalList = class NationalList {
  */
 /* jshint ignore:end */
 NationalPage = class NationalPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

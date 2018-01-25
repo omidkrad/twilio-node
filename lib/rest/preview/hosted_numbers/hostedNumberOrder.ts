@@ -32,7 +32,7 @@ var HostedNumberOrderContext;
  */
 /* jshint ignore:end */
 HostedNumberOrderList = class HostedNumberOrderList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function hostedNumberOrders
@@ -45,7 +45,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    */
   /* jshint ignore:end */
   class HostedNumberOrderListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return HostedNumberOrderListInstance.get(sid);
   }
 
@@ -646,7 +646,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 HostedNumberOrderContext = class HostedNumberOrderContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

@@ -33,7 +33,7 @@ var LastMonthInstance;
  */
 /* jshint ignore:end */
 LastMonthList = class LastMonthList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function lastMonth
@@ -46,7 +46,7 @@ LastMonthList = class LastMonthList {
    */
   /* jshint ignore:end */
   class LastMonthListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return LastMonthListInstance.get(sid);
   }
 
@@ -329,7 +329,7 @@ LastMonthList = class LastMonthList {
  */
 /* jshint ignore:end */
 LastMonthPage = class LastMonthPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -382,7 +382,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 LastMonthInstance = class LastMonthInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

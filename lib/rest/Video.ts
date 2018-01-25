@@ -28,7 +28,7 @@ var V1 = require('./video/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Video {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://video.twilio.com');
 
   // Versions

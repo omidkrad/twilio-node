@@ -32,7 +32,7 @@ var OriginationUrlContext;
  */
 /* jshint ignore:end */
 OriginationUrlList = class OriginationUrlList {
-  constructor(version, trunkSid) {
+  constructor(public version, public trunkSid) {
   /* jshint ignore:start */
   /**
    * @function originationUrls
@@ -45,7 +45,7 @@ OriginationUrlList = class OriginationUrlList {
    */
   /* jshint ignore:end */
   class OriginationUrlListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return OriginationUrlListInstance.get(sid);
   }
 
@@ -396,7 +396,7 @@ OriginationUrlList = class OriginationUrlList {
  */
 /* jshint ignore:end */
 OriginationUrlPage = class OriginationUrlPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -549,7 +549,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 OriginationUrlContext = class OriginationUrlContext {
-  constructor(version, trunkSid, sid) {
+  constructor(public version, public trunkSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -33,7 +33,7 @@ var YearlyInstance;
  */
 /* jshint ignore:end */
 YearlyList = class YearlyList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function yearly
@@ -46,7 +46,7 @@ YearlyList = class YearlyList {
    */
   /* jshint ignore:end */
   class YearlyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return YearlyListInstance.get(sid);
   }
 
@@ -329,7 +329,7 @@ YearlyList = class YearlyList {
  */
 /* jshint ignore:end */
 YearlyPage = class YearlyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -382,7 +382,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 YearlyInstance = class YearlyInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

@@ -5,7 +5,7 @@ var Request = require('../../lib/http/request');
 var RequestClient = require('../../lib/base/RequestClient');
 
 class Hologram {
-  constructor(request, response) {
+  constructor(public request, public response) {
   this.request = request;
   this.response = response;
 }

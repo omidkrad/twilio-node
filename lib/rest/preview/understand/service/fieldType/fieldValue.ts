@@ -33,7 +33,7 @@ var FieldValueContext;
  */
 /* jshint ignore:end */
 FieldValueList = class FieldValueList {
-  constructor(version, serviceSid, fieldTypeSid) {
+  constructor(public version, public serviceSid, public fieldTypeSid) {
   /* jshint ignore:start */
   /**
    * @function fieldValues
@@ -46,7 +46,7 @@ FieldValueList = class FieldValueList {
    */
   /* jshint ignore:end */
   class FieldValueListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FieldValueListInstance.get(sid);
   }
 
@@ -395,7 +395,7 @@ FieldValueList = class FieldValueList {
  */
 /* jshint ignore:end */
 FieldValuePage = class FieldValuePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

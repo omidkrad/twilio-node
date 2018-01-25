@@ -43,7 +43,7 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    */
   /* jshint ignore:end */
   class AvailableAddOnExtensionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AvailableAddOnExtensionListInstance.get(sid);
   }
 

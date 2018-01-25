@@ -27,7 +27,7 @@ var V1 = require('./sync/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Sync {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://sync.twilio.com');
 
   // Versions

@@ -29,7 +29,7 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class V1 {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, 'v1');
 
   // Resources

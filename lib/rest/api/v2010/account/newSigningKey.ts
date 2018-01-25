@@ -31,7 +31,7 @@ var NewSigningKeyInstance;
  */
 /* jshint ignore:end */
 NewSigningKeyList = class NewSigningKeyList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function newSigningKeys
@@ -44,7 +44,7 @@ NewSigningKeyList = class NewSigningKeyList {
    */
   /* jshint ignore:end */
   class NewSigningKeyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return NewSigningKeyListInstance.get(sid);
   }
 
@@ -115,7 +115,7 @@ NewSigningKeyList = class NewSigningKeyList {
  */
 /* jshint ignore:end */
 NewSigningKeyPage = class NewSigningKeyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

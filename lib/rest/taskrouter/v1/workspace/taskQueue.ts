@@ -39,7 +39,7 @@ var TaskQueueContext;
  */
 /* jshint ignore:end */
 TaskQueueList = class TaskQueueList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function taskQueues
@@ -52,7 +52,7 @@ TaskQueueList = class TaskQueueList {
    */
   /* jshint ignore:end */
   class TaskQueueListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TaskQueueListInstance.get(sid);
   }
 
@@ -433,7 +433,7 @@ TaskQueueList = class TaskQueueList {
  */
 /* jshint ignore:end */
 TaskQueuePage = class TaskQueuePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -648,7 +648,7 @@ TaskQueueInstance.prototype.cumulativeStatistics = function
  */
 /* jshint ignore:end */
 TaskQueueContext = class TaskQueueContext {
-  constructor(version, workspaceSid, sid) {
+  constructor(public version, public workspaceSid, public sid) {
   this._version = version;
 
   // Path Solution

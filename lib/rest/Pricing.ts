@@ -30,7 +30,7 @@ var V1 = require('./pricing/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Pricing {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://pricing.twilio.com');
 
   // Versions

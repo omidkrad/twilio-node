@@ -32,7 +32,7 @@ var TriggerContext;
  */
 /* jshint ignore:end */
 TriggerList = class TriggerList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function triggers
@@ -45,7 +45,7 @@ TriggerList = class TriggerList {
    */
   /* jshint ignore:end */
   class TriggerListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TriggerListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ TriggerList = class TriggerList {
  */
 /* jshint ignore:end */
 TriggerPage = class TriggerPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -479,7 +479,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 TriggerInstance = class TriggerInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -585,7 +585,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 TriggerContext = class TriggerContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

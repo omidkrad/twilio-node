@@ -32,7 +32,7 @@ var DataSessionInstance;
  */
 /* jshint ignore:end */
 DataSessionList = class DataSessionList {
-  constructor(version, simSid) {
+  constructor(public version, public simSid) {
   /* jshint ignore:start */
   /**
    * @function dataSessions
@@ -45,7 +45,7 @@ DataSessionList = class DataSessionList {
    */
   /* jshint ignore:end */
   class DataSessionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DataSessionListInstance.get(sid);
   }
 
@@ -324,7 +324,7 @@ DataSessionList = class DataSessionList {
  */
 /* jshint ignore:end */
 DataSessionPage = class DataSessionPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -379,7 +379,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 DataSessionInstance = class DataSessionInstance {
-  constructor(version, payload, simSid) {
+  constructor(public version, public payload, public simSid) {
   this._version = version;
 
   // Marshaled Properties

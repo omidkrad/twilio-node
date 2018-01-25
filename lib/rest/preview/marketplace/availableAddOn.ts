@@ -31,7 +31,7 @@ var AvailableAddOnContext;
  */
 /* jshint ignore:end */
 AvailableAddOnList = class AvailableAddOnList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function availableAddOns
@@ -44,7 +44,7 @@ AvailableAddOnList = class AvailableAddOnList {
    */
   /* jshint ignore:end */
   class AvailableAddOnListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AvailableAddOnListInstance.get(sid);
   }
 
@@ -326,7 +326,7 @@ AvailableAddOnList = class AvailableAddOnList {
  */
 /* jshint ignore:end */
 AvailableAddOnPage = class AvailableAddOnPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -451,7 +451,7 @@ extensions() {
  */
 /* jshint ignore:end */
 AvailableAddOnContext = class AvailableAddOnContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

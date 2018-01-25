@@ -31,7 +31,7 @@ var SegmentInstance;
  */
 /* jshint ignore:end */
 SegmentList = class SegmentList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function segments
@@ -44,7 +44,7 @@ SegmentList = class SegmentList {
    */
   /* jshint ignore:end */
   class SegmentListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SegmentListInstance.get(sid);
   }
 
@@ -309,7 +309,7 @@ SegmentList = class SegmentList {
  */
 /* jshint ignore:end */
 SegmentPage = class SegmentPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -355,7 +355,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 SegmentInstance = class SegmentInstance {
-  constructor(version, payload, serviceSid) {
+  constructor(public version, public payload, public serviceSid) {
   this._version = version;
 
   // Marshaled Properties

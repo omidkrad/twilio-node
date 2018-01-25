@@ -47,7 +47,7 @@ WorkerChannelList = function WorkerChannelList(version, workspaceSid, workerSid)
    */
   /* jshint ignore:end */
   class WorkerChannelListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkerChannelListInstance.get(sid);
   }
 
@@ -333,7 +333,7 @@ WorkerChannelList = function WorkerChannelList(version, workspaceSid, workerSid)
  */
 /* jshint ignore:end */
 WorkerChannelPage = class WorkerChannelPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

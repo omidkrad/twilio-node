@@ -46,7 +46,7 @@ PayloadList = function PayloadList(version, accountSid, referenceSid,
    */
   /* jshint ignore:end */
   class PayloadListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return PayloadListInstance.get(sid);
   }
 
@@ -337,7 +337,7 @@ PayloadList = function PayloadList(version, accountSid, referenceSid,
  */
 /* jshint ignore:end */
 PayloadPage = class PayloadPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

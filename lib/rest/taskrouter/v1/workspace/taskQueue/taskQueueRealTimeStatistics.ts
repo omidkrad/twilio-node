@@ -45,7 +45,7 @@ TaskQueueRealTimeStatisticsList = function
    */
   /* jshint ignore:end */
   class TaskQueueRealTimeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TaskQueueRealTimeStatisticsListInstance.get(sid);
   }
 

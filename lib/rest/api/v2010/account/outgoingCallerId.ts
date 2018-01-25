@@ -31,7 +31,7 @@ var OutgoingCallerIdContext;
  */
 /* jshint ignore:end */
 OutgoingCallerIdList = class OutgoingCallerIdList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function outgoingCallerIds
@@ -44,7 +44,7 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
    */
   /* jshint ignore:end */
   class OutgoingCallerIdListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return OutgoingCallerIdListInstance.get(sid);
   }
 

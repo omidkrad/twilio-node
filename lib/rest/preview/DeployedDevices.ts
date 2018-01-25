@@ -26,7 +26,7 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class DeployedDevices {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, 'DeployedDevices');
 
   // Resources

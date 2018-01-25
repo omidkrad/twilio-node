@@ -45,7 +45,7 @@ TranscriptionList = function TranscriptionList(version, accountSid,
    */
   /* jshint ignore:end */
   class TranscriptionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TranscriptionListInstance.get(sid);
   }
 
@@ -331,7 +331,7 @@ TranscriptionList = function TranscriptionList(version, accountSid,
  */
 /* jshint ignore:end */
 TranscriptionPage = class TranscriptionPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

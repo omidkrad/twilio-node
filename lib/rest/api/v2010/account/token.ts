@@ -30,7 +30,7 @@ var TokenInstance;
  */
 /* jshint ignore:end */
 TokenList = class TokenList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function tokens
@@ -43,7 +43,7 @@ TokenList = class TokenList {
    */
   /* jshint ignore:end */
   class TokenListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TokenListInstance.get(sid);
   }
 
@@ -114,7 +114,7 @@ TokenList = class TokenList {
  */
 /* jshint ignore:end */
 TokenPage = class TokenPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -161,7 +161,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 TokenInstance = class TokenInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

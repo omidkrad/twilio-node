@@ -32,7 +32,7 @@ var RoleContext;
  */
 /* jshint ignore:end */
 RoleList = class RoleList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function roles
@@ -45,7 +45,7 @@ RoleList = class RoleList {
    */
   /* jshint ignore:end */
   class RoleListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RoleListInstance.get(sid);
   }
 
@@ -386,7 +386,7 @@ RoleList = class RoleList {
  */
 /* jshint ignore:end */
 RolePage = class RolePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -436,7 +436,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 RoleInstance = class RoleInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -531,7 +531,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 RoleContext = class RoleContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

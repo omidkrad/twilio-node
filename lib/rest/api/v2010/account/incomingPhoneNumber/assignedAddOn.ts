@@ -48,7 +48,7 @@ AssignedAddOnList = function AssignedAddOnList(version, accountSid, resourceSid)
    */
   /* jshint ignore:end */
   class AssignedAddOnListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AssignedAddOnListInstance.get(sid);
   }
 
@@ -385,7 +385,7 @@ AssignedAddOnList = function AssignedAddOnList(version, accountSid, resourceSid)
  */
 /* jshint ignore:end */
 AssignedAddOnPage = class AssignedAddOnPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

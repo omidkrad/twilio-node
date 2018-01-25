@@ -44,7 +44,7 @@ WorkersRealTimeStatisticsList = function WorkersRealTimeStatisticsList(version,
    */
   /* jshint ignore:end */
   class WorkersRealTimeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkersRealTimeStatisticsListInstance.get(sid);
   }
 

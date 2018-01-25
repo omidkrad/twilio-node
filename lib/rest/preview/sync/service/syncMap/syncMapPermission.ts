@@ -46,7 +46,7 @@ SyncMapPermissionList = function SyncMapPermissionList(version, serviceSid,
    */
   /* jshint ignore:end */
   class SyncMapPermissionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SyncMapPermissionListInstance.get(sid);
   }
 

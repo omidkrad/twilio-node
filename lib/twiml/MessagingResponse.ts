@@ -74,7 +74,7 @@ toString() {
  */
 /* jshint ignore:end */
 class Message {
-  constructor(message) {
+  constructor(public message) {
   this.message = message;
 }
 

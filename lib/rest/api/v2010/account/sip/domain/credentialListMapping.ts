@@ -45,7 +45,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    */
   /* jshint ignore:end */
   class CredentialListMappingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CredentialListMappingListInstance.get(sid);
   }
 

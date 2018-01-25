@@ -32,7 +32,7 @@ var ActivityContext;
  */
 /* jshint ignore:end */
 ActivityList = class ActivityList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function activities
@@ -45,7 +45,7 @@ ActivityList = class ActivityList {
    */
   /* jshint ignore:end */
   class ActivityListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ActivityListInstance.get(sid);
   }
 
@@ -392,7 +392,7 @@ ActivityList = class ActivityList {
  */
 /* jshint ignore:end */
 ActivityPage = class ActivityPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -535,7 +535,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 ActivityContext = class ActivityContext {
-  constructor(version, workspaceSid, sid) {
+  constructor(public version, public workspaceSid, public sid) {
   this._version = version;
 
   // Path Solution

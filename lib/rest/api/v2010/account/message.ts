@@ -34,7 +34,7 @@ var MessageContext;
  */
 /* jshint ignore:end */
 MessageList = class MessageList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function messages
@@ -47,7 +47,7 @@ MessageList = class MessageList {
    */
   /* jshint ignore:end */
   class MessageListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MessageListInstance.get(sid);
   }
 
@@ -440,7 +440,7 @@ MessageList = class MessageList {
  */
 /* jshint ignore:end */
 MessagePage = class MessagePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -504,7 +504,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 MessageInstance = class MessageInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -645,7 +645,7 @@ feedback() {
  */
 /* jshint ignore:end */
 MessageContext = class MessageContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -35,7 +35,7 @@ var FeedbackContext;
  */
 /* jshint ignore:end */
 FeedbackList = class FeedbackList {
-  constructor(version, accountSid, callSid) {
+  constructor(public version, public accountSid, public callSid) {
   /* jshint ignore:start */
   /**
    * @function feedback
@@ -48,7 +48,7 @@ FeedbackList = class FeedbackList {
    */
   /* jshint ignore:end */
   class FeedbackListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return FeedbackListInstance.get(sid);
   }
 
@@ -88,7 +88,7 @@ FeedbackList = class FeedbackList {
  */
 /* jshint ignore:end */
 FeedbackPage = class FeedbackPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -231,7 +231,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 FeedbackContext = class FeedbackContext {
-  constructor(version, accountSid, callSid) {
+  constructor(public version, public accountSid, public callSid) {
   this._version = version;
 
   // Path Solution

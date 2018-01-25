@@ -36,7 +36,7 @@ var TrunkContext;
  */
 /* jshint ignore:end */
 TrunkList = class TrunkList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function trunks
@@ -49,7 +49,7 @@ TrunkList = class TrunkList {
    */
   /* jshint ignore:end */
   class TrunkListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TrunkListInstance.get(sid);
   }
 
@@ -384,7 +384,7 @@ TrunkList = class TrunkList {
  */
 /* jshint ignore:end */
 TrunkPage = class TrunkPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -438,7 +438,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 TrunkInstance = class TrunkInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -611,7 +611,7 @@ phoneNumbers() {
  */
 /* jshint ignore:end */
 TrunkContext = class TrunkContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

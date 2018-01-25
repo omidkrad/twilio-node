@@ -47,7 +47,7 @@ MachineToMachineList = function MachineToMachineList(version, accountSid,
    */
   /* jshint ignore:end */
   class MachineToMachineListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MachineToMachineListInstance.get(sid);
   }
 

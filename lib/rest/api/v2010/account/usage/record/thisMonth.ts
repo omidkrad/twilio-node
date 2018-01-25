@@ -33,7 +33,7 @@ var ThisMonthInstance;
  */
 /* jshint ignore:end */
 ThisMonthList = class ThisMonthList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function thisMonth
@@ -46,7 +46,7 @@ ThisMonthList = class ThisMonthList {
    */
   /* jshint ignore:end */
   class ThisMonthListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ThisMonthListInstance.get(sid);
   }
 
@@ -329,7 +329,7 @@ ThisMonthList = class ThisMonthList {
  */
 /* jshint ignore:end */
 ThisMonthPage = class ThisMonthPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -382,7 +382,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 ThisMonthInstance = class ThisMonthInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

@@ -30,7 +30,7 @@ var AwsContext;
  */
 /* jshint ignore:end */
 AwsList = class AwsList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function aws
@@ -43,7 +43,7 @@ AwsList = class AwsList {
    */
   /* jshint ignore:end */
   class AwsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AwsListInstance.get(sid);
   }
 
@@ -373,7 +373,7 @@ AwsList = class AwsList {
  */
 /* jshint ignore:end */
 AwsPage = class AwsPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -419,7 +419,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 AwsInstance = class AwsInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -510,7 +510,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 AwsContext = class AwsContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

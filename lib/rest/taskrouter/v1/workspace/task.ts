@@ -33,7 +33,7 @@ var TaskContext;
  */
 /* jshint ignore:end */
 TaskList = class TaskList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function tasks
@@ -46,7 +46,7 @@ TaskList = class TaskList {
    */
   /* jshint ignore:end */
   class TaskListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TaskListInstance.get(sid);
   }
 
@@ -433,7 +433,7 @@ TaskList = class TaskList {
  */
 /* jshint ignore:end */
 TaskPage = class TaskPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -494,7 +494,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 TaskInstance = class TaskInstance {
-  constructor(version, payload, workspaceSid, sid) {
+  constructor(public version, public payload, public workspaceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -622,7 +622,7 @@ reservations() {
  */
 /* jshint ignore:end */
 TaskContext = class TaskContext {
-  constructor(version, workspaceSid, sid) {
+  constructor(public version, public workspaceSid, public sid) {
   this._version = version;
 
   // Path Solution

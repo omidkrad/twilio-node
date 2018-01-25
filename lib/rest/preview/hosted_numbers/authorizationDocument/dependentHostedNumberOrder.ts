@@ -44,7 +44,7 @@ DependentHostedNumberOrderList = function
    */
   /* jshint ignore:end */
   class DependentHostedNumberOrderListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DependentHostedNumberOrderListInstance.get(sid);
   }
 

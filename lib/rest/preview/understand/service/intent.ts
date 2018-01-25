@@ -34,7 +34,7 @@ var IntentContext;
  */
 /* jshint ignore:end */
 IntentList = class IntentList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function intents
@@ -47,7 +47,7 @@ IntentList = class IntentList {
    */
   /* jshint ignore:end */
   class IntentListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return IntentListInstance.get(sid);
   }
 
@@ -381,7 +381,7 @@ IntentList = class IntentList {
  */
 /* jshint ignore:end */
 IntentPage = class IntentPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -432,7 +432,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 IntentInstance = class IntentInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -564,7 +564,7 @@ samples() {
  */
 /* jshint ignore:end */
 IntentContext = class IntentContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

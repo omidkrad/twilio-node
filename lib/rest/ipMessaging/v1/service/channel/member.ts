@@ -34,7 +34,7 @@ var MemberContext;
  */
 /* jshint ignore:end */
 MemberList = class MemberList {
-  constructor(version, serviceSid, channelSid) {
+  constructor(public version, public serviceSid, public channelSid) {
   /* jshint ignore:start */
   /**
    * @function members
@@ -47,7 +47,7 @@ MemberList = class MemberList {
    */
   /* jshint ignore:end */
   class MemberListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MemberListInstance.get(sid);
   }
 
@@ -387,7 +387,7 @@ MemberList = class MemberList {
  */
 /* jshint ignore:end */
 MemberPage = class MemberPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -550,7 +550,7 @@ update(opts, callback) {
  */
 /* jshint ignore:end */
 MemberContext = class MemberContext {
-  constructor(version, serviceSid, channelSid, sid) {
+  constructor(public version, public serviceSid, public channelSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -41,7 +41,7 @@ var WorkerContext;
  */
 /* jshint ignore:end */
 WorkerList = class WorkerList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function workers
@@ -54,7 +54,7 @@ WorkerList = class WorkerList {
    */
   /* jshint ignore:end */
   class WorkerListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkerListInstance.get(sid);
   }
 
@@ -443,7 +443,7 @@ WorkerList = class WorkerList {
  */
 /* jshint ignore:end */
 WorkerPage = class WorkerPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -497,7 +497,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 WorkerInstance = class WorkerInstance {
-  constructor(version, payload, workspaceSid, sid) {
+  constructor(public version, public payload, public workspaceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -685,7 +685,7 @@ workerChannels() {
  */
 /* jshint ignore:end */
 WorkerContext = class WorkerContext {
-  constructor(version, workspaceSid, sid) {
+  constructor(public version, public workspaceSid, public sid) {
   this._version = version;
 
   // Path Solution

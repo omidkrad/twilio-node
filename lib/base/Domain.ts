@@ -10,7 +10,7 @@ var _ = require('lodash');
  * @param {string} baseUrl - Base url for this domain
  */
 class Domain {
-  constructor(twilio, baseUrl) {
+  constructor(public twilio, public baseUrl) {
   this.twilio = twilio;
   this.baseUrl = baseUrl;
 }

@@ -47,7 +47,7 @@ TaskQueueCumulativeStatisticsList = function
    */
   /* jshint ignore:end */
   class TaskQueueCumulativeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TaskQueueCumulativeStatisticsListInstance.get(sid);
   }
 

@@ -35,7 +35,7 @@ var DocumentContext;
  */
 /* jshint ignore:end */
 DocumentList = class DocumentList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function documents
@@ -48,7 +48,7 @@ DocumentList = class DocumentList {
    */
   /* jshint ignore:end */
   class DocumentListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DocumentListInstance.get(sid);
   }
 
@@ -383,7 +383,7 @@ DocumentList = class DocumentList {
  */
 /* jshint ignore:end */
 DocumentPage = class DocumentPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -556,7 +556,7 @@ documentPermissions()
  */
 /* jshint ignore:end */
 DocumentContext = class DocumentContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

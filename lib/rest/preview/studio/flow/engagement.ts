@@ -33,7 +33,7 @@ var EngagementContext;
  */
 /* jshint ignore:end */
 EngagementList = class EngagementList {
-  constructor(version, flowSid) {
+  constructor(public version, public flowSid) {
   /* jshint ignore:start */
   /**
    * @function engagements
@@ -46,7 +46,7 @@ EngagementList = class EngagementList {
    */
   /* jshint ignore:end */
   class EngagementListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return EngagementListInstance.get(sid);
   }
 
@@ -385,7 +385,7 @@ EngagementList = class EngagementList {
  */
 /* jshint ignore:end */
 EngagementPage = class EngagementPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -536,7 +536,7 @@ steps() {
  */
 /* jshint ignore:end */
 EngagementContext = class EngagementContext {
-  constructor(version, flowSid, sid) {
+  constructor(public version, public flowSid, public sid) {
   this._version = version;
 
   // Path Solution

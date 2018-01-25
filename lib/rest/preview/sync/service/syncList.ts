@@ -35,7 +35,7 @@ var SyncListContext;
  */
 /* jshint ignore:end */
 SyncListList = class SyncListList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function syncLists
@@ -48,7 +48,7 @@ SyncListList = class SyncListList {
    */
   /* jshint ignore:end */
   class SyncListListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SyncListListInstance.get(sid);
   }
 
@@ -377,7 +377,7 @@ SyncListList = class SyncListList {
  */
 /* jshint ignore:end */
 SyncListPage = class SyncListPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -543,7 +543,7 @@ syncListPermissions()
  */
 /* jshint ignore:end */
 SyncListContext = class SyncListContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

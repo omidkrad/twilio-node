@@ -33,7 +33,7 @@ var SampleContext;
  */
 /* jshint ignore:end */
 SampleList = class SampleList {
-  constructor(version, serviceSid, intentSid) {
+  constructor(public version, public serviceSid, public intentSid) {
   /* jshint ignore:start */
   /**
    * @function samples
@@ -46,7 +46,7 @@ SampleList = class SampleList {
    */
   /* jshint ignore:end */
   class SampleListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SampleListInstance.get(sid);
   }
 
@@ -390,7 +390,7 @@ SampleList = class SampleList {
  */
 /* jshint ignore:end */
 SamplePage = class SamplePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -545,7 +545,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 SampleContext = class SampleContext {
-  constructor(version, serviceSid, intentSid, sid) {
+  constructor(public version, public serviceSid, public intentSid, public sid) {
   this._version = version;
 
   // Path Solution

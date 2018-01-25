@@ -30,7 +30,7 @@ var ExportConfigurationContext;
  */
 /* jshint ignore:end */
 ExportConfigurationList = class ExportConfigurationList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function exportConfiguration
@@ -43,7 +43,7 @@ ExportConfigurationList = class ExportConfigurationList {
    */
   /* jshint ignore:end */
   class ExportConfigurationListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ExportConfigurationListInstance.get(sid);
   }
 

@@ -36,7 +36,7 @@ var UserContext;
  */
 /* jshint ignore:end */
 UserList = class UserList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function users
@@ -49,7 +49,7 @@ UserList = class UserList {
    */
   /* jshint ignore:end */
   class UserListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return UserListInstance.get(sid);
   }
 
@@ -396,7 +396,7 @@ UserList = class UserList {
  */
 /* jshint ignore:end */
 UserPage = class UserPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -447,7 +447,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 UserInstance = class UserInstance {
-  constructor(version, payload, serviceSid, identity) {
+  constructor(public version, public payload, public serviceSid, public identity) {
   this._version = version;
 
   // Marshaled Properties
@@ -559,7 +559,7 @@ segmentMemberships() {
  */
 /* jshint ignore:end */
 UserContext = class UserContext {
-  constructor(version, serviceSid, identity) {
+  constructor(public version, public serviceSid, public identity) {
   this._version = version;
 
   // Path Solution

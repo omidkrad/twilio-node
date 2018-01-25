@@ -32,7 +32,7 @@ var CredentialContext;
  */
 /* jshint ignore:end */
 CredentialList = class CredentialList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function credentials
@@ -45,7 +45,7 @@ CredentialList = class CredentialList {
    */
   /* jshint ignore:end */
   class CredentialListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CredentialListInstance.get(sid);
   }
 
@@ -384,7 +384,7 @@ CredentialList = class CredentialList {
  */
 /* jshint ignore:end */
 CredentialPage = class CredentialPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -433,7 +433,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 CredentialInstance = class CredentialInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -532,7 +532,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 CredentialContext = class CredentialContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

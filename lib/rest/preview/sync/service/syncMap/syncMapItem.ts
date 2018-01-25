@@ -35,7 +35,7 @@ var SyncMapItemContext;
  */
 /* jshint ignore:end */
 SyncMapItemList = class SyncMapItemList {
-  constructor(version, serviceSid, mapSid) {
+  constructor(public version, public serviceSid, public mapSid) {
   /* jshint ignore:start */
   /**
    * @function syncMapItems
@@ -48,7 +48,7 @@ SyncMapItemList = class SyncMapItemList {
    */
   /* jshint ignore:end */
   class SyncMapItemListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SyncMapItemListInstance.get(sid);
   }
 
@@ -401,7 +401,7 @@ SyncMapItemList = class SyncMapItemList {
  */
 /* jshint ignore:end */
 SyncMapItemPage = class SyncMapItemPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

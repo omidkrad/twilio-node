@@ -34,7 +34,7 @@ var TollFreeInstance;
  */
 /* jshint ignore:end */
 TollFreeList = class TollFreeList {
-  constructor(version, accountSid, countryCode) {
+  constructor(public version, public accountSid, public countryCode) {
   /* jshint ignore:start */
   /**
    * @function tollFree
@@ -47,7 +47,7 @@ TollFreeList = class TollFreeList {
    */
   /* jshint ignore:end */
   class TollFreeListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TollFreeListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ TollFreeList = class TollFreeList {
  */
 /* jshint ignore:end */
 TollFreePage = class TollFreePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

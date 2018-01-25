@@ -46,7 +46,7 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    */
   /* jshint ignore:end */
   class DocumentPermissionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DocumentPermissionListInstance.get(sid);
   }
 

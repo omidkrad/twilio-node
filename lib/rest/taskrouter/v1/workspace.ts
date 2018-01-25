@@ -44,7 +44,7 @@ var WorkspaceContext;
  */
 /* jshint ignore:end */
 WorkspaceList = class WorkspaceList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function workspaces
@@ -57,7 +57,7 @@ WorkspaceList = class WorkspaceList {
    */
   /* jshint ignore:end */
   class WorkspaceListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkspaceListInstance.get(sid);
   }
 
@@ -403,7 +403,7 @@ WorkspaceList = class WorkspaceList {
  */
 /* jshint ignore:end */
 WorkspacePage = class WorkspacePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -459,7 +459,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 WorkspaceInstance = class WorkspaceInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -738,7 +738,7 @@ taskChannels() {
  */
 /* jshint ignore:end */
 WorkspaceContext = class WorkspaceContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

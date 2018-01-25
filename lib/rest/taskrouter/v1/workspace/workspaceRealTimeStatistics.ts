@@ -44,7 +44,7 @@ WorkspaceRealTimeStatisticsList = function
    */
   /* jshint ignore:end */
   class WorkspaceRealTimeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkspaceRealTimeStatisticsListInstance.get(sid);
   }
 

@@ -33,7 +33,7 @@ var DailyInstance;
  */
 /* jshint ignore:end */
 DailyList = class DailyList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function daily
@@ -46,7 +46,7 @@ DailyList = class DailyList {
    */
   /* jshint ignore:end */
   class DailyListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return DailyListInstance.get(sid);
   }
 
@@ -329,7 +329,7 @@ DailyList = class DailyList {
  */
 /* jshint ignore:end */
 DailyPage = class DailyPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -382,7 +382,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 DailyInstance = class DailyInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

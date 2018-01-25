@@ -44,7 +44,7 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    */
   /* jshint ignore:end */
   class AuthorizedConnectAppListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AuthorizedConnectAppListInstance.get(sid);
   }
 

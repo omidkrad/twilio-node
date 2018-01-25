@@ -34,7 +34,7 @@ var LocalInstance;
  */
 /* jshint ignore:end */
 LocalList = class LocalList {
-  constructor(version, accountSid, countryCode) {
+  constructor(public version, public accountSid, public countryCode) {
   /* jshint ignore:start */
   /**
    * @function local
@@ -47,7 +47,7 @@ LocalList = class LocalList {
    */
   /* jshint ignore:end */
   class LocalListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return LocalListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ LocalList = class LocalList {
  */
 /* jshint ignore:end */
 LocalPage = class LocalPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

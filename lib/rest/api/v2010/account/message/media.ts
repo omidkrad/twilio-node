@@ -34,7 +34,7 @@ var MediaContext;
  */
 /* jshint ignore:end */
 MediaList = class MediaList {
-  constructor(version, accountSid, messageSid) {
+  constructor(public version, public accountSid, public messageSid) {
   /* jshint ignore:start */
   /**
    * @function media
@@ -47,7 +47,7 @@ MediaList = class MediaList {
    */
   /* jshint ignore:end */
   class MediaListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MediaListInstance.get(sid);
   }
 
@@ -347,7 +347,7 @@ MediaList = class MediaList {
  */
 /* jshint ignore:end */
 MediaPage = class MediaPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -477,7 +477,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 MediaContext = class MediaContext {
-  constructor(version, accountSid, messageSid, sid) {
+  constructor(public version, public accountSid, public messageSid, public sid) {
   this._version = version;
 
   // Path Solution

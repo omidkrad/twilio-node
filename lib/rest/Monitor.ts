@@ -28,7 +28,7 @@ var V1 = require('./monitor/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Monitor {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://monitor.twilio.com');
 
   // Versions

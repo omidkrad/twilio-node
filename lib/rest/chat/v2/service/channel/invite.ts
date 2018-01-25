@@ -34,7 +34,7 @@ var InviteContext;
  */
 /* jshint ignore:end */
 InviteList = class InviteList {
-  constructor(version, serviceSid, channelSid) {
+  constructor(public version, public serviceSid, public channelSid) {
   /* jshint ignore:start */
   /**
    * @function invites
@@ -47,7 +47,7 @@ InviteList = class InviteList {
    */
   /* jshint ignore:end */
   class InviteListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return InviteListInstance.get(sid);
   }
 
@@ -387,7 +387,7 @@ InviteList = class InviteList {
  */
 /* jshint ignore:end */
 InvitePage = class InvitePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -527,7 +527,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 InviteContext = class InviteContext {
-  constructor(version, serviceSid, channelSid, sid) {
+  constructor(public version, public serviceSid, public channelSid, public sid) {
   this._version = version;
 
   // Path Solution

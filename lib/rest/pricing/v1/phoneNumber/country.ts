@@ -28,7 +28,7 @@ var CountryContext;
  */
 /* jshint ignore:end */
 CountryList = class CountryList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function countries
@@ -41,7 +41,7 @@ CountryList = class CountryList {
    */
   /* jshint ignore:end */
   class CountryListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CountryListInstance.get(sid);
   }
 
@@ -322,7 +322,7 @@ CountryList = class CountryList {
  */
 /* jshint ignore:end */
 CountryPage = class CountryPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -367,7 +367,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 CountryInstance = class CountryInstance {
-  constructor(version, payload, isoCountry) {
+  constructor(public version, public payload, public isoCountry) {
   this._version = version;
 
   // Marshaled Properties
@@ -421,7 +421,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 CountryContext = class CountryContext {
-  constructor(version, isoCountry) {
+  constructor(public version, public isoCountry) {
   this._version = version;
 
   // Path Solution

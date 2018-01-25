@@ -45,7 +45,7 @@ WorkspaceCumulativeStatisticsList = function
    */
   /* jshint ignore:end */
   class WorkspaceCumulativeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkspaceCumulativeStatisticsListInstance.get(sid);
   }
 

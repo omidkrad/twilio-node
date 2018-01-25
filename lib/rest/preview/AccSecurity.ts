@@ -26,7 +26,7 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class AccSecurity {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, 'Verification');
 
   // Resources

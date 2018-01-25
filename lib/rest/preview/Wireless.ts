@@ -30,7 +30,7 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Wireless {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, 'wireless');
 
   // Resources

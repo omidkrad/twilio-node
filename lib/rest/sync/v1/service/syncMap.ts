@@ -35,7 +35,7 @@ var SyncMapContext;
  */
 /* jshint ignore:end */
 SyncMapList = class SyncMapList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function syncMaps
@@ -48,7 +48,7 @@ SyncMapList = class SyncMapList {
    */
   /* jshint ignore:end */
   class SyncMapListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SyncMapListInstance.get(sid);
   }
 
@@ -378,7 +378,7 @@ SyncMapList = class SyncMapList {
  */
 /* jshint ignore:end */
 SyncMapPage = class SyncMapPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -431,7 +431,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 SyncMapInstance = class SyncMapInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -564,7 +564,7 @@ syncMapPermissions() {
  */
 /* jshint ignore:end */
 SyncMapContext = class SyncMapContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

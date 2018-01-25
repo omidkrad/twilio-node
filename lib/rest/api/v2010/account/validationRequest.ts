@@ -30,7 +30,7 @@ var ValidationRequestInstance;
  */
 /* jshint ignore:end */
 ValidationRequestList = class ValidationRequestList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function validationRequests
@@ -43,7 +43,7 @@ ValidationRequestList = class ValidationRequestList {
    */
   /* jshint ignore:end */
   class ValidationRequestListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ValidationRequestListInstance.get(sid);
   }
 

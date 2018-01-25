@@ -31,7 +31,7 @@ var VerificationInstance;
  */
 /* jshint ignore:end */
 VerificationList = class VerificationList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function verifications
@@ -44,7 +44,7 @@ VerificationList = class VerificationList {
    */
   /* jshint ignore:end */
   class VerificationListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return VerificationListInstance.get(sid);
   }
 
@@ -126,7 +126,7 @@ VerificationList = class VerificationList {
  */
 /* jshint ignore:end */
 VerificationPage = class VerificationPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

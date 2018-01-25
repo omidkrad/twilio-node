@@ -28,7 +28,7 @@ var NumberContext;
  */
 /* jshint ignore:end */
 NumberList = class NumberList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function numbers
@@ -41,7 +41,7 @@ NumberList = class NumberList {
    */
   /* jshint ignore:end */
   class NumberListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return NumberListInstance.get(sid);
   }
 
@@ -83,7 +83,7 @@ NumberList = class NumberList {
  */
 /* jshint ignore:end */
 NumberPage = class NumberPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -130,7 +130,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 NumberInstance = class NumberInstance {
-  constructor(version, payload, number) {
+  constructor(public version, public payload, public number) {
   this._version = version;
 
   // Marshaled Properties
@@ -186,7 +186,7 @@ fetch(callback) {
  */
 /* jshint ignore:end */
 NumberContext = class NumberContext {
-  constructor(version, number) {
+  constructor(public version, public number) {
   this._version = version;
 
   // Path Solution

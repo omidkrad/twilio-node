@@ -269,7 +269,7 @@ toString() {
  */
 /* jshint ignore:end */
 class Gather {
-  constructor(gather) {
+  constructor(public gather) {
   this.gather = gather;
 }
 
@@ -323,7 +323,7 @@ play(attributes, url) {
  */
 /* jshint ignore:end */
 class Enqueue {
-  constructor(enqueue) {
+  constructor(public enqueue) {
   this.enqueue = enqueue;
 }
 
@@ -350,7 +350,7 @@ task(attributes, body) {
  */
 /* jshint ignore:end */
 class Dial {
-  constructor(dial) {
+  constructor(public dial) {
   this.dial = dial;
 }
 

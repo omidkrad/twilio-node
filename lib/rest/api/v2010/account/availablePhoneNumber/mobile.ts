@@ -34,7 +34,7 @@ var MobileInstance;
  */
 /* jshint ignore:end */
 MobileList = class MobileList {
-  constructor(version, accountSid, countryCode) {
+  constructor(public version, public accountSid, public countryCode) {
   /* jshint ignore:start */
   /**
    * @function mobile
@@ -47,7 +47,7 @@ MobileList = class MobileList {
    */
   /* jshint ignore:end */
   class MobileListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MobileListInstance.get(sid);
   }
 
@@ -417,7 +417,7 @@ MobileList = class MobileList {
  */
 /* jshint ignore:end */
 MobilePage = class MobilePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

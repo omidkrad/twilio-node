@@ -9,7 +9,7 @@ var qs = require('querystring');
  * @param filters
  */
 class EventStreamScope {
-  constructor(filters) {
+  constructor(public filters) {
   this.filters = filters || {};
 }
 
@@ -38,7 +38,7 @@ _.extend(EventStreamScope.prototype, {
  * @param clientName
  */
 class IncomingClientScope {
-  constructor(clientName) {
+  constructor(public clientName) {
   this.clientName = clientName;
 }
 
@@ -59,7 +59,7 @@ _.extend(IncomingClientScope.prototype, {
  * @param {object} [options.params] - parameters
  */
 class OutgoingClientScope {
-  constructor(options) {
+  constructor(public options) {
   if (_.isUndefined(options)) {
     throw new Error('Required parameter "options" missing.');
   }
@@ -102,7 +102,7 @@ _.extend(OutgoingClientScope.prototype, {
  * @param options
  */
 class ClientCapability {
-  constructor(options) {
+  constructor(public options) {
   if (_.isUndefined(options)) {
     throw new Error('Required parameter "options" missing.');
   }

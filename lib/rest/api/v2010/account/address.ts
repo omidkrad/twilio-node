@@ -34,7 +34,7 @@ var AddressContext;
  */
 /* jshint ignore:end */
 AddressList = class AddressList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function addresses
@@ -47,7 +47,7 @@ AddressList = class AddressList {
    */
   /* jshint ignore:end */
   class AddressListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return AddressListInstance.get(sid);
   }
 
@@ -428,7 +428,7 @@ AddressList = class AddressList {
  */
 /* jshint ignore:end */
 AddressPage = class AddressPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -483,7 +483,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 AddressInstance = class AddressInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -609,7 +609,7 @@ AddressInstance.prototype.dependentPhoneNumbers = function
  */
 /* jshint ignore:end */
 AddressContext = class AddressContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

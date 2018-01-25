@@ -32,7 +32,7 @@ var BindingContext;
  */
 /* jshint ignore:end */
 BindingList = class BindingList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function bindings
@@ -45,7 +45,7 @@ BindingList = class BindingList {
    */
   /* jshint ignore:end */
   class BindingListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return BindingListInstance.get(sid);
   }
 
@@ -340,7 +340,7 @@ BindingList = class BindingList {
  */
 /* jshint ignore:end */
 BindingPage = class BindingPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -393,7 +393,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 BindingInstance = class BindingInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -472,7 +472,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 BindingContext = class BindingContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

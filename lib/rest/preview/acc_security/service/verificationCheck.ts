@@ -31,7 +31,7 @@ var VerificationCheckInstance;
  */
 /* jshint ignore:end */
 VerificationCheckList = class VerificationCheckList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function verificationChecks
@@ -44,7 +44,7 @@ VerificationCheckList = class VerificationCheckList {
    */
   /* jshint ignore:end */
   class VerificationCheckListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return VerificationCheckListInstance.get(sid);
   }
 

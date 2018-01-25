@@ -68,7 +68,7 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class V2010 {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, '2010-04-01');
 
   // Resources

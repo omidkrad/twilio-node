@@ -46,7 +46,7 @@ TaskQueueStatisticsList = function TaskQueueStatisticsList(version,
    */
   /* jshint ignore:end */
   class TaskQueueStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return TaskQueueStatisticsListInstance.get(sid);
   }
 

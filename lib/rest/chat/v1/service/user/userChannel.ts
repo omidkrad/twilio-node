@@ -31,7 +31,7 @@ var UserChannelInstance;
  */
 /* jshint ignore:end */
 UserChannelList = class UserChannelList {
-  constructor(version, serviceSid, userSid) {
+  constructor(public version, public serviceSid, public userSid) {
   /* jshint ignore:start */
   /**
    * @function userChannels
@@ -44,7 +44,7 @@ UserChannelList = class UserChannelList {
    */
   /* jshint ignore:end */
   class UserChannelListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return UserChannelListInstance.get(sid);
   }
 
@@ -308,7 +308,7 @@ UserChannelList = class UserChannelList {
  */
 /* jshint ignore:end */
 UserChannelPage = class UserChannelPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

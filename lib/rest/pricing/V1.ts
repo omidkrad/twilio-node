@@ -31,7 +31,7 @@ var VoiceList = require('./v1/voice').VoiceList;
  */
 /* jshint ignore:end */
 class V1 {
-  constructor(domain) {
+  constructor(public domain) {
   Version.prototype.constructor.call(this, domain, 'v1');
 
   // Resources

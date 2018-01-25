@@ -45,7 +45,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    */
   /* jshint ignore:end */
   class CredentialListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CredentialListInstance.get(sid);
   }
 
@@ -384,7 +384,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
  */
 /* jshint ignore:end */
 CredentialPage = class CredentialPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 

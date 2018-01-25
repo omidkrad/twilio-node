@@ -33,7 +33,7 @@ var YesterdayInstance;
  */
 /* jshint ignore:end */
 YesterdayList = class YesterdayList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function yesterday
@@ -46,7 +46,7 @@ YesterdayList = class YesterdayList {
    */
   /* jshint ignore:end */
   class YesterdayListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return YesterdayListInstance.get(sid);
   }
 
@@ -329,7 +329,7 @@ YesterdayList = class YesterdayList {
  */
 /* jshint ignore:end */
 YesterdayPage = class YesterdayPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -382,7 +382,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 YesterdayInstance = class YesterdayInstance {
-  constructor(version, payload, accountSid) {
+  constructor(public version, public payload, public accountSid) {
   this._version = version;
 
   // Marshaled Properties

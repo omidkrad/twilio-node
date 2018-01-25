@@ -28,7 +28,7 @@ var V1 = require('./lookups/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Lookups {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://lookups.twilio.com');
 
   // Versions

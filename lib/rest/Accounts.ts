@@ -27,7 +27,7 @@ var V1 = require('./accounts/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Accounts {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://accounts.twilio.com');
 
   // Versions

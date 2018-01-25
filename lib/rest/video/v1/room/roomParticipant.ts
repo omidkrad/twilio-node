@@ -34,7 +34,7 @@ var ParticipantContext;
  */
 /* jshint ignore:end */
 ParticipantList = class ParticipantList {
-  constructor(version, roomSid) {
+  constructor(public version, public roomSid) {
   /* jshint ignore:start */
   /**
    * @function participants
@@ -47,7 +47,7 @@ ParticipantList = class ParticipantList {
    */
   /* jshint ignore:end */
   class ParticipantListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return ParticipantListInstance.get(sid);
   }
 
@@ -352,7 +352,7 @@ ParticipantList = class ParticipantList {
  */
 /* jshint ignore:end */
 ParticipantPage = class ParticipantPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -504,7 +504,7 @@ publishedTracks() {
  */
 /* jshint ignore:end */
 ParticipantContext = class ParticipantContext {
-  constructor(version, roomSid, sid) {
+  constructor(public version, public roomSid, public sid) {
   this._version = version;
 
   // Path Solution

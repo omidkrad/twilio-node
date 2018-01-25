@@ -28,7 +28,7 @@ var V1 = require('./notify/V1');  /* jshint ignore:line */
  */
 /* jshint ignore:end */
 class Notify {
-  constructor(twilio) {
+  constructor(public twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://notify.twilio.com');
 
   // Versions

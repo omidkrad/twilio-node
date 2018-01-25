@@ -46,7 +46,7 @@ WorkersCumulativeStatisticsList = function
    */
   /* jshint ignore:end */
   class WorkersCumulativeStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkersCumulativeStatisticsListInstance.get(sid);
   }
 

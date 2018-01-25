@@ -32,7 +32,7 @@ var RatePlanContext;
  */
 /* jshint ignore:end */
 RatePlanList = class RatePlanList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function ratePlans
@@ -45,7 +45,7 @@ RatePlanList = class RatePlanList {
    */
   /* jshint ignore:end */
   class RatePlanListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return RatePlanListInstance.get(sid);
   }
 
@@ -389,7 +389,7 @@ RatePlanList = class RatePlanList {
  */
 /* jshint ignore:end */
 RatePlanPage = class RatePlanPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -444,7 +444,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 RatePlanInstance = class RatePlanInstance {
-  constructor(version, payload, sid) {
+  constructor(public version, public payload, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -545,7 +545,7 @@ remove(callback) {
  */
 /* jshint ignore:end */
 RatePlanContext = class RatePlanContext {
-  constructor(version, sid) {
+  constructor(public version, public sid) {
   this._version = version;
 
   // Path Solution

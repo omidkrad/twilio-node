@@ -50,7 +50,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    */
   /* jshint ignore:end */
   class MessageInteractionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return MessageInteractionListInstance.get(sid);
   }
 

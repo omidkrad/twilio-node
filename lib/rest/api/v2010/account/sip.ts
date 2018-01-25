@@ -28,7 +28,7 @@ var SipList;
  */
 /* jshint ignore:end */
 SipList = class SipList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function sip
@@ -41,7 +41,7 @@ SipList = class SipList {
    */
   /* jshint ignore:end */
   class SipListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SipListInstance.get(sid);
   }
 

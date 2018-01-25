@@ -32,7 +32,7 @@ var QueueContext;
  */
 /* jshint ignore:end */
 QueueList = class QueueList {
-  constructor(version, accountSid) {
+  constructor(public version, public accountSid) {
   /* jshint ignore:start */
   /**
    * @function queues
@@ -45,7 +45,7 @@ QueueList = class QueueList {
    */
   /* jshint ignore:end */
   class QueueListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return QueueListInstance.get(sid);
   }
 
@@ -379,7 +379,7 @@ QueueList = class QueueList {
  */
 /* jshint ignore:end */
 QueuePage = class QueuePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -430,7 +430,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 QueueInstance = class QueueInstance {
-  constructor(version, payload, accountSid, sid) {
+  constructor(public version, public payload, public accountSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -544,7 +544,7 @@ members() {
  */
 /* jshint ignore:end */
 QueueContext = class QueueContext {
-  constructor(version, accountSid, sid) {
+  constructor(public version, public accountSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -31,7 +31,7 @@ var WorkersStatisticsContext;
  */
 /* jshint ignore:end */
 WorkersStatisticsList = class WorkersStatisticsList {
-  constructor(version, workspaceSid) {
+  constructor(public version, public workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function statistics
@@ -44,7 +44,7 @@ WorkersStatisticsList = class WorkersStatisticsList {
    */
   /* jshint ignore:end */
   class WorkersStatisticsListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return WorkersStatisticsListInstance.get(sid);
   }
 

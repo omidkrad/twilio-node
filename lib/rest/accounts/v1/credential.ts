@@ -24,7 +24,7 @@ var CredentialList;
  */
 /* jshint ignore:end */
 CredentialList = class CredentialList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function credentials
@@ -37,7 +37,7 @@ CredentialList = class CredentialList {
    */
   /* jshint ignore:end */
   class CredentialListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return CredentialListInstance.get(sid);
   }
 

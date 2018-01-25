@@ -35,7 +35,7 @@ var SessionContext;
  */
 /* jshint ignore:end */
 SessionList = class SessionList {
-  constructor(version, serviceSid) {
+  constructor(public version, public serviceSid) {
   /* jshint ignore:start */
   /**
    * @function sessions
@@ -48,7 +48,7 @@ SessionList = class SessionList {
    */
   /* jshint ignore:end */
   class SessionListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SessionListInstance.get(sid);
   }
 
@@ -409,7 +409,7 @@ SessionList = class SessionList {
  */
 /* jshint ignore:end */
 SessionPage = class SessionPage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -468,7 +468,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 SessionInstance = class SessionInstance {
-  constructor(version, payload, serviceSid, sid) {
+  constructor(public version, public payload, public serviceSid, public sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -613,7 +613,7 @@ participants() {
  */
 /* jshint ignore:end */
 SessionContext = class SessionContext {
-  constructor(version, serviceSid, sid) {
+  constructor(public version, public serviceSid, public sid) {
   this._version = version;
 
   // Path Solution

@@ -27,7 +27,7 @@ var VoiceInstance;
  */
 /* jshint ignore:end */
 VoiceList = class VoiceList {
-  constructor(version) {
+  constructor(public version) {
   /* jshint ignore:start */
   /**
    * @function voice
@@ -40,7 +40,7 @@ VoiceList = class VoiceList {
    */
   /* jshint ignore:end */
   class VoiceListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return VoiceListInstance.get(sid);
   }
 
@@ -92,7 +92,7 @@ VoiceList = class VoiceList {
  */
 /* jshint ignore:end */
 VoicePage = class VoicePage {
-  constructor(version, response, solution) {
+  constructor(public version, public response, public solution) {
   // Path Solution
   this._solution = solution;
 
@@ -134,7 +134,7 @@ getInstance(payload) {
  */
 /* jshint ignore:end */
 VoiceInstance = class VoiceInstance {
-  constructor(version, payload) {
+  constructor(public version, public payload) {
   this._version = version;
 
   // Marshaled Properties

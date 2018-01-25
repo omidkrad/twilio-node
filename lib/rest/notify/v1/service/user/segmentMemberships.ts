@@ -44,7 +44,7 @@ SegmentMembershipList = function SegmentMembershipList(version, serviceSid,
    */
   /* jshint ignore:end */
   class SegmentMembershipListInstance {
-  constructor(sid) {
+  constructor(public sid) {
     return SegmentMembershipListInstance.get(sid);
   }
 
