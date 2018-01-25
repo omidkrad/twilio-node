@@ -27,15 +27,16 @@ var V1 = require('./video/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Video(twilio) {
+class Video {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://video.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Video.prototype, Domain.prototype);
-Video.prototype.constructor = Video;
+class Video extends Domain {
+
 
 Object.defineProperty(Video.prototype,
   'v1', {

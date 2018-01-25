@@ -31,7 +31,8 @@ var KeyContext;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-KeyList = function KeyList(version, accountSid) {
+KeyList = class KeyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function keys
@@ -43,7 +44,8 @@ KeyList = function KeyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.KeyContext}
    */
   /* jshint ignore:end */
-  function KeyListInstance(sid) {
+  class KeyListInstance {
+  constructor(sid) {
     return KeyListInstance.get(sid);
   }
 
@@ -323,15 +325,16 @@ KeyList = function KeyList(version, accountSid) {
  * @returns KeyPage
  */
 /* jshint ignore:end */
-KeyPage = function KeyPage(version, response, solution) {
+KeyPage = class KeyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(KeyPage.prototype, Page.prototype);
-KeyPage.prototype.constructor = KeyPage;
+class KeyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -346,7 +349,7 @@ KeyPage.prototype.constructor = KeyPage;
  * @returns KeyInstance
  */
 /* jshint ignore:end */
-KeyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new KeyInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -367,7 +370,8 @@ KeyPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-KeyInstance = function KeyInstance(version, payload, accountSid, sid) {
+KeyInstance = class KeyInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -405,7 +409,7 @@ Object.defineProperty(KeyInstance.prototype,
  * @returns {Promise} Resolves to processed KeyInstance
  */
 /* jshint ignore:end */
-KeyInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -424,7 +428,7 @@ KeyInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed KeyInstance
  */
 /* jshint ignore:end */
-KeyInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -441,7 +445,7 @@ KeyInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed KeyInstance
  */
 /* jshint ignore:end */
-KeyInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -456,7 +460,8 @@ KeyInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-KeyContext = function KeyContext(version, accountSid, sid) {
+KeyContext = class KeyContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -479,7 +484,7 @@ KeyContext = function KeyContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed KeyInstance
  */
 /* jshint ignore:end */
-KeyContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -518,7 +523,7 @@ KeyContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed KeyInstance
  */
 /* jshint ignore:end */
-KeyContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -563,7 +568,7 @@ KeyContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed KeyInstance
  */
 /* jshint ignore:end */
-KeyContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

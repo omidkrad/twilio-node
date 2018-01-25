@@ -32,7 +32,8 @@ var TaskContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-TaskList = function TaskList(version, workspaceSid) {
+TaskList = class TaskList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function tasks
@@ -44,7 +45,8 @@ TaskList = function TaskList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskContext}
    */
   /* jshint ignore:end */
-  function TaskListInstance(sid) {
+  class TaskListInstance {
+  constructor(sid) {
     return TaskListInstance.get(sid);
   }
 
@@ -430,15 +432,16 @@ TaskList = function TaskList(version, workspaceSid) {
  * @returns TaskPage
  */
 /* jshint ignore:end */
-TaskPage = function TaskPage(version, response, solution) {
+TaskPage = class TaskPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TaskPage.prototype, Page.prototype);
-TaskPage.prototype.constructor = TaskPage;
+class TaskPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -453,7 +456,7 @@ TaskPage.prototype.constructor = TaskPage;
  * @returns TaskInstance
  */
 /* jshint ignore:end */
-TaskPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TaskInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -490,7 +493,8 @@ TaskPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-TaskInstance = function TaskInstance(version, payload, workspaceSid, sid) {
+TaskInstance = class TaskInstance {
+  constructor(version, payload, workspaceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -544,7 +548,7 @@ Object.defineProperty(TaskInstance.prototype,
  * @returns {Promise} Resolves to processed TaskInstance
  */
 /* jshint ignore:end */
-TaskInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -567,7 +571,7 @@ TaskInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TaskInstance
  */
 /* jshint ignore:end */
-TaskInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -584,7 +588,7 @@ TaskInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed TaskInstance
  */
 /* jshint ignore:end */
-TaskInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -599,7 +603,7 @@ TaskInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskContext.ReservationList}
  */
 /* jshint ignore:end */
-TaskInstance.prototype.reservations = function reservations() {
+reservations() {
   return this._proxy.reservations;
 };
 
@@ -617,7 +621,8 @@ TaskInstance.prototype.reservations = function reservations() {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-TaskContext = function TaskContext(version, workspaceSid, sid) {
+TaskContext = class TaskContext {
+  constructor(version, workspaceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -643,7 +648,7 @@ TaskContext = function TaskContext(version, workspaceSid, sid) {
  * @returns {Promise} Resolves to processed TaskInstance
  */
 /* jshint ignore:end */
-TaskContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -686,7 +691,7 @@ TaskContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TaskInstance
  */
 /* jshint ignore:end */
-TaskContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -737,7 +742,7 @@ TaskContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed TaskInstance
  */
 /* jshint ignore:end */
-TaskContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

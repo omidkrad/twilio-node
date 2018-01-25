@@ -31,7 +31,8 @@ var LocalInstance;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-LocalList = function LocalList(version, accountSid) {
+LocalList = class LocalList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function local
@@ -43,7 +44,8 @@ LocalList = function LocalList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberContext.LocalContext}
    */
   /* jshint ignore:end */
-  function LocalListInstance(sid) {
+  class LocalListInstance {
+  constructor(sid) {
     return LocalListInstance.get(sid);
   }
 
@@ -410,15 +412,16 @@ LocalList = function LocalList(version, accountSid) {
  * @returns LocalPage
  */
 /* jshint ignore:end */
-LocalPage = function LocalPage(version, response, solution) {
+LocalPage = class LocalPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(LocalPage.prototype, Page.prototype);
-LocalPage.prototype.constructor = LocalPage;
+class LocalPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -433,7 +436,7 @@ LocalPage.prototype.constructor = LocalPage;
  * @returns LocalInstance
  */
 /* jshint ignore:end */
-LocalPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new LocalInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -477,7 +480,8 @@ LocalPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-LocalInstance = function LocalInstance(version, payload, accountSid) {
+LocalInstance = class LocalInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

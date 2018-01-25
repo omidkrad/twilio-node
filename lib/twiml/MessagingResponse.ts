@@ -17,7 +17,8 @@ var builder = require('xmlbuilder');  /* jshint ignore:line */
  * <Response> TwiML for Messages
  */
 /* jshint ignore:end */
-function MessagingResponse() {
+class MessagingResponse {
+  constructor() {
   this.response = builder.create('Response').dec('1.0', 'UTF-8');
 }
 
@@ -36,7 +37,7 @@ function MessagingResponse() {
  * @returns Message
  */
 /* jshint ignore:end */
-MessagingResponse.prototype.message = function message(attributes, body) {
+message(attributes, body) {
   return new Message(this.response.ele('Message', attributes, body));
 };
 
@@ -49,7 +50,7 @@ MessagingResponse.prototype.message = function message(attributes, body) {
  * @param {url} url Redirect URL
  */
 /* jshint ignore:end */
-MessagingResponse.prototype.redirect = function redirect(attributes, url) {
+redirect(attributes, url) {
   this.response.ele('Redirect', attributes, url);
 };
 
@@ -60,7 +61,7 @@ MessagingResponse.prototype.redirect = function redirect(attributes, url) {
  * @returns TwiML XML
  */
 /* jshint ignore:end */
-MessagingResponse.prototype.toString = function toString() {
+toString() {
   return this.response.end();
 };
 
@@ -72,7 +73,8 @@ MessagingResponse.prototype.toString = function toString() {
  * @param {object} message message <Message> TwiML Verb
  */
 /* jshint ignore:end */
-function Message(message) {
+class Message {
+  constructor(message) {
   this.message = message;
 }
 
@@ -84,7 +86,7 @@ function Message(message) {
  * @param {string} message Message Body
  */
 /* jshint ignore:end */
-Message.prototype.body = function body(attributes, message) {
+body(attributes, message) {
   this.message.ele('Body', attributes, message);
 };
 
@@ -96,7 +98,7 @@ Message.prototype.body = function body(attributes, message) {
  * @param {url} url Media URL
  */
 /* jshint ignore:end */
-Message.prototype.media = function media(attributes, url) {
+media(attributes, url) {
   this.message.ele('Media', attributes, url);
 };
 

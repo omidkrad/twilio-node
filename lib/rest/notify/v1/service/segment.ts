@@ -30,7 +30,8 @@ var SegmentInstance;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-SegmentList = function SegmentList(version, serviceSid) {
+SegmentList = class SegmentList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function segments
@@ -42,7 +43,8 @@ SegmentList = function SegmentList(version, serviceSid) {
    * @returns {Twilio.Notify.V1.ServiceContext.SegmentContext}
    */
   /* jshint ignore:end */
-  function SegmentListInstance(sid) {
+  class SegmentListInstance {
+  constructor(sid) {
     return SegmentListInstance.get(sid);
   }
 
@@ -306,15 +308,16 @@ SegmentList = function SegmentList(version, serviceSid) {
  * @returns SegmentPage
  */
 /* jshint ignore:end */
-SegmentPage = function SegmentPage(version, response, solution) {
+SegmentPage = class SegmentPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SegmentPage.prototype, Page.prototype);
-SegmentPage.prototype.constructor = SegmentPage;
+class SegmentPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -329,7 +332,7 @@ SegmentPage.prototype.constructor = SegmentPage;
  * @returns SegmentInstance
  */
 /* jshint ignore:end */
-SegmentPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SegmentInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -351,7 +354,8 @@ SegmentPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-SegmentInstance = function SegmentInstance(version, payload, serviceSid) {
+SegmentInstance = class SegmentInstance {
+  constructor(version, payload, serviceSid) {
   this._version = version;
 
   // Marshaled Properties

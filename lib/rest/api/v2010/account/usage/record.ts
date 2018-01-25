@@ -40,7 +40,8 @@ var RecordInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-RecordList = function RecordList(version, accountSid) {
+RecordList = class RecordList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function records
@@ -52,7 +53,8 @@ RecordList = function RecordList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext}
    */
   /* jshint ignore:end */
-  function RecordListInstance(sid) {
+  class RecordListInstance {
+  constructor(sid) {
     return RecordListInstance.get(sid);
   }
 
@@ -437,15 +439,16 @@ RecordList = function RecordList(version, accountSid) {
  * @returns RecordPage
  */
 /* jshint ignore:end */
-RecordPage = function RecordPage(version, response, solution) {
+RecordPage = class RecordPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RecordPage.prototype, Page.prototype);
-RecordPage.prototype.constructor = RecordPage;
+class RecordPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -460,7 +463,7 @@ RecordPage.prototype.constructor = RecordPage;
  * @returns RecordInstance
  */
 /* jshint ignore:end */
-RecordPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RecordInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -491,7 +494,8 @@ RecordPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-RecordInstance = function RecordInstance(version, payload, accountSid) {
+RecordInstance = class RecordInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

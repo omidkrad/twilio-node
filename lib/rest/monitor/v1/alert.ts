@@ -30,7 +30,8 @@ var AlertContext;
  * @param {Twilio.Monitor.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-AlertList = function AlertList(version) {
+AlertList = class AlertList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function alerts
@@ -42,7 +43,8 @@ AlertList = function AlertList(version) {
    * @returns {Twilio.Monitor.V1.AlertContext}
    */
   /* jshint ignore:end */
-  function AlertListInstance(sid) {
+  class AlertListInstance {
+  constructor(sid) {
     return AlertListInstance.get(sid);
   }
 
@@ -341,15 +343,16 @@ AlertList = function AlertList(version) {
  * @returns AlertPage
  */
 /* jshint ignore:end */
-AlertPage = function AlertPage(version, response, solution) {
+AlertPage = class AlertPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AlertPage.prototype, Page.prototype);
-AlertPage.prototype.constructor = AlertPage;
+class AlertPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -364,7 +367,7 @@ AlertPage.prototype.constructor = AlertPage;
  * @returns AlertInstance
  */
 /* jshint ignore:end */
-AlertPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AlertInstance(this._version, payload);
 };
 
@@ -397,7 +400,8 @@ AlertPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-AlertInstance = function AlertInstance(version, payload, sid) {
+AlertInstance = class AlertInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -448,7 +452,7 @@ Object.defineProperty(AlertInstance.prototype,
  * @returns {Promise} Resolves to processed AlertInstance
  */
 /* jshint ignore:end */
-AlertInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -465,7 +469,7 @@ AlertInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AlertInstance
  */
 /* jshint ignore:end */
-AlertInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -479,7 +483,8 @@ AlertInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-AlertContext = function AlertContext(version, sid) {
+AlertContext = class AlertContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -502,7 +507,7 @@ AlertContext = function AlertContext(version, sid) {
  * @returns {Promise} Resolves to processed AlertInstance
  */
 /* jshint ignore:end */
-AlertContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -534,7 +539,7 @@ AlertContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AlertInstance
  */
 /* jshint ignore:end */
-AlertContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

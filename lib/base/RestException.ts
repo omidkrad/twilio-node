@@ -1,7 +1,8 @@
 'use strict';
 var util = require('util');
 
-function RestException(response) {
+class RestException {
+  constructor(response) {
   Error.call('[HTTP ' + response.statusCode + '] Failed to execute request');
 
   var body = JSON.parse(response.body);

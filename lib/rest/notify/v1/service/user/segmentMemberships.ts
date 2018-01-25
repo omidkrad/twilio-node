@@ -43,7 +43,8 @@ SegmentMembershipList = function SegmentMembershipList(version, serviceSid,
    * @returns {Twilio.Notify.V1.ServiceContext.UserContext.SegmentMembershipContext}
    */
   /* jshint ignore:end */
-  function SegmentMembershipListInstance(sid) {
+  class SegmentMembershipListInstance {
+  constructor(sid) {
     return SegmentMembershipListInstance.get(sid);
   }
 
@@ -149,8 +150,8 @@ SegmentMembershipPage = function SegmentMembershipPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SegmentMembershipPage.prototype, Page.prototype);
-SegmentMembershipPage.prototype.constructor = SegmentMembershipPage;
+class SegmentMembershipPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -165,7 +166,7 @@ SegmentMembershipPage.prototype.constructor = SegmentMembershipPage;
  * @returns SegmentMembershipInstance
  */
 /* jshint ignore:end */
-SegmentMembershipPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SegmentMembershipInstance(
     this._version,
     payload,
@@ -239,7 +240,7 @@ Object.defineProperty(SegmentMembershipInstance.prototype,
  * @returns {Promise} Resolves to processed SegmentMembershipInstance
  */
 /* jshint ignore:end */
-SegmentMembershipInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -256,7 +257,7 @@ SegmentMembershipInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SegmentMembershipInstance
  */
 /* jshint ignore:end */
-SegmentMembershipInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -297,7 +298,7 @@ SegmentMembershipContext = function SegmentMembershipContext(version,
  * @returns {Promise} Resolves to processed SegmentMembershipInstance
  */
 /* jshint ignore:end */
-SegmentMembershipContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -329,7 +330,7 @@ SegmentMembershipContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SegmentMembershipInstance
  */
 /* jshint ignore:end */
-SegmentMembershipContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

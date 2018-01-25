@@ -67,7 +67,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Api} domain - The twilio domain
  */
 /* jshint ignore:end */
-function V2010(domain) {
+class V2010 {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, '2010-04-01');
 
   // Resources
@@ -75,8 +76,8 @@ function V2010(domain) {
   this._account = undefined;
 }
 
-_.extend(V2010.prototype, Version.prototype);
-V2010.prototype.constructor = V2010;
+class V2010 extends Version {
+
 
 Object.defineProperty(V2010.prototype,
   'accounts', {

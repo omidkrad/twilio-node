@@ -30,7 +30,8 @@ var VerificationCheckInstance;
  * @param {string} serviceSid - Service Sid.
  */
 /* jshint ignore:end */
-VerificationCheckList = function VerificationCheckList(version, serviceSid) {
+VerificationCheckList = class VerificationCheckList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function verificationChecks
@@ -42,7 +43,8 @@ VerificationCheckList = function VerificationCheckList(version, serviceSid) {
    * @returns {Twilio.Preview.AccSecurity.ServiceContext.VerificationCheckContext}
    */
   /* jshint ignore:end */
-  function VerificationCheckListInstance(sid) {
+  class VerificationCheckListInstance {
+  constructor(sid) {
     return VerificationCheckListInstance.get(sid);
   }
 
@@ -123,8 +125,8 @@ VerificationCheckPage = function VerificationCheckPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(VerificationCheckPage.prototype, Page.prototype);
-VerificationCheckPage.prototype.constructor = VerificationCheckPage;
+class VerificationCheckPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -139,7 +141,7 @@ VerificationCheckPage.prototype.constructor = VerificationCheckPage;
  * @returns VerificationCheckInstance
  */
 /* jshint ignore:end */
-VerificationCheckPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new VerificationCheckInstance(this._version, payload, this._solution.serviceSid);
 };
 

@@ -29,7 +29,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function Wireless(domain) {
+class Wireless {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'wireless');
 
   // Resources
@@ -38,8 +39,8 @@ function Wireless(domain) {
   this._sims = undefined;
 }
 
-_.extend(Wireless.prototype, Version.prototype);
-Wireless.prototype.constructor = Wireless;
+class Wireless extends Version {
+
 
 Object.defineProperty(Wireless.prototype,
   'commands', {

@@ -31,7 +31,8 @@ var SigningKeyContext;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-SigningKeyList = function SigningKeyList(version, accountSid) {
+SigningKeyList = class SigningKeyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function signingKeys
@@ -43,7 +44,8 @@ SigningKeyList = function SigningKeyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.SigningKeyContext}
    */
   /* jshint ignore:end */
-  function SigningKeyListInstance(sid) {
+  class SigningKeyListInstance {
+  constructor(sid) {
     return SigningKeyListInstance.get(sid);
   }
 
@@ -323,15 +325,16 @@ SigningKeyList = function SigningKeyList(version, accountSid) {
  * @returns SigningKeyPage
  */
 /* jshint ignore:end */
-SigningKeyPage = function SigningKeyPage(version, response, solution) {
+SigningKeyPage = class SigningKeyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SigningKeyPage.prototype, Page.prototype);
-SigningKeyPage.prototype.constructor = SigningKeyPage;
+class SigningKeyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -346,7 +349,7 @@ SigningKeyPage.prototype.constructor = SigningKeyPage;
  * @returns SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SigningKeyInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -406,7 +409,7 @@ Object.defineProperty(SigningKeyInstance.prototype,
  * @returns {Promise} Resolves to processed SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -425,7 +428,7 @@ SigningKeyInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -442,7 +445,7 @@ SigningKeyInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -457,7 +460,8 @@ SigningKeyInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-SigningKeyContext = function SigningKeyContext(version, accountSid, sid) {
+SigningKeyContext = class SigningKeyContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -480,7 +484,7 @@ SigningKeyContext = function SigningKeyContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -519,7 +523,7 @@ SigningKeyContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -564,7 +568,7 @@ SigningKeyContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed SigningKeyInstance
  */
 /* jshint ignore:end */
-SigningKeyContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

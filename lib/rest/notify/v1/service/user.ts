@@ -35,7 +35,8 @@ var UserContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-UserList = function UserList(version, serviceSid) {
+UserList = class UserList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function users
@@ -47,7 +48,8 @@ UserList = function UserList(version, serviceSid) {
    * @returns {Twilio.Notify.V1.ServiceContext.UserContext}
    */
   /* jshint ignore:end */
-  function UserListInstance(sid) {
+  class UserListInstance {
+  constructor(sid) {
     return UserListInstance.get(sid);
   }
 
@@ -393,15 +395,16 @@ UserList = function UserList(version, serviceSid) {
  * @returns UserPage
  */
 /* jshint ignore:end */
-UserPage = function UserPage(version, response, solution) {
+UserPage = class UserPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(UserPage.prototype, Page.prototype);
-UserPage.prototype.constructor = UserPage;
+class UserPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -416,7 +419,7 @@ UserPage.prototype.constructor = UserPage;
  * @returns UserInstance
  */
 /* jshint ignore:end */
-UserPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new UserInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -443,7 +446,8 @@ UserPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} identity - The identity
  */
 /* jshint ignore:end */
-UserInstance = function UserInstance(version, payload, serviceSid, identity) {
+UserInstance = class UserInstance {
+  constructor(version, payload, serviceSid, identity) {
   this._version = version;
 
   // Marshaled Properties
@@ -486,7 +490,7 @@ Object.defineProperty(UserInstance.prototype,
  * @returns {Promise} Resolves to processed UserInstance
  */
 /* jshint ignore:end */
-UserInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -503,7 +507,7 @@ UserInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed UserInstance
  */
 /* jshint ignore:end */
-UserInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -518,7 +522,7 @@ UserInstance.prototype.fetch = function fetch(callback) {
  * @returns {Twilio.Notify.V1.ServiceContext.UserContext.UserBindingList}
  */
 /* jshint ignore:end */
-UserInstance.prototype.bindings = function bindings() {
+bindings() {
   return this._proxy.bindings;
 };
 
@@ -533,7 +537,7 @@ UserInstance.prototype.bindings = function bindings() {
  * @returns {Twilio.Notify.V1.ServiceContext.UserContext.SegmentMembershipList}
  */
 /* jshint ignore:end */
-UserInstance.prototype.segmentMemberships = function segmentMemberships() {
+segmentMemberships() {
   return this._proxy.segmentMemberships;
 };
 
@@ -554,7 +558,8 @@ UserInstance.prototype.segmentMemberships = function segmentMemberships() {
  * @param {sid_like} identity - The identity
  */
 /* jshint ignore:end */
-UserContext = function UserContext(version, serviceSid, identity) {
+UserContext = class UserContext {
+  constructor(version, serviceSid, identity) {
   this._version = version;
 
   // Path Solution
@@ -581,7 +586,7 @@ UserContext = function UserContext(version, serviceSid, identity) {
  * @returns {Promise} Resolves to processed UserInstance
  */
 /* jshint ignore:end */
-UserContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -613,7 +618,7 @@ UserContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed UserInstance
  */
 /* jshint ignore:end */
-UserContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

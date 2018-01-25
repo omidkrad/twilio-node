@@ -30,7 +30,8 @@ var AvailableAddOnContext;
  * @param {Twilio.Preview.Marketplace} version - Version of the resource
  */
 /* jshint ignore:end */
-AvailableAddOnList = function AvailableAddOnList(version) {
+AvailableAddOnList = class AvailableAddOnList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function availableAddOns
@@ -42,7 +43,8 @@ AvailableAddOnList = function AvailableAddOnList(version) {
    * @returns {Twilio.Preview.Marketplace.AvailableAddOnContext}
    */
   /* jshint ignore:end */
-  function AvailableAddOnListInstance(sid) {
+  class AvailableAddOnListInstance {
+  constructor(sid) {
     return AvailableAddOnListInstance.get(sid);
   }
 
@@ -323,15 +325,16 @@ AvailableAddOnList = function AvailableAddOnList(version) {
  * @returns AvailableAddOnPage
  */
 /* jshint ignore:end */
-AvailableAddOnPage = function AvailableAddOnPage(version, response, solution) {
+AvailableAddOnPage = class AvailableAddOnPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AvailableAddOnPage.prototype, Page.prototype);
-AvailableAddOnPage.prototype.constructor = AvailableAddOnPage;
+class AvailableAddOnPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -346,7 +349,7 @@ AvailableAddOnPage.prototype.constructor = AvailableAddOnPage;
  * @returns AvailableAddOnInstance
  */
 /* jshint ignore:end */
-AvailableAddOnPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AvailableAddOnInstance(this._version, payload);
 };
 
@@ -414,7 +417,7 @@ Object.defineProperty(AvailableAddOnInstance.prototype,
  * @returns {Promise} Resolves to processed AvailableAddOnInstance
  */
 /* jshint ignore:end */
-AvailableAddOnInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -429,7 +432,7 @@ AvailableAddOnInstance.prototype.fetch = function fetch(callback) {
  * @returns {Twilio.Preview.Marketplace.AvailableAddOnContext.AvailableAddOnExtensionList}
  */
 /* jshint ignore:end */
-AvailableAddOnInstance.prototype.extensions = function extensions() {
+extensions() {
   return this._proxy.extensions;
 };
 
@@ -447,7 +450,8 @@ AvailableAddOnInstance.prototype.extensions = function extensions() {
  * @param {sid} sid - The unique Available Add-on Sid
  */
 /* jshint ignore:end */
-AvailableAddOnContext = function AvailableAddOnContext(version, sid) {
+AvailableAddOnContext = class AvailableAddOnContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -473,7 +477,7 @@ AvailableAddOnContext = function AvailableAddOnContext(version, sid) {
  * @returns {Promise} Resolves to processed AvailableAddOnInstance
  */
 /* jshint ignore:end */
-AvailableAddOnContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

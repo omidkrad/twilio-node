@@ -31,7 +31,8 @@ var RatePlanContext;
  * @param {Twilio.Preview.Wireless} version - Version of the resource
  */
 /* jshint ignore:end */
-RatePlanList = function RatePlanList(version) {
+RatePlanList = class RatePlanList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function ratePlans
@@ -43,7 +44,8 @@ RatePlanList = function RatePlanList(version) {
    * @returns {Twilio.Preview.Wireless.RatePlanContext}
    */
   /* jshint ignore:end */
-  function RatePlanListInstance(sid) {
+  class RatePlanListInstance {
+  constructor(sid) {
     return RatePlanListInstance.get(sid);
   }
 
@@ -386,15 +388,16 @@ RatePlanList = function RatePlanList(version) {
  * @returns RatePlanPage
  */
 /* jshint ignore:end */
-RatePlanPage = function RatePlanPage(version, response, solution) {
+RatePlanPage = class RatePlanPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RatePlanPage.prototype, Page.prototype);
-RatePlanPage.prototype.constructor = RatePlanPage;
+class RatePlanPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -409,7 +412,7 @@ RatePlanPage.prototype.constructor = RatePlanPage;
  * @returns RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RatePlanInstance(this._version, payload);
 };
 
@@ -440,7 +443,8 @@ RatePlanPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-RatePlanInstance = function RatePlanInstance(version, payload, sid) {
+RatePlanInstance = class RatePlanInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -488,7 +492,7 @@ Object.defineProperty(RatePlanInstance.prototype,
  * @returns {Promise} Resolves to processed RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -508,7 +512,7 @@ RatePlanInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -525,7 +529,7 @@ RatePlanInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -540,7 +544,8 @@ RatePlanInstance.prototype.remove = function remove(callback) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-RatePlanContext = function RatePlanContext(version, sid) {
+RatePlanContext = class RatePlanContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -563,7 +568,7 @@ RatePlanContext = function RatePlanContext(version, sid) {
  * @returns {Promise} Resolves to processed RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -598,7 +603,7 @@ RatePlanContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -641,7 +646,7 @@ RatePlanContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed RatePlanInstance
  */
 /* jshint ignore:end */
-RatePlanContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

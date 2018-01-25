@@ -31,7 +31,8 @@ var MessageContext;
  * @param {string} channelSid - The channel_sid
  */
 /* jshint ignore:end */
-MessageList = function MessageList(version, serviceSid, channelSid) {
+MessageList = class MessageList {
+  constructor(version, serviceSid, channelSid) {
   /* jshint ignore:start */
   /**
    * @function messages
@@ -43,7 +44,8 @@ MessageList = function MessageList(version, serviceSid, channelSid) {
    * @returns {Twilio.Chat.V1.ServiceContext.ChannelContext.MessageContext}
    */
   /* jshint ignore:end */
-  function MessageListInstance(sid) {
+  class MessageListInstance {
+  constructor(sid) {
     return MessageListInstance.get(sid);
   }
 
@@ -387,15 +389,16 @@ MessageList = function MessageList(version, serviceSid, channelSid) {
  * @returns MessagePage
  */
 /* jshint ignore:end */
-MessagePage = function MessagePage(version, response, solution) {
+MessagePage = class MessagePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MessagePage.prototype, Page.prototype);
-MessagePage.prototype.constructor = MessagePage;
+class MessagePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -410,7 +413,7 @@ MessagePage.prototype.constructor = MessagePage;
  * @returns MessageInstance
  */
 /* jshint ignore:end */
-MessagePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MessageInstance(
     this._version,
     payload,
@@ -499,7 +502,7 @@ Object.defineProperty(MessageInstance.prototype,
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -516,7 +519,7 @@ MessageInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -536,7 +539,7 @@ MessageInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -552,7 +555,8 @@ MessageInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-MessageContext = function MessageContext(version, serviceSid, channelSid, sid) {
+MessageContext = class MessageContext {
+  constructor(version, serviceSid, channelSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -575,7 +579,7 @@ MessageContext = function MessageContext(version, serviceSid, channelSid, sid) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -613,7 +617,7 @@ MessageContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -648,7 +652,7 @@ MessageContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

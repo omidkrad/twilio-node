@@ -51,7 +51,8 @@ AvailablePhoneNumberCountryList = function
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext}
    */
   /* jshint ignore:end */
-  function AvailablePhoneNumberCountryListInstance(sid) {
+  class AvailablePhoneNumberCountryListInstance {
+  constructor(sid) {
     return AvailablePhoneNumberCountryListInstance.get(sid);
   }
 
@@ -340,8 +341,8 @@ AvailablePhoneNumberCountryPage = function
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AvailablePhoneNumberCountryPage.prototype, Page.prototype);
-AvailablePhoneNumberCountryPage.prototype.constructor = AvailablePhoneNumberCountryPage;
+class AvailablePhoneNumberCountryPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -425,7 +426,7 @@ Object.defineProperty(AvailablePhoneNumberCountryInstance.prototype,
  * @returns {Promise} Resolves to processed AvailablePhoneNumberCountryInstance
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -440,7 +441,7 @@ AvailablePhoneNumberCountryInstance.prototype.fetch = function fetch(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.LocalList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.local = function local() {
+local() {
   return this._proxy.local;
 };
 
@@ -455,7 +456,7 @@ AvailablePhoneNumberCountryInstance.prototype.local = function local() {
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.TollFreeList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.tollFree = function tollFree() {
+tollFree() {
   return this._proxy.tollFree;
 };
 
@@ -470,7 +471,7 @@ AvailablePhoneNumberCountryInstance.prototype.tollFree = function tollFree() {
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.MobileList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.mobile = function mobile() {
+mobile() {
   return this._proxy.mobile;
 };
 
@@ -485,7 +486,7 @@ AvailablePhoneNumberCountryInstance.prototype.mobile = function mobile() {
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.NationalList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.national = function national() {
+national() {
   return this._proxy.national;
 };
 
@@ -500,7 +501,7 @@ AvailablePhoneNumberCountryInstance.prototype.national = function national() {
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.VoipList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.voip = function voip() {
+voip() {
   return this._proxy.voip;
 };
 
@@ -515,7 +516,7 @@ AvailablePhoneNumberCountryInstance.prototype.voip = function voip() {
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.SharedCostList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.sharedCost = function sharedCost()
+sharedCost()
     {
   return this._proxy.sharedCost;
 };
@@ -595,7 +596,7 @@ AvailablePhoneNumberCountryContext = function
  * @returns {Promise} Resolves to processed AvailablePhoneNumberCountryInstance
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

@@ -29,7 +29,8 @@ var AwsContext;
  * @param {Twilio.Accounts.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-AwsList = function AwsList(version) {
+AwsList = class AwsList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function aws
@@ -41,7 +42,8 @@ AwsList = function AwsList(version) {
    * @returns {Twilio.Accounts.V1.CredentialContext.AwsContext}
    */
   /* jshint ignore:end */
-  function AwsListInstance(sid) {
+  class AwsListInstance {
+  constructor(sid) {
     return AwsListInstance.get(sid);
   }
 
@@ -370,15 +372,16 @@ AwsList = function AwsList(version) {
  * @returns AwsPage
  */
 /* jshint ignore:end */
-AwsPage = function AwsPage(version, response, solution) {
+AwsPage = class AwsPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AwsPage.prototype, Page.prototype);
-AwsPage.prototype.constructor = AwsPage;
+class AwsPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -393,7 +396,7 @@ AwsPage.prototype.constructor = AwsPage;
  * @returns AwsInstance
  */
 /* jshint ignore:end */
-AwsPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AwsInstance(this._version, payload);
 };
 
@@ -415,7 +418,8 @@ AwsPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-AwsInstance = function AwsInstance(version, payload, sid) {
+AwsInstance = class AwsInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -455,7 +459,7 @@ Object.defineProperty(AwsInstance.prototype,
  * @returns {Promise} Resolves to processed AwsInstance
  */
 /* jshint ignore:end */
-AwsInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -474,7 +478,7 @@ AwsInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AwsInstance
  */
 /* jshint ignore:end */
-AwsInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -491,7 +495,7 @@ AwsInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed AwsInstance
  */
 /* jshint ignore:end */
-AwsInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -505,7 +509,8 @@ AwsInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-AwsContext = function AwsContext(version, sid) {
+AwsContext = class AwsContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -528,7 +533,7 @@ AwsContext = function AwsContext(version, sid) {
  * @returns {Promise} Resolves to processed AwsInstance
  */
 /* jshint ignore:end */
-AwsContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -562,7 +567,7 @@ AwsContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AwsInstance
  */
 /* jshint ignore:end */
-AwsContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -602,7 +607,7 @@ AwsContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed AwsInstance
  */
 /* jshint ignore:end */
-AwsContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

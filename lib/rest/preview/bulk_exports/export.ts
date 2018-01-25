@@ -29,7 +29,8 @@ var ExportContext;
  * @param {Twilio.Preview.BulkExports} version - Version of the resource
  */
 /* jshint ignore:end */
-ExportList = function ExportList(version) {
+ExportList = class ExportList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function exports
@@ -41,7 +42,8 @@ ExportList = function ExportList(version) {
    * @returns {Twilio.Preview.BulkExports.ExportContext}
    */
   /* jshint ignore:end */
-  function ExportListInstance(sid) {
+  class ExportListInstance {
+  constructor(sid) {
     return ExportListInstance.get(sid);
   }
 
@@ -83,15 +85,16 @@ ExportList = function ExportList(version) {
  * @returns ExportPage
  */
 /* jshint ignore:end */
-ExportPage = function ExportPage(version, response, solution) {
+ExportPage = class ExportPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ExportPage.prototype, Page.prototype);
-ExportPage.prototype.constructor = ExportPage;
+class ExportPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -106,7 +109,7 @@ ExportPage.prototype.constructor = ExportPage;
  * @returns ExportInstance
  */
 /* jshint ignore:end */
-ExportPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ExportInstance(this._version, payload);
 };
 
@@ -126,7 +129,8 @@ ExportPage.prototype.getInstance = function getInstance(payload) {
  * @param {string} resourceType - The resource_type
  */
 /* jshint ignore:end */
-ExportInstance = function ExportInstance(version, payload, resourceType) {
+ExportInstance = class ExportInstance {
+  constructor(version, payload, resourceType) {
   this._version = version;
 
   // Marshaled Properties
@@ -163,7 +167,7 @@ Object.defineProperty(ExportInstance.prototype,
  * @returns {Promise} Resolves to processed ExportInstance
  */
 /* jshint ignore:end */
-ExportInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -178,7 +182,7 @@ ExportInstance.prototype.fetch = function fetch(callback) {
  * @returns {Twilio.Preview.BulkExports.ExportContext.DayList}
  */
 /* jshint ignore:end */
-ExportInstance.prototype.days = function days() {
+days() {
   return this._proxy.days;
 };
 
@@ -196,7 +200,8 @@ ExportInstance.prototype.days = function days() {
  * @param {string} resourceType - The resource_type
  */
 /* jshint ignore:end */
-ExportContext = function ExportContext(version, resourceType) {
+ExportContext = class ExportContext {
+  constructor(version, resourceType) {
   this._version = version;
 
   // Path Solution
@@ -222,7 +227,7 @@ ExportContext = function ExportContext(version, resourceType) {
  * @returns {Promise} Resolves to processed ExportInstance
  */
 /* jshint ignore:end */
-ExportContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

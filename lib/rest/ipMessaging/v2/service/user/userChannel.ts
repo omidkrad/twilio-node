@@ -30,7 +30,8 @@ var UserChannelInstance;
  * @param {string} userSid - The sid
  */
 /* jshint ignore:end */
-UserChannelList = function UserChannelList(version, serviceSid, userSid) {
+UserChannelList = class UserChannelList {
+  constructor(version, serviceSid, userSid) {
   /* jshint ignore:start */
   /**
    * @function userChannels
@@ -42,7 +43,8 @@ UserChannelList = function UserChannelList(version, serviceSid, userSid) {
    * @returns {Twilio.IpMessaging.V2.ServiceContext.UserContext.UserChannelContext}
    */
   /* jshint ignore:end */
-  function UserChannelListInstance(sid) {
+  class UserChannelListInstance {
+  constructor(sid) {
     return UserChannelListInstance.get(sid);
   }
 
@@ -305,15 +307,16 @@ UserChannelList = function UserChannelList(version, serviceSid, userSid) {
  * @returns UserChannelPage
  */
 /* jshint ignore:end */
-UserChannelPage = function UserChannelPage(version, response, solution) {
+UserChannelPage = class UserChannelPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(UserChannelPage.prototype, Page.prototype);
-UserChannelPage.prototype.constructor = UserChannelPage;
+class UserChannelPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -328,7 +331,7 @@ UserChannelPage.prototype.constructor = UserChannelPage;
  * @returns UserChannelInstance
  */
 /* jshint ignore:end */
-UserChannelPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new UserChannelInstance(
     this._version,
     payload,

@@ -29,7 +29,8 @@ var UsageContext;
  * @param {string} simSid - The sim_sid
  */
 /* jshint ignore:end */
-UsageList = function UsageList(version, simSid) {
+UsageList = class UsageList {
+  constructor(version, simSid) {
   /* jshint ignore:start */
   /**
    * @function usage
@@ -41,7 +42,8 @@ UsageList = function UsageList(version, simSid) {
    * @returns {Twilio.Preview.Wireless.SimContext.UsageContext}
    */
   /* jshint ignore:end */
-  function UsageListInstance(sid) {
+  class UsageListInstance {
+  constructor(sid) {
     return UsageListInstance.get(sid);
   }
 
@@ -81,15 +83,16 @@ UsageList = function UsageList(version, simSid) {
  * @returns UsagePage
  */
 /* jshint ignore:end */
-UsagePage = function UsagePage(version, response, solution) {
+UsagePage = class UsagePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(UsagePage.prototype, Page.prototype);
-UsagePage.prototype.constructor = UsagePage;
+class UsagePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -104,7 +107,7 @@ UsagePage.prototype.constructor = UsagePage;
  * @returns UsageInstance
  */
 /* jshint ignore:end */
-UsagePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new UsageInstance(this._version, payload, this._solution.simSid);
 };
 
@@ -130,7 +133,8 @@ UsagePage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} simSid - The sim_sid
  */
 /* jshint ignore:end */
-UsageInstance = function UsageInstance(version, payload, simSid) {
+UsageInstance = class UsageInstance {
+  constructor(version, payload, simSid) {
   this._version = version;
 
   // Marshaled Properties
@@ -176,7 +180,7 @@ Object.defineProperty(UsageInstance.prototype,
  * @returns {Promise} Resolves to processed UsageInstance
  */
 /* jshint ignore:end */
-UsageInstance.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   return this._proxy.fetch(opts, callback);
 };
 
@@ -191,7 +195,8 @@ UsageInstance.prototype.fetch = function fetch(opts, callback) {
  * @param {sid_like} simSid - The sim_sid
  */
 /* jshint ignore:end */
-UsageContext = function UsageContext(version, simSid) {
+UsageContext = class UsageContext {
+  constructor(version, simSid) {
   this._version = version;
 
   // Path Solution
@@ -217,7 +222,7 @@ UsageContext = function UsageContext(version, simSid) {
  * @returns {Promise} Resolves to processed UsageInstance
  */
 /* jshint ignore:end */
-UsageContext.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

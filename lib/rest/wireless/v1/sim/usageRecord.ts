@@ -29,7 +29,8 @@ var UsageRecordInstance;
  * @param {string} simSid - The sim_sid
  */
 /* jshint ignore:end */
-UsageRecordList = function UsageRecordList(version, simSid) {
+UsageRecordList = class UsageRecordList {
+  constructor(version, simSid) {
   /* jshint ignore:start */
   /**
    * @function usageRecords
@@ -41,7 +42,8 @@ UsageRecordList = function UsageRecordList(version, simSid) {
    * @returns {Twilio.Wireless.V1.SimContext.UsageRecordContext}
    */
   /* jshint ignore:end */
-  function UsageRecordListInstance(sid) {
+  class UsageRecordListInstance {
+  constructor(sid) {
     return UsageRecordListInstance.get(sid);
   }
 
@@ -324,15 +326,16 @@ UsageRecordList = function UsageRecordList(version, simSid) {
  * @returns UsageRecordPage
  */
 /* jshint ignore:end */
-UsageRecordPage = function UsageRecordPage(version, response, solution) {
+UsageRecordPage = class UsageRecordPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(UsageRecordPage.prototype, Page.prototype);
-UsageRecordPage.prototype.constructor = UsageRecordPage;
+class UsageRecordPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -347,7 +350,7 @@ UsageRecordPage.prototype.constructor = UsageRecordPage;
  * @returns UsageRecordInstance
  */
 /* jshint ignore:end */
-UsageRecordPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new UsageRecordInstance(this._version, payload, this._solution.simSid);
 };
 
@@ -368,7 +371,8 @@ UsageRecordPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-UsageRecordInstance = function UsageRecordInstance(version, payload, simSid) {
+UsageRecordInstance = class UsageRecordInstance {
+  constructor(version, payload, simSid) {
   this._version = version;
 
   // Marshaled Properties

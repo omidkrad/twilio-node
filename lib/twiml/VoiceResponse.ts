@@ -17,7 +17,8 @@ var builder = require('xmlbuilder');  /* jshint ignore:line */
  * <Response> TwiML for Voice
  */
 /* jshint ignore:end */
-function VoiceResponse() {
+class VoiceResponse {
+  constructor() {
   this.response = builder.create('Response').dec('1.0', 'UTF-8');
 }
 
@@ -44,7 +45,7 @@ function VoiceResponse() {
  * @returns Dial
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.dial = function dial(attributes, number) {
+dial(attributes, number) {
   return new Dial(this.response.ele('Dial', attributes, number));
 };
 
@@ -55,7 +56,7 @@ VoiceResponse.prototype.dial = function dial(attributes, number) {
  * @param {object} attributes - TwiML attributes
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.echo = function echo(attributes) {
+echo(attributes) {
   this.response.ele('Echo', attributes);
 };
 
@@ -74,7 +75,7 @@ VoiceResponse.prototype.echo = function echo(attributes) {
  * @returns Enqueue
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.enqueue = function enqueue(attributes, name) {
+enqueue(attributes, name) {
   return new Enqueue(this.response.ele('Enqueue', attributes, name));
 };
 
@@ -101,7 +102,7 @@ VoiceResponse.prototype.enqueue = function enqueue(attributes, name) {
  * @returns Gather
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.gather = function gather(attributes) {
+gather(attributes) {
   return new Gather(this.response.ele('Gather', attributes));
 };
 
@@ -112,7 +113,7 @@ VoiceResponse.prototype.gather = function gather(attributes) {
  * @param {object} attributes - TwiML attributes
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.hangup = function hangup(attributes) {
+hangup(attributes) {
   this.response.ele('Hangup', attributes);
 };
 
@@ -123,7 +124,7 @@ VoiceResponse.prototype.hangup = function hangup(attributes) {
  * @param {object} attributes - TwiML attributes
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.leave = function leave(attributes) {
+leave(attributes) {
   this.response.ele('Leave', attributes);
 };
 
@@ -135,7 +136,7 @@ VoiceResponse.prototype.leave = function leave(attributes) {
  * @param {number} [attributes.length] Length in seconds to pause
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.pause = function pause(attributes) {
+pause(attributes) {
   this.response.ele('Pause', attributes);
 };
 
@@ -149,7 +150,7 @@ VoiceResponse.prototype.pause = function pause(attributes) {
  * @param {url} [url] Media URL
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.play = function play(attributes, url) {
+play(attributes, url) {
   this.response.ele('Play', attributes, url);
 };
 
@@ -165,7 +166,7 @@ VoiceResponse.prototype.play = function play(attributes, url) {
  * @param {string} name Queue name
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.queue = function queue(attributes, name) {
+queue(attributes, name) {
   this.response.ele('Queue', attributes, name);
 };
 
@@ -187,7 +188,7 @@ VoiceResponse.prototype.queue = function queue(attributes, name) {
  * @param {string} [attributes.transcribeCallback] Transcribe callback URL
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.record = function record(attributes) {
+record(attributes) {
   this.response.ele('Record', attributes);
 };
 
@@ -200,7 +201,7 @@ VoiceResponse.prototype.record = function record(attributes) {
  * @param {url} url Redirect URL
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.redirect = function redirect(attributes, url) {
+redirect(attributes, url) {
   this.response.ele('Redirect', attributes, url);
 };
 
@@ -212,7 +213,7 @@ VoiceResponse.prototype.redirect = function redirect(attributes, url) {
  * @param {reject.reason} [attributes.reason] Rejection reason
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.reject = function reject(attributes) {
+reject(attributes) {
   this.response.ele('Reject', attributes);
 };
 
@@ -227,7 +228,7 @@ VoiceResponse.prototype.reject = function reject(attributes) {
  * @param {string} message Message to say
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.say = function say(attributes, message) {
+say(attributes, message) {
   this.response.ele('Say', attributes, message);
 };
 
@@ -244,7 +245,7 @@ VoiceResponse.prototype.say = function say(attributes, message) {
  * @param {string} message Message body
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.sms = function sms(attributes, message) {
+sms(attributes, message) {
   this.response.ele('Sms', attributes, message);
 };
 
@@ -255,7 +256,7 @@ VoiceResponse.prototype.sms = function sms(attributes, message) {
  * @returns TwiML XML
  */
 /* jshint ignore:end */
-VoiceResponse.prototype.toString = function toString() {
+toString() {
   return this.response.end();
 };
 
@@ -267,7 +268,8 @@ VoiceResponse.prototype.toString = function toString() {
  * @param {object} gather gather <Gather> TwiML Verb
  */
 /* jshint ignore:end */
-function Gather(gather) {
+class Gather {
+  constructor(gather) {
   this.gather = gather;
 }
 
@@ -282,7 +284,7 @@ function Gather(gather) {
  * @param {string} message Message to say
  */
 /* jshint ignore:end */
-Gather.prototype.say = function say(attributes, message) {
+say(attributes, message) {
   this.gather.ele('Say', attributes, message);
 };
 
@@ -294,7 +296,7 @@ Gather.prototype.say = function say(attributes, message) {
  * @param {number} [attributes.length] Length in seconds to pause
  */
 /* jshint ignore:end */
-Gather.prototype.pause = function pause(attributes) {
+pause(attributes) {
   this.gather.ele('Pause', attributes);
 };
 
@@ -308,7 +310,7 @@ Gather.prototype.pause = function pause(attributes) {
  * @param {url} [url] Media URL
  */
 /* jshint ignore:end */
-Gather.prototype.play = function play(attributes, url) {
+play(attributes, url) {
   this.gather.ele('Play', attributes, url);
 };
 
@@ -320,7 +322,8 @@ Gather.prototype.play = function play(attributes, url) {
  * @param {object} enqueue enqueue <Enqueue> TwiML Noun
  */
 /* jshint ignore:end */
-function Enqueue(enqueue) {
+class Enqueue {
+  constructor(enqueue) {
   this.enqueue = enqueue;
 }
 
@@ -334,7 +337,7 @@ function Enqueue(enqueue) {
  * @param {string} body TaskRouter task attributes
  */
 /* jshint ignore:end */
-Enqueue.prototype.task = function task(attributes, body) {
+task(attributes, body) {
   this.enqueue.ele('Task', attributes, body);
 };
 
@@ -346,7 +349,8 @@ Enqueue.prototype.task = function task(attributes, body) {
  * @param {object} dial dial <Dial> TwiML Verb
  */
 /* jshint ignore:end */
-function Dial(dial) {
+class Dial {
+  constructor(dial) {
   this.dial = dial;
 }
 
@@ -363,7 +367,7 @@ function Dial(dial) {
  * @param {string} name Client name
  */
 /* jshint ignore:end */
-Dial.prototype.client = function client(attributes, name) {
+client(attributes, name) {
   this.dial.ele('Client', attributes, name);
 };
 
@@ -393,7 +397,7 @@ Dial.prototype.client = function client(attributes, name) {
  * @param {string} name Conference name
  */
 /* jshint ignore:end */
-Dial.prototype.conference = function conference(attributes, name) {
+conference(attributes, name) {
   this.dial.ele('Conference', attributes, name);
 };
 
@@ -411,7 +415,7 @@ Dial.prototype.conference = function conference(attributes, name) {
  * @param {phone_number} phoneNumber Phone Number to dial
  */
 /* jshint ignore:end */
-Dial.prototype.number = function number(attributes, phoneNumber) {
+number(attributes, phoneNumber) {
   this.dial.ele('Number', attributes, phoneNumber);
 };
 
@@ -427,7 +431,7 @@ Dial.prototype.number = function number(attributes, phoneNumber) {
  * @param {string} name Queue name
  */
 /* jshint ignore:end */
-Dial.prototype.queue = function queue(attributes, name) {
+queue(attributes, name) {
   this.dial.ele('Queue', attributes, name);
 };
 
@@ -439,7 +443,7 @@ Dial.prototype.queue = function queue(attributes, name) {
  * @param {sid} simSid SIM SID
  */
 /* jshint ignore:end */
-Dial.prototype.sim = function sim(attributes, simSid) {
+sim(attributes, simSid) {
   this.dial.ele('Sim', attributes, simSid);
 };
 
@@ -458,7 +462,7 @@ Dial.prototype.sim = function sim(attributes, simSid) {
  * @param {url} sipUrl SIP URL
  */
 /* jshint ignore:end */
-Dial.prototype.sip = function sip(attributes, sipUrl) {
+sip(attributes, sipUrl) {
   this.dial.ele('Sip', attributes, sipUrl);
 };
 

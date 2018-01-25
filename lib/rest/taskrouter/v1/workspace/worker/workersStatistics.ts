@@ -30,7 +30,8 @@ var WorkersStatisticsContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-WorkersStatisticsList = function WorkersStatisticsList(version, workspaceSid) {
+WorkersStatisticsList = class WorkersStatisticsList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function statistics
@@ -42,7 +43,8 @@ WorkersStatisticsList = function WorkersStatisticsList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkersStatisticsContext}
    */
   /* jshint ignore:end */
-  function WorkersStatisticsListInstance(sid) {
+  class WorkersStatisticsListInstance {
+  constructor(sid) {
     return WorkersStatisticsListInstance.get(sid);
   }
 
@@ -89,8 +91,8 @@ WorkersStatisticsPage = function WorkersStatisticsPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(WorkersStatisticsPage.prototype, Page.prototype);
-WorkersStatisticsPage.prototype.constructor = WorkersStatisticsPage;
+class WorkersStatisticsPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -105,7 +107,7 @@ WorkersStatisticsPage.prototype.constructor = WorkersStatisticsPage;
  * @returns WorkersStatisticsInstance
  */
 /* jshint ignore:end */
-WorkersStatisticsPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new WorkersStatisticsInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -174,7 +176,7 @@ Object.defineProperty(WorkersStatisticsInstance.prototype,
  * @returns {Promise} Resolves to processed WorkersStatisticsInstance
  */
 /* jshint ignore:end */
-WorkersStatisticsInstance.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   return this._proxy.fetch(opts, callback);
 };
 
@@ -220,7 +222,7 @@ WorkersStatisticsContext = function WorkersStatisticsContext(version,
  * @returns {Promise} Resolves to processed WorkersStatisticsInstance
  */
 /* jshint ignore:end */
-WorkersStatisticsContext.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

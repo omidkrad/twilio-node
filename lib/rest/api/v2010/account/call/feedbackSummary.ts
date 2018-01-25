@@ -33,7 +33,8 @@ var FeedbackSummaryContext;
  *          The unique id of the Account responsible for creating this Call
  */
 /* jshint ignore:end */
-FeedbackSummaryList = function FeedbackSummaryList(version, accountSid) {
+FeedbackSummaryList = class FeedbackSummaryList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function feedbackSummaries
@@ -45,7 +46,8 @@ FeedbackSummaryList = function FeedbackSummaryList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.FeedbackSummaryContext}
    */
   /* jshint ignore:end */
-  function FeedbackSummaryListInstance(sid) {
+  class FeedbackSummaryListInstance {
+  constructor(sid) {
     return FeedbackSummaryListInstance.get(sid);
   }
 
@@ -158,8 +160,8 @@ FeedbackSummaryPage = function FeedbackSummaryPage(version, response, solution)
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FeedbackSummaryPage.prototype, Page.prototype);
-FeedbackSummaryPage.prototype.constructor = FeedbackSummaryPage;
+class FeedbackSummaryPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -174,7 +176,7 @@ FeedbackSummaryPage.prototype.constructor = FeedbackSummaryPage;
  * @returns FeedbackSummaryInstance
  */
 /* jshint ignore:end */
-FeedbackSummaryPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FeedbackSummaryInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -259,7 +261,7 @@ Object.defineProperty(FeedbackSummaryInstance.prototype,
  * @returns {Promise} Resolves to processed FeedbackSummaryInstance
  */
 /* jshint ignore:end */
-FeedbackSummaryInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -276,7 +278,7 @@ FeedbackSummaryInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FeedbackSummaryInstance
  */
 /* jshint ignore:end */
-FeedbackSummaryInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -315,7 +317,7 @@ FeedbackSummaryContext = function FeedbackSummaryContext(version, accountSid,
  * @returns {Promise} Resolves to processed FeedbackSummaryInstance
  */
 /* jshint ignore:end */
-FeedbackSummaryContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -352,7 +354,7 @@ FeedbackSummaryContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FeedbackSummaryInstance
  */
 /* jshint ignore:end */
-FeedbackSummaryContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

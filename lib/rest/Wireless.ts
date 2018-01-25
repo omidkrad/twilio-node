@@ -28,15 +28,16 @@ var V1 = require('./wireless/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Wireless(twilio) {
+class Wireless {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://wireless.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Wireless.prototype, Domain.prototype);
-Wireless.prototype.constructor = Wireless;
+class Wireless extends Domain {
+
 
 Object.defineProperty(Wireless.prototype,
   'v1', {

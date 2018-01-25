@@ -45,7 +45,8 @@ PayloadList = function PayloadList(version, accountSid, referenceSid,
    * @returns {Twilio.Api.V2010.AccountContext.RecordingContext.AddOnResultContext.PayloadContext}
    */
   /* jshint ignore:end */
-  function PayloadListInstance(sid) {
+  class PayloadListInstance {
+  constructor(sid) {
     return PayloadListInstance.get(sid);
   }
 
@@ -335,15 +336,16 @@ PayloadList = function PayloadList(version, accountSid, referenceSid,
  * @returns PayloadPage
  */
 /* jshint ignore:end */
-PayloadPage = function PayloadPage(version, response, solution) {
+PayloadPage = class PayloadPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(PayloadPage.prototype, Page.prototype);
-PayloadPage.prototype.constructor = PayloadPage;
+class PayloadPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -358,7 +360,7 @@ PayloadPage.prototype.constructor = PayloadPage;
  * @returns PayloadInstance
  */
 /* jshint ignore:end */
-PayloadPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new PayloadInstance(
     this._version,
     payload,
@@ -453,7 +455,7 @@ Object.defineProperty(PayloadInstance.prototype,
  * @returns {Promise} Resolves to processed PayloadInstance
  */
 /* jshint ignore:end */
-PayloadInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -470,7 +472,7 @@ PayloadInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed PayloadInstance
  */
 /* jshint ignore:end */
-PayloadInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -516,7 +518,7 @@ PayloadContext = function PayloadContext(version, accountSid, referenceSid,
  * @returns {Promise} Resolves to processed PayloadInstance
  */
 /* jshint ignore:end */
-PayloadContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -555,7 +557,7 @@ PayloadContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed PayloadInstance
  */
 /* jshint ignore:end */
-PayloadContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

@@ -44,7 +44,8 @@ WorkflowStatisticsList = function WorkflowStatisticsList(version, workspaceSid,
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkflowContext.WorkflowStatisticsContext}
    */
   /* jshint ignore:end */
-  function WorkflowStatisticsListInstance(sid) {
+  class WorkflowStatisticsListInstance {
+  constructor(sid) {
     return WorkflowStatisticsListInstance.get(sid);
   }
 
@@ -95,8 +96,8 @@ WorkflowStatisticsPage = function WorkflowStatisticsPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(WorkflowStatisticsPage.prototype, Page.prototype);
-WorkflowStatisticsPage.prototype.constructor = WorkflowStatisticsPage;
+class WorkflowStatisticsPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -111,7 +112,7 @@ WorkflowStatisticsPage.prototype.constructor = WorkflowStatisticsPage;
  * @returns WorkflowStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowStatisticsPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new WorkflowStatisticsInstance(
     this._version,
     payload,
@@ -190,7 +191,7 @@ Object.defineProperty(WorkflowStatisticsInstance.prototype,
  * @returns {Promise} Resolves to processed WorkflowStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowStatisticsInstance.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   return this._proxy.fetch(opts, callback);
 };
 
@@ -235,7 +236,7 @@ WorkflowStatisticsContext = function WorkflowStatisticsContext(version,
  * @returns {Promise} Resolves to processed WorkflowStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowStatisticsContext.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

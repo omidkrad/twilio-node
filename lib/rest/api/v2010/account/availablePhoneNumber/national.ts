@@ -33,7 +33,8 @@ var NationalInstance;
  * @param {string} countryCode - The ISO Country code to lookup phone numbers for.
  */
 /* jshint ignore:end */
-NationalList = function NationalList(version, accountSid, countryCode) {
+NationalList = class NationalList {
+  constructor(version, accountSid, countryCode) {
   /* jshint ignore:start */
   /**
    * @function national
@@ -45,7 +46,8 @@ NationalList = function NationalList(version, accountSid, countryCode) {
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.NationalContext}
    */
   /* jshint ignore:end */
-  function NationalListInstance(sid) {
+  class NationalListInstance {
+  constructor(sid) {
     return NationalListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ NationalList = function NationalList(version, accountSid, countryCode) {
  * @returns NationalPage
  */
 /* jshint ignore:end */
-NationalPage = function NationalPage(version, response, solution) {
+NationalPage = class NationalPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(NationalPage.prototype, Page.prototype);
-NationalPage.prototype.constructor = NationalPage;
+class NationalPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ NationalPage.prototype.constructor = NationalPage;
  * @returns NationalInstance
  */
 /* jshint ignore:end */
-NationalPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new NationalInstance(
     this._version,
     payload,

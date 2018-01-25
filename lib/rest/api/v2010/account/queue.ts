@@ -31,7 +31,8 @@ var QueueContext;
  * @param {string} accountSid - The account_sid
  */
 /* jshint ignore:end */
-QueueList = function QueueList(version, accountSid) {
+QueueList = class QueueList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function queues
@@ -43,7 +44,8 @@ QueueList = function QueueList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.QueueContext}
    */
   /* jshint ignore:end */
-  function QueueListInstance(sid) {
+  class QueueListInstance {
+  constructor(sid) {
     return QueueListInstance.get(sid);
   }
 
@@ -376,15 +378,16 @@ QueueList = function QueueList(version, accountSid) {
  * @returns QueuePage
  */
 /* jshint ignore:end */
-QueuePage = function QueuePage(version, response, solution) {
+QueuePage = class QueuePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(QueuePage.prototype, Page.prototype);
-QueuePage.prototype.constructor = QueuePage;
+class QueuePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -399,7 +402,7 @@ QueuePage.prototype.constructor = QueuePage;
  * @returns QueueInstance
  */
 /* jshint ignore:end */
-QueuePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new QueueInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -426,7 +429,8 @@ QueuePage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Fetch by unique queue Sid
  */
 /* jshint ignore:end */
-QueueInstance = function QueueInstance(version, payload, accountSid, sid) {
+QueueInstance = class QueueInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -469,7 +473,7 @@ Object.defineProperty(QueueInstance.prototype,
  * @returns {Promise} Resolves to processed QueueInstance
  */
 /* jshint ignore:end */
-QueueInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -489,7 +493,7 @@ QueueInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed QueueInstance
  */
 /* jshint ignore:end */
-QueueInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -506,7 +510,7 @@ QueueInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed QueueInstance
  */
 /* jshint ignore:end */
-QueueInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -521,7 +525,7 @@ QueueInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.QueueContext.MemberList}
  */
 /* jshint ignore:end */
-QueueInstance.prototype.members = function members() {
+members() {
   return this._proxy.members;
 };
 
@@ -539,7 +543,8 @@ QueueInstance.prototype.members = function members() {
  * @param {sid} sid - Fetch by unique queue Sid
  */
 /* jshint ignore:end */
-QueueContext = function QueueContext(version, accountSid, sid) {
+QueueContext = class QueueContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -565,7 +570,7 @@ QueueContext = function QueueContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed QueueInstance
  */
 /* jshint ignore:end */
-QueueContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -605,7 +610,7 @@ QueueContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed QueueInstance
  */
 /* jshint ignore:end */
-QueueContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -653,7 +658,7 @@ QueueContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed QueueInstance
  */
 /* jshint ignore:end */
-QueueContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

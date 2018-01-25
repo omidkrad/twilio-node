@@ -38,7 +38,8 @@ var TaskQueueContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-TaskQueueList = function TaskQueueList(version, workspaceSid) {
+TaskQueueList = class TaskQueueList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function taskQueues
@@ -50,7 +51,8 @@ TaskQueueList = function TaskQueueList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext}
    */
   /* jshint ignore:end */
-  function TaskQueueListInstance(sid) {
+  class TaskQueueListInstance {
+  constructor(sid) {
     return TaskQueueListInstance.get(sid);
   }
 
@@ -430,15 +432,16 @@ TaskQueueList = function TaskQueueList(version, workspaceSid) {
  * @returns TaskQueuePage
  */
 /* jshint ignore:end */
-TaskQueuePage = function TaskQueuePage(version, response, solution) {
+TaskQueuePage = class TaskQueuePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TaskQueuePage.prototype, Page.prototype);
-TaskQueuePage.prototype.constructor = TaskQueuePage;
+class TaskQueuePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -453,7 +456,7 @@ TaskQueuePage.prototype.constructor = TaskQueuePage;
  * @returns TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueuePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TaskQueueInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -535,7 +538,7 @@ Object.defineProperty(TaskQueueInstance.prototype,
  * @returns {Promise} Resolves to processed TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueueInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -559,7 +562,7 @@ TaskQueueInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueueInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -576,7 +579,7 @@ TaskQueueInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueueInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -591,7 +594,7 @@ TaskQueueInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueueStatisticsList}
  */
 /* jshint ignore:end */
-TaskQueueInstance.prototype.statistics = function statistics() {
+statistics() {
   return this._proxy.statistics;
 };
 
@@ -606,7 +609,7 @@ TaskQueueInstance.prototype.statistics = function statistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueueRealTimeStatisticsList}
  */
 /* jshint ignore:end */
-TaskQueueInstance.prototype.realTimeStatistics = function realTimeStatistics() {
+realTimeStatistics() {
   return this._proxy.realTimeStatistics;
 };
 
@@ -644,7 +647,8 @@ TaskQueueInstance.prototype.cumulativeStatistics = function
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-TaskQueueContext = function TaskQueueContext(version, workspaceSid, sid) {
+TaskQueueContext = class TaskQueueContext {
+  constructor(version, workspaceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -672,7 +676,7 @@ TaskQueueContext = function TaskQueueContext(version, workspaceSid, sid) {
  * @returns {Promise} Resolves to processed TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueueContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -716,7 +720,7 @@ TaskQueueContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueueContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -768,7 +772,7 @@ TaskQueueContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed TaskQueueInstance
  */
 /* jshint ignore:end */
-TaskQueueContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

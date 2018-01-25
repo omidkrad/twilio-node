@@ -30,7 +30,8 @@ var CredentialListContext;
  * @param {string} trunkSid - The trunk_sid
  */
 /* jshint ignore:end */
-CredentialListList = function CredentialListList(version, trunkSid) {
+CredentialListList = class CredentialListList {
+  constructor(version, trunkSid) {
   /* jshint ignore:start */
   /**
    * @function credentialsLists
@@ -42,7 +43,8 @@ CredentialListList = function CredentialListList(version, trunkSid) {
    * @returns {Twilio.Trunking.V1.TrunkContext.CredentialListContext}
    */
   /* jshint ignore:end */
-  function CredentialListListInstance(sid) {
+  class CredentialListListInstance {
+  constructor(sid) {
     return CredentialListListInstance.get(sid);
   }
 
@@ -370,15 +372,16 @@ CredentialListList = function CredentialListList(version, trunkSid) {
  * @returns CredentialListPage
  */
 /* jshint ignore:end */
-CredentialListPage = function CredentialListPage(version, response, solution) {
+CredentialListPage = class CredentialListPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CredentialListPage.prototype, Page.prototype);
-CredentialListPage.prototype.constructor = CredentialListPage;
+class CredentialListPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -393,7 +396,7 @@ CredentialListPage.prototype.constructor = CredentialListPage;
  * @returns CredentialListInstance
  */
 /* jshint ignore:end */
-CredentialListPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CredentialListInstance(this._version, payload, this._solution.trunkSid);
 };
 
@@ -459,7 +462,7 @@ Object.defineProperty(CredentialListInstance.prototype,
  * @returns {Promise} Resolves to processed CredentialListInstance
  */
 /* jshint ignore:end */
-CredentialListInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -476,7 +479,7 @@ CredentialListInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialListInstance
  */
 /* jshint ignore:end */
-CredentialListInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -491,7 +494,8 @@ CredentialListInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-CredentialListContext = function CredentialListContext(version, trunkSid, sid) {
+CredentialListContext = class CredentialListContext {
+  constructor(version, trunkSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -514,7 +518,7 @@ CredentialListContext = function CredentialListContext(version, trunkSid, sid) {
  * @returns {Promise} Resolves to processed CredentialListInstance
  */
 /* jshint ignore:end */
-CredentialListContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -551,7 +555,7 @@ CredentialListContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialListInstance
  */
 /* jshint ignore:end */
-CredentialListContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

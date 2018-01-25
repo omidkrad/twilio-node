@@ -25,15 +25,16 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function AccSecurity(domain) {
+class AccSecurity {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'Verification');
 
   // Resources
   this._services = undefined;
 }
 
-_.extend(AccSecurity.prototype, Version.prototype);
-AccSecurity.prototype.constructor = AccSecurity;
+class AccSecurity extends Version {
+
 
 Object.defineProperty(AccSecurity.prototype,
   'services', {

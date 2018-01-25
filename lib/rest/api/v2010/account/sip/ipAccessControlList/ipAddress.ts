@@ -44,7 +44,8 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.IpAccessControlListContext.IpAddressContext}
    */
   /* jshint ignore:end */
-  function IpAddressListInstance(sid) {
+  class IpAddressListInstance {
+  constructor(sid) {
     return IpAddressListInstance.get(sid);
   }
 
@@ -388,15 +389,16 @@ IpAddressList = function IpAddressList(version, accountSid,
  * @returns IpAddressPage
  */
 /* jshint ignore:end */
-IpAddressPage = function IpAddressPage(version, response, solution) {
+IpAddressPage = class IpAddressPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(IpAddressPage.prototype, Page.prototype);
-IpAddressPage.prototype.constructor = IpAddressPage;
+class IpAddressPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -411,7 +413,7 @@ IpAddressPage.prototype.constructor = IpAddressPage;
  * @returns IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new IpAddressInstance(
     this._version,
     payload,
@@ -494,7 +496,7 @@ Object.defineProperty(IpAddressInstance.prototype,
  * @returns {Promise} Resolves to processed IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -514,7 +516,7 @@ IpAddressInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -531,7 +533,7 @@ IpAddressInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -571,7 +573,7 @@ IpAddressContext = function IpAddressContext(version, accountSid,
  * @returns {Promise} Resolves to processed IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -612,7 +614,7 @@ IpAddressContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -661,7 +663,7 @@ IpAddressContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IpAddressInstance
  */
 /* jshint ignore:end */
-IpAddressContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

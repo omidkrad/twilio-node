@@ -44,7 +44,8 @@ TranscriptionList = function TranscriptionList(version, accountSid,
    * @returns {Twilio.Api.V2010.AccountContext.RecordingContext.TranscriptionContext}
    */
   /* jshint ignore:end */
-  function TranscriptionListInstance(sid) {
+  class TranscriptionListInstance {
+  constructor(sid) {
     return TranscriptionListInstance.get(sid);
   }
 
@@ -329,15 +330,16 @@ TranscriptionList = function TranscriptionList(version, accountSid,
  * @returns TranscriptionPage
  */
 /* jshint ignore:end */
-TranscriptionPage = function TranscriptionPage(version, response, solution) {
+TranscriptionPage = class TranscriptionPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TranscriptionPage.prototype, Page.prototype);
-TranscriptionPage.prototype.constructor = TranscriptionPage;
+class TranscriptionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -352,7 +354,7 @@ TranscriptionPage.prototype.constructor = TranscriptionPage;
  * @returns TranscriptionInstance
  */
 /* jshint ignore:end */
-TranscriptionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TranscriptionInstance(
     this._version,
     payload,
@@ -442,7 +444,7 @@ Object.defineProperty(TranscriptionInstance.prototype,
  * @returns {Promise} Resolves to processed TranscriptionInstance
  */
 /* jshint ignore:end */
-TranscriptionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -459,7 +461,7 @@ TranscriptionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TranscriptionInstance
  */
 /* jshint ignore:end */
-TranscriptionInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -499,7 +501,7 @@ TranscriptionContext = function TranscriptionContext(version, accountSid,
  * @returns {Promise} Resolves to processed TranscriptionInstance
  */
 /* jshint ignore:end */
-TranscriptionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -537,7 +539,7 @@ TranscriptionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TranscriptionInstance
  */
 /* jshint ignore:end */
-TranscriptionContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

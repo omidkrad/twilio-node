@@ -45,7 +45,8 @@ TaskQueueStatisticsList = function TaskQueueStatisticsList(version,
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueueStatisticsContext}
    */
   /* jshint ignore:end */
-  function TaskQueueStatisticsListInstance(sid) {
+  class TaskQueueStatisticsListInstance {
+  constructor(sid) {
     return TaskQueueStatisticsListInstance.get(sid);
   }
 
@@ -96,8 +97,8 @@ TaskQueueStatisticsPage = function TaskQueueStatisticsPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TaskQueueStatisticsPage.prototype, Page.prototype);
-TaskQueueStatisticsPage.prototype.constructor = TaskQueueStatisticsPage;
+class TaskQueueStatisticsPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -112,7 +113,7 @@ TaskQueueStatisticsPage.prototype.constructor = TaskQueueStatisticsPage;
  * @returns TaskQueueStatisticsInstance
  */
 /* jshint ignore:end */
-TaskQueueStatisticsPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TaskQueueStatisticsInstance(
     this._version,
     payload,
@@ -191,7 +192,7 @@ Object.defineProperty(TaskQueueStatisticsInstance.prototype,
  * @returns {Promise} Resolves to processed TaskQueueStatisticsInstance
  */
 /* jshint ignore:end */
-TaskQueueStatisticsInstance.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   return this._proxy.fetch(opts, callback);
 };
 
@@ -236,7 +237,7 @@ TaskQueueStatisticsContext = function TaskQueueStatisticsContext(version,
  * @returns {Promise} Resolves to processed TaskQueueStatisticsInstance
  */
 /* jshint ignore:end */
-TaskQueueStatisticsContext.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

@@ -33,7 +33,8 @@ var RecordingContext;
  * @param {string} callSid - The call_sid
  */
 /* jshint ignore:end */
-RecordingList = function RecordingList(version, accountSid, callSid) {
+RecordingList = class RecordingList {
+  constructor(version, accountSid, callSid) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -45,7 +46,8 @@ RecordingList = function RecordingList(version, accountSid, callSid) {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.RecordingContext}
    */
   /* jshint ignore:end */
-  function RecordingListInstance(sid) {
+  class RecordingListInstance {
+  constructor(sid) {
     return RecordingListInstance.get(sid);
   }
 
@@ -344,15 +346,16 @@ RecordingList = function RecordingList(version, accountSid, callSid) {
  * @returns RecordingPage
  */
 /* jshint ignore:end */
-RecordingPage = function RecordingPage(version, response, solution) {
+RecordingPage = class RecordingPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RecordingPage.prototype, Page.prototype);
-RecordingPage.prototype.constructor = RecordingPage;
+class RecordingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -367,7 +370,7 @@ RecordingPage.prototype.constructor = RecordingPage;
  * @returns RecordingInstance
  */
 /* jshint ignore:end */
-RecordingPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RecordingInstance(
     this._version,
     payload,
@@ -462,7 +465,7 @@ Object.defineProperty(RecordingInstance.prototype,
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -479,7 +482,7 @@ RecordingInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -519,7 +522,7 @@ RecordingContext = function RecordingContext(version, accountSid, callSid, sid)
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -557,7 +560,7 @@ RecordingContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

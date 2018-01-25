@@ -43,7 +43,8 @@ DependentHostedNumberOrderList = function
    * @returns {Twilio.Preview.HostedNumbers.AuthorizationDocumentContext.DependentHostedNumberOrderContext}
    */
   /* jshint ignore:end */
-  function DependentHostedNumberOrderListInstance(sid) {
+  class DependentHostedNumberOrderListInstance {
+  constructor(sid) {
     return DependentHostedNumberOrderListInstance.get(sid);
   }
 
@@ -357,8 +358,8 @@ DependentHostedNumberOrderPage = function
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DependentHostedNumberOrderPage.prototype, Page.prototype);
-DependentHostedNumberOrderPage.prototype.constructor = DependentHostedNumberOrderPage;
+class DependentHostedNumberOrderPage extends Page {
+
 
 /* jshint ignore:start */
 /**

@@ -31,7 +31,8 @@ var TriggerContext;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-TriggerList = function TriggerList(version, accountSid) {
+TriggerList = class TriggerList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function triggers
@@ -43,7 +44,8 @@ TriggerList = function TriggerList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.TriggerContext}
    */
   /* jshint ignore:end */
-  function TriggerListInstance(sid) {
+  class TriggerListInstance {
+  constructor(sid) {
     return TriggerListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ TriggerList = function TriggerList(version, accountSid) {
  * @returns TriggerPage
  */
 /* jshint ignore:end */
-TriggerPage = function TriggerPage(version, response, solution) {
+TriggerPage = class TriggerPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TriggerPage.prototype, Page.prototype);
-TriggerPage.prototype.constructor = TriggerPage;
+class TriggerPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ TriggerPage.prototype.constructor = TriggerPage;
  * @returns TriggerInstance
  */
 /* jshint ignore:end */
-TriggerPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TriggerInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -475,7 +478,8 @@ TriggerPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Fetch by unique usage-trigger Sid
  */
 /* jshint ignore:end */
-TriggerInstance = function TriggerInstance(version, payload, accountSid, sid) {
+TriggerInstance = class TriggerInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -525,7 +529,7 @@ Object.defineProperty(TriggerInstance.prototype,
  * @returns {Promise} Resolves to processed TriggerInstance
  */
 /* jshint ignore:end */
-TriggerInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -548,7 +552,7 @@ TriggerInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TriggerInstance
  */
 /* jshint ignore:end */
-TriggerInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -565,7 +569,7 @@ TriggerInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed TriggerInstance
  */
 /* jshint ignore:end */
-TriggerInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -580,7 +584,8 @@ TriggerInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - Fetch by unique usage-trigger Sid
  */
 /* jshint ignore:end */
-TriggerContext = function TriggerContext(version, accountSid, sid) {
+TriggerContext = class TriggerContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -603,7 +608,7 @@ TriggerContext = function TriggerContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed TriggerInstance
  */
 /* jshint ignore:end */
-TriggerContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -646,7 +651,7 @@ TriggerContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TriggerInstance
  */
 /* jshint ignore:end */
-TriggerContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -695,7 +700,7 @@ TriggerContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed TriggerInstance
  */
 /* jshint ignore:end */
-TriggerContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

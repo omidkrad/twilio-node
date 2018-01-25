@@ -17,7 +17,8 @@ var builder = require('xmlbuilder');  /* jshint ignore:line */
  * <Response> TwiML for Faxes
  */
 /* jshint ignore:end */
-function FaxResponse() {
+class FaxResponse {
+  constructor() {
   this.response = builder.create('Response').dec('1.0', 'UTF-8');
 }
 
@@ -30,7 +31,7 @@ function FaxResponse() {
  * @param {string} [attributes.method] Receive action URL method
  */
 /* jshint ignore:end */
-FaxResponse.prototype.receive = function receive(attributes) {
+receive(attributes) {
   this.response.ele('Receive', attributes);
 };
 
@@ -41,7 +42,7 @@ FaxResponse.prototype.receive = function receive(attributes) {
  * @returns TwiML XML
  */
 /* jshint ignore:end */
-FaxResponse.prototype.toString = function toString() {
+toString() {
   return this.response.end();
 };
 

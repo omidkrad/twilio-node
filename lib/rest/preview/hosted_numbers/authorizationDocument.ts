@@ -33,7 +33,8 @@ var AuthorizationDocumentContext;
  * @param {Twilio.Preview.HostedNumbers} version - Version of the resource
  */
 /* jshint ignore:end */
-AuthorizationDocumentList = function AuthorizationDocumentList(version) {
+AuthorizationDocumentList = class AuthorizationDocumentList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function authorizationDocuments
@@ -45,7 +46,8 @@ AuthorizationDocumentList = function AuthorizationDocumentList(version) {
    * @returns {Twilio.Preview.HostedNumbers.AuthorizationDocumentContext}
    */
   /* jshint ignore:end */
-  function AuthorizationDocumentListInstance(sid) {
+  class AuthorizationDocumentListInstance {
+  constructor(sid) {
     return AuthorizationDocumentListInstance.get(sid);
   }
 
@@ -411,8 +413,8 @@ AuthorizationDocumentPage = function AuthorizationDocumentPage(version,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AuthorizationDocumentPage.prototype, Page.prototype);
-AuthorizationDocumentPage.prototype.constructor = AuthorizationDocumentPage;
+class AuthorizationDocumentPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -427,7 +429,7 @@ AuthorizationDocumentPage.prototype.constructor = AuthorizationDocumentPage;
  * @returns AuthorizationDocumentInstance
  */
 /* jshint ignore:end */
-AuthorizationDocumentPage.prototype.getInstance = function getInstance(payload)
+getInstance(payload)
     {
   return new AuthorizationDocumentInstance(this._version, payload);
 };
@@ -499,7 +501,7 @@ Object.defineProperty(AuthorizationDocumentInstance.prototype,
  * @returns {Promise} Resolves to processed AuthorizationDocumentInstance
  */
 /* jshint ignore:end */
-AuthorizationDocumentInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -524,7 +526,7 @@ AuthorizationDocumentInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AuthorizationDocumentInstance
  */
 /* jshint ignore:end */
-AuthorizationDocumentInstance.prototype.update = function update(opts, callback)
+update(opts, callback)
     {
   return this._proxy.update(opts, callback);
 };
@@ -586,7 +588,7 @@ AuthorizationDocumentContext = function AuthorizationDocumentContext(version,
  * @returns {Promise} Resolves to processed AuthorizationDocumentInstance
  */
 /* jshint ignore:end */
-AuthorizationDocumentContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -626,7 +628,7 @@ AuthorizationDocumentContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AuthorizationDocumentInstance
  */
 /* jshint ignore:end */
-AuthorizationDocumentContext.prototype.update = function update(opts, callback)
+update(opts, callback)
     {
   if (_.isFunction(opts)) {
     callback = opts;

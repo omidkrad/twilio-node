@@ -31,7 +31,8 @@ var StreamMessageInstance;
  * @param {string} streamSid - Stream SID.
  */
 /* jshint ignore:end */
-StreamMessageList = function StreamMessageList(version, serviceSid, streamSid) {
+StreamMessageList = class StreamMessageList {
+  constructor(version, serviceSid, streamSid) {
   /* jshint ignore:start */
   /**
    * @function streamMessages
@@ -43,7 +44,8 @@ StreamMessageList = function StreamMessageList(version, serviceSid, streamSid) {
    * @returns {Twilio.Sync.V1.ServiceContext.SyncStreamContext.StreamMessageContext}
    */
   /* jshint ignore:end */
-  function StreamMessageListInstance(sid) {
+  class StreamMessageListInstance {
+  constructor(sid) {
     return StreamMessageListInstance.get(sid);
   }
 
@@ -116,15 +118,16 @@ StreamMessageList = function StreamMessageList(version, serviceSid, streamSid) {
  * @returns StreamMessagePage
  */
 /* jshint ignore:end */
-StreamMessagePage = function StreamMessagePage(version, response, solution) {
+StreamMessagePage = class StreamMessagePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(StreamMessagePage.prototype, Page.prototype);
-StreamMessagePage.prototype.constructor = StreamMessagePage;
+class StreamMessagePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -139,7 +142,7 @@ StreamMessagePage.prototype.constructor = StreamMessagePage;
  * @returns StreamMessageInstance
  */
 /* jshint ignore:end */
-StreamMessagePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new StreamMessageInstance(
     this._version,
     payload,

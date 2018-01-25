@@ -30,7 +30,8 @@ var ShortCodeContext;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-ShortCodeList = function ShortCodeList(version, accountSid) {
+ShortCodeList = class ShortCodeList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function shortCodes
@@ -42,7 +43,8 @@ ShortCodeList = function ShortCodeList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.ShortCodeContext}
    */
   /* jshint ignore:end */
-  function ShortCodeListInstance(sid) {
+  class ShortCodeListInstance {
+  constructor(sid) {
     return ShortCodeListInstance.get(sid);
   }
 
@@ -336,15 +338,16 @@ ShortCodeList = function ShortCodeList(version, accountSid) {
  * @returns ShortCodePage
  */
 /* jshint ignore:end */
-ShortCodePage = function ShortCodePage(version, response, solution) {
+ShortCodePage = class ShortCodePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ShortCodePage.prototype, Page.prototype);
-ShortCodePage.prototype.constructor = ShortCodePage;
+class ShortCodePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -359,7 +362,7 @@ ShortCodePage.prototype.constructor = ShortCodePage;
  * @returns ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ShortCodeInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -437,7 +440,7 @@ Object.defineProperty(ShortCodeInstance.prototype,
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -465,7 +468,7 @@ ShortCodeInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -480,7 +483,8 @@ ShortCodeInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - Fetch by unique short-code Sid
  */
 /* jshint ignore:end */
-ShortCodeContext = function ShortCodeContext(version, accountSid, sid) {
+ShortCodeContext = class ShortCodeContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -503,7 +507,7 @@ ShortCodeContext = function ShortCodeContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -551,7 +555,7 @@ ShortCodeContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

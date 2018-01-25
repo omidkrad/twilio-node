@@ -43,7 +43,8 @@ InstalledAddOnExtensionList = function InstalledAddOnExtensionList(version,
    * @returns {Twilio.Preview.Marketplace.InstalledAddOnContext.InstalledAddOnExtensionContext}
    */
   /* jshint ignore:end */
-  function InstalledAddOnExtensionListInstance(sid) {
+  class InstalledAddOnExtensionListInstance {
+  constructor(sid) {
     return InstalledAddOnExtensionListInstance.get(sid);
   }
 
@@ -333,8 +334,8 @@ InstalledAddOnExtensionPage = function InstalledAddOnExtensionPage(version,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(InstalledAddOnExtensionPage.prototype, Page.prototype);
-InstalledAddOnExtensionPage.prototype.constructor = InstalledAddOnExtensionPage;
+class InstalledAddOnExtensionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -424,7 +425,7 @@ Object.defineProperty(InstalledAddOnExtensionInstance.prototype,
  * @returns {Promise} Resolves to processed InstalledAddOnExtensionInstance
  */
 /* jshint ignore:end */
-InstalledAddOnExtensionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -444,7 +445,7 @@ InstalledAddOnExtensionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InstalledAddOnExtensionInstance
  */
 /* jshint ignore:end */
-InstalledAddOnExtensionInstance.prototype.update = function update(opts,
+update(opts,
     callback) {
   return this._proxy.update(opts, callback);
 };
@@ -485,7 +486,7 @@ InstalledAddOnExtensionContext = function
  * @returns {Promise} Resolves to processed InstalledAddOnExtensionInstance
  */
 /* jshint ignore:end */
-InstalledAddOnExtensionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -525,7 +526,7 @@ InstalledAddOnExtensionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InstalledAddOnExtensionInstance
  */
 /* jshint ignore:end */
-InstalledAddOnExtensionContext.prototype.update = function update(opts,
+update(opts,
     callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');

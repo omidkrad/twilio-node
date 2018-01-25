@@ -33,7 +33,8 @@ var InstalledAddOnContext;
  * @param {Twilio.Preview.Marketplace} version - Version of the resource
  */
 /* jshint ignore:end */
-InstalledAddOnList = function InstalledAddOnList(version) {
+InstalledAddOnList = class InstalledAddOnList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function installedAddOns
@@ -45,7 +46,8 @@ InstalledAddOnList = function InstalledAddOnList(version) {
    * @returns {Twilio.Preview.Marketplace.InstalledAddOnContext}
    */
   /* jshint ignore:end */
-  function InstalledAddOnListInstance(sid) {
+  class InstalledAddOnListInstance {
+  constructor(sid) {
     return InstalledAddOnListInstance.get(sid);
   }
 
@@ -384,15 +386,16 @@ InstalledAddOnList = function InstalledAddOnList(version) {
  * @returns InstalledAddOnPage
  */
 /* jshint ignore:end */
-InstalledAddOnPage = function InstalledAddOnPage(version, response, solution) {
+InstalledAddOnPage = class InstalledAddOnPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(InstalledAddOnPage.prototype, Page.prototype);
-InstalledAddOnPage.prototype.constructor = InstalledAddOnPage;
+class InstalledAddOnPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -407,7 +410,7 @@ InstalledAddOnPage.prototype.constructor = InstalledAddOnPage;
  * @returns InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new InstalledAddOnInstance(this._version, payload);
 };
 
@@ -483,7 +486,7 @@ Object.defineProperty(InstalledAddOnInstance.prototype,
  * @returns {Promise} Resolves to processed InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -500,7 +503,7 @@ InstalledAddOnInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -522,7 +525,7 @@ InstalledAddOnInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -537,7 +540,7 @@ InstalledAddOnInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Preview.Marketplace.InstalledAddOnContext.InstalledAddOnExtensionList}
  */
 /* jshint ignore:end */
-InstalledAddOnInstance.prototype.extensions = function extensions() {
+extensions() {
   return this._proxy.extensions;
 };
 
@@ -555,7 +558,8 @@ InstalledAddOnInstance.prototype.extensions = function extensions() {
  * @param {sid} sid - The unique Installed Add-on Sid
  */
 /* jshint ignore:end */
-InstalledAddOnContext = function InstalledAddOnContext(version, sid) {
+InstalledAddOnContext = class InstalledAddOnContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -581,7 +585,7 @@ InstalledAddOnContext = function InstalledAddOnContext(version, sid) {
  * @returns {Promise} Resolves to processed InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -613,7 +617,7 @@ InstalledAddOnContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -650,7 +654,7 @@ InstalledAddOnContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InstalledAddOnInstance
  */
 /* jshint ignore:end */
-InstalledAddOnContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

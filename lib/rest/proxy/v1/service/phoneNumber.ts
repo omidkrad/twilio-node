@@ -31,7 +31,8 @@ var PhoneNumberContext;
  * @param {string} serviceSid - Service Sid.
  */
 /* jshint ignore:end */
-PhoneNumberList = function PhoneNumberList(version, serviceSid) {
+PhoneNumberList = class PhoneNumberList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function phoneNumbers
@@ -43,7 +44,8 @@ PhoneNumberList = function PhoneNumberList(version, serviceSid) {
    * @returns {Twilio.Proxy.V1.ServiceContext.PhoneNumberContext}
    */
   /* jshint ignore:end */
-  function PhoneNumberListInstance(sid) {
+  class PhoneNumberListInstance {
+  constructor(sid) {
     return PhoneNumberListInstance.get(sid);
   }
 
@@ -373,15 +375,16 @@ PhoneNumberList = function PhoneNumberList(version, serviceSid) {
  * @returns PhoneNumberPage
  */
 /* jshint ignore:end */
-PhoneNumberPage = function PhoneNumberPage(version, response, solution) {
+PhoneNumberPage = class PhoneNumberPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(PhoneNumberPage.prototype, Page.prototype);
-PhoneNumberPage.prototype.constructor = PhoneNumberPage;
+class PhoneNumberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -396,7 +399,7 @@ PhoneNumberPage.prototype.constructor = PhoneNumberPage;
  * @returns PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new PhoneNumberInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -469,7 +472,7 @@ Object.defineProperty(PhoneNumberInstance.prototype,
  * @returns {Promise} Resolves to processed PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -486,7 +489,7 @@ PhoneNumberInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -502,7 +505,8 @@ PhoneNumberInstance.prototype.fetch = function fetch(callback) {
  * @param {sid} sid - A string that uniquely identifies this Phone Number.
  */
 /* jshint ignore:end */
-PhoneNumberContext = function PhoneNumberContext(version, serviceSid, sid) {
+PhoneNumberContext = class PhoneNumberContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -525,7 +529,7 @@ PhoneNumberContext = function PhoneNumberContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -557,7 +561,7 @@ PhoneNumberContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

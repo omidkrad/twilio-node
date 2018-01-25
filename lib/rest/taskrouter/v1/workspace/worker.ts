@@ -40,7 +40,8 @@ var WorkerContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-WorkerList = function WorkerList(version, workspaceSid) {
+WorkerList = class WorkerList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function workers
@@ -52,7 +53,8 @@ WorkerList = function WorkerList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext}
    */
   /* jshint ignore:end */
-  function WorkerListInstance(sid) {
+  class WorkerListInstance {
+  constructor(sid) {
     return WorkerListInstance.get(sid);
   }
 
@@ -440,15 +442,16 @@ WorkerList = function WorkerList(version, workspaceSid) {
  * @returns WorkerPage
  */
 /* jshint ignore:end */
-WorkerPage = function WorkerPage(version, response, solution) {
+WorkerPage = class WorkerPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(WorkerPage.prototype, Page.prototype);
-WorkerPage.prototype.constructor = WorkerPage;
+class WorkerPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -463,7 +466,7 @@ WorkerPage.prototype.constructor = WorkerPage;
  * @returns WorkerInstance
  */
 /* jshint ignore:end */
-WorkerPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new WorkerInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -493,7 +496,8 @@ WorkerPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-WorkerInstance = function WorkerInstance(version, payload, workspaceSid, sid) {
+WorkerInstance = class WorkerInstance {
+  constructor(version, payload, workspaceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -540,7 +544,7 @@ Object.defineProperty(WorkerInstance.prototype,
  * @returns {Promise} Resolves to processed WorkerInstance
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -561,7 +565,7 @@ WorkerInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed WorkerInstance
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -578,7 +582,7 @@ WorkerInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed WorkerInstance
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -593,7 +597,7 @@ WorkerInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkersRealTimeStatisticsList}
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.realTimeStatistics = function realTimeStatistics() {
+realTimeStatistics() {
   return this._proxy.realTimeStatistics;
 };
 
@@ -608,7 +612,7 @@ WorkerInstance.prototype.realTimeStatistics = function realTimeStatistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkersCumulativeStatisticsList}
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.cumulativeStatistics = function cumulativeStatistics()
+cumulativeStatistics()
     {
   return this._proxy.cumulativeStatistics;
 };
@@ -624,7 +628,7 @@ WorkerInstance.prototype.cumulativeStatistics = function cumulativeStatistics()
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkerStatisticsList}
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.statistics = function statistics() {
+statistics() {
   return this._proxy.statistics;
 };
 
@@ -639,7 +643,7 @@ WorkerInstance.prototype.statistics = function statistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.ReservationList}
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.reservations = function reservations() {
+reservations() {
   return this._proxy.reservations;
 };
 
@@ -654,7 +658,7 @@ WorkerInstance.prototype.reservations = function reservations() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkerChannelList}
  */
 /* jshint ignore:end */
-WorkerInstance.prototype.workerChannels = function workerChannels() {
+workerChannels() {
   return this._proxy.workerChannels;
 };
 
@@ -680,7 +684,8 @@ WorkerInstance.prototype.workerChannels = function workerChannels() {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-WorkerContext = function WorkerContext(version, workspaceSid, sid) {
+WorkerContext = class WorkerContext {
+  constructor(version, workspaceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -710,7 +715,7 @@ WorkerContext = function WorkerContext(version, workspaceSid, sid) {
  * @returns {Promise} Resolves to processed WorkerInstance
  */
 /* jshint ignore:end */
-WorkerContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -751,7 +756,7 @@ WorkerContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed WorkerInstance
  */
 /* jshint ignore:end */
-WorkerContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -800,7 +805,7 @@ WorkerContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed WorkerInstance
  */
 /* jshint ignore:end */
-WorkerContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

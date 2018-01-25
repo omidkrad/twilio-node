@@ -32,7 +32,8 @@ var RoomContext;
  * @param {Twilio.Video.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-RoomList = function RoomList(version) {
+RoomList = class RoomList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function rooms
@@ -44,7 +45,8 @@ RoomList = function RoomList(version) {
    * @returns {Twilio.Video.V1.RoomContext}
    */
   /* jshint ignore:end */
-  function RoomListInstance(sid) {
+  class RoomListInstance {
+  constructor(sid) {
     return RoomListInstance.get(sid);
   }
 
@@ -409,15 +411,16 @@ RoomList = function RoomList(version) {
  * @returns RoomPage
  */
 /* jshint ignore:end */
-RoomPage = function RoomPage(version, response, solution) {
+RoomPage = class RoomPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RoomPage.prototype, Page.prototype);
-RoomPage.prototype.constructor = RoomPage;
+class RoomPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -432,7 +435,7 @@ RoomPage.prototype.constructor = RoomPage;
  * @returns RoomInstance
  */
 /* jshint ignore:end */
-RoomPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RoomInstance(this._version, payload);
 };
 
@@ -467,7 +470,8 @@ RoomPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-RoomInstance = function RoomInstance(version, payload, sid) {
+RoomInstance = class RoomInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -519,7 +523,7 @@ Object.defineProperty(RoomInstance.prototype,
  * @returns {Promise} Resolves to processed RoomInstance
  */
 /* jshint ignore:end */
-RoomInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -538,7 +542,7 @@ RoomInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RoomInstance
  */
 /* jshint ignore:end */
-RoomInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -553,7 +557,7 @@ RoomInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Video.V1.RoomContext.RoomRecordingList}
  */
 /* jshint ignore:end */
-RoomInstance.prototype.recordings = function recordings() {
+recordings() {
   return this._proxy.recordings;
 };
 
@@ -568,7 +572,7 @@ RoomInstance.prototype.recordings = function recordings() {
  * @returns {Twilio.Video.V1.RoomContext.ParticipantList}
  */
 /* jshint ignore:end */
-RoomInstance.prototype.participants = function participants() {
+participants() {
   return this._proxy.participants;
 };
 
@@ -587,7 +591,8 @@ RoomInstance.prototype.participants = function participants() {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-RoomContext = function RoomContext(version, sid) {
+RoomContext = class RoomContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -614,7 +619,7 @@ RoomContext = function RoomContext(version, sid) {
  * @returns {Promise} Resolves to processed RoomInstance
  */
 /* jshint ignore:end */
-RoomContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -648,7 +653,7 @@ RoomContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RoomInstance
  */
 /* jshint ignore:end */
-RoomContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

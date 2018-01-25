@@ -45,7 +45,8 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
    * @returns {Twilio.Preview.Sync.ServiceContext.SyncListContext.SyncListPermissionContext}
    */
   /* jshint ignore:end */
-  function SyncListPermissionListInstance(sid) {
+  class SyncListPermissionListInstance {
+  constructor(sid) {
     return SyncListPermissionListInstance.get(sid);
   }
 
@@ -340,8 +341,8 @@ SyncListPermissionPage = function SyncListPermissionPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncListPermissionPage.prototype, Page.prototype);
-SyncListPermissionPage.prototype.constructor = SyncListPermissionPage;
+class SyncListPermissionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -356,7 +357,7 @@ SyncListPermissionPage.prototype.constructor = SyncListPermissionPage;
  * @returns SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncListPermissionInstance(
     this._version,
     payload,
@@ -438,7 +439,7 @@ Object.defineProperty(SyncListPermissionInstance.prototype,
  * @returns {Promise} Resolves to processed SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -455,7 +456,7 @@ SyncListPermissionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -476,7 +477,7 @@ SyncListPermissionInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -518,7 +519,7 @@ SyncListPermissionContext = function SyncListPermissionContext(version,
  * @returns {Promise} Resolves to processed SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -556,7 +557,7 @@ SyncListPermissionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -592,7 +593,7 @@ SyncListPermissionContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncListPermissionInstance
  */
 /* jshint ignore:end */
-SyncListPermissionContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

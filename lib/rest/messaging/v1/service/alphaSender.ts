@@ -31,7 +31,8 @@ var AlphaSenderContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-AlphaSenderList = function AlphaSenderList(version, serviceSid) {
+AlphaSenderList = class AlphaSenderList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function alphaSenders
@@ -43,7 +44,8 @@ AlphaSenderList = function AlphaSenderList(version, serviceSid) {
    * @returns {Twilio.Messaging.V1.ServiceContext.AlphaSenderContext}
    */
   /* jshint ignore:end */
-  function AlphaSenderListInstance(sid) {
+  class AlphaSenderListInstance {
+  constructor(sid) {
     return AlphaSenderListInstance.get(sid);
   }
 
@@ -372,15 +374,16 @@ AlphaSenderList = function AlphaSenderList(version, serviceSid) {
  * @returns AlphaSenderPage
  */
 /* jshint ignore:end */
-AlphaSenderPage = function AlphaSenderPage(version, response, solution) {
+AlphaSenderPage = class AlphaSenderPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AlphaSenderPage.prototype, Page.prototype);
-AlphaSenderPage.prototype.constructor = AlphaSenderPage;
+class AlphaSenderPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -395,7 +398,7 @@ AlphaSenderPage.prototype.constructor = AlphaSenderPage;
  * @returns AlphaSenderInstance
  */
 /* jshint ignore:end */
-AlphaSenderPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AlphaSenderInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -464,7 +467,7 @@ Object.defineProperty(AlphaSenderInstance.prototype,
  * @returns {Promise} Resolves to processed AlphaSenderInstance
  */
 /* jshint ignore:end */
-AlphaSenderInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -481,7 +484,7 @@ AlphaSenderInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AlphaSenderInstance
  */
 /* jshint ignore:end */
-AlphaSenderInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -497,7 +500,8 @@ AlphaSenderInstance.prototype.remove = function remove(callback) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-AlphaSenderContext = function AlphaSenderContext(version, serviceSid, sid) {
+AlphaSenderContext = class AlphaSenderContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -520,7 +524,7 @@ AlphaSenderContext = function AlphaSenderContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed AlphaSenderInstance
  */
 /* jshint ignore:end */
-AlphaSenderContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -557,7 +561,7 @@ AlphaSenderContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AlphaSenderInstance
  */
 /* jshint ignore:end */
-AlphaSenderContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

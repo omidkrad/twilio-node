@@ -42,7 +42,8 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    * @returns {Twilio.Preview.Marketplace.AvailableAddOnContext.AvailableAddOnExtensionContext}
    */
   /* jshint ignore:end */
-  function AvailableAddOnExtensionListInstance(sid) {
+  class AvailableAddOnExtensionListInstance {
+  constructor(sid) {
     return AvailableAddOnExtensionListInstance.get(sid);
   }
 
@@ -332,8 +333,8 @@ AvailableAddOnExtensionPage = function AvailableAddOnExtensionPage(version,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AvailableAddOnExtensionPage.prototype, Page.prototype);
-AvailableAddOnExtensionPage.prototype.constructor = AvailableAddOnExtensionPage;
+class AvailableAddOnExtensionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -420,7 +421,7 @@ Object.defineProperty(AvailableAddOnExtensionInstance.prototype,
  * @returns {Promise} Resolves to processed AvailableAddOnExtensionInstance
  */
 /* jshint ignore:end */
-AvailableAddOnExtensionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -460,7 +461,7 @@ AvailableAddOnExtensionContext = function
  * @returns {Promise} Resolves to processed AvailableAddOnExtensionInstance
  */
 /* jshint ignore:end */
-AvailableAddOnExtensionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

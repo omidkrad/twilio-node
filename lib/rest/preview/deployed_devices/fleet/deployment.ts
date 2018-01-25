@@ -31,7 +31,8 @@ var DeploymentContext;
  * @param {string} fleetSid - The unique identifier of the Fleet.
  */
 /* jshint ignore:end */
-DeploymentList = function DeploymentList(version, fleetSid) {
+DeploymentList = class DeploymentList {
+  constructor(version, fleetSid) {
   /* jshint ignore:start */
   /**
    * @function deployments
@@ -43,7 +44,8 @@ DeploymentList = function DeploymentList(version, fleetSid) {
    * @returns {Twilio.Preview.DeployedDevices.FleetContext.DeploymentContext}
    */
   /* jshint ignore:end */
-  function DeploymentListInstance(sid) {
+  class DeploymentListInstance {
+  constructor(sid) {
     return DeploymentListInstance.get(sid);
   }
 
@@ -377,15 +379,16 @@ DeploymentList = function DeploymentList(version, fleetSid) {
  * @returns DeploymentPage
  */
 /* jshint ignore:end */
-DeploymentPage = function DeploymentPage(version, response, solution) {
+DeploymentPage = class DeploymentPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DeploymentPage.prototype, Page.prototype);
-DeploymentPage.prototype.constructor = DeploymentPage;
+class DeploymentPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -400,7 +403,7 @@ DeploymentPage.prototype.constructor = DeploymentPage;
  * @returns DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DeploymentInstance(this._version, payload, this._solution.fleetSid);
 };
 
@@ -471,7 +474,7 @@ Object.defineProperty(DeploymentInstance.prototype,
  * @returns {Promise} Resolves to processed DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -488,7 +491,7 @@ DeploymentInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -510,7 +513,7 @@ DeploymentInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -526,7 +529,8 @@ DeploymentInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - A string that uniquely identifies the Deployment.
  */
 /* jshint ignore:end */
-DeploymentContext = function DeploymentContext(version, fleetSid, sid) {
+DeploymentContext = class DeploymentContext {
+  constructor(version, fleetSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -549,7 +553,7 @@ DeploymentContext = function DeploymentContext(version, fleetSid, sid) {
  * @returns {Promise} Resolves to processed DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -586,7 +590,7 @@ DeploymentContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -623,7 +627,7 @@ DeploymentContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed DeploymentInstance
  */
 /* jshint ignore:end */
-DeploymentContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

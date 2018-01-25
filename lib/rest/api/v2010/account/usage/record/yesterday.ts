@@ -32,7 +32,8 @@ var YesterdayInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-YesterdayList = function YesterdayList(version, accountSid) {
+YesterdayList = class YesterdayList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function yesterday
@@ -44,7 +45,8 @@ YesterdayList = function YesterdayList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.YesterdayContext}
    */
   /* jshint ignore:end */
-  function YesterdayListInstance(sid) {
+  class YesterdayListInstance {
+  constructor(sid) {
     return YesterdayListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ YesterdayList = function YesterdayList(version, accountSid) {
  * @returns YesterdayPage
  */
 /* jshint ignore:end */
-YesterdayPage = function YesterdayPage(version, response, solution) {
+YesterdayPage = class YesterdayPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(YesterdayPage.prototype, Page.prototype);
-YesterdayPage.prototype.constructor = YesterdayPage;
+class YesterdayPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ YesterdayPage.prototype.constructor = YesterdayPage;
  * @returns YesterdayInstance
  */
 /* jshint ignore:end */
-YesterdayPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new YesterdayInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ YesterdayPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-YesterdayInstance = function YesterdayInstance(version, payload, accountSid) {
+YesterdayInstance = class YesterdayInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

@@ -25,7 +25,8 @@ var UsageList;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-UsageList = function UsageList(version, accountSid) {
+UsageList = class UsageList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function usage
@@ -37,7 +38,8 @@ UsageList = function UsageList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext}
    */
   /* jshint ignore:end */
-  function UsageListInstance(sid) {
+  class UsageListInstance {
+  constructor(sid) {
     return UsageListInstance.get(sid);
   }
 

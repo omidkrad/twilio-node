@@ -25,15 +25,16 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function Proxy(domain) {
+class Proxy {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'Proxy');
 
   // Resources
   this._services = undefined;
 }
 
-_.extend(Proxy.prototype, Version.prototype);
-Proxy.prototype.constructor = Proxy;
+class Proxy extends Version {
+
 
 Object.defineProperty(Proxy.prototype,
   'services', {

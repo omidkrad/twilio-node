@@ -32,7 +32,8 @@ var SyncStreamContext;
  * @param {string} serviceSid - Service Instance SID.
  */
 /* jshint ignore:end */
-SyncStreamList = function SyncStreamList(version, serviceSid) {
+SyncStreamList = class SyncStreamList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function syncStreams
@@ -44,7 +45,8 @@ SyncStreamList = function SyncStreamList(version, serviceSid) {
    * @returns {Twilio.Sync.V1.ServiceContext.SyncStreamContext}
    */
   /* jshint ignore:end */
-  function SyncStreamListInstance(sid) {
+  class SyncStreamListInstance {
+  constructor(sid) {
     return SyncStreamListInstance.get(sid);
   }
 
@@ -373,15 +375,16 @@ SyncStreamList = function SyncStreamList(version, serviceSid) {
  * @returns SyncStreamPage
  */
 /* jshint ignore:end */
-SyncStreamPage = function SyncStreamPage(version, response, solution) {
+SyncStreamPage = class SyncStreamPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncStreamPage.prototype, Page.prototype);
-SyncStreamPage.prototype.constructor = SyncStreamPage;
+class SyncStreamPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -396,7 +399,7 @@ SyncStreamPage.prototype.constructor = SyncStreamPage;
  * @returns SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncStreamInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -469,7 +472,7 @@ Object.defineProperty(SyncStreamInstance.prototype,
  * @returns {Promise} Resolves to processed SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -486,7 +489,7 @@ SyncStreamInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -505,7 +508,7 @@ SyncStreamInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -520,7 +523,7 @@ SyncStreamInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Sync.V1.ServiceContext.SyncStreamContext.StreamMessageList}
  */
 /* jshint ignore:end */
-SyncStreamInstance.prototype.streamMessages = function streamMessages() {
+streamMessages() {
   return this._proxy.streamMessages;
 };
 
@@ -539,7 +542,8 @@ SyncStreamInstance.prototype.streamMessages = function streamMessages() {
  * @param {sid_like} sid - Stream SID or unique name.
  */
 /* jshint ignore:end */
-SyncStreamContext = function SyncStreamContext(version, serviceSid, sid) {
+SyncStreamContext = class SyncStreamContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -565,7 +569,7 @@ SyncStreamContext = function SyncStreamContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -602,7 +606,7 @@ SyncStreamContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -636,7 +640,7 @@ SyncStreamContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncStreamInstance
  */
 /* jshint ignore:end */
-SyncStreamContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

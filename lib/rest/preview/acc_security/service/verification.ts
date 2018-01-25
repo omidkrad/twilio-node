@@ -30,7 +30,8 @@ var VerificationInstance;
  * @param {string} serviceSid - Service Sid.
  */
 /* jshint ignore:end */
-VerificationList = function VerificationList(version, serviceSid) {
+VerificationList = class VerificationList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function verifications
@@ -42,7 +43,8 @@ VerificationList = function VerificationList(version, serviceSid) {
    * @returns {Twilio.Preview.AccSecurity.ServiceContext.VerificationContext}
    */
   /* jshint ignore:end */
-  function VerificationListInstance(sid) {
+  class VerificationListInstance {
+  constructor(sid) {
     return VerificationListInstance.get(sid);
   }
 
@@ -123,15 +125,16 @@ VerificationList = function VerificationList(version, serviceSid) {
  * @returns VerificationPage
  */
 /* jshint ignore:end */
-VerificationPage = function VerificationPage(version, response, solution) {
+VerificationPage = class VerificationPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(VerificationPage.prototype, Page.prototype);
-VerificationPage.prototype.constructor = VerificationPage;
+class VerificationPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -146,7 +149,7 @@ VerificationPage.prototype.constructor = VerificationPage;
  * @returns VerificationInstance
  */
 /* jshint ignore:end */
-VerificationPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new VerificationInstance(this._version, payload, this._solution.serviceSid);
 };
 

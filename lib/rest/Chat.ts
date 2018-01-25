@@ -29,7 +29,8 @@ var V2 = require('./chat/V2');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Chat(twilio) {
+class Chat {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://chat.twilio.com');
 
   // Versions
@@ -37,8 +38,8 @@ function Chat(twilio) {
   this._v2 = undefined;
 }
 
-_.extend(Chat.prototype, Domain.prototype);
-Chat.prototype.constructor = Chat;
+class Chat extends Domain {
+
 
 Object.defineProperty(Chat.prototype,
   'v1', {

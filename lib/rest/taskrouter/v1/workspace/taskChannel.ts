@@ -30,7 +30,8 @@ var TaskChannelContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-TaskChannelList = function TaskChannelList(version, workspaceSid) {
+TaskChannelList = class TaskChannelList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function taskChannels
@@ -42,7 +43,8 @@ TaskChannelList = function TaskChannelList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskChannelContext}
    */
   /* jshint ignore:end */
-  function TaskChannelListInstance(sid) {
+  class TaskChannelListInstance {
+  constructor(sid) {
     return TaskChannelListInstance.get(sid);
   }
 
@@ -322,15 +324,16 @@ TaskChannelList = function TaskChannelList(version, workspaceSid) {
  * @returns TaskChannelPage
  */
 /* jshint ignore:end */
-TaskChannelPage = function TaskChannelPage(version, response, solution) {
+TaskChannelPage = class TaskChannelPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TaskChannelPage.prototype, Page.prototype);
-TaskChannelPage.prototype.constructor = TaskChannelPage;
+class TaskChannelPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -345,7 +348,7 @@ TaskChannelPage.prototype.constructor = TaskChannelPage;
  * @returns TaskChannelInstance
  */
 /* jshint ignore:end */
-TaskChannelPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TaskChannelInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -417,7 +420,7 @@ Object.defineProperty(TaskChannelInstance.prototype,
  * @returns {Promise} Resolves to processed TaskChannelInstance
  */
 /* jshint ignore:end */
-TaskChannelInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -432,7 +435,8 @@ TaskChannelInstance.prototype.fetch = function fetch(callback) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-TaskChannelContext = function TaskChannelContext(version, workspaceSid, sid) {
+TaskChannelContext = class TaskChannelContext {
+  constructor(version, workspaceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -455,7 +459,7 @@ TaskChannelContext = function TaskChannelContext(version, workspaceSid, sid) {
  * @returns {Promise} Resolves to processed TaskChannelInstance
  */
 /* jshint ignore:end */
-TaskChannelContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

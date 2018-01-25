@@ -31,7 +31,8 @@ var ShortCodeContext;
  * @param {string} serviceSid - Service Sid.
  */
 /* jshint ignore:end */
-ShortCodeList = function ShortCodeList(version, serviceSid) {
+ShortCodeList = class ShortCodeList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function shortCodes
@@ -43,7 +44,8 @@ ShortCodeList = function ShortCodeList(version, serviceSid) {
    * @returns {Twilio.Preview.Proxy.ServiceContext.ShortCodeContext}
    */
   /* jshint ignore:end */
-  function ShortCodeListInstance(sid) {
+  class ShortCodeListInstance {
+  constructor(sid) {
     return ShortCodeListInstance.get(sid);
   }
 
@@ -371,15 +373,16 @@ ShortCodeList = function ShortCodeList(version, serviceSid) {
  * @returns ShortCodePage
  */
 /* jshint ignore:end */
-ShortCodePage = function ShortCodePage(version, response, solution) {
+ShortCodePage = class ShortCodePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ShortCodePage.prototype, Page.prototype);
-ShortCodePage.prototype.constructor = ShortCodePage;
+class ShortCodePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -394,7 +397,7 @@ ShortCodePage.prototype.constructor = ShortCodePage;
  * @returns ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ShortCodeInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -465,7 +468,7 @@ Object.defineProperty(ShortCodeInstance.prototype,
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -482,7 +485,7 @@ ShortCodeInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -498,7 +501,8 @@ ShortCodeInstance.prototype.fetch = function fetch(callback) {
  * @param {sid} sid - Fetch by unique shortcode Sid
  */
 /* jshint ignore:end */
-ShortCodeContext = function ShortCodeContext(version, serviceSid, sid) {
+ShortCodeContext = class ShortCodeContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -521,7 +525,7 @@ ShortCodeContext = function ShortCodeContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -553,7 +557,7 @@ ShortCodeContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ShortCodeInstance
  */
 /* jshint ignore:end */
-ShortCodeContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

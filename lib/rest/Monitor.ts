@@ -27,15 +27,16 @@ var V1 = require('./monitor/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Monitor(twilio) {
+class Monitor {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://monitor.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Monitor.prototype, Domain.prototype);
-Monitor.prototype.constructor = Monitor;
+class Monitor extends Domain {
+
 
 Object.defineProperty(Monitor.prototype,
   'v1', {

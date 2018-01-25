@@ -26,15 +26,16 @@ var V1 = require('./trunking/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Trunking(twilio) {
+class Trunking {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://trunking.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Trunking.prototype, Domain.prototype);
-Trunking.prototype.constructor = Trunking;
+class Trunking extends Domain {
+
 
 Object.defineProperty(Trunking.prototype,
   'v1', {

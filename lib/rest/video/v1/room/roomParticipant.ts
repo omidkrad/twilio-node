@@ -33,7 +33,8 @@ var ParticipantContext;
  * @param {string} roomSid - The room_sid
  */
 /* jshint ignore:end */
-ParticipantList = function ParticipantList(version, roomSid) {
+ParticipantList = class ParticipantList {
+  constructor(version, roomSid) {
   /* jshint ignore:start */
   /**
    * @function participants
@@ -45,7 +46,8 @@ ParticipantList = function ParticipantList(version, roomSid) {
    * @returns {Twilio.Video.V1.RoomContext.ParticipantContext}
    */
   /* jshint ignore:end */
-  function ParticipantListInstance(sid) {
+  class ParticipantListInstance {
+  constructor(sid) {
     return ParticipantListInstance.get(sid);
   }
 
@@ -349,15 +351,16 @@ ParticipantList = function ParticipantList(version, roomSid) {
  * @returns ParticipantPage
  */
 /* jshint ignore:end */
-ParticipantPage = function ParticipantPage(version, response, solution) {
+ParticipantPage = class ParticipantPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ParticipantPage.prototype, Page.prototype);
-ParticipantPage.prototype.constructor = ParticipantPage;
+class ParticipantPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -372,7 +375,7 @@ ParticipantPage.prototype.constructor = ParticipantPage;
  * @returns ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ParticipantInstance(this._version, payload, this._solution.roomSid);
 };
 
@@ -448,7 +451,7 @@ Object.defineProperty(ParticipantInstance.prototype,
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -467,7 +470,7 @@ ParticipantInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -482,7 +485,7 @@ ParticipantInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Video.V1.RoomContext.ParticipantContext.PublishedTrackList}
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.publishedTracks = function publishedTracks() {
+publishedTracks() {
   return this._proxy.publishedTracks;
 };
 
@@ -500,7 +503,8 @@ ParticipantInstance.prototype.publishedTracks = function publishedTracks() {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-ParticipantContext = function ParticipantContext(version, roomSid, sid) {
+ParticipantContext = class ParticipantContext {
+  constructor(version, roomSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -526,7 +530,7 @@ ParticipantContext = function ParticipantContext(version, roomSid, sid) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -565,7 +569,7 @@ ParticipantContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

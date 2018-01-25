@@ -33,7 +33,8 @@ var RecordingContext;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-RecordingList = function RecordingList(version, accountSid) {
+RecordingList = class RecordingList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -45,7 +46,8 @@ RecordingList = function RecordingList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.RecordingContext}
    */
   /* jshint ignore:end */
-  function RecordingListInstance(sid) {
+  class RecordingListInstance {
+  constructor(sid) {
     return RecordingListInstance.get(sid);
   }
 
@@ -354,15 +356,16 @@ RecordingList = function RecordingList(version, accountSid) {
  * @returns RecordingPage
  */
 /* jshint ignore:end */
-RecordingPage = function RecordingPage(version, response, solution) {
+RecordingPage = class RecordingPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RecordingPage.prototype, Page.prototype);
-RecordingPage.prototype.constructor = RecordingPage;
+class RecordingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -377,7 +380,7 @@ RecordingPage.prototype.constructor = RecordingPage;
  * @returns RecordingInstance
  */
 /* jshint ignore:end */
-RecordingPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RecordingInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -469,7 +472,7 @@ Object.defineProperty(RecordingInstance.prototype,
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -486,7 +489,7 @@ RecordingInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -501,7 +504,7 @@ RecordingInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.RecordingContext.TranscriptionList}
  */
 /* jshint ignore:end */
-RecordingInstance.prototype.transcriptions = function transcriptions() {
+transcriptions() {
   return this._proxy.transcriptions;
 };
 
@@ -516,7 +519,7 @@ RecordingInstance.prototype.transcriptions = function transcriptions() {
  * @returns {Twilio.Api.V2010.AccountContext.RecordingContext.AddOnResultList}
  */
 /* jshint ignore:end */
-RecordingInstance.prototype.addOnResults = function addOnResults() {
+addOnResults() {
   return this._proxy.addOnResults;
 };
 
@@ -536,7 +539,8 @@ RecordingInstance.prototype.addOnResults = function addOnResults() {
  * @param {sid} sid - Fetch by unique recording Sid
  */
 /* jshint ignore:end */
-RecordingContext = function RecordingContext(version, accountSid, sid) {
+RecordingContext = class RecordingContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -563,7 +567,7 @@ RecordingContext = function RecordingContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -600,7 +604,7 @@ RecordingContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RecordingInstance
  */
 /* jshint ignore:end */
-RecordingContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

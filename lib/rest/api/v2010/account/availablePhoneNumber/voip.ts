@@ -33,7 +33,8 @@ var VoipInstance;
  * @param {string} countryCode - The ISO Country code to lookup phone numbers for.
  */
 /* jshint ignore:end */
-VoipList = function VoipList(version, accountSid, countryCode) {
+VoipList = class VoipList {
+  constructor(version, accountSid, countryCode) {
   /* jshint ignore:start */
   /**
    * @function voip
@@ -45,7 +46,8 @@ VoipList = function VoipList(version, accountSid, countryCode) {
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.VoipContext}
    */
   /* jshint ignore:end */
-  function VoipListInstance(sid) {
+  class VoipListInstance {
+  constructor(sid) {
     return VoipListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ VoipList = function VoipList(version, accountSid, countryCode) {
  * @returns VoipPage
  */
 /* jshint ignore:end */
-VoipPage = function VoipPage(version, response, solution) {
+VoipPage = class VoipPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(VoipPage.prototype, Page.prototype);
-VoipPage.prototype.constructor = VoipPage;
+class VoipPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ VoipPage.prototype.constructor = VoipPage;
  * @returns VoipInstance
  */
 /* jshint ignore:end */
-VoipPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new VoipInstance(this._version, payload, this._solution.accountSid, this._solution.countryCode);
 };
 

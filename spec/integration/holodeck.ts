@@ -4,24 +4,26 @@ var Q = require('q');
 var Request = require('../../lib/http/request');
 var RequestClient = require('../../lib/base/RequestClient');
 
-function Hologram(request, response) {
+class Hologram {
+  constructor(request, response) {
   this.request = request;
   this.response = response;
 }
 
-function Holodeck() {
+class Holodeck {
+  constructor() {
   this.requests = [];
   this.holograms = [];
 }
 
-_.extend(Holodeck.prototype, RequestClient.prototype);
+class Holodeck extends RequestClient {
 
-Holodeck.prototype.mock = function(response, request) {
+mock(response, request) {
   request = request || new Request();
   this.holograms.push(new Hologram(request, response));
 };
 
-Holodeck.prototype.assertHasRequest = function(request) {
+assertHasRequest(request) {
   var matchedRequest = _.find(this.requests, function(req) {
     return req.isEqual(request);
   });
@@ -37,7 +39,7 @@ Holodeck.prototype.assertHasRequest = function(request) {
   throw new Error(message);
 };
 
-Holodeck.prototype.request = function(opts) {
+request(opts) {
   opts = opts || {};
 
   var deferred = Q.defer();

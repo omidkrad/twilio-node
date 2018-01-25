@@ -44,7 +44,8 @@ WorkflowRealTimeStatisticsList = function
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkflowContext.WorkflowRealTimeStatisticsContext}
    */
   /* jshint ignore:end */
-  function WorkflowRealTimeStatisticsListInstance(sid) {
+  class WorkflowRealTimeStatisticsListInstance {
+  constructor(sid) {
     return WorkflowRealTimeStatisticsListInstance.get(sid);
   }
 
@@ -98,8 +99,8 @@ WorkflowRealTimeStatisticsPage = function
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(WorkflowRealTimeStatisticsPage.prototype, Page.prototype);
-WorkflowRealTimeStatisticsPage.prototype.constructor = WorkflowRealTimeStatisticsPage;
+class WorkflowRealTimeStatisticsPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -195,7 +196,7 @@ Object.defineProperty(WorkflowRealTimeStatisticsInstance.prototype,
  * @returns {Promise} Resolves to processed WorkflowRealTimeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowRealTimeStatisticsInstance.prototype.fetch = function fetch(opts,
+fetch(opts,
     callback) {
   return this._proxy.fetch(opts, callback);
 };
@@ -237,7 +238,7 @@ WorkflowRealTimeStatisticsContext = function
  * @returns {Promise} Resolves to processed WorkflowRealTimeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowRealTimeStatisticsContext.prototype.fetch = function fetch(opts,
+fetch(opts,
     callback) {
   if (_.isFunction(opts)) {
     callback = opts;

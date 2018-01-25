@@ -30,7 +30,8 @@ var IpAccessControlListContext;
  * @param {string} trunkSid - The trunk_sid
  */
 /* jshint ignore:end */
-IpAccessControlListList = function IpAccessControlListList(version, trunkSid) {
+IpAccessControlListList = class IpAccessControlListList {
+  constructor(version, trunkSid) {
   /* jshint ignore:start */
   /**
    * @function ipAccessControlLists
@@ -42,7 +43,8 @@ IpAccessControlListList = function IpAccessControlListList(version, trunkSid) {
    * @returns {Twilio.Trunking.V1.TrunkContext.IpAccessControlListContext}
    */
   /* jshint ignore:end */
-  function IpAccessControlListListInstance(sid) {
+  class IpAccessControlListListInstance {
+  constructor(sid) {
     return IpAccessControlListListInstance.get(sid);
   }
 
@@ -379,8 +381,8 @@ IpAccessControlListPage = function IpAccessControlListPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(IpAccessControlListPage.prototype, Page.prototype);
-IpAccessControlListPage.prototype.constructor = IpAccessControlListPage;
+class IpAccessControlListPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -395,7 +397,7 @@ IpAccessControlListPage.prototype.constructor = IpAccessControlListPage;
  * @returns IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new IpAccessControlListInstance(this._version, payload, this._solution.trunkSid);
 };
 
@@ -465,7 +467,7 @@ Object.defineProperty(IpAccessControlListInstance.prototype,
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -482,7 +484,7 @@ IpAccessControlListInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -521,7 +523,7 @@ IpAccessControlListContext = function IpAccessControlListContext(version,
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -558,7 +560,7 @@ IpAccessControlListContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

@@ -29,7 +29,8 @@ var PublicKeyContext;
  * @param {Twilio.Accounts.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-PublicKeyList = function PublicKeyList(version) {
+PublicKeyList = class PublicKeyList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function publicKey
@@ -41,7 +42,8 @@ PublicKeyList = function PublicKeyList(version) {
    * @returns {Twilio.Accounts.V1.CredentialContext.PublicKeyContext}
    */
   /* jshint ignore:end */
-  function PublicKeyListInstance(sid) {
+  class PublicKeyListInstance {
+  constructor(sid) {
     return PublicKeyListInstance.get(sid);
   }
 
@@ -372,15 +374,16 @@ PublicKeyList = function PublicKeyList(version) {
  * @returns PublicKeyPage
  */
 /* jshint ignore:end */
-PublicKeyPage = function PublicKeyPage(version, response, solution) {
+PublicKeyPage = class PublicKeyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(PublicKeyPage.prototype, Page.prototype);
-PublicKeyPage.prototype.constructor = PublicKeyPage;
+class PublicKeyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -395,7 +398,7 @@ PublicKeyPage.prototype.constructor = PublicKeyPage;
  * @returns PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new PublicKeyInstance(this._version, payload);
 };
 
@@ -419,7 +422,8 @@ PublicKeyPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Fetch by unique Credential Sid
  */
 /* jshint ignore:end */
-PublicKeyInstance = function PublicKeyInstance(version, payload, sid) {
+PublicKeyInstance = class PublicKeyInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -459,7 +463,7 @@ Object.defineProperty(PublicKeyInstance.prototype,
  * @returns {Promise} Resolves to processed PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -479,7 +483,7 @@ PublicKeyInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -496,7 +500,7 @@ PublicKeyInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -510,7 +514,8 @@ PublicKeyInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - Fetch by unique Credential Sid
  */
 /* jshint ignore:end */
-PublicKeyContext = function PublicKeyContext(version, sid) {
+PublicKeyContext = class PublicKeyContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -533,7 +538,7 @@ PublicKeyContext = function PublicKeyContext(version, sid) {
  * @returns {Promise} Resolves to processed PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -568,7 +573,7 @@ PublicKeyContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -608,7 +613,7 @@ PublicKeyContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed PublicKeyInstance
  */
 /* jshint ignore:end */
-PublicKeyContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

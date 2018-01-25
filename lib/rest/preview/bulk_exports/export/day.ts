@@ -30,7 +30,8 @@ var DayInstance;
  * @param {string} resourceType - The resource_type
  */
 /* jshint ignore:end */
-DayList = function DayList(version, resourceType) {
+DayList = class DayList {
+  constructor(version, resourceType) {
   /* jshint ignore:start */
   /**
    * @function days
@@ -42,7 +43,8 @@ DayList = function DayList(version, resourceType) {
    * @returns {Twilio.Preview.BulkExports.ExportContext.DayContext}
    */
   /* jshint ignore:end */
-  function DayListInstance(sid) {
+  class DayListInstance {
+  constructor(sid) {
     return DayListInstance.get(sid);
   }
 
@@ -306,15 +308,16 @@ DayList = function DayList(version, resourceType) {
  * @returns DayPage
  */
 /* jshint ignore:end */
-DayPage = function DayPage(version, response, solution) {
+DayPage = class DayPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DayPage.prototype, Page.prototype);
-DayPage.prototype.constructor = DayPage;
+class DayPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -329,7 +332,7 @@ DayPage.prototype.constructor = DayPage;
  * @returns DayInstance
  */
 /* jshint ignore:end */
-DayPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DayInstance(this._version, payload, this._solution.resourceType);
 };
 
@@ -349,7 +352,8 @@ DayPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-DayInstance = function DayInstance(version, payload, resourceType) {
+DayInstance = class DayInstance {
+  constructor(version, payload, resourceType) {
   this._version = version;
 
   // Marshaled Properties

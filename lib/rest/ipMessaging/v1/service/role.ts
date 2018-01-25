@@ -31,7 +31,8 @@ var RoleContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-RoleList = function RoleList(version, serviceSid) {
+RoleList = class RoleList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function roles
@@ -43,7 +44,8 @@ RoleList = function RoleList(version, serviceSid) {
    * @returns {Twilio.IpMessaging.V1.ServiceContext.RoleContext}
    */
   /* jshint ignore:end */
-  function RoleListInstance(sid) {
+  class RoleListInstance {
+  constructor(sid) {
     return RoleListInstance.get(sid);
   }
 
@@ -383,15 +385,16 @@ RoleList = function RoleList(version, serviceSid) {
  * @returns RolePage
  */
 /* jshint ignore:end */
-RolePage = function RolePage(version, response, solution) {
+RolePage = class RolePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RolePage.prototype, Page.prototype);
-RolePage.prototype.constructor = RolePage;
+class RolePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -406,7 +409,7 @@ RolePage.prototype.constructor = RolePage;
  * @returns RoleInstance
  */
 /* jshint ignore:end */
-RolePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RoleInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -432,7 +435,8 @@ RolePage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-RoleInstance = function RoleInstance(version, payload, serviceSid, sid) {
+RoleInstance = class RoleInstance {
+  constructor(version, payload, serviceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -475,7 +479,7 @@ Object.defineProperty(RoleInstance.prototype,
  * @returns {Promise} Resolves to processed RoleInstance
  */
 /* jshint ignore:end */
-RoleInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -492,7 +496,7 @@ RoleInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RoleInstance
  */
 /* jshint ignore:end */
-RoleInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -511,7 +515,7 @@ RoleInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed RoleInstance
  */
 /* jshint ignore:end */
-RoleInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -526,7 +530,8 @@ RoleInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-RoleContext = function RoleContext(version, serviceSid, sid) {
+RoleContext = class RoleContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -549,7 +554,7 @@ RoleContext = function RoleContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed RoleInstance
  */
 /* jshint ignore:end */
-RoleContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -586,7 +591,7 @@ RoleContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed RoleInstance
  */
 /* jshint ignore:end */
-RoleContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -620,7 +625,7 @@ RoleContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed RoleInstance
  */
 /* jshint ignore:end */
-RoleContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

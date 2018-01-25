@@ -43,7 +43,8 @@ DependentPhoneNumberList = function DependentPhoneNumberList(version,
    * @returns {Twilio.Api.V2010.AccountContext.AddressContext.DependentPhoneNumberContext}
    */
   /* jshint ignore:end */
-  function DependentPhoneNumberListInstance(sid) {
+  class DependentPhoneNumberListInstance {
+  constructor(sid) {
     return DependentPhoneNumberListInstance.get(sid);
   }
 
@@ -315,8 +316,8 @@ DependentPhoneNumberPage = function DependentPhoneNumberPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DependentPhoneNumberPage.prototype, Page.prototype);
-DependentPhoneNumberPage.prototype.constructor = DependentPhoneNumberPage;
+class DependentPhoneNumberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -331,7 +332,7 @@ DependentPhoneNumberPage.prototype.constructor = DependentPhoneNumberPage;
  * @returns DependentPhoneNumberInstance
  */
 /* jshint ignore:end */
-DependentPhoneNumberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DependentPhoneNumberInstance(
     this._version,
     payload,

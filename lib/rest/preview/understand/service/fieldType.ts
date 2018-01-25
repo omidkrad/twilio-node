@@ -32,7 +32,8 @@ var FieldTypeContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-FieldTypeList = function FieldTypeList(version, serviceSid) {
+FieldTypeList = class FieldTypeList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function fieldTypes
@@ -44,7 +45,8 @@ FieldTypeList = function FieldTypeList(version, serviceSid) {
    * @returns {Twilio.Preview.Understand.ServiceContext.FieldTypeContext}
    */
   /* jshint ignore:end */
-  function FieldTypeListInstance(sid) {
+  class FieldTypeListInstance {
+  constructor(sid) {
     return FieldTypeListInstance.get(sid);
   }
 
@@ -377,15 +379,16 @@ FieldTypeList = function FieldTypeList(version, serviceSid) {
  * @returns FieldTypePage
  */
 /* jshint ignore:end */
-FieldTypePage = function FieldTypePage(version, response, solution) {
+FieldTypePage = class FieldTypePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FieldTypePage.prototype, Page.prototype);
-FieldTypePage.prototype.constructor = FieldTypePage;
+class FieldTypePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -400,7 +403,7 @@ FieldTypePage.prototype.constructor = FieldTypePage;
  * @returns FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FieldTypeInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -471,7 +474,7 @@ Object.defineProperty(FieldTypeInstance.prototype,
  * @returns {Promise} Resolves to processed FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypeInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -491,7 +494,7 @@ FieldTypeInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypeInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -508,7 +511,7 @@ FieldTypeInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypeInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -523,7 +526,7 @@ FieldTypeInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Preview.Understand.ServiceContext.FieldTypeContext.FieldValueList}
  */
 /* jshint ignore:end */
-FieldTypeInstance.prototype.fieldValues = function fieldValues() {
+fieldValues() {
   return this._proxy.fieldValues;
 };
 
@@ -542,7 +545,8 @@ FieldTypeInstance.prototype.fieldValues = function fieldValues() {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-FieldTypeContext = function FieldTypeContext(version, serviceSid, sid) {
+FieldTypeContext = class FieldTypeContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -568,7 +572,7 @@ FieldTypeContext = function FieldTypeContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypeContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -608,7 +612,7 @@ FieldTypeContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypeContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -656,7 +660,7 @@ FieldTypeContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed FieldTypeInstance
  */
 /* jshint ignore:end */
-FieldTypeContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

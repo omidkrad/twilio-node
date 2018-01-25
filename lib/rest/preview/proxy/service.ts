@@ -34,7 +34,8 @@ var ServiceContext;
  * @param {Twilio.Preview.Proxy} version - Version of the resource
  */
 /* jshint ignore:end */
-ServiceList = function ServiceList(version) {
+ServiceList = class ServiceList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function services
@@ -46,7 +47,8 @@ ServiceList = function ServiceList(version) {
    * @returns {Twilio.Preview.Proxy.ServiceContext}
    */
   /* jshint ignore:end */
-  function ServiceListInstance(sid) {
+  class ServiceListInstance {
+  constructor(sid) {
     return ServiceListInstance.get(sid);
   }
 
@@ -377,15 +379,16 @@ ServiceList = function ServiceList(version) {
  * @returns ServicePage
  */
 /* jshint ignore:end */
-ServicePage = function ServicePage(version, response, solution) {
+ServicePage = class ServicePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ServicePage.prototype, Page.prototype);
-ServicePage.prototype.constructor = ServicePage;
+class ServicePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -400,7 +403,7 @@ ServicePage.prototype.constructor = ServicePage;
  * @returns ServiceInstance
  */
 /* jshint ignore:end */
-ServicePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ServiceInstance(this._version, payload);
 };
 
@@ -427,7 +430,8 @@ ServicePage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - A string that uniquely identifies this Service.
  */
 /* jshint ignore:end */
-ServiceInstance = function ServiceInstance(version, payload, sid) {
+ServiceInstance = class ServiceInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -470,7 +474,7 @@ Object.defineProperty(ServiceInstance.prototype,
  * @returns {Promise} Resolves to processed ServiceInstance
  */
 /* jshint ignore:end */
-ServiceInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -487,7 +491,7 @@ ServiceInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ServiceInstance
  */
 /* jshint ignore:end */
-ServiceInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -510,7 +514,7 @@ ServiceInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ServiceInstance
  */
 /* jshint ignore:end */
-ServiceInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -525,7 +529,7 @@ ServiceInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Preview.Proxy.ServiceContext.SessionList}
  */
 /* jshint ignore:end */
-ServiceInstance.prototype.sessions = function sessions() {
+sessions() {
   return this._proxy.sessions;
 };
 
@@ -540,7 +544,7 @@ ServiceInstance.prototype.sessions = function sessions() {
  * @returns {Twilio.Preview.Proxy.ServiceContext.PhoneNumberList}
  */
 /* jshint ignore:end */
-ServiceInstance.prototype.phoneNumbers = function phoneNumbers() {
+phoneNumbers() {
   return this._proxy.phoneNumbers;
 };
 
@@ -555,7 +559,7 @@ ServiceInstance.prototype.phoneNumbers = function phoneNumbers() {
  * @returns {Twilio.Preview.Proxy.ServiceContext.ShortCodeList}
  */
 /* jshint ignore:end */
-ServiceInstance.prototype.shortCodes = function shortCodes() {
+shortCodes() {
   return this._proxy.shortCodes;
 };
 
@@ -577,7 +581,8 @@ ServiceInstance.prototype.shortCodes = function shortCodes() {
  * @param {sid_like} sid - A string that uniquely identifies this Service.
  */
 /* jshint ignore:end */
-ServiceContext = function ServiceContext(version, sid) {
+ServiceContext = class ServiceContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -605,7 +610,7 @@ ServiceContext = function ServiceContext(version, sid) {
  * @returns {Promise} Resolves to processed ServiceInstance
  */
 /* jshint ignore:end */
-ServiceContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -637,7 +642,7 @@ ServiceContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ServiceInstance
  */
 /* jshint ignore:end */
-ServiceContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -675,7 +680,7 @@ ServiceContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ServiceInstance
  */
 /* jshint ignore:end */
-ServiceContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

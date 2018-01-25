@@ -28,7 +28,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.IpMessaging} domain - The twilio domain
  */
 /* jshint ignore:end */
-function V1(domain) {
+class V1 {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'v1');
 
   // Resources
@@ -36,8 +37,8 @@ function V1(domain) {
   this._services = undefined;
 }
 
-_.extend(V1.prototype, Version.prototype);
-V1.prototype.constructor = V1;
+class V1 extends Version {
+
 
 Object.defineProperty(V1.prototype,
   'credentials', {

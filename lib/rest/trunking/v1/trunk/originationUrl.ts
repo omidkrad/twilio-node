@@ -31,7 +31,8 @@ var OriginationUrlContext;
  * @param {string} trunkSid - The trunk_sid
  */
 /* jshint ignore:end */
-OriginationUrlList = function OriginationUrlList(version, trunkSid) {
+OriginationUrlList = class OriginationUrlList {
+  constructor(version, trunkSid) {
   /* jshint ignore:start */
   /**
    * @function originationUrls
@@ -43,7 +44,8 @@ OriginationUrlList = function OriginationUrlList(version, trunkSid) {
    * @returns {Twilio.Trunking.V1.TrunkContext.OriginationUrlContext}
    */
   /* jshint ignore:end */
-  function OriginationUrlListInstance(sid) {
+  class OriginationUrlListInstance {
+  constructor(sid) {
     return OriginationUrlListInstance.get(sid);
   }
 
@@ -393,15 +395,16 @@ OriginationUrlList = function OriginationUrlList(version, trunkSid) {
  * @returns OriginationUrlPage
  */
 /* jshint ignore:end */
-OriginationUrlPage = function OriginationUrlPage(version, response, solution) {
+OriginationUrlPage = class OriginationUrlPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(OriginationUrlPage.prototype, Page.prototype);
-OriginationUrlPage.prototype.constructor = OriginationUrlPage;
+class OriginationUrlPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -416,7 +419,7 @@ OriginationUrlPage.prototype.constructor = OriginationUrlPage;
  * @returns OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new OriginationUrlInstance(this._version, payload, this._solution.trunkSid);
 };
 
@@ -490,7 +493,7 @@ Object.defineProperty(OriginationUrlInstance.prototype,
  * @returns {Promise} Resolves to processed OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -507,7 +510,7 @@ OriginationUrlInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -530,7 +533,7 @@ OriginationUrlInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -545,7 +548,8 @@ OriginationUrlInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-OriginationUrlContext = function OriginationUrlContext(version, trunkSid, sid) {
+OriginationUrlContext = class OriginationUrlContext {
+  constructor(version, trunkSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -568,7 +572,7 @@ OriginationUrlContext = function OriginationUrlContext(version, trunkSid, sid) {
  * @returns {Promise} Resolves to processed OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -605,7 +609,7 @@ OriginationUrlContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -643,7 +647,7 @@ OriginationUrlContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed OriginationUrlInstance
  */
 /* jshint ignore:end */
-OriginationUrlContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

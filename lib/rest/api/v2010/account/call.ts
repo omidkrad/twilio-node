@@ -36,7 +36,8 @@ var CallContext;
  *          The unique id of the Account responsible for creating this Call
  */
 /* jshint ignore:end */
-CallList = function CallList(version, accountSid) {
+CallList = class CallList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function calls
@@ -48,7 +49,8 @@ CallList = function CallList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext}
    */
   /* jshint ignore:end */
-  function CallListInstance(sid) {
+  class CallListInstance {
+  constructor(sid) {
     return CallListInstance.get(sid);
   }
 
@@ -503,15 +505,16 @@ CallList = function CallList(version, accountSid) {
  * @returns CallPage
  */
 /* jshint ignore:end */
-CallPage = function CallPage(version, response, solution) {
+CallPage = class CallPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CallPage.prototype, Page.prototype);
-CallPage.prototype.constructor = CallPage;
+class CallPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -526,7 +529,7 @@ CallPage.prototype.constructor = CallPage;
  * @returns CallInstance
  */
 /* jshint ignore:end */
-CallPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CallInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -585,7 +588,8 @@ CallPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Call Sid that uniquely identifies the Call to fetch
  */
 /* jshint ignore:end */
-CallInstance = function CallInstance(version, payload, accountSid, sid) {
+CallInstance = class CallInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -644,7 +648,7 @@ Object.defineProperty(CallInstance.prototype,
  * @returns {Promise} Resolves to processed CallInstance
  */
 /* jshint ignore:end */
-CallInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -661,7 +665,7 @@ CallInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed CallInstance
  */
 /* jshint ignore:end */
-CallInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -687,7 +691,7 @@ CallInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CallInstance
  */
 /* jshint ignore:end */
-CallInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -702,7 +706,7 @@ CallInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Api.V2010.AccountContext.CallContext.RecordingList}
  */
 /* jshint ignore:end */
-CallInstance.prototype.recordings = function recordings() {
+recordings() {
   return this._proxy.recordings;
 };
 
@@ -717,7 +721,7 @@ CallInstance.prototype.recordings = function recordings() {
  * @returns {Twilio.Api.V2010.AccountContext.CallContext.NotificationList}
  */
 /* jshint ignore:end */
-CallInstance.prototype.notifications = function notifications() {
+notifications() {
   return this._proxy.notifications;
 };
 
@@ -732,7 +736,7 @@ CallInstance.prototype.notifications = function notifications() {
  * @returns {Twilio.Api.V2010.AccountContext.CallContext.FeedbackList}
  */
 /* jshint ignore:end */
-CallInstance.prototype.feedback = function feedback() {
+feedback() {
   return this._proxy.feedback;
 };
 
@@ -754,7 +758,8 @@ CallInstance.prototype.feedback = function feedback() {
  * @param {sid} sid - Call Sid that uniquely identifies the Call to fetch
  */
 /* jshint ignore:end */
-CallContext = function CallContext(version, accountSid, sid) {
+CallContext = class CallContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -782,7 +787,7 @@ CallContext = function CallContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed CallInstance
  */
 /* jshint ignore:end */
-CallContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -814,7 +819,7 @@ CallContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed CallInstance
  */
 /* jshint ignore:end */
-CallContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -860,7 +865,7 @@ CallContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CallInstance
  */
 /* jshint ignore:end */
-CallContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

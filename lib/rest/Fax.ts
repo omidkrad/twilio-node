@@ -26,15 +26,16 @@ var V1 = require('./fax/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Fax(twilio) {
+class Fax {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://fax.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Fax.prototype, Domain.prototype);
-Fax.prototype.constructor = Fax;
+class Fax extends Domain {
+
 
 Object.defineProperty(Fax.prototype,
   'v1', {

@@ -32,7 +32,8 @@ var DeviceContext;
  * @param {string} fleetSid - The unique identifier of the Fleet.
  */
 /* jshint ignore:end */
-DeviceList = function DeviceList(version, fleetSid) {
+DeviceList = class DeviceList {
+  constructor(version, fleetSid) {
   /* jshint ignore:start */
   /**
    * @function devices
@@ -44,7 +45,8 @@ DeviceList = function DeviceList(version, fleetSid) {
    * @returns {Twilio.Preview.DeployedDevices.FleetContext.DeviceContext}
    */
   /* jshint ignore:end */
-  function DeviceListInstance(sid) {
+  class DeviceListInstance {
+  constructor(sid) {
     return DeviceListInstance.get(sid);
   }
 
@@ -396,15 +398,16 @@ DeviceList = function DeviceList(version, fleetSid) {
  * @returns DevicePage
  */
 /* jshint ignore:end */
-DevicePage = function DevicePage(version, response, solution) {
+DevicePage = class DevicePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DevicePage.prototype, Page.prototype);
-DevicePage.prototype.constructor = DevicePage;
+class DevicePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -419,7 +422,7 @@ DevicePage.prototype.constructor = DevicePage;
  * @returns DeviceInstance
  */
 /* jshint ignore:end */
-DevicePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DeviceInstance(this._version, payload, this._solution.fleetSid);
 };
 
@@ -449,7 +452,8 @@ DevicePage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - A string that uniquely identifies the Device.
  */
 /* jshint ignore:end */
-DeviceInstance = function DeviceInstance(version, payload, fleetSid, sid) {
+DeviceInstance = class DeviceInstance {
+  constructor(version, payload, fleetSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -495,7 +499,7 @@ Object.defineProperty(DeviceInstance.prototype,
  * @returns {Promise} Resolves to processed DeviceInstance
  */
 /* jshint ignore:end */
-DeviceInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -512,7 +516,7 @@ DeviceInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DeviceInstance
  */
 /* jshint ignore:end */
-DeviceInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -535,7 +539,7 @@ DeviceInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed DeviceInstance
  */
 /* jshint ignore:end */
-DeviceInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -551,7 +555,8 @@ DeviceInstance.prototype.update = function update(opts, callback) {
  * @param {sid_like} sid - A string that uniquely identifies the Device.
  */
 /* jshint ignore:end */
-DeviceContext = function DeviceContext(version, fleetSid, sid) {
+DeviceContext = class DeviceContext {
+  constructor(version, fleetSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -574,7 +579,7 @@ DeviceContext = function DeviceContext(version, fleetSid, sid) {
  * @returns {Promise} Resolves to processed DeviceInstance
  */
 /* jshint ignore:end */
-DeviceContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -611,7 +616,7 @@ DeviceContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DeviceInstance
  */
 /* jshint ignore:end */
-DeviceContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -649,7 +654,7 @@ DeviceContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed DeviceInstance
  */
 /* jshint ignore:end */
-DeviceContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

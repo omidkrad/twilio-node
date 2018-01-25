@@ -33,7 +33,8 @@ var MemberContext;
  * @param {string} channelSid - The channel_sid
  */
 /* jshint ignore:end */
-MemberList = function MemberList(version, serviceSid, channelSid) {
+MemberList = class MemberList {
+  constructor(version, serviceSid, channelSid) {
   /* jshint ignore:start */
   /**
    * @function members
@@ -45,7 +46,8 @@ MemberList = function MemberList(version, serviceSid, channelSid) {
    * @returns {Twilio.Chat.V2.ServiceContext.ChannelContext.MemberContext}
    */
   /* jshint ignore:end */
-  function MemberListInstance(sid) {
+  class MemberListInstance {
+  constructor(sid) {
     return MemberListInstance.get(sid);
   }
 
@@ -396,15 +398,16 @@ MemberList = function MemberList(version, serviceSid, channelSid) {
  * @returns MemberPage
  */
 /* jshint ignore:end */
-MemberPage = function MemberPage(version, response, solution) {
+MemberPage = class MemberPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MemberPage.prototype, Page.prototype);
-MemberPage.prototype.constructor = MemberPage;
+class MemberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -419,7 +422,7 @@ MemberPage.prototype.constructor = MemberPage;
  * @returns MemberInstance
  */
 /* jshint ignore:end */
-MemberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MemberInstance(
     this._version,
     payload,
@@ -504,7 +507,7 @@ Object.defineProperty(MemberInstance.prototype,
  * @returns {Promise} Resolves to processed MemberInstance
  */
 /* jshint ignore:end */
-MemberInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -521,7 +524,7 @@ MemberInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed MemberInstance
  */
 /* jshint ignore:end */
-MemberInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -545,7 +548,7 @@ MemberInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MemberInstance
  */
 /* jshint ignore:end */
-MemberInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -561,7 +564,8 @@ MemberInstance.prototype.update = function update(opts, callback) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-MemberContext = function MemberContext(version, serviceSid, channelSid, sid) {
+MemberContext = class MemberContext {
+  constructor(version, serviceSid, channelSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -584,7 +588,7 @@ MemberContext = function MemberContext(version, serviceSid, channelSid, sid) {
  * @returns {Promise} Resolves to processed MemberInstance
  */
 /* jshint ignore:end */
-MemberContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -622,7 +626,7 @@ MemberContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed MemberInstance
  */
 /* jshint ignore:end */
-MemberContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -661,7 +665,7 @@ MemberContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MemberInstance
  */
 /* jshint ignore:end */
-MemberContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

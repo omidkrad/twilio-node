@@ -27,15 +27,16 @@ var V1 = require('./lookups/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Lookups(twilio) {
+class Lookups {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://lookups.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Lookups.prototype, Domain.prototype);
-Lookups.prototype.constructor = Lookups;
+class Lookups extends Domain {
+
 
 Object.defineProperty(Lookups.prototype,
   'v1', {

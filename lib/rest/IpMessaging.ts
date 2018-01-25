@@ -30,7 +30,8 @@ var V2 = require('./ipMessaging/V2');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function IpMessaging(twilio) {
+class IpMessaging {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://ip-messaging.twilio.com');
 
   // Versions
@@ -38,8 +39,8 @@ function IpMessaging(twilio) {
   this._v2 = undefined;
 }
 
-_.extend(IpMessaging.prototype, Domain.prototype);
-IpMessaging.prototype.constructor = IpMessaging;
+class IpMessaging extends Domain {
+
 
 Object.defineProperty(IpMessaging.prototype,
   'v1', {

@@ -46,7 +46,8 @@ WorkerChannelList = function WorkerChannelList(version, workspaceSid, workerSid)
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkerChannelContext}
    */
   /* jshint ignore:end */
-  function WorkerChannelListInstance(sid) {
+  class WorkerChannelListInstance {
+  constructor(sid) {
     return WorkerChannelListInstance.get(sid);
   }
 
@@ -331,15 +332,16 @@ WorkerChannelList = function WorkerChannelList(version, workspaceSid, workerSid)
  * @returns WorkerChannelPage
  */
 /* jshint ignore:end */
-WorkerChannelPage = function WorkerChannelPage(version, response, solution) {
+WorkerChannelPage = class WorkerChannelPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(WorkerChannelPage.prototype, Page.prototype);
-WorkerChannelPage.prototype.constructor = WorkerChannelPage;
+class WorkerChannelPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -354,7 +356,7 @@ WorkerChannelPage.prototype.constructor = WorkerChannelPage;
  * @returns WorkerChannelInstance
  */
 /* jshint ignore:end */
-WorkerChannelPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new WorkerChannelInstance(
     this._version,
     payload,
@@ -445,7 +447,7 @@ Object.defineProperty(WorkerChannelInstance.prototype,
  * @returns {Promise} Resolves to processed WorkerChannelInstance
  */
 /* jshint ignore:end */
-WorkerChannelInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -465,7 +467,7 @@ WorkerChannelInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed WorkerChannelInstance
  */
 /* jshint ignore:end */
-WorkerChannelInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -505,7 +507,7 @@ WorkerChannelContext = function WorkerChannelContext(version, workspaceSid,
  * @returns {Promise} Resolves to processed WorkerChannelInstance
  */
 /* jshint ignore:end */
-WorkerChannelContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -546,7 +548,7 @@ WorkerChannelContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed WorkerChannelInstance
  */
 /* jshint ignore:end */
-WorkerChannelContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

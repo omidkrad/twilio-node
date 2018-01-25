@@ -32,7 +32,8 @@ var SimContext;
  * @param {Twilio.Wireless.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-SimList = function SimList(version) {
+SimList = class SimList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function sims
@@ -44,7 +45,8 @@ SimList = function SimList(version) {
    * @returns {Twilio.Wireless.V1.SimContext}
    */
   /* jshint ignore:end */
-  function SimListInstance(sid) {
+  class SimListInstance {
+  constructor(sid) {
     return SimListInstance.get(sid);
   }
 
@@ -354,15 +356,16 @@ SimList = function SimList(version) {
  * @returns SimPage
  */
 /* jshint ignore:end */
-SimPage = function SimPage(version, response, solution) {
+SimPage = class SimPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SimPage.prototype, Page.prototype);
-SimPage.prototype.constructor = SimPage;
+class SimPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -377,7 +380,7 @@ SimPage.prototype.constructor = SimPage;
  * @returns SimInstance
  */
 /* jshint ignore:end */
-SimPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SimInstance(this._version, payload);
 };
 
@@ -417,7 +420,8 @@ SimPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-SimInstance = function SimInstance(version, payload, sid) {
+SimInstance = class SimInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -474,7 +478,7 @@ Object.defineProperty(SimInstance.prototype,
  * @returns {Promise} Resolves to processed SimInstance
  */
 /* jshint ignore:end */
-SimInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -508,7 +512,7 @@ SimInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SimInstance
  */
 /* jshint ignore:end */
-SimInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -523,7 +527,7 @@ SimInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Wireless.V1.SimContext.UsageRecordList}
  */
 /* jshint ignore:end */
-SimInstance.prototype.usageRecords = function usageRecords() {
+usageRecords() {
   return this._proxy.usageRecords;
 };
 
@@ -538,7 +542,7 @@ SimInstance.prototype.usageRecords = function usageRecords() {
  * @returns {Twilio.Wireless.V1.SimContext.DataSessionList}
  */
 /* jshint ignore:end */
-SimInstance.prototype.dataSessions = function dataSessions() {
+dataSessions() {
   return this._proxy.dataSessions;
 };
 
@@ -558,7 +562,8 @@ SimInstance.prototype.dataSessions = function dataSessions() {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-SimContext = function SimContext(version, sid) {
+SimContext = class SimContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -585,7 +590,7 @@ SimContext = function SimContext(version, sid) {
  * @returns {Promise} Resolves to processed SimInstance
  */
 /* jshint ignore:end */
-SimContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -634,7 +639,7 @@ SimContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SimInstance
  */
 /* jshint ignore:end */
-SimContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

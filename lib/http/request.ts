@@ -15,7 +15,7 @@ var Request = function(opts) {
 
 Request.prototype.ANY = '*';
 
-Request.prototype.attributeEqual = function(lhs, rhs) {
+attributeEqual(lhs, rhs) {
   if (lhs === this.ANY || rhs === this.ANY) {
     return true;
   }
@@ -26,7 +26,7 @@ Request.prototype.attributeEqual = function(lhs, rhs) {
   return _.isEqual(lhs, rhs);
 };
 
-Request.prototype.isEqual = function(other) {
+isEqual(other) {
   return (this.attributeEqual(this.method, other.method) &&
       this.attributeEqual(this.url, other.url) &&
       this.attributeEqual(this.auth, other.auth) &&
@@ -35,7 +35,7 @@ Request.prototype.isEqual = function(other) {
       this.attributeEqual(this.headers, other.headers));
 };
 
-Request.prototype.toString = function() {
+toString() {
   var auth = '';
   if (this.auth && this.auth !== this.ANY) {
     auth = this.auth + ' ';

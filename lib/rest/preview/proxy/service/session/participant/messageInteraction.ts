@@ -49,7 +49,8 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @returns {Twilio.Preview.Proxy.ServiceContext.SessionContext.ParticipantContext.MessageInteractionContext}
    */
   /* jshint ignore:end */
-  function MessageInteractionListInstance(sid) {
+  class MessageInteractionListInstance {
+  constructor(sid) {
     return MessageInteractionListInstance.get(sid);
   }
 
@@ -402,8 +403,8 @@ MessageInteractionPage = function MessageInteractionPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MessageInteractionPage.prototype, Page.prototype);
-MessageInteractionPage.prototype.constructor = MessageInteractionPage;
+class MessageInteractionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -418,7 +419,7 @@ MessageInteractionPage.prototype.constructor = MessageInteractionPage;
  * @returns MessageInteractionInstance
  */
 /* jshint ignore:end */
-MessageInteractionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MessageInteractionInstance(
     this._version,
     payload,
@@ -534,7 +535,7 @@ Object.defineProperty(MessageInteractionInstance.prototype,
  * @returns {Promise} Resolves to processed MessageInteractionInstance
  */
 /* jshint ignore:end */
-MessageInteractionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -581,7 +582,7 @@ MessageInteractionContext = function MessageInteractionContext(version,
  * @returns {Promise} Resolves to processed MessageInteractionInstance
  */
 /* jshint ignore:end */
-MessageInteractionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

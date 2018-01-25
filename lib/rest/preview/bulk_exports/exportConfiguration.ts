@@ -29,7 +29,8 @@ var ExportConfigurationContext;
  * @param {Twilio.Preview.BulkExports} version - Version of the resource
  */
 /* jshint ignore:end */
-ExportConfigurationList = function ExportConfigurationList(version) {
+ExportConfigurationList = class ExportConfigurationList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function exportConfiguration
@@ -41,7 +42,8 @@ ExportConfigurationList = function ExportConfigurationList(version) {
    * @returns {Twilio.Preview.BulkExports.ExportConfigurationContext}
    */
   /* jshint ignore:end */
-  function ExportConfigurationListInstance(sid) {
+  class ExportConfigurationListInstance {
+  constructor(sid) {
     return ExportConfigurationListInstance.get(sid);
   }
 
@@ -91,8 +93,8 @@ ExportConfigurationPage = function ExportConfigurationPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ExportConfigurationPage.prototype, Page.prototype);
-ExportConfigurationPage.prototype.constructor = ExportConfigurationPage;
+class ExportConfigurationPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -107,7 +109,7 @@ ExportConfigurationPage.prototype.constructor = ExportConfigurationPage;
  * @returns ExportConfigurationInstance
  */
 /* jshint ignore:end */
-ExportConfigurationPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ExportConfigurationInstance(this._version, payload);
 };
 
@@ -169,7 +171,7 @@ Object.defineProperty(ExportConfigurationInstance.prototype,
  * @returns {Promise} Resolves to processed ExportConfigurationInstance
  */
 /* jshint ignore:end */
-ExportConfigurationInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -190,7 +192,7 @@ ExportConfigurationInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ExportConfigurationInstance
  */
 /* jshint ignore:end */
-ExportConfigurationInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -229,7 +231,7 @@ ExportConfigurationContext = function ExportConfigurationContext(version,
  * @returns {Promise} Resolves to processed ExportConfigurationInstance
  */
 /* jshint ignore:end */
-ExportConfigurationContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -269,7 +271,7 @@ ExportConfigurationContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ExportConfigurationInstance
  */
 /* jshint ignore:end */
-ExportConfigurationContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

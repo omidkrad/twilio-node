@@ -32,7 +32,8 @@ var FaxContext;
  * @param {Twilio.Fax.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-FaxList = function FaxList(version) {
+FaxList = class FaxList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function faxes
@@ -44,7 +45,8 @@ FaxList = function FaxList(version) {
    * @returns {Twilio.Fax.V1.FaxContext}
    */
   /* jshint ignore:end */
-  function FaxListInstance(sid) {
+  class FaxListInstance {
+  constructor(sid) {
     return FaxListInstance.get(sid);
   }
 
@@ -417,15 +419,16 @@ FaxList = function FaxList(version) {
  * @returns FaxPage
  */
 /* jshint ignore:end */
-FaxPage = function FaxPage(version, response, solution) {
+FaxPage = class FaxPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FaxPage.prototype, Page.prototype);
-FaxPage.prototype.constructor = FaxPage;
+class FaxPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -440,7 +443,7 @@ FaxPage.prototype.constructor = FaxPage;
  * @returns FaxInstance
  */
 /* jshint ignore:end */
-FaxPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FaxInstance(this._version, payload);
 };
 
@@ -475,7 +478,8 @@ FaxPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - A string that uniquely identifies this fax.
  */
 /* jshint ignore:end */
-FaxInstance = function FaxInstance(version, payload, sid) {
+FaxInstance = class FaxInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -527,7 +531,7 @@ Object.defineProperty(FaxInstance.prototype,
  * @returns {Promise} Resolves to processed FaxInstance
  */
 /* jshint ignore:end */
-FaxInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -546,7 +550,7 @@ FaxInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FaxInstance
  */
 /* jshint ignore:end */
-FaxInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -563,7 +567,7 @@ FaxInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed FaxInstance
  */
 /* jshint ignore:end */
-FaxInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -578,7 +582,7 @@ FaxInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Fax.V1.FaxContext.FaxMediaList}
  */
 /* jshint ignore:end */
-FaxInstance.prototype.media = function media() {
+media() {
   return this._proxy.media;
 };
 
@@ -595,7 +599,8 @@ FaxInstance.prototype.media = function media() {
  * @param {sid} sid - A string that uniquely identifies this fax.
  */
 /* jshint ignore:end */
-FaxContext = function FaxContext(version, sid) {
+FaxContext = class FaxContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -621,7 +626,7 @@ FaxContext = function FaxContext(version, sid) {
  * @returns {Promise} Resolves to processed FaxInstance
  */
 /* jshint ignore:end */
-FaxContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -655,7 +660,7 @@ FaxContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FaxInstance
  */
 /* jshint ignore:end */
-FaxContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -695,7 +700,7 @@ FaxContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed FaxInstance
  */
 /* jshint ignore:end */
-FaxContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

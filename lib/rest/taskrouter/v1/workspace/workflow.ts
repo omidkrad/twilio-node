@@ -36,7 +36,8 @@ var WorkflowContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-WorkflowList = function WorkflowList(version, workspaceSid) {
+WorkflowList = class WorkflowList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function workflows
@@ -48,7 +49,8 @@ WorkflowList = function WorkflowList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkflowContext}
    */
   /* jshint ignore:end */
-  function WorkflowListInstance(sid) {
+  class WorkflowListInstance {
+  constructor(sid) {
     return WorkflowListInstance.get(sid);
   }
 
@@ -399,15 +401,16 @@ WorkflowList = function WorkflowList(version, workspaceSid) {
  * @returns WorkflowPage
  */
 /* jshint ignore:end */
-WorkflowPage = function WorkflowPage(version, response, solution) {
+WorkflowPage = class WorkflowPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(WorkflowPage.prototype, Page.prototype);
-WorkflowPage.prototype.constructor = WorkflowPage;
+class WorkflowPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -422,7 +425,7 @@ WorkflowPage.prototype.constructor = WorkflowPage;
  * @returns WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new WorkflowInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -501,7 +504,7 @@ Object.defineProperty(WorkflowInstance.prototype,
  * @returns {Promise} Resolves to processed WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -525,7 +528,7 @@ WorkflowInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -542,7 +545,7 @@ WorkflowInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -557,7 +560,7 @@ WorkflowInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkflowContext.WorkflowStatisticsList}
  */
 /* jshint ignore:end */
-WorkflowInstance.prototype.statistics = function statistics() {
+statistics() {
   return this._proxy.statistics;
 };
 
@@ -572,7 +575,7 @@ WorkflowInstance.prototype.statistics = function statistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkflowContext.WorkflowRealTimeStatisticsList}
  */
 /* jshint ignore:end */
-WorkflowInstance.prototype.realTimeStatistics = function realTimeStatistics() {
+realTimeStatistics() {
   return this._proxy.realTimeStatistics;
 };
 
@@ -610,7 +613,8 @@ WorkflowInstance.prototype.cumulativeStatistics = function
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-WorkflowContext = function WorkflowContext(version, workspaceSid, sid) {
+WorkflowContext = class WorkflowContext {
+  constructor(version, workspaceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -638,7 +642,7 @@ WorkflowContext = function WorkflowContext(version, workspaceSid, sid) {
  * @returns {Promise} Resolves to processed WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -682,7 +686,7 @@ WorkflowContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -733,7 +737,7 @@ WorkflowContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed WorkflowInstance
  */
 /* jshint ignore:end */
-WorkflowContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

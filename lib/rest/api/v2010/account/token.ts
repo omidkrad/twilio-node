@@ -29,7 +29,8 @@ var TokenInstance;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-TokenList = function TokenList(version, accountSid) {
+TokenList = class TokenList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function tokens
@@ -41,7 +42,8 @@ TokenList = function TokenList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.TokenContext}
    */
   /* jshint ignore:end */
-  function TokenListInstance(sid) {
+  class TokenListInstance {
+  constructor(sid) {
     return TokenListInstance.get(sid);
   }
 
@@ -111,15 +113,16 @@ TokenList = function TokenList(version, accountSid) {
  * @returns TokenPage
  */
 /* jshint ignore:end */
-TokenPage = function TokenPage(version, response, solution) {
+TokenPage = class TokenPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TokenPage.prototype, Page.prototype);
-TokenPage.prototype.constructor = TokenPage;
+class TokenPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -134,7 +137,7 @@ TokenPage.prototype.constructor = TokenPage;
  * @returns TokenInstance
  */
 /* jshint ignore:end */
-TokenPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TokenInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -157,7 +160,8 @@ TokenPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-TokenInstance = function TokenInstance(version, payload, accountSid) {
+TokenInstance = class TokenInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

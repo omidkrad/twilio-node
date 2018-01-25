@@ -29,7 +29,8 @@ var ValidationRequestInstance;
  * @param {string} accountSid - The account_sid
  */
 /* jshint ignore:end */
-ValidationRequestList = function ValidationRequestList(version, accountSid) {
+ValidationRequestList = class ValidationRequestList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function validationRequests
@@ -41,7 +42,8 @@ ValidationRequestList = function ValidationRequestList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.ValidationRequestContext}
    */
   /* jshint ignore:end */
-  function ValidationRequestListInstance(sid) {
+  class ValidationRequestListInstance {
+  constructor(sid) {
     return ValidationRequestListInstance.get(sid);
   }
 
@@ -132,8 +134,8 @@ ValidationRequestPage = function ValidationRequestPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ValidationRequestPage.prototype, Page.prototype);
-ValidationRequestPage.prototype.constructor = ValidationRequestPage;
+class ValidationRequestPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -148,7 +150,7 @@ ValidationRequestPage.prototype.constructor = ValidationRequestPage;
  * @returns ValidationRequestInstance
  */
 /* jshint ignore:end */
-ValidationRequestPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ValidationRequestInstance(this._version, payload, this._solution.accountSid);
 };
 

@@ -10,7 +10,8 @@ var RestException = require('./RestException');
  * @param {Domain} domain twilio domain
  * @param {Version} version api version
  */
-function Version(domain, version) {
+class Version {
+  constructor(domain, version) {
   this._domain = domain;
   this._version = version;
 }
@@ -21,7 +22,7 @@ function Version(domain, version) {
  * @param  {string} uri uri to transform
  * @return {string} transformed url
  */
-Version.prototype.absoluteUrl = function(uri) {
+absoluteUrl(uri) {
   return this._domain.absoluteUrl(this.relativeUrl(uri));
 };
 
@@ -31,7 +32,7 @@ Version.prototype.absoluteUrl = function(uri) {
  * @param  {string} uri uri to transform
  * @return {string} transformed url
  */
-Version.prototype.relativeUrl = function(uri) {
+relativeUrl(uri) {
   return _.trim(this._version, '/') + '/' + _.trim(uri, '/');
 };
 
@@ -41,7 +42,7 @@ Version.prototype.relativeUrl = function(uri) {
  * @param  {object} opts request options
  * @return {Promise} promise that resolves to request response
  */
-Version.prototype.request = function(opts) {
+request(opts) {
   return this._domain.request(_.assign({}, opts, {
     uri: this.relativeUrl(opts.uri),
   }));
@@ -54,7 +55,7 @@ Version.prototype.request = function(opts) {
  * @param  {object} opts request options
  * @return {Promise} promise that resolves to fetched result
  */
-Version.prototype.fetch = function(opts) {
+fetch(opts) {
   var qResponse = this.request(opts);
 
   qResponse = qResponse.then(
@@ -77,7 +78,7 @@ Version.prototype.fetch = function(opts) {
  * @param  {object} opts request options
  * @return {Promise} promise that resolves to updated result
  */
-Version.prototype.update = function(opts) {
+update(opts) {
   var qResponse = this.request(opts);
   qResponse = qResponse.then(
     function success(response) {
@@ -99,7 +100,7 @@ Version.prototype.update = function(opts) {
  * @param  {object} opts request options
  * @return {Promise} promise that resolves to true if record was deleted
  */
-Version.prototype.remove = function(opts) {
+remove(opts) {
   var qResponse = this.request(opts);
   qResponse = qResponse.then(
     function success(response) {
@@ -121,7 +122,7 @@ Version.prototype.remove = function(opts) {
  * @param  {object} opts request options
  * @return {Promise} promise that resolves to created record
  */
-Version.prototype.create = function(opts) {
+create(opts) {
   var qResponse = this.request(opts);
   qResponse = qResponse.then(
     function success(response) {
@@ -142,7 +143,7 @@ Version.prototype.create = function(opts) {
  * @param  {object} opts request options
  * @return {Promise} promise that resolves to page of records
  */
-Version.prototype.page = function(opts) {
+page(opts) {
   return this.request(opts);
 };
 
@@ -154,15 +155,15 @@ Version.prototype.page = function(opts) {
  * @param {number} [opts.pageSize] The maximum number of items to return
  *                                  with every request
  */
-Version.prototype.readLimits = function(opts) {
+readLimits(opts) {
   var limit = opts.limit;
   var pageLimit;
   var pageSize = opts.pageSize;
-  if (!_.isNil(limit) && (!_.isFinite(limit) || limit <= 0)) { 
+  if (!_.isNil(limit) && (!_.isFinite(limit) || limit <= 0)) {
     throw new TypeError("Parameter limit must be a positive integer");
   }
 
-  if (!_.isNil(pageSize) && (!_.isFinite(pageSize) || pageSize <= 0)) { 
+  if (!_.isNil(pageSize) && (!_.isFinite(pageSize) || pageSize <= 0)) {
     throw new TypeError("Parameter pageSize must be a positive integer");
   }
 

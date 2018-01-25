@@ -34,7 +34,8 @@ var FleetContext;
  * @param {Twilio.Preview.DeployedDevices} version - Version of the resource
  */
 /* jshint ignore:end */
-FleetList = function FleetList(version) {
+FleetList = class FleetList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function fleets
@@ -46,7 +47,8 @@ FleetList = function FleetList(version) {
    * @returns {Twilio.Preview.DeployedDevices.FleetContext}
    */
   /* jshint ignore:end */
-  function FleetListInstance(sid) {
+  class FleetListInstance {
+  constructor(sid) {
     return FleetListInstance.get(sid);
   }
 
@@ -370,15 +372,16 @@ FleetList = function FleetList(version) {
  * @returns FleetPage
  */
 /* jshint ignore:end */
-FleetPage = function FleetPage(version, response, solution) {
+FleetPage = class FleetPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FleetPage.prototype, Page.prototype);
-FleetPage.prototype.constructor = FleetPage;
+class FleetPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -393,7 +396,7 @@ FleetPage.prototype.constructor = FleetPage;
  * @returns FleetInstance
  */
 /* jshint ignore:end */
-FleetPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FleetInstance(this._version, payload);
 };
 
@@ -420,7 +423,8 @@ FleetPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - A string that uniquely identifies the Fleet.
  */
 /* jshint ignore:end */
-FleetInstance = function FleetInstance(version, payload, sid) {
+FleetInstance = class FleetInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -463,7 +467,7 @@ Object.defineProperty(FleetInstance.prototype,
  * @returns {Promise} Resolves to processed FleetInstance
  */
 /* jshint ignore:end */
-FleetInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -480,7 +484,7 @@ FleetInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FleetInstance
  */
 /* jshint ignore:end */
-FleetInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -501,7 +505,7 @@ FleetInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed FleetInstance
  */
 /* jshint ignore:end */
-FleetInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -516,7 +520,7 @@ FleetInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Preview.DeployedDevices.FleetContext.DeviceList}
  */
 /* jshint ignore:end */
-FleetInstance.prototype.devices = function devices() {
+devices() {
   return this._proxy.devices;
 };
 
@@ -531,7 +535,7 @@ FleetInstance.prototype.devices = function devices() {
  * @returns {Twilio.Preview.DeployedDevices.FleetContext.DeploymentList}
  */
 /* jshint ignore:end */
-FleetInstance.prototype.deployments = function deployments() {
+deployments() {
   return this._proxy.deployments;
 };
 
@@ -546,7 +550,7 @@ FleetInstance.prototype.deployments = function deployments() {
  * @returns {Twilio.Preview.DeployedDevices.FleetContext.CertificateList}
  */
 /* jshint ignore:end */
-FleetInstance.prototype.certificates = function certificates() {
+certificates() {
   return this._proxy.certificates;
 };
 
@@ -561,7 +565,7 @@ FleetInstance.prototype.certificates = function certificates() {
  * @returns {Twilio.Preview.DeployedDevices.FleetContext.KeyList}
  */
 /* jshint ignore:end */
-FleetInstance.prototype.keys = function keys() {
+keys() {
   return this._proxy.keys;
 };
 
@@ -585,7 +589,8 @@ FleetInstance.prototype.keys = function keys() {
  * @param {sid_like} sid - A string that uniquely identifies the Fleet.
  */
 /* jshint ignore:end */
-FleetContext = function FleetContext(version, sid) {
+FleetContext = class FleetContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -614,7 +619,7 @@ FleetContext = function FleetContext(version, sid) {
  * @returns {Promise} Resolves to processed FleetInstance
  */
 /* jshint ignore:end */
-FleetContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -646,7 +651,7 @@ FleetContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FleetInstance
  */
 /* jshint ignore:end */
-FleetContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -682,7 +687,7 @@ FleetContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed FleetInstance
  */
 /* jshint ignore:end */
-FleetContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

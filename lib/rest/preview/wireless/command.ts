@@ -30,7 +30,8 @@ var CommandContext;
  * @param {Twilio.Preview.Wireless} version - Version of the resource
  */
 /* jshint ignore:end */
-CommandList = function CommandList(version) {
+CommandList = class CommandList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function commands
@@ -42,7 +43,8 @@ CommandList = function CommandList(version) {
    * @returns {Twilio.Preview.Wireless.CommandContext}
    */
   /* jshint ignore:end */
-  function CommandListInstance(sid) {
+  class CommandListInstance {
+  constructor(sid) {
     return CommandListInstance.get(sid);
   }
 
@@ -404,15 +406,16 @@ CommandList = function CommandList(version) {
  * @returns CommandPage
  */
 /* jshint ignore:end */
-CommandPage = function CommandPage(version, response, solution) {
+CommandPage = class CommandPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CommandPage.prototype, Page.prototype);
-CommandPage.prototype.constructor = CommandPage;
+class CommandPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -427,7 +430,7 @@ CommandPage.prototype.constructor = CommandPage;
  * @returns CommandInstance
  */
 /* jshint ignore:end */
-CommandPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CommandInstance(this._version, payload);
 };
 
@@ -455,7 +458,8 @@ CommandPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-CommandInstance = function CommandInstance(version, payload, sid) {
+CommandInstance = class CommandInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -500,7 +504,7 @@ Object.defineProperty(CommandInstance.prototype,
  * @returns {Promise} Resolves to processed CommandInstance
  */
 /* jshint ignore:end */
-CommandInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -515,7 +519,8 @@ CommandInstance.prototype.fetch = function fetch(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-CommandContext = function CommandContext(version, sid) {
+CommandContext = class CommandContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -538,7 +543,7 @@ CommandContext = function CommandContext(version, sid) {
  * @returns {Promise} Resolves to processed CommandInstance
  */
 /* jshint ignore:end */
-CommandContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

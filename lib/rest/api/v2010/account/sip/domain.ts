@@ -37,7 +37,8 @@ var DomainContext;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-DomainList = function DomainList(version, accountSid) {
+DomainList = class DomainList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function domains
@@ -49,7 +50,8 @@ DomainList = function DomainList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext}
    */
   /* jshint ignore:end */
-  function DomainListInstance(sid) {
+  class DomainListInstance {
+  constructor(sid) {
     return DomainListInstance.get(sid);
   }
 
@@ -404,15 +406,16 @@ DomainList = function DomainList(version, accountSid) {
  * @returns DomainPage
  */
 /* jshint ignore:end */
-DomainPage = function DomainPage(version, response, solution) {
+DomainPage = class DomainPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DomainPage.prototype, Page.prototype);
-DomainPage.prototype.constructor = DomainPage;
+class DomainPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -427,7 +430,7 @@ DomainPage.prototype.constructor = DomainPage;
  * @returns DomainInstance
  */
 /* jshint ignore:end */
-DomainPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DomainInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -468,7 +471,8 @@ DomainPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Fetch by unique Domain Sid
  */
 /* jshint ignore:end */
-DomainInstance = function DomainInstance(version, payload, accountSid, sid) {
+DomainInstance = class DomainInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -519,7 +523,7 @@ Object.defineProperty(DomainInstance.prototype,
  * @returns {Promise} Resolves to processed DomainInstance
  */
 /* jshint ignore:end */
-DomainInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -548,7 +552,7 @@ DomainInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DomainInstance
  */
 /* jshint ignore:end */
-DomainInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -565,7 +569,7 @@ DomainInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed DomainInstance
  */
 /* jshint ignore:end */
-DomainInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -617,7 +621,8 @@ DomainInstance.prototype.credentialListMappings = function
  * @param {sid} sid - Fetch by unique Domain Sid
  */
 /* jshint ignore:end */
-DomainContext = function DomainContext(version, accountSid, sid) {
+DomainContext = class DomainContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -644,7 +649,7 @@ DomainContext = function DomainContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed DomainInstance
  */
 /* jshint ignore:end */
-DomainContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -693,7 +698,7 @@ DomainContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DomainInstance
  */
 /* jshint ignore:end */
-DomainContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -748,7 +753,7 @@ DomainContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed DomainInstance
  */
 /* jshint ignore:end */
-DomainContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

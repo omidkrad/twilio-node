@@ -26,15 +26,16 @@ var V1 = require('./taskrouter/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Taskrouter(twilio) {
+class Taskrouter {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://taskrouter.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Taskrouter.prototype, Domain.prototype);
-Taskrouter.prototype.constructor = Taskrouter;
+class Taskrouter extends Domain {
+
 
 Object.defineProperty(Taskrouter.prototype,
   'v1', {

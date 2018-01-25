@@ -34,7 +34,8 @@ var SyncListItemContext;
  * @param {string} listSid - The list_sid
  */
 /* jshint ignore:end */
-SyncListItemList = function SyncListItemList(version, serviceSid, listSid) {
+SyncListItemList = class SyncListItemList {
+  constructor(version, serviceSid, listSid) {
   /* jshint ignore:start */
   /**
    * @function syncListItems
@@ -46,7 +47,8 @@ SyncListItemList = function SyncListItemList(version, serviceSid, listSid) {
    * @returns {Twilio.Sync.V1.ServiceContext.SyncListContext.SyncListItemContext}
    */
   /* jshint ignore:end */
-  function SyncListItemListInstance(sid) {
+  class SyncListItemListInstance {
+  constructor(sid) {
     return SyncListItemListInstance.get(sid);
   }
 
@@ -401,15 +403,16 @@ SyncListItemList = function SyncListItemList(version, serviceSid, listSid) {
  * @returns SyncListItemPage
  */
 /* jshint ignore:end */
-SyncListItemPage = function SyncListItemPage(version, response, solution) {
+SyncListItemPage = class SyncListItemPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncListItemPage.prototype, Page.prototype);
-SyncListItemPage.prototype.constructor = SyncListItemPage;
+class SyncListItemPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -424,7 +427,7 @@ SyncListItemPage.prototype.constructor = SyncListItemPage;
  * @returns SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncListItemInstance(
     this._version,
     payload,
@@ -511,7 +514,7 @@ Object.defineProperty(SyncListItemInstance.prototype,
  * @returns {Promise} Resolves to processed SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -528,7 +531,7 @@ SyncListItemInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -548,7 +551,7 @@ SyncListItemInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -589,7 +592,7 @@ SyncListItemContext = function SyncListItemContext(version, serviceSid, listSid,
  * @returns {Promise} Resolves to processed SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -627,7 +630,7 @@ SyncListItemContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -662,7 +665,7 @@ SyncListItemContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncListItemInstance
  */
 /* jshint ignore:end */
-SyncListItemContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

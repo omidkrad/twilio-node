@@ -33,7 +33,8 @@ var InviteContext;
  * @param {string} channelSid - The channel_sid
  */
 /* jshint ignore:end */
-InviteList = function InviteList(version, serviceSid, channelSid) {
+InviteList = class InviteList {
+  constructor(version, serviceSid, channelSid) {
   /* jshint ignore:start */
   /**
    * @function invites
@@ -45,7 +46,8 @@ InviteList = function InviteList(version, serviceSid, channelSid) {
    * @returns {Twilio.IpMessaging.V2.ServiceContext.ChannelContext.InviteContext}
    */
   /* jshint ignore:end */
-  function InviteListInstance(sid) {
+  class InviteListInstance {
+  constructor(sid) {
     return InviteListInstance.get(sid);
   }
 
@@ -384,15 +386,16 @@ InviteList = function InviteList(version, serviceSid, channelSid) {
  * @returns InvitePage
  */
 /* jshint ignore:end */
-InvitePage = function InvitePage(version, response, solution) {
+InvitePage = class InvitePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(InvitePage.prototype, Page.prototype);
-InvitePage.prototype.constructor = InvitePage;
+class InvitePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -407,7 +410,7 @@ InvitePage.prototype.constructor = InvitePage;
  * @returns InviteInstance
  */
 /* jshint ignore:end */
-InvitePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new InviteInstance(
     this._version,
     payload,
@@ -490,7 +493,7 @@ Object.defineProperty(InviteInstance.prototype,
  * @returns {Promise} Resolves to processed InviteInstance
  */
 /* jshint ignore:end */
-InviteInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -507,7 +510,7 @@ InviteInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InviteInstance
  */
 /* jshint ignore:end */
-InviteInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -523,7 +526,8 @@ InviteInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-InviteContext = function InviteContext(version, serviceSid, channelSid, sid) {
+InviteContext = class InviteContext {
+  constructor(version, serviceSid, channelSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -546,7 +550,7 @@ InviteContext = function InviteContext(version, serviceSid, channelSid, sid) {
  * @returns {Promise} Resolves to processed InviteInstance
  */
 /* jshint ignore:end */
-InviteContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -584,7 +588,7 @@ InviteContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InviteInstance
  */
 /* jshint ignore:end */
-InviteContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

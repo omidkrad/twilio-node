@@ -27,7 +27,8 @@ var CountryContext;
  * @param {Twilio.Pricing.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-CountryList = function CountryList(version) {
+CountryList = class CountryList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function countries
@@ -39,7 +40,8 @@ CountryList = function CountryList(version) {
    * @returns {Twilio.Pricing.V1.MessagingContext.CountryContext}
    */
   /* jshint ignore:end */
-  function CountryListInstance(sid) {
+  class CountryListInstance {
+  constructor(sid) {
     return CountryListInstance.get(sid);
   }
 
@@ -319,15 +321,16 @@ CountryList = function CountryList(version) {
  * @returns CountryPage
  */
 /* jshint ignore:end */
-CountryPage = function CountryPage(version, response, solution) {
+CountryPage = class CountryPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CountryPage.prototype, Page.prototype);
-CountryPage.prototype.constructor = CountryPage;
+class CountryPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -342,7 +345,7 @@ CountryPage.prototype.constructor = CountryPage;
  * @returns CountryInstance
  */
 /* jshint ignore:end */
-CountryPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CountryInstance(this._version, payload);
 };
 
@@ -364,7 +367,8 @@ CountryPage.prototype.getInstance = function getInstance(payload) {
  * @param {iso_country_code} isoCountry - The iso_country
  */
 /* jshint ignore:end */
-CountryInstance = function CountryInstance(version, payload, isoCountry) {
+CountryInstance = class CountryInstance {
+  constructor(version, payload, isoCountry) {
   this._version = version;
 
   // Marshaled Properties
@@ -404,7 +408,7 @@ Object.defineProperty(CountryInstance.prototype,
  * @returns {Promise} Resolves to processed CountryInstance
  */
 /* jshint ignore:end */
-CountryInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -418,7 +422,8 @@ CountryInstance.prototype.fetch = function fetch(callback) {
  * @param {iso_country_code} isoCountry - The iso_country
  */
 /* jshint ignore:end */
-CountryContext = function CountryContext(version, isoCountry) {
+CountryContext = class CountryContext {
+  constructor(version, isoCountry) {
   this._version = version;
 
   // Path Solution
@@ -441,7 +446,7 @@ CountryContext = function CountryContext(version, isoCountry) {
  * @returns {Promise} Resolves to processed CountryInstance
  */
 /* jshint ignore:end */
-CountryContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

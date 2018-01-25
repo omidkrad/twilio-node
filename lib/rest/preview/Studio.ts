@@ -25,15 +25,16 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function Studio(domain) {
+class Studio {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'Studio');
 
   // Resources
   this._flows = undefined;
 }
 
-_.extend(Studio.prototype, Version.prototype);
-Studio.prototype.constructor = Studio;
+class Studio extends Version {
+
 
 Object.defineProperty(Studio.prototype,
   'flows', {

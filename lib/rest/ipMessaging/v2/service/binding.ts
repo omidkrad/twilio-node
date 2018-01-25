@@ -31,7 +31,8 @@ var BindingContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-BindingList = function BindingList(version, serviceSid) {
+BindingList = class BindingList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function bindings
@@ -43,7 +44,8 @@ BindingList = function BindingList(version, serviceSid) {
    * @returns {Twilio.IpMessaging.V2.ServiceContext.BindingContext}
    */
   /* jshint ignore:end */
-  function BindingListInstance(sid) {
+  class BindingListInstance {
+  constructor(sid) {
     return BindingListInstance.get(sid);
   }
 
@@ -337,15 +339,16 @@ BindingList = function BindingList(version, serviceSid) {
  * @returns BindingPage
  */
 /* jshint ignore:end */
-BindingPage = function BindingPage(version, response, solution) {
+BindingPage = class BindingPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(BindingPage.prototype, Page.prototype);
-BindingPage.prototype.constructor = BindingPage;
+class BindingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -360,7 +363,7 @@ BindingPage.prototype.constructor = BindingPage;
  * @returns BindingInstance
  */
 /* jshint ignore:end */
-BindingPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new BindingInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -389,7 +392,8 @@ BindingPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-BindingInstance = function BindingInstance(version, payload, serviceSid, sid) {
+BindingInstance = class BindingInstance {
+  constructor(version, payload, serviceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -435,7 +439,7 @@ Object.defineProperty(BindingInstance.prototype,
  * @returns {Promise} Resolves to processed BindingInstance
  */
 /* jshint ignore:end */
-BindingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -452,7 +456,7 @@ BindingInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed BindingInstance
  */
 /* jshint ignore:end */
-BindingInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -467,7 +471,8 @@ BindingInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-BindingContext = function BindingContext(version, serviceSid, sid) {
+BindingContext = class BindingContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -490,7 +495,7 @@ BindingContext = function BindingContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed BindingInstance
  */
 /* jshint ignore:end */
-BindingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -527,7 +532,7 @@ BindingContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed BindingInstance
  */
 /* jshint ignore:end */
-BindingContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

@@ -31,7 +31,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function HostedNumbers(domain) {
+class HostedNumbers {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'HostedNumbers');
 
   // Resources
@@ -39,8 +40,8 @@ function HostedNumbers(domain) {
   this._hostedNumberOrders = undefined;
 }
 
-_.extend(HostedNumbers.prototype, Version.prototype);
-HostedNumbers.prototype.constructor = HostedNumbers;
+class HostedNumbers extends Version {
+
 
 Object.defineProperty(HostedNumbers.prototype,
   'authorizationDocuments', {

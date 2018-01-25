@@ -33,7 +33,8 @@ var MessageContext;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-MessageList = function MessageList(version, accountSid) {
+MessageList = class MessageList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function messages
@@ -45,7 +46,8 @@ MessageList = function MessageList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.MessageContext}
    */
   /* jshint ignore:end */
-  function MessageListInstance(sid) {
+  class MessageListInstance {
+  constructor(sid) {
     return MessageListInstance.get(sid);
   }
 
@@ -437,15 +439,16 @@ MessageList = function MessageList(version, accountSid) {
  * @returns MessagePage
  */
 /* jshint ignore:end */
-MessagePage = function MessagePage(version, response, solution) {
+MessagePage = class MessagePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MessagePage.prototype, Page.prototype);
-MessagePage.prototype.constructor = MessagePage;
+class MessagePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -460,7 +463,7 @@ MessagePage.prototype.constructor = MessagePage;
  * @returns MessageInstance
  */
 /* jshint ignore:end */
-MessagePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MessageInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -500,7 +503,8 @@ MessagePage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Fetch by unique message Sid
  */
 /* jshint ignore:end */
-MessageInstance = function MessageInstance(version, payload, accountSid, sid) {
+MessageInstance = class MessageInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -554,7 +558,7 @@ Object.defineProperty(MessageInstance.prototype,
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -571,7 +575,7 @@ MessageInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -590,7 +594,7 @@ MessageInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -605,7 +609,7 @@ MessageInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Api.V2010.AccountContext.MessageContext.MediaList}
  */
 /* jshint ignore:end */
-MessageInstance.prototype.media = function media() {
+media() {
   return this._proxy.media;
 };
 
@@ -620,7 +624,7 @@ MessageInstance.prototype.media = function media() {
  * @returns {Twilio.Api.V2010.AccountContext.MessageContext.FeedbackList}
  */
 /* jshint ignore:end */
-MessageInstance.prototype.feedback = function feedback() {
+feedback() {
   return this._proxy.feedback;
 };
 
@@ -640,7 +644,8 @@ MessageInstance.prototype.feedback = function feedback() {
  * @param {sid} sid - Fetch by unique message Sid
  */
 /* jshint ignore:end */
-MessageContext = function MessageContext(version, accountSid, sid) {
+MessageContext = class MessageContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -667,7 +672,7 @@ MessageContext = function MessageContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -699,7 +704,7 @@ MessageContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -738,7 +743,7 @@ MessageContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed MessageInstance
  */
 /* jshint ignore:end */
-MessageContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

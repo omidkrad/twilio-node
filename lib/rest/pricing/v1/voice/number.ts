@@ -27,7 +27,8 @@ var NumberContext;
  * @param {Twilio.Pricing.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-NumberList = function NumberList(version) {
+NumberList = class NumberList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function numbers
@@ -39,7 +40,8 @@ NumberList = function NumberList(version) {
    * @returns {Twilio.Pricing.V1.VoiceContext.NumberContext}
    */
   /* jshint ignore:end */
-  function NumberListInstance(sid) {
+  class NumberListInstance {
+  constructor(sid) {
     return NumberListInstance.get(sid);
   }
 
@@ -80,15 +82,16 @@ NumberList = function NumberList(version) {
  * @returns NumberPage
  */
 /* jshint ignore:end */
-NumberPage = function NumberPage(version, response, solution) {
+NumberPage = class NumberPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(NumberPage.prototype, Page.prototype);
-NumberPage.prototype.constructor = NumberPage;
+class NumberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -103,7 +106,7 @@ NumberPage.prototype.constructor = NumberPage;
  * @returns NumberInstance
  */
 /* jshint ignore:end */
-NumberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new NumberInstance(this._version, payload);
 };
 
@@ -126,7 +129,8 @@ NumberPage.prototype.getInstance = function getInstance(payload) {
  * @param {phone_number} number - The number
  */
 /* jshint ignore:end */
-NumberInstance = function NumberInstance(version, payload, number) {
+NumberInstance = class NumberInstance {
+  constructor(version, payload, number) {
   this._version = version;
 
   // Marshaled Properties
@@ -167,7 +171,7 @@ Object.defineProperty(NumberInstance.prototype,
  * @returns {Promise} Resolves to processed NumberInstance
  */
 /* jshint ignore:end */
-NumberInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -181,7 +185,8 @@ NumberInstance.prototype.fetch = function fetch(callback) {
  * @param {phone_number} number - The number
  */
 /* jshint ignore:end */
-NumberContext = function NumberContext(version, number) {
+NumberContext = class NumberContext {
+  constructor(version, number) {
   this._version = version;
 
   // Path Solution
@@ -204,7 +209,7 @@ NumberContext = function NumberContext(version, number) {
  * @returns {Promise} Resolves to processed NumberInstance
  */
 /* jshint ignore:end */
-NumberContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

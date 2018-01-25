@@ -13,7 +13,8 @@ var RestException = require('./RestException');
  * @param {Object} response - The http response
  * @param {Object} solution - path solution
  */
-function Page(version, response, solution) {
+class Page {
+  constructor(version, response, solution) {
   var payload = this.processResponse(response);
 
   this._version = version;
@@ -49,7 +50,7 @@ Page.prototype.META_KEYS = [
  *
  * @return {string|undefined} url of the previous page
  */
-Page.prototype.getPreviousPageUrl = function() {
+getPreviousPageUrl() {
   if ('meta' in this._payload && 'previous_page_url' in this._payload.meta && this._payload.meta.previous_page_url) { // jshint ignore:line
     return this._payload.meta.previous_page_url; // jshint ignore:line
   }
@@ -66,7 +67,7 @@ Page.prototype.getPreviousPageUrl = function() {
  *
  * @return {string|undefined} url of the next page
  */
-Page.prototype.getNextPageUrl = function() {
+getNextPageUrl() {
   if ('meta' in this._payload && 'next_page_url' in this._payload.meta && this._payload.meta.next_page_url) { // jshint ignore:line
     return this._payload.meta.next_page_url; // jshint ignore:line
   }
@@ -85,7 +86,7 @@ Page.prototype.getNextPageUrl = function() {
  * @param {object} payload - Payload response from the API
  * @return {object} instance of a resource
  */
-Page.prototype.getInstance = function(payload) {
+getInstance(payload) {
   throw new Error('Page.get_instance() must be implemented in the derived class');
 };
 
@@ -95,7 +96,7 @@ Page.prototype.getInstance = function(payload) {
  * @param  {object} resources json payload of records
  * @return {Array} list of resources
  */
-Page.prototype.loadInstances = function(resources) {
+loadInstances(resources) {
   return _.map(resources, function(resource) {
     return this.getInstance(resource);
   }.bind(this));
@@ -106,7 +107,7 @@ Page.prototype.loadInstances = function(resources) {
  *
  * @return {promise} promise that resolves to next page of results
  */
-Page.prototype.nextPage = function() {
+nextPage() {
   if (!this.nextPageUrl) {
     return undefined;
   }
@@ -128,7 +129,7 @@ Page.prototype.nextPage = function() {
  *
  * @return {promise} promise that resolves to previous page of results
  */
-Page.prototype.previousPage = function() {
+previousPage() {
   if (!this.previousPageUrl) {
     return undefined;
   }
@@ -152,7 +153,7 @@ Page.prototype.previousPage = function() {
  * @param  {object} response API response
  * @return {object} json parsed response
  */
-Page.prototype.processResponse = function(response) {
+processResponse(response) {
   if (response.statusCode !== 200) {
     throw new RestException(response);
   }
@@ -167,7 +168,7 @@ Page.prototype.processResponse = function(response) {
  * @param  {object} payload json payload
  * @return {array} the page of records
  */
-Page.prototype.loadPage = function(payload) {
+loadPage(payload) {
   if ('meta' in payload && 'key' in payload.meta) {
     return payload[payload.meta.key];
   }

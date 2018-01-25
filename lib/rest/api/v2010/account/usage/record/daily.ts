@@ -32,7 +32,8 @@ var DailyInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-DailyList = function DailyList(version, accountSid) {
+DailyList = class DailyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function daily
@@ -44,7 +45,8 @@ DailyList = function DailyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.DailyContext}
    */
   /* jshint ignore:end */
-  function DailyListInstance(sid) {
+  class DailyListInstance {
+  constructor(sid) {
     return DailyListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ DailyList = function DailyList(version, accountSid) {
  * @returns DailyPage
  */
 /* jshint ignore:end */
-DailyPage = function DailyPage(version, response, solution) {
+DailyPage = class DailyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DailyPage.prototype, Page.prototype);
-DailyPage.prototype.constructor = DailyPage;
+class DailyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ DailyPage.prototype.constructor = DailyPage;
  * @returns DailyInstance
  */
 /* jshint ignore:end */
-DailyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DailyInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ DailyPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-DailyInstance = function DailyInstance(version, payload, accountSid) {
+DailyInstance = class DailyInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

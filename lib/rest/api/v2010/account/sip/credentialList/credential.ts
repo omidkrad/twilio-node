@@ -44,7 +44,8 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.CredentialListContext.CredentialContext}
    */
   /* jshint ignore:end */
-  function CredentialListInstance(sid) {
+  class CredentialListInstance {
+  constructor(sid) {
     return CredentialListInstance.get(sid);
   }
 
@@ -382,15 +383,16 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
  * @returns CredentialPage
  */
 /* jshint ignore:end */
-CredentialPage = function CredentialPage(version, response, solution) {
+CredentialPage = class CredentialPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CredentialPage.prototype, Page.prototype);
-CredentialPage.prototype.constructor = CredentialPage;
+class CredentialPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -405,7 +407,7 @@ CredentialPage.prototype.constructor = CredentialPage;
  * @returns CredentialInstance
  */
 /* jshint ignore:end */
-CredentialPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CredentialInstance(
     this._version,
     payload,
@@ -482,7 +484,7 @@ Object.defineProperty(CredentialInstance.prototype,
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -501,7 +503,7 @@ CredentialInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -518,7 +520,7 @@ CredentialInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -558,7 +560,7 @@ CredentialContext = function CredentialContext(version, accountSid,
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -598,7 +600,7 @@ CredentialContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -644,7 +646,7 @@ CredentialContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

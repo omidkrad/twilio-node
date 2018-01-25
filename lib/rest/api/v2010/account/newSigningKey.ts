@@ -30,7 +30,8 @@ var NewSigningKeyInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-NewSigningKeyList = function NewSigningKeyList(version, accountSid) {
+NewSigningKeyList = class NewSigningKeyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function newSigningKeys
@@ -42,7 +43,8 @@ NewSigningKeyList = function NewSigningKeyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.NewSigningKeyContext}
    */
   /* jshint ignore:end */
-  function NewSigningKeyListInstance(sid) {
+  class NewSigningKeyListInstance {
+  constructor(sid) {
     return NewSigningKeyListInstance.get(sid);
   }
 
@@ -112,15 +114,16 @@ NewSigningKeyList = function NewSigningKeyList(version, accountSid) {
  * @returns NewSigningKeyPage
  */
 /* jshint ignore:end */
-NewSigningKeyPage = function NewSigningKeyPage(version, response, solution) {
+NewSigningKeyPage = class NewSigningKeyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(NewSigningKeyPage.prototype, Page.prototype);
-NewSigningKeyPage.prototype.constructor = NewSigningKeyPage;
+class NewSigningKeyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -135,7 +138,7 @@ NewSigningKeyPage.prototype.constructor = NewSigningKeyPage;
  * @returns NewSigningKeyInstance
  */
 /* jshint ignore:end */
-NewSigningKeyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new NewSigningKeyInstance(this._version, payload, this._solution.accountSid);
 };
 

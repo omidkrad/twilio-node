@@ -63,7 +63,8 @@ var Wireless = require('./preview/Wireless');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Preview(twilio) {
+class Preview {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://preview.twilio.com');
 
   // Versions
@@ -79,8 +80,8 @@ function Preview(twilio) {
   this._wireless = undefined;
 }
 
-_.extend(Preview.prototype, Domain.prototype);
-Preview.prototype.constructor = Preview;
+class Preview extends Domain {
+
 
 Object.defineProperty(Preview.prototype,
   'bulk_exports', {

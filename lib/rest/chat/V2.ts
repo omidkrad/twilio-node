@@ -27,7 +27,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Chat} domain - The twilio domain
  */
 /* jshint ignore:end */
-function V2(domain) {
+class V2 {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'v2');
 
   // Resources
@@ -35,8 +36,8 @@ function V2(domain) {
   this._services = undefined;
 }
 
-_.extend(V2.prototype, Version.prototype);
-V2.prototype.constructor = V2;
+class V2 extends Version {
+
 
 Object.defineProperty(V2.prototype,
   'credentials', {

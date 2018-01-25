@@ -30,7 +30,8 @@ var FeedbackInstance;
  * @param {string} messageSid - The message_sid
  */
 /* jshint ignore:end */
-FeedbackList = function FeedbackList(version, accountSid, messageSid) {
+FeedbackList = class FeedbackList {
+  constructor(version, accountSid, messageSid) {
   /* jshint ignore:start */
   /**
    * @function feedback
@@ -42,7 +43,8 @@ FeedbackList = function FeedbackList(version, accountSid, messageSid) {
    * @returns {Twilio.Api.V2010.AccountContext.MessageContext.FeedbackContext}
    */
   /* jshint ignore:end */
-  function FeedbackListInstance(sid) {
+  class FeedbackListInstance {
+  constructor(sid) {
     return FeedbackListInstance.get(sid);
   }
 
@@ -113,15 +115,16 @@ FeedbackList = function FeedbackList(version, accountSid, messageSid) {
  * @returns FeedbackPage
  */
 /* jshint ignore:end */
-FeedbackPage = function FeedbackPage(version, response, solution) {
+FeedbackPage = class FeedbackPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FeedbackPage.prototype, Page.prototype);
-FeedbackPage.prototype.constructor = FeedbackPage;
+class FeedbackPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -136,7 +139,7 @@ FeedbackPage.prototype.constructor = FeedbackPage;
  * @returns FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FeedbackInstance(
     this._version,
     payload,

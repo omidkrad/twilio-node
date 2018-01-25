@@ -33,7 +33,8 @@ var IntentContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-IntentList = function IntentList(version, serviceSid) {
+IntentList = class IntentList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function intents
@@ -45,7 +46,8 @@ IntentList = function IntentList(version, serviceSid) {
    * @returns {Twilio.Preview.Understand.ServiceContext.IntentContext}
    */
   /* jshint ignore:end */
-  function IntentListInstance(sid) {
+  class IntentListInstance {
+  constructor(sid) {
     return IntentListInstance.get(sid);
   }
 
@@ -378,15 +380,16 @@ IntentList = function IntentList(version, serviceSid) {
  * @returns IntentPage
  */
 /* jshint ignore:end */
-IntentPage = function IntentPage(version, response, solution) {
+IntentPage = class IntentPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(IntentPage.prototype, Page.prototype);
-IntentPage.prototype.constructor = IntentPage;
+class IntentPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -401,7 +404,7 @@ IntentPage.prototype.constructor = IntentPage;
  * @returns IntentInstance
  */
 /* jshint ignore:end */
-IntentPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new IntentInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -428,7 +431,8 @@ IntentPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-IntentInstance = function IntentInstance(version, payload, serviceSid, sid) {
+IntentInstance = class IntentInstance {
+  constructor(version, payload, serviceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -471,7 +475,7 @@ Object.defineProperty(IntentInstance.prototype,
  * @returns {Promise} Resolves to processed IntentInstance
  */
 /* jshint ignore:end */
-IntentInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -491,7 +495,7 @@ IntentInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IntentInstance
  */
 /* jshint ignore:end */
-IntentInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -508,7 +512,7 @@ IntentInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IntentInstance
  */
 /* jshint ignore:end */
-IntentInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -523,7 +527,7 @@ IntentInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Preview.Understand.ServiceContext.IntentContext.FieldList}
  */
 /* jshint ignore:end */
-IntentInstance.prototype.fields = function fields() {
+fields() {
   return this._proxy.fields;
 };
 
@@ -538,7 +542,7 @@ IntentInstance.prototype.fields = function fields() {
  * @returns {Twilio.Preview.Understand.ServiceContext.IntentContext.SampleList}
  */
 /* jshint ignore:end */
-IntentInstance.prototype.samples = function samples() {
+samples() {
   return this._proxy.samples;
 };
 
@@ -559,7 +563,8 @@ IntentInstance.prototype.samples = function samples() {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-IntentContext = function IntentContext(version, serviceSid, sid) {
+IntentContext = class IntentContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -586,7 +591,7 @@ IntentContext = function IntentContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed IntentInstance
  */
 /* jshint ignore:end */
-IntentContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -626,7 +631,7 @@ IntentContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IntentInstance
  */
 /* jshint ignore:end */
-IntentContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -674,7 +679,7 @@ IntentContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IntentInstance
  */
 /* jshint ignore:end */
-IntentContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

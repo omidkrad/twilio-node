@@ -31,7 +31,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function Marketplace(domain) {
+class Marketplace {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'marketplace');
 
   // Resources
@@ -39,8 +40,8 @@ function Marketplace(domain) {
   this._installedAddOns = undefined;
 }
 
-_.extend(Marketplace.prototype, Version.prototype);
-Marketplace.prototype.constructor = Marketplace;
+class Marketplace extends Version {
+
 
 Object.defineProperty(Marketplace.prototype,
   'availableAddOns', {

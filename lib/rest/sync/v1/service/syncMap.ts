@@ -34,7 +34,8 @@ var SyncMapContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-SyncMapList = function SyncMapList(version, serviceSid) {
+SyncMapList = class SyncMapList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function syncMaps
@@ -46,7 +47,8 @@ SyncMapList = function SyncMapList(version, serviceSid) {
    * @returns {Twilio.Sync.V1.ServiceContext.SyncMapContext}
    */
   /* jshint ignore:end */
-  function SyncMapListInstance(sid) {
+  class SyncMapListInstance {
+  constructor(sid) {
     return SyncMapListInstance.get(sid);
   }
 
@@ -375,15 +377,16 @@ SyncMapList = function SyncMapList(version, serviceSid) {
  * @returns SyncMapPage
  */
 /* jshint ignore:end */
-SyncMapPage = function SyncMapPage(version, response, solution) {
+SyncMapPage = class SyncMapPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncMapPage.prototype, Page.prototype);
-SyncMapPage.prototype.constructor = SyncMapPage;
+class SyncMapPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -398,7 +401,7 @@ SyncMapPage.prototype.constructor = SyncMapPage;
  * @returns SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncMapInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -427,7 +430,8 @@ SyncMapPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-SyncMapInstance = function SyncMapInstance(version, payload, serviceSid, sid) {
+SyncMapInstance = class SyncMapInstance {
+  constructor(version, payload, serviceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -472,7 +476,7 @@ Object.defineProperty(SyncMapInstance.prototype,
  * @returns {Promise} Resolves to processed SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -489,7 +493,7 @@ SyncMapInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -508,7 +512,7 @@ SyncMapInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -523,7 +527,7 @@ SyncMapInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Sync.V1.ServiceContext.SyncMapContext.SyncMapItemList}
  */
 /* jshint ignore:end */
-SyncMapInstance.prototype.syncMapItems = function syncMapItems() {
+syncMapItems() {
   return this._proxy.syncMapItems;
 };
 
@@ -538,7 +542,7 @@ SyncMapInstance.prototype.syncMapItems = function syncMapItems() {
  * @returns {Twilio.Sync.V1.ServiceContext.SyncMapContext.SyncMapPermissionList}
  */
 /* jshint ignore:end */
-SyncMapInstance.prototype.syncMapPermissions = function syncMapPermissions() {
+syncMapPermissions() {
   return this._proxy.syncMapPermissions;
 };
 
@@ -559,7 +563,8 @@ SyncMapInstance.prototype.syncMapPermissions = function syncMapPermissions() {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-SyncMapContext = function SyncMapContext(version, serviceSid, sid) {
+SyncMapContext = class SyncMapContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -586,7 +591,7 @@ SyncMapContext = function SyncMapContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -623,7 +628,7 @@ SyncMapContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -657,7 +662,7 @@ SyncMapContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncMapInstance
  */
 /* jshint ignore:end */
-SyncMapContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

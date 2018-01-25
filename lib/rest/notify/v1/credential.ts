@@ -31,7 +31,8 @@ var CredentialContext;
  * @param {Twilio.Notify.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-CredentialList = function CredentialList(version) {
+CredentialList = class CredentialList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function credentials
@@ -43,7 +44,8 @@ CredentialList = function CredentialList(version) {
    * @returns {Twilio.Notify.V1.CredentialContext}
    */
   /* jshint ignore:end */
-  function CredentialListInstance(sid) {
+  class CredentialListInstance {
+  constructor(sid) {
     return CredentialListInstance.get(sid);
   }
 
@@ -381,15 +383,16 @@ CredentialList = function CredentialList(version) {
  * @returns CredentialPage
  */
 /* jshint ignore:end */
-CredentialPage = function CredentialPage(version, response, solution) {
+CredentialPage = class CredentialPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CredentialPage.prototype, Page.prototype);
-CredentialPage.prototype.constructor = CredentialPage;
+class CredentialPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -404,7 +407,7 @@ CredentialPage.prototype.constructor = CredentialPage;
  * @returns CredentialInstance
  */
 /* jshint ignore:end */
-CredentialPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CredentialInstance(this._version, payload);
 };
 
@@ -429,7 +432,8 @@ CredentialPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-CredentialInstance = function CredentialInstance(version, payload, sid) {
+CredentialInstance = class CredentialInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -471,7 +475,7 @@ Object.defineProperty(CredentialInstance.prototype,
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -495,7 +499,7 @@ CredentialInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -512,7 +516,7 @@ CredentialInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -527,7 +531,8 @@ CredentialInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-CredentialContext = function CredentialContext(version, sid) {
+CredentialContext = class CredentialContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -550,7 +555,7 @@ CredentialContext = function CredentialContext(version, sid) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -589,7 +594,7 @@ CredentialContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -636,7 +641,7 @@ CredentialContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed CredentialInstance
  */
 /* jshint ignore:end */
-CredentialContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

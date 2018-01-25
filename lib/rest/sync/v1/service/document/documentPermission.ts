@@ -45,7 +45,8 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    * @returns {Twilio.Sync.V1.ServiceContext.DocumentContext.DocumentPermissionContext}
    */
   /* jshint ignore:end */
-  function DocumentPermissionListInstance(sid) {
+  class DocumentPermissionListInstance {
+  constructor(sid) {
     return DocumentPermissionListInstance.get(sid);
   }
 
@@ -340,8 +341,8 @@ DocumentPermissionPage = function DocumentPermissionPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DocumentPermissionPage.prototype, Page.prototype);
-DocumentPermissionPage.prototype.constructor = DocumentPermissionPage;
+class DocumentPermissionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -356,7 +357,7 @@ DocumentPermissionPage.prototype.constructor = DocumentPermissionPage;
  * @returns DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DocumentPermissionInstance(
     this._version,
     payload,
@@ -442,7 +443,7 @@ Object.defineProperty(DocumentPermissionInstance.prototype,
  * @returns {Promise} Resolves to processed DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -459,7 +460,7 @@ DocumentPermissionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -480,7 +481,7 @@ DocumentPermissionInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -522,7 +523,7 @@ DocumentPermissionContext = function DocumentPermissionContext(version,
  * @returns {Promise} Resolves to processed DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -560,7 +561,7 @@ DocumentPermissionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -596,7 +597,7 @@ DocumentPermissionContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed DocumentPermissionInstance
  */
 /* jshint ignore:end */
-DocumentPermissionContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

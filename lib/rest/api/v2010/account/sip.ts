@@ -27,7 +27,8 @@ var SipList;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-SipList = function SipList(version, accountSid) {
+SipList = class SipList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function sip
@@ -39,7 +40,8 @@ SipList = function SipList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.SipContext}
    */
   /* jshint ignore:end */
-  function SipListInstance(sid) {
+  class SipListInstance {
+  constructor(sid) {
     return SipListInstance.get(sid);
   }
 

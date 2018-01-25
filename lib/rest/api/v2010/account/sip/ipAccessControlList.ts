@@ -45,7 +45,8 @@ IpAccessControlListList = function IpAccessControlListList(version, accountSid)
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.IpAccessControlListContext}
    */
   /* jshint ignore:end */
-  function IpAccessControlListListInstance(sid) {
+  class IpAccessControlListListInstance {
+  constructor(sid) {
     return IpAccessControlListListInstance.get(sid);
   }
 
@@ -383,8 +384,8 @@ IpAccessControlListPage = function IpAccessControlListPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(IpAccessControlListPage.prototype, Page.prototype);
-IpAccessControlListPage.prototype.constructor = IpAccessControlListPage;
+class IpAccessControlListPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -399,7 +400,7 @@ IpAccessControlListPage.prototype.constructor = IpAccessControlListPage;
  * @returns IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new IpAccessControlListInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -469,7 +470,7 @@ Object.defineProperty(IpAccessControlListInstance.prototype,
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -489,7 +490,7 @@ IpAccessControlListInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -506,7 +507,7 @@ IpAccessControlListInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -521,7 +522,7 @@ IpAccessControlListInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.SipContext.IpAccessControlListContext.IpAddressList}
  */
 /* jshint ignore:end */
-IpAccessControlListInstance.prototype.ipAddresses = function ipAddresses() {
+ipAddresses() {
   return this._proxy.ipAddresses;
 };
 
@@ -566,7 +567,7 @@ IpAccessControlListContext = function IpAccessControlListContext(version,
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -606,7 +607,7 @@ IpAccessControlListContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }
@@ -652,7 +653,7 @@ IpAccessControlListContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListInstance
  */
 /* jshint ignore:end */
-IpAccessControlListContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

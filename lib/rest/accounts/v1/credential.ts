@@ -23,7 +23,8 @@ var CredentialList;
  * @param {Twilio.Accounts.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-CredentialList = function CredentialList(version) {
+CredentialList = class CredentialList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function credentials
@@ -35,7 +36,8 @@ CredentialList = function CredentialList(version) {
    * @returns {Twilio.Accounts.V1.CredentialContext}
    */
   /* jshint ignore:end */
-  function CredentialListInstance(sid) {
+  class CredentialListInstance {
+  constructor(sid) {
     return CredentialListInstance.get(sid);
   }
 

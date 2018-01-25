@@ -45,7 +45,8 @@ SyncMapPermissionList = function SyncMapPermissionList(version, serviceSid,
    * @returns {Twilio.Sync.V1.ServiceContext.SyncMapContext.SyncMapPermissionContext}
    */
   /* jshint ignore:end */
-  function SyncMapPermissionListInstance(sid) {
+  class SyncMapPermissionListInstance {
+  constructor(sid) {
     return SyncMapPermissionListInstance.get(sid);
   }
 
@@ -340,8 +341,8 @@ SyncMapPermissionPage = function SyncMapPermissionPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncMapPermissionPage.prototype, Page.prototype);
-SyncMapPermissionPage.prototype.constructor = SyncMapPermissionPage;
+class SyncMapPermissionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -356,7 +357,7 @@ SyncMapPermissionPage.prototype.constructor = SyncMapPermissionPage;
  * @returns SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncMapPermissionInstance(
     this._version,
     payload,
@@ -438,7 +439,7 @@ Object.defineProperty(SyncMapPermissionInstance.prototype,
  * @returns {Promise} Resolves to processed SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -455,7 +456,7 @@ SyncMapPermissionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -476,7 +477,7 @@ SyncMapPermissionInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -518,7 +519,7 @@ SyncMapPermissionContext = function SyncMapPermissionContext(version,
  * @returns {Promise} Resolves to processed SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -556,7 +557,7 @@ SyncMapPermissionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -592,7 +593,7 @@ SyncMapPermissionContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncMapPermissionInstance
  */
 /* jshint ignore:end */
-SyncMapPermissionContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

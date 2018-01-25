@@ -26,15 +26,16 @@ var V1 = require('./messaging/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Messaging(twilio) {
+class Messaging {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://messaging.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Messaging.prototype, Domain.prototype);
-Messaging.prototype.constructor = Messaging;
+class Messaging extends Domain {
+
 
 Object.defineProperty(Messaging.prototype,
   'v1', {

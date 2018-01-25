@@ -31,7 +31,8 @@ var ActivityContext;
  * @param {string} workspaceSid - The workspace_sid
  */
 /* jshint ignore:end */
-ActivityList = function ActivityList(version, workspaceSid) {
+ActivityList = class ActivityList {
+  constructor(version, workspaceSid) {
   /* jshint ignore:start */
   /**
    * @function activities
@@ -43,7 +44,8 @@ ActivityList = function ActivityList(version, workspaceSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.ActivityContext}
    */
   /* jshint ignore:end */
-  function ActivityListInstance(sid) {
+  class ActivityListInstance {
+  constructor(sid) {
     return ActivityListInstance.get(sid);
   }
 
@@ -389,15 +391,16 @@ ActivityList = function ActivityList(version, workspaceSid) {
  * @returns ActivityPage
  */
 /* jshint ignore:end */
-ActivityPage = function ActivityPage(version, response, solution) {
+ActivityPage = class ActivityPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ActivityPage.prototype, Page.prototype);
-ActivityPage.prototype.constructor = ActivityPage;
+class ActivityPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -412,7 +415,7 @@ ActivityPage.prototype.constructor = ActivityPage;
  * @returns ActivityInstance
  */
 /* jshint ignore:end */
-ActivityPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ActivityInstance(this._version, payload, this._solution.workspaceSid);
 };
 
@@ -480,7 +483,7 @@ Object.defineProperty(ActivityInstance.prototype,
  * @returns {Promise} Resolves to processed ActivityInstance
  */
 /* jshint ignore:end */
-ActivityInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -499,7 +502,7 @@ ActivityInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ActivityInstance
  */
 /* jshint ignore:end */
-ActivityInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -516,7 +519,7 @@ ActivityInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed ActivityInstance
  */
 /* jshint ignore:end */
-ActivityInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -531,7 +534,8 @@ ActivityInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-ActivityContext = function ActivityContext(version, workspaceSid, sid) {
+ActivityContext = class ActivityContext {
+  constructor(version, workspaceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -554,7 +558,7 @@ ActivityContext = function ActivityContext(version, workspaceSid, sid) {
  * @returns {Promise} Resolves to processed ActivityInstance
  */
 /* jshint ignore:end */
-ActivityContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -593,7 +597,7 @@ ActivityContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ActivityInstance
  */
 /* jshint ignore:end */
-ActivityContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -638,7 +642,7 @@ ActivityContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed ActivityInstance
  */
 /* jshint ignore:end */
-ActivityContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

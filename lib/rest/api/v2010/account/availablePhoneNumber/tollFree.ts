@@ -33,7 +33,8 @@ var TollFreeInstance;
  * @param {string} countryCode - The ISO Country code to lookup phone numbers for.
  */
 /* jshint ignore:end */
-TollFreeList = function TollFreeList(version, accountSid, countryCode) {
+TollFreeList = class TollFreeList {
+  constructor(version, accountSid, countryCode) {
   /* jshint ignore:start */
   /**
    * @function tollFree
@@ -45,7 +46,8 @@ TollFreeList = function TollFreeList(version, accountSid, countryCode) {
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.TollFreeContext}
    */
   /* jshint ignore:end */
-  function TollFreeListInstance(sid) {
+  class TollFreeListInstance {
+  constructor(sid) {
     return TollFreeListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ TollFreeList = function TollFreeList(version, accountSid, countryCode) {
  * @returns TollFreePage
  */
 /* jshint ignore:end */
-TollFreePage = function TollFreePage(version, response, solution) {
+TollFreePage = class TollFreePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TollFreePage.prototype, Page.prototype);
-TollFreePage.prototype.constructor = TollFreePage;
+class TollFreePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ TollFreePage.prototype.constructor = TollFreePage;
  * @returns TollFreeInstance
  */
 /* jshint ignore:end */
-TollFreePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TollFreeInstance(
     this._version,
     payload,

@@ -26,15 +26,16 @@ var V1 = require('./proxy/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Proxy(twilio) {
+class Proxy {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://proxy.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Proxy.prototype, Domain.prototype);
-Proxy.prototype.constructor = Proxy;
+class Proxy extends Domain {
+
 
 Object.defineProperty(Proxy.prototype,
   'v1', {

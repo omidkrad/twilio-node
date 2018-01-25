@@ -31,7 +31,8 @@ var QueryContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-QueryList = function QueryList(version, serviceSid) {
+QueryList = class QueryList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function queries
@@ -43,7 +44,8 @@ QueryList = function QueryList(version, serviceSid) {
    * @returns {Twilio.Preview.Understand.ServiceContext.QueryContext}
    */
   /* jshint ignore:end */
-  function QueryListInstance(sid) {
+  class QueryListInstance {
+  constructor(sid) {
     return QueryListInstance.get(sid);
   }
 
@@ -406,15 +408,16 @@ QueryList = function QueryList(version, serviceSid) {
  * @returns QueryPage
  */
 /* jshint ignore:end */
-QueryPage = function QueryPage(version, response, solution) {
+QueryPage = class QueryPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(QueryPage.prototype, Page.prototype);
-QueryPage.prototype.constructor = QueryPage;
+class QueryPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -429,7 +432,7 @@ QueryPage.prototype.constructor = QueryPage;
  * @returns QueryInstance
  */
 /* jshint ignore:end */
-QueryPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new QueryInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -459,7 +462,8 @@ QueryPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-QueryInstance = function QueryInstance(version, payload, serviceSid, sid) {
+QueryInstance = class QueryInstance {
+  constructor(version, payload, serviceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -505,7 +509,7 @@ Object.defineProperty(QueryInstance.prototype,
  * @returns {Promise} Resolves to processed QueryInstance
  */
 /* jshint ignore:end */
-QueryInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -525,7 +529,7 @@ QueryInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed QueryInstance
  */
 /* jshint ignore:end */
-QueryInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -542,7 +546,7 @@ QueryInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed QueryInstance
  */
 /* jshint ignore:end */
-QueryInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -558,7 +562,8 @@ QueryInstance.prototype.remove = function remove(callback) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-QueryContext = function QueryContext(version, serviceSid, sid) {
+QueryContext = class QueryContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -581,7 +586,7 @@ QueryContext = function QueryContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed QueryInstance
  */
 /* jshint ignore:end */
-QueryContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -621,7 +626,7 @@ QueryContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed QueryInstance
  */
 /* jshint ignore:end */
-QueryContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -666,7 +671,7 @@ QueryContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed QueryInstance
  */
 /* jshint ignore:end */
-QueryContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

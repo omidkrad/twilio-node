@@ -5,7 +5,7 @@ var Response = function(statusCode, body) {
   this.body = body;
 };
 
-Response.prototype.toString = function() {
+toString() {
   return 'HTTP ' + this.statusCode + ' ' + this.body;
 };
 

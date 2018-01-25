@@ -112,7 +112,8 @@ var Wireless = require('./Wireless');  /* jshint ignore:line */
  * @returns {Twilio} A new instance of Twilio client
  */
 /* jshint ignore:end */
-function Twilio(username, password, opts) {
+class Twilio {
+  constructor(username, password, opts) {
   opts = opts || {};
   var env = opts.env || process.env;
 
@@ -171,7 +172,7 @@ function Twilio(username, password, opts) {
  * @param {boolean} [opts.allowRedirects] - Should the client follow redirects
  */
 /* jshint ignore:end */
-Twilio.prototype.request = function request(opts) {
+request(opts) {
   opts = opts || {};
 
   if (!opts.method) {

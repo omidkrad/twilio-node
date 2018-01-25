@@ -32,7 +32,8 @@ var EngagementContext;
  * @param {string} flowSid - Flow Sid.
  */
 /* jshint ignore:end */
-EngagementList = function EngagementList(version, flowSid) {
+EngagementList = class EngagementList {
+  constructor(version, flowSid) {
   /* jshint ignore:start */
   /**
    * @function engagements
@@ -44,7 +45,8 @@ EngagementList = function EngagementList(version, flowSid) {
    * @returns {Twilio.Preview.Studio.FlowContext.EngagementContext}
    */
   /* jshint ignore:end */
-  function EngagementListInstance(sid) {
+  class EngagementListInstance {
+  constructor(sid) {
     return EngagementListInstance.get(sid);
   }
 
@@ -382,15 +384,16 @@ EngagementList = function EngagementList(version, flowSid) {
  * @returns EngagementPage
  */
 /* jshint ignore:end */
-EngagementPage = function EngagementPage(version, response, solution) {
+EngagementPage = class EngagementPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(EngagementPage.prototype, Page.prototype);
-EngagementPage.prototype.constructor = EngagementPage;
+class EngagementPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -405,7 +408,7 @@ EngagementPage.prototype.constructor = EngagementPage;
  * @returns EngagementInstance
  */
 /* jshint ignore:end */
-EngagementPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new EngagementInstance(this._version, payload, this._solution.flowSid);
 };
 
@@ -481,7 +484,7 @@ Object.defineProperty(EngagementInstance.prototype,
  * @returns {Promise} Resolves to processed EngagementInstance
  */
 /* jshint ignore:end */
-EngagementInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -498,7 +501,7 @@ EngagementInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed EngagementInstance
  */
 /* jshint ignore:end */
-EngagementInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -513,7 +516,7 @@ EngagementInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Preview.Studio.FlowContext.EngagementContext.StepList}
  */
 /* jshint ignore:end */
-EngagementInstance.prototype.steps = function steps() {
+steps() {
   return this._proxy.steps;
 };
 
@@ -532,7 +535,8 @@ EngagementInstance.prototype.steps = function steps() {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-EngagementContext = function EngagementContext(version, flowSid, sid) {
+EngagementContext = class EngagementContext {
+  constructor(version, flowSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -558,7 +562,7 @@ EngagementContext = function EngagementContext(version, flowSid, sid) {
  * @returns {Promise} Resolves to processed EngagementInstance
  */
 /* jshint ignore:end */
-EngagementContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -595,7 +599,7 @@ EngagementContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed EngagementInstance
  */
 /* jshint ignore:end */
-EngagementContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

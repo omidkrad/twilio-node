@@ -31,7 +31,8 @@ var MobileInstance;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-MobileList = function MobileList(version, accountSid) {
+MobileList = class MobileList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function mobile
@@ -43,7 +44,8 @@ MobileList = function MobileList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberContext.MobileContext}
    */
   /* jshint ignore:end */
-  function MobileListInstance(sid) {
+  class MobileListInstance {
+  constructor(sid) {
     return MobileListInstance.get(sid);
   }
 
@@ -410,15 +412,16 @@ MobileList = function MobileList(version, accountSid) {
  * @returns MobilePage
  */
 /* jshint ignore:end */
-MobilePage = function MobilePage(version, response, solution) {
+MobilePage = class MobilePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MobilePage.prototype, Page.prototype);
-MobilePage.prototype.constructor = MobilePage;
+class MobilePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -433,7 +436,7 @@ MobilePage.prototype.constructor = MobilePage;
  * @returns MobileInstance
  */
 /* jshint ignore:end */
-MobilePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MobileInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -477,7 +480,8 @@ MobilePage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-MobileInstance = function MobileInstance(version, payload, accountSid) {
+MobileInstance = class MobileInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

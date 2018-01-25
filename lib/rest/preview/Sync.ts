@@ -25,15 +25,16 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function Sync(domain) {
+class Sync {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'Sync');
 
   // Resources
   this._services = undefined;
 }
 
-_.extend(Sync.prototype, Version.prototype);
-Sync.prototype.constructor = Sync;
+class Sync extends Version {
+
 
 Object.defineProperty(Sync.prototype,
   'services', {

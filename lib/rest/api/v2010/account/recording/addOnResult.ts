@@ -32,7 +32,8 @@ var AddOnResultContext;
  * @param {string} referenceSid - A string that uniquely identifies the recording.
  */
 /* jshint ignore:end */
-AddOnResultList = function AddOnResultList(version, accountSid, referenceSid) {
+AddOnResultList = class AddOnResultList {
+  constructor(version, accountSid, referenceSid) {
   /* jshint ignore:start */
   /**
    * @function addOnResults
@@ -44,7 +45,8 @@ AddOnResultList = function AddOnResultList(version, accountSid, referenceSid) {
    * @returns {Twilio.Api.V2010.AccountContext.RecordingContext.AddOnResultContext}
    */
   /* jshint ignore:end */
-  function AddOnResultListInstance(sid) {
+  class AddOnResultListInstance {
+  constructor(sid) {
     return AddOnResultListInstance.get(sid);
   }
 
@@ -329,15 +331,16 @@ AddOnResultList = function AddOnResultList(version, accountSid, referenceSid) {
  * @returns AddOnResultPage
  */
 /* jshint ignore:end */
-AddOnResultPage = function AddOnResultPage(version, response, solution) {
+AddOnResultPage = class AddOnResultPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AddOnResultPage.prototype, Page.prototype);
-AddOnResultPage.prototype.constructor = AddOnResultPage;
+class AddOnResultPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -352,7 +355,7 @@ AddOnResultPage.prototype.constructor = AddOnResultPage;
  * @returns AddOnResultInstance
  */
 /* jshint ignore:end */
-AddOnResultPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AddOnResultInstance(
     this._version,
     payload,
@@ -437,7 +440,7 @@ Object.defineProperty(AddOnResultInstance.prototype,
  * @returns {Promise} Resolves to processed AddOnResultInstance
  */
 /* jshint ignore:end */
-AddOnResultInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -454,7 +457,7 @@ AddOnResultInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AddOnResultInstance
  */
 /* jshint ignore:end */
-AddOnResultInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -469,7 +472,7 @@ AddOnResultInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.RecordingContext.AddOnResultContext.PayloadList}
  */
 /* jshint ignore:end */
-AddOnResultInstance.prototype.payloads = function payloads() {
+payloads() {
   return this._proxy.payloads;
 };
 
@@ -515,7 +518,7 @@ AddOnResultContext = function AddOnResultContext(version, accountSid,
  * @returns {Promise} Resolves to processed AddOnResultInstance
  */
 /* jshint ignore:end */
-AddOnResultContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -553,7 +556,7 @@ AddOnResultContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AddOnResultInstance
  */
 /* jshint ignore:end */
-AddOnResultContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

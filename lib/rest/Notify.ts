@@ -27,15 +27,16 @@ var V1 = require('./notify/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Notify(twilio) {
+class Notify {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://notify.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Notify.prototype, Domain.prototype);
-Notify.prototype.constructor = Notify;
+class Notify extends Domain {
+
 
 Object.defineProperty(Notify.prototype,
   'v1', {

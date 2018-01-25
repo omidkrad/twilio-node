@@ -33,7 +33,8 @@ var ReservationContext;
  * @param {string} taskSid - The task_sid
  */
 /* jshint ignore:end */
-ReservationList = function ReservationList(version, workspaceSid, taskSid) {
+ReservationList = class ReservationList {
+  constructor(version, workspaceSid, taskSid) {
   /* jshint ignore:start */
   /**
    * @function reservations
@@ -45,7 +46,8 @@ ReservationList = function ReservationList(version, workspaceSid, taskSid) {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskContext.ReservationContext}
    */
   /* jshint ignore:end */
-  function ReservationListInstance(sid) {
+  class ReservationListInstance {
+  constructor(sid) {
     return ReservationListInstance.get(sid);
   }
 
@@ -334,15 +336,16 @@ ReservationList = function ReservationList(version, workspaceSid, taskSid) {
  * @returns ReservationPage
  */
 /* jshint ignore:end */
-ReservationPage = function ReservationPage(version, response, solution) {
+ReservationPage = class ReservationPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ReservationPage.prototype, Page.prototype);
-ReservationPage.prototype.constructor = ReservationPage;
+class ReservationPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -357,7 +360,7 @@ ReservationPage.prototype.constructor = ReservationPage;
  * @returns ReservationInstance
  */
 /* jshint ignore:end */
-ReservationPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ReservationInstance(
     this._version,
     payload,
@@ -443,7 +446,7 @@ Object.defineProperty(ReservationInstance.prototype,
  * @returns {Promise} Resolves to processed ReservationInstance
  */
 /* jshint ignore:end */
-ReservationInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -519,7 +522,7 @@ ReservationInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ReservationInstance
  */
 /* jshint ignore:end */
-ReservationInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -559,7 +562,7 @@ ReservationContext = function ReservationContext(version, workspaceSid, taskSid,
  * @returns {Promise} Resolves to processed ReservationInstance
  */
 /* jshint ignore:end */
-ReservationContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -656,7 +659,7 @@ ReservationContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ReservationInstance
  */
 /* jshint ignore:end */
-ReservationContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

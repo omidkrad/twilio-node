@@ -46,7 +46,8 @@ MachineToMachineList = function MachineToMachineList(version, accountSid,
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.MachineToMachineContext}
    */
   /* jshint ignore:end */
-  function MachineToMachineListInstance(sid) {
+  class MachineToMachineListInstance {
+  constructor(sid) {
     return MachineToMachineListInstance.get(sid);
   }
 
@@ -423,8 +424,8 @@ MachineToMachinePage = function MachineToMachinePage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MachineToMachinePage.prototype, Page.prototype);
-MachineToMachinePage.prototype.constructor = MachineToMachinePage;
+class MachineToMachinePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -439,7 +440,7 @@ MachineToMachinePage.prototype.constructor = MachineToMachinePage;
  * @returns MachineToMachineInstance
  */
 /* jshint ignore:end */
-MachineToMachinePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MachineToMachineInstance(
     this._version,
     payload,

@@ -31,7 +31,8 @@ var CertificateContext;
  * @param {string} fleetSid - The unique identifier of the Fleet.
  */
 /* jshint ignore:end */
-CertificateList = function CertificateList(version, fleetSid) {
+CertificateList = class CertificateList {
+  constructor(version, fleetSid) {
   /* jshint ignore:start */
   /**
    * @function certificates
@@ -43,7 +44,8 @@ CertificateList = function CertificateList(version, fleetSid) {
    * @returns {Twilio.Preview.DeployedDevices.FleetContext.CertificateContext}
    */
   /* jshint ignore:end */
-  function CertificateListInstance(sid) {
+  class CertificateListInstance {
+  constructor(sid) {
     return CertificateListInstance.get(sid);
   }
 
@@ -393,15 +395,16 @@ CertificateList = function CertificateList(version, fleetSid) {
  * @returns CertificatePage
  */
 /* jshint ignore:end */
-CertificatePage = function CertificatePage(version, response, solution) {
+CertificatePage = class CertificatePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CertificatePage.prototype, Page.prototype);
-CertificatePage.prototype.constructor = CertificatePage;
+class CertificatePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -416,7 +419,7 @@ CertificatePage.prototype.constructor = CertificatePage;
  * @returns CertificateInstance
  */
 /* jshint ignore:end */
-CertificatePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new CertificateInstance(this._version, payload, this._solution.fleetSid);
 };
 
@@ -488,7 +491,7 @@ Object.defineProperty(CertificateInstance.prototype,
  * @returns {Promise} Resolves to processed CertificateInstance
  */
 /* jshint ignore:end */
-CertificateInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -505,7 +508,7 @@ CertificateInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CertificateInstance
  */
 /* jshint ignore:end */
-CertificateInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -527,7 +530,7 @@ CertificateInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed CertificateInstance
  */
 /* jshint ignore:end */
-CertificateInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -543,7 +546,8 @@ CertificateInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - A string that uniquely identifies the Certificate.
  */
 /* jshint ignore:end */
-CertificateContext = function CertificateContext(version, fleetSid, sid) {
+CertificateContext = class CertificateContext {
+  constructor(version, fleetSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -566,7 +570,7 @@ CertificateContext = function CertificateContext(version, fleetSid, sid) {
  * @returns {Promise} Resolves to processed CertificateInstance
  */
 /* jshint ignore:end */
-CertificateContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -603,7 +607,7 @@ CertificateContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CertificateInstance
  */
 /* jshint ignore:end */
-CertificateContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -640,7 +644,7 @@ CertificateContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed CertificateInstance
  */
 /* jshint ignore:end */
-CertificateContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

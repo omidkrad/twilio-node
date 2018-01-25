@@ -31,7 +31,8 @@ var TollFreeInstance;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-TollFreeList = function TollFreeList(version, accountSid) {
+TollFreeList = class TollFreeList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function tollFree
@@ -43,7 +44,8 @@ TollFreeList = function TollFreeList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberContext.TollFreeContext}
    */
   /* jshint ignore:end */
-  function TollFreeListInstance(sid) {
+  class TollFreeListInstance {
+  constructor(sid) {
     return TollFreeListInstance.get(sid);
   }
 
@@ -410,15 +412,16 @@ TollFreeList = function TollFreeList(version, accountSid) {
  * @returns TollFreePage
  */
 /* jshint ignore:end */
-TollFreePage = function TollFreePage(version, response, solution) {
+TollFreePage = class TollFreePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TollFreePage.prototype, Page.prototype);
-TollFreePage.prototype.constructor = TollFreePage;
+class TollFreePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -433,7 +436,7 @@ TollFreePage.prototype.constructor = TollFreePage;
  * @returns TollFreeInstance
  */
 /* jshint ignore:end */
-TollFreePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TollFreeInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -477,7 +480,8 @@ TollFreePage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-TollFreeInstance = function TollFreeInstance(version, payload, accountSid) {
+TollFreeInstance = class TollFreeInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

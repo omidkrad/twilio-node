@@ -34,7 +34,8 @@ var SyncListContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-SyncListList = function SyncListList(version, serviceSid) {
+SyncListList = class SyncListList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function syncLists
@@ -46,7 +47,8 @@ SyncListList = function SyncListList(version, serviceSid) {
    * @returns {Twilio.Preview.Sync.ServiceContext.SyncListContext}
    */
   /* jshint ignore:end */
-  function SyncListListInstance(sid) {
+  class SyncListListInstance {
+  constructor(sid) {
     return SyncListListInstance.get(sid);
   }
 
@@ -374,15 +376,16 @@ SyncListList = function SyncListList(version, serviceSid) {
  * @returns SyncListPage
  */
 /* jshint ignore:end */
-SyncListPage = function SyncListPage(version, response, solution) {
+SyncListPage = class SyncListPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncListPage.prototype, Page.prototype);
-SyncListPage.prototype.constructor = SyncListPage;
+class SyncListPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -397,7 +400,7 @@ SyncListPage.prototype.constructor = SyncListPage;
  * @returns SyncListInstance
  */
 /* jshint ignore:end */
-SyncListPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncListInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -470,7 +473,7 @@ Object.defineProperty(SyncListInstance.prototype,
  * @returns {Promise} Resolves to processed SyncListInstance
  */
 /* jshint ignore:end */
-SyncListInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -487,7 +490,7 @@ SyncListInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncListInstance
  */
 /* jshint ignore:end */
-SyncListInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -502,7 +505,7 @@ SyncListInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Preview.Sync.ServiceContext.SyncListContext.SyncListItemList}
  */
 /* jshint ignore:end */
-SyncListInstance.prototype.syncListItems = function syncListItems() {
+syncListItems() {
   return this._proxy.syncListItems;
 };
 
@@ -517,7 +520,7 @@ SyncListInstance.prototype.syncListItems = function syncListItems() {
  * @returns {Twilio.Preview.Sync.ServiceContext.SyncListContext.SyncListPermissionList}
  */
 /* jshint ignore:end */
-SyncListInstance.prototype.syncListPermissions = function syncListPermissions()
+syncListPermissions()
     {
   return this._proxy.syncListPermissions;
 };
@@ -539,7 +542,8 @@ SyncListInstance.prototype.syncListPermissions = function syncListPermissions()
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-SyncListContext = function SyncListContext(version, serviceSid, sid) {
+SyncListContext = class SyncListContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -566,7 +570,7 @@ SyncListContext = function SyncListContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed SyncListInstance
  */
 /* jshint ignore:end */
-SyncListContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -603,7 +607,7 @@ SyncListContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncListInstance
  */
 /* jshint ignore:end */
-SyncListContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

@@ -44,7 +44,8 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext.CredentialListMappingContext}
    */
   /* jshint ignore:end */
-  function CredentialListMappingListInstance(sid) {
+  class CredentialListMappingListInstance {
+  constructor(sid) {
     return CredentialListMappingListInstance.get(sid);
   }
 
@@ -387,8 +388,8 @@ CredentialListMappingPage = function CredentialListMappingPage(version,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(CredentialListMappingPage.prototype, Page.prototype);
-CredentialListMappingPage.prototype.constructor = CredentialListMappingPage;
+class CredentialListMappingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -403,7 +404,7 @@ CredentialListMappingPage.prototype.constructor = CredentialListMappingPage;
  * @returns CredentialListMappingInstance
  */
 /* jshint ignore:end */
-CredentialListMappingPage.prototype.getInstance = function getInstance(payload)
+getInstance(payload)
     {
   return new CredentialListMappingInstance(
     this._version,
@@ -481,7 +482,7 @@ Object.defineProperty(CredentialListMappingInstance.prototype,
  * @returns {Promise} Resolves to processed CredentialListMappingInstance
  */
 /* jshint ignore:end */
-CredentialListMappingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -498,7 +499,7 @@ CredentialListMappingInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialListMappingInstance
  */
 /* jshint ignore:end */
-CredentialListMappingInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -538,7 +539,7 @@ CredentialListMappingContext = function CredentialListMappingContext(version,
  * @returns {Promise} Resolves to processed CredentialListMappingInstance
  */
 /* jshint ignore:end */
-CredentialListMappingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -576,7 +577,7 @@ CredentialListMappingContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed CredentialListMappingInstance
  */
 /* jshint ignore:end */
-CredentialListMappingContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

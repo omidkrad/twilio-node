@@ -33,7 +33,8 @@ var MobileInstance;
  * @param {string} countryCode - The ISO Country code to lookup phone numbers for.
  */
 /* jshint ignore:end */
-MobileList = function MobileList(version, accountSid, countryCode) {
+MobileList = class MobileList {
+  constructor(version, accountSid, countryCode) {
   /* jshint ignore:start */
   /**
    * @function mobile
@@ -45,7 +46,8 @@ MobileList = function MobileList(version, accountSid, countryCode) {
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.MobileContext}
    */
   /* jshint ignore:end */
-  function MobileListInstance(sid) {
+  class MobileListInstance {
+  constructor(sid) {
     return MobileListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ MobileList = function MobileList(version, accountSid, countryCode) {
  * @returns MobilePage
  */
 /* jshint ignore:end */
-MobilePage = function MobilePage(version, response, solution) {
+MobilePage = class MobilePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MobilePage.prototype, Page.prototype);
-MobilePage.prototype.constructor = MobilePage;
+class MobilePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ MobilePage.prototype.constructor = MobilePage;
  * @returns MobileInstance
  */
 /* jshint ignore:end */
-MobilePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MobileInstance(
     this._version,
     payload,

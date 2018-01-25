@@ -31,7 +31,8 @@ var RoomRecordingContext;
  * @param {string} roomSid - The room_sid
  */
 /* jshint ignore:end */
-RoomRecordingList = function RoomRecordingList(version, roomSid) {
+RoomRecordingList = class RoomRecordingList {
+  constructor(version, roomSid) {
   /* jshint ignore:start */
   /**
    * @function recordings
@@ -43,7 +44,8 @@ RoomRecordingList = function RoomRecordingList(version, roomSid) {
    * @returns {Twilio.Video.V1.RoomContext.RoomRecordingContext}
    */
   /* jshint ignore:end */
-  function RoomRecordingListInstance(sid) {
+  class RoomRecordingListInstance {
+  constructor(sid) {
     return RoomRecordingListInstance.get(sid);
   }
 
@@ -347,15 +349,16 @@ RoomRecordingList = function RoomRecordingList(version, roomSid) {
  * @returns RoomRecordingPage
  */
 /* jshint ignore:end */
-RoomRecordingPage = function RoomRecordingPage(version, response, solution) {
+RoomRecordingPage = class RoomRecordingPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(RoomRecordingPage.prototype, Page.prototype);
-RoomRecordingPage.prototype.constructor = RoomRecordingPage;
+class RoomRecordingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -370,7 +373,7 @@ RoomRecordingPage.prototype.constructor = RoomRecordingPage;
  * @returns RoomRecordingInstance
  */
 /* jshint ignore:end */
-RoomRecordingPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new RoomRecordingInstance(this._version, payload, this._solution.roomSid);
 };
 
@@ -450,7 +453,7 @@ Object.defineProperty(RoomRecordingInstance.prototype,
  * @returns {Promise} Resolves to processed RoomRecordingInstance
  */
 /* jshint ignore:end */
-RoomRecordingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -465,7 +468,8 @@ RoomRecordingInstance.prototype.fetch = function fetch(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-RoomRecordingContext = function RoomRecordingContext(version, roomSid, sid) {
+RoomRecordingContext = class RoomRecordingContext {
+  constructor(version, roomSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -488,7 +492,7 @@ RoomRecordingContext = function RoomRecordingContext(version, roomSid, sid) {
  * @returns {Promise} Resolves to processed RoomRecordingInstance
  */
 /* jshint ignore:end */
-RoomRecordingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

@@ -32,7 +32,8 @@ var LastMonthInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-LastMonthList = function LastMonthList(version, accountSid) {
+LastMonthList = class LastMonthList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function lastMonth
@@ -44,7 +45,8 @@ LastMonthList = function LastMonthList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.LastMonthContext}
    */
   /* jshint ignore:end */
-  function LastMonthListInstance(sid) {
+  class LastMonthListInstance {
+  constructor(sid) {
     return LastMonthListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ LastMonthList = function LastMonthList(version, accountSid) {
  * @returns LastMonthPage
  */
 /* jshint ignore:end */
-LastMonthPage = function LastMonthPage(version, response, solution) {
+LastMonthPage = class LastMonthPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(LastMonthPage.prototype, Page.prototype);
-LastMonthPage.prototype.constructor = LastMonthPage;
+class LastMonthPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ LastMonthPage.prototype.constructor = LastMonthPage;
  * @returns LastMonthInstance
  */
 /* jshint ignore:end */
-LastMonthPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new LastMonthInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ LastMonthPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-LastMonthInstance = function LastMonthInstance(version, payload, accountSid) {
+LastMonthInstance = class LastMonthInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

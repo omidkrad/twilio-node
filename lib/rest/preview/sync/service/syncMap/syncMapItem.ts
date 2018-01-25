@@ -34,7 +34,8 @@ var SyncMapItemContext;
  * @param {string} mapSid - The map_sid
  */
 /* jshint ignore:end */
-SyncMapItemList = function SyncMapItemList(version, serviceSid, mapSid) {
+SyncMapItemList = class SyncMapItemList {
+  constructor(version, serviceSid, mapSid) {
   /* jshint ignore:start */
   /**
    * @function syncMapItems
@@ -46,7 +47,8 @@ SyncMapItemList = function SyncMapItemList(version, serviceSid, mapSid) {
    * @returns {Twilio.Preview.Sync.ServiceContext.SyncMapContext.SyncMapItemContext}
    */
   /* jshint ignore:end */
-  function SyncMapItemListInstance(sid) {
+  class SyncMapItemListInstance {
+  constructor(sid) {
     return SyncMapItemListInstance.get(sid);
   }
 
@@ -398,15 +400,16 @@ SyncMapItemList = function SyncMapItemList(version, serviceSid, mapSid) {
  * @returns SyncMapItemPage
  */
 /* jshint ignore:end */
-SyncMapItemPage = function SyncMapItemPage(version, response, solution) {
+SyncMapItemPage = class SyncMapItemPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SyncMapItemPage.prototype, Page.prototype);
-SyncMapItemPage.prototype.constructor = SyncMapItemPage;
+class SyncMapItemPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -421,7 +424,7 @@ SyncMapItemPage.prototype.constructor = SyncMapItemPage;
  * @returns SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SyncMapItemInstance(
     this._version,
     payload,
@@ -505,7 +508,7 @@ Object.defineProperty(SyncMapItemInstance.prototype,
  * @returns {Promise} Resolves to processed SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -522,7 +525,7 @@ SyncMapItemInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -541,7 +544,7 @@ SyncMapItemInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -582,7 +585,7 @@ SyncMapItemContext = function SyncMapItemContext(version, serviceSid, mapSid,
  * @returns {Promise} Resolves to processed SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -620,7 +623,7 @@ SyncMapItemContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -654,7 +657,7 @@ SyncMapItemContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SyncMapItemInstance
  */
 /* jshint ignore:end */
-SyncMapItemContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

@@ -57,7 +57,8 @@ var AccountContext;
  * @param {Twilio.Api.V2010} version - Version of the resource
  */
 /* jshint ignore:end */
-AccountList = function AccountList(version) {
+AccountList = class AccountList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function accounts
@@ -69,7 +70,8 @@ AccountList = function AccountList(version) {
    * @returns {Twilio.Api.V2010.AccountContext}
    */
   /* jshint ignore:end */
-  function AccountListInstance(sid) {
+  class AccountListInstance {
+  constructor(sid) {
     return AccountListInstance.get(sid);
   }
 
@@ -406,15 +408,16 @@ AccountList = function AccountList(version) {
  * @returns AccountPage
  */
 /* jshint ignore:end */
-AccountPage = function AccountPage(version, response, solution) {
+AccountPage = class AccountPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AccountPage.prototype, Page.prototype);
-AccountPage.prototype.constructor = AccountPage;
+class AccountPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -429,7 +432,7 @@ AccountPage.prototype.constructor = AccountPage;
  * @returns AccountInstance
  */
 /* jshint ignore:end */
-AccountPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AccountInstance(this._version, payload);
 };
 
@@ -458,7 +461,8 @@ AccountPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - Fetch by unique Account Sid
  */
 /* jshint ignore:end */
-AccountInstance = function AccountInstance(version, payload, sid) {
+AccountInstance = class AccountInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -502,7 +506,7 @@ Object.defineProperty(AccountInstance.prototype,
  * @returns {Promise} Resolves to processed AccountInstance
  */
 /* jshint ignore:end */
-AccountInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -522,7 +526,7 @@ AccountInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AccountInstance
  */
 /* jshint ignore:end */
-AccountInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -537,7 +541,7 @@ AccountInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Api.V2010.AccountContext.AddressList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.addresses = function addresses() {
+addresses() {
   return this._proxy.addresses;
 };
 
@@ -552,7 +556,7 @@ AccountInstance.prototype.addresses = function addresses() {
  * @returns {Twilio.Api.V2010.AccountContext.ApplicationList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.applications = function applications() {
+applications() {
   return this._proxy.applications;
 };
 
@@ -599,7 +603,7 @@ AccountInstance.prototype.availablePhoneNumbers = function
  * @returns {Twilio.Api.V2010.AccountContext.CallList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.calls = function calls() {
+calls() {
   return this._proxy.calls;
 };
 
@@ -614,7 +618,7 @@ AccountInstance.prototype.calls = function calls() {
  * @returns {Twilio.Api.V2010.AccountContext.ConferenceList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.conferences = function conferences() {
+conferences() {
   return this._proxy.conferences;
 };
 
@@ -629,7 +633,7 @@ AccountInstance.prototype.conferences = function conferences() {
  * @returns {Twilio.Api.V2010.AccountContext.ConnectAppList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.connectApps = function connectApps() {
+connectApps() {
   return this._proxy.connectApps;
 };
 
@@ -644,7 +648,7 @@ AccountInstance.prototype.connectApps = function connectApps() {
  * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.incomingPhoneNumbers = function incomingPhoneNumbers()
+incomingPhoneNumbers()
     {
   return this._proxy.incomingPhoneNumbers;
 };
@@ -660,7 +664,7 @@ AccountInstance.prototype.incomingPhoneNumbers = function incomingPhoneNumbers()
  * @returns {Twilio.Api.V2010.AccountContext.KeyList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.keys = function keys() {
+keys() {
   return this._proxy.keys;
 };
 
@@ -675,7 +679,7 @@ AccountInstance.prototype.keys = function keys() {
  * @returns {Twilio.Api.V2010.AccountContext.MessageList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.messages = function messages() {
+messages() {
   return this._proxy.messages;
 };
 
@@ -690,7 +694,7 @@ AccountInstance.prototype.messages = function messages() {
  * @returns {Twilio.Api.V2010.AccountContext.NewKeyList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.newKeys = function newKeys() {
+newKeys() {
   return this._proxy.newKeys;
 };
 
@@ -705,7 +709,7 @@ AccountInstance.prototype.newKeys = function newKeys() {
  * @returns {Twilio.Api.V2010.AccountContext.NewSigningKeyList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.newSigningKeys = function newSigningKeys() {
+newSigningKeys() {
   return this._proxy.newSigningKeys;
 };
 
@@ -720,7 +724,7 @@ AccountInstance.prototype.newSigningKeys = function newSigningKeys() {
  * @returns {Twilio.Api.V2010.AccountContext.NotificationList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.notifications = function notifications() {
+notifications() {
   return this._proxy.notifications;
 };
 
@@ -735,7 +739,7 @@ AccountInstance.prototype.notifications = function notifications() {
  * @returns {Twilio.Api.V2010.AccountContext.OutgoingCallerIdList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.outgoingCallerIds = function outgoingCallerIds() {
+outgoingCallerIds() {
   return this._proxy.outgoingCallerIds;
 };
 
@@ -750,7 +754,7 @@ AccountInstance.prototype.outgoingCallerIds = function outgoingCallerIds() {
  * @returns {Twilio.Api.V2010.AccountContext.QueueList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.queues = function queues() {
+queues() {
   return this._proxy.queues;
 };
 
@@ -765,7 +769,7 @@ AccountInstance.prototype.queues = function queues() {
  * @returns {Twilio.Api.V2010.AccountContext.RecordingList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.recordings = function recordings() {
+recordings() {
   return this._proxy.recordings;
 };
 
@@ -780,7 +784,7 @@ AccountInstance.prototype.recordings = function recordings() {
  * @returns {Twilio.Api.V2010.AccountContext.SigningKeyList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.signingKeys = function signingKeys() {
+signingKeys() {
   return this._proxy.signingKeys;
 };
 
@@ -795,7 +799,7 @@ AccountInstance.prototype.signingKeys = function signingKeys() {
  * @returns {Twilio.Api.V2010.AccountContext.SipList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.sip = function sip() {
+sip() {
   return this._proxy.sip;
 };
 
@@ -810,7 +814,7 @@ AccountInstance.prototype.sip = function sip() {
  * @returns {Twilio.Api.V2010.AccountContext.ShortCodeList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.shortCodes = function shortCodes() {
+shortCodes() {
   return this._proxy.shortCodes;
 };
 
@@ -825,7 +829,7 @@ AccountInstance.prototype.shortCodes = function shortCodes() {
  * @returns {Twilio.Api.V2010.AccountContext.TokenList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.tokens = function tokens() {
+tokens() {
   return this._proxy.tokens;
 };
 
@@ -840,7 +844,7 @@ AccountInstance.prototype.tokens = function tokens() {
  * @returns {Twilio.Api.V2010.AccountContext.TranscriptionList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.transcriptions = function transcriptions() {
+transcriptions() {
   return this._proxy.transcriptions;
 };
 
@@ -855,7 +859,7 @@ AccountInstance.prototype.transcriptions = function transcriptions() {
  * @returns {Twilio.Api.V2010.AccountContext.UsageList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.usage = function usage() {
+usage() {
   return this._proxy.usage;
 };
 
@@ -870,7 +874,7 @@ AccountInstance.prototype.usage = function usage() {
  * @returns {Twilio.Api.V2010.AccountContext.ValidationRequestList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.validationRequests = function validationRequests() {
+validationRequests() {
   return this._proxy.validationRequests;
 };
 
@@ -925,7 +929,8 @@ AccountInstance.prototype.validationRequests = function validationRequests() {
  * @param {sid} sid - Fetch by unique Account Sid
  */
 /* jshint ignore:end */
-AccountContext = function AccountContext(version, sid) {
+AccountContext = class AccountContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -973,7 +978,7 @@ AccountContext = function AccountContext(version, sid) {
  * @returns {Promise} Resolves to processed AccountInstance
  */
 /* jshint ignore:end */
-AccountContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -1008,7 +1013,7 @@ AccountContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AccountInstance
  */
 /* jshint ignore:end */
-AccountContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

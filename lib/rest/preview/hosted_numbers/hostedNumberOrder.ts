@@ -31,7 +31,8 @@ var HostedNumberOrderContext;
  * @param {Twilio.Preview.HostedNumbers} version - Version of the resource
  */
 /* jshint ignore:end */
-HostedNumberOrderList = function HostedNumberOrderList(version) {
+HostedNumberOrderList = class HostedNumberOrderList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function hostedNumberOrders
@@ -43,7 +44,8 @@ HostedNumberOrderList = function HostedNumberOrderList(version) {
    * @returns {Twilio.Preview.HostedNumbers.HostedNumberOrderContext}
    */
   /* jshint ignore:end */
-  function HostedNumberOrderListInstance(sid) {
+  class HostedNumberOrderListInstance {
+  constructor(sid) {
     return HostedNumberOrderListInstance.get(sid);
   }
 
@@ -456,8 +458,8 @@ HostedNumberOrderPage = function HostedNumberOrderPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(HostedNumberOrderPage.prototype, Page.prototype);
-HostedNumberOrderPage.prototype.constructor = HostedNumberOrderPage;
+class HostedNumberOrderPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -472,7 +474,7 @@ HostedNumberOrderPage.prototype.constructor = HostedNumberOrderPage;
  * @returns HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new HostedNumberOrderInstance(this._version, payload);
 };
 
@@ -579,7 +581,7 @@ Object.defineProperty(HostedNumberOrderInstance.prototype,
  * @returns {Promise} Resolves to processed HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -596,7 +598,7 @@ HostedNumberOrderInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -628,7 +630,7 @@ HostedNumberOrderInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -643,7 +645,8 @@ HostedNumberOrderInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - HostedNumberOrder sid.
  */
 /* jshint ignore:end */
-HostedNumberOrderContext = function HostedNumberOrderContext(version, sid) {
+HostedNumberOrderContext = class HostedNumberOrderContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -666,7 +669,7 @@ HostedNumberOrderContext = function HostedNumberOrderContext(version, sid) {
  * @returns {Promise} Resolves to processed HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -698,7 +701,7 @@ HostedNumberOrderContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -745,7 +748,7 @@ HostedNumberOrderContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed HostedNumberOrderInstance
  */
 /* jshint ignore:end */
-HostedNumberOrderContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

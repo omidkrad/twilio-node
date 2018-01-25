@@ -33,7 +33,8 @@ var MediaContext;
  * @param {string} messageSid - A string that uniquely identifies this message
  */
 /* jshint ignore:end */
-MediaList = function MediaList(version, accountSid, messageSid) {
+MediaList = class MediaList {
+  constructor(version, accountSid, messageSid) {
   /* jshint ignore:start */
   /**
    * @function media
@@ -45,7 +46,8 @@ MediaList = function MediaList(version, accountSid, messageSid) {
    * @returns {Twilio.Api.V2010.AccountContext.MessageContext.MediaContext}
    */
   /* jshint ignore:end */
-  function MediaListInstance(sid) {
+  class MediaListInstance {
+  constructor(sid) {
     return MediaListInstance.get(sid);
   }
 
@@ -344,15 +346,16 @@ MediaList = function MediaList(version, accountSid, messageSid) {
  * @returns MediaPage
  */
 /* jshint ignore:end */
-MediaPage = function MediaPage(version, response, solution) {
+MediaPage = class MediaPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MediaPage.prototype, Page.prototype);
-MediaPage.prototype.constructor = MediaPage;
+class MediaPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -367,7 +370,7 @@ MediaPage.prototype.constructor = MediaPage;
  * @returns MediaInstance
  */
 /* jshint ignore:end */
-MediaPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MediaInstance(this._version, payload, this._solution.accountSid, this._solution.messageSid);
 };
 
@@ -440,7 +443,7 @@ Object.defineProperty(MediaInstance.prototype,
  * @returns {Promise} Resolves to processed MediaInstance
  */
 /* jshint ignore:end */
-MediaInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -457,7 +460,7 @@ MediaInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MediaInstance
  */
 /* jshint ignore:end */
-MediaInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -473,7 +476,8 @@ MediaInstance.prototype.fetch = function fetch(callback) {
  * @param {sid} sid - Fetch by unique media Sid
  */
 /* jshint ignore:end */
-MediaContext = function MediaContext(version, accountSid, messageSid, sid) {
+MediaContext = class MediaContext {
+  constructor(version, accountSid, messageSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -496,7 +500,7 @@ MediaContext = function MediaContext(version, accountSid, messageSid, sid) {
  * @returns {Promise} Resolves to processed MediaInstance
  */
 /* jshint ignore:end */
-MediaContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -528,7 +532,7 @@ MediaContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed MediaInstance
  */
 /* jshint ignore:end */
-MediaContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

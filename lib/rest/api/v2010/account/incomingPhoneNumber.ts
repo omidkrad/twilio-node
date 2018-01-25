@@ -49,7 +49,8 @@ IncomingPhoneNumberList = function IncomingPhoneNumberList(version, accountSid)
    * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberContext}
    */
   /* jshint ignore:end */
-  function IncomingPhoneNumberListInstance(sid) {
+  class IncomingPhoneNumberListInstance {
+  constructor(sid) {
     return IncomingPhoneNumberListInstance.get(sid);
   }
 
@@ -503,8 +504,8 @@ IncomingPhoneNumberPage = function IncomingPhoneNumberPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(IncomingPhoneNumberPage.prototype, Page.prototype);
-IncomingPhoneNumberPage.prototype.constructor = IncomingPhoneNumberPage;
+class IncomingPhoneNumberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -519,7 +520,7 @@ IncomingPhoneNumberPage.prototype.constructor = IncomingPhoneNumberPage;
  * @returns IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new IncomingPhoneNumberInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -681,7 +682,7 @@ Object.defineProperty(IncomingPhoneNumberInstance.prototype,
  * @returns {Promise} Resolves to processed IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -698,7 +699,7 @@ IncomingPhoneNumberInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -715,7 +716,7 @@ IncomingPhoneNumberInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -730,7 +731,7 @@ IncomingPhoneNumberInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberContext.AssignedAddOnList}
  */
 /* jshint ignore:end */
-IncomingPhoneNumberInstance.prototype.assignedAddOns = function assignedAddOns()
+assignedAddOns()
     {
   return this._proxy.assignedAddOns;
 };
@@ -811,7 +812,7 @@ IncomingPhoneNumberContext = function IncomingPhoneNumberContext(version,
  * @returns {Promise} Resolves to processed IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -879,7 +880,7 @@ IncomingPhoneNumberContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -916,7 +917,7 @@ IncomingPhoneNumberContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IncomingPhoneNumberInstance
  */
 /* jshint ignore:end */
-IncomingPhoneNumberContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

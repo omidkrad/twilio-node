@@ -34,7 +34,8 @@ var ParticipantContext;
  * @param {string} sessionSid - Session Sid.
  */
 /* jshint ignore:end */
-ParticipantList = function ParticipantList(version, serviceSid, sessionSid) {
+ParticipantList = class ParticipantList {
+  constructor(version, serviceSid, sessionSid) {
   /* jshint ignore:start */
   /**
    * @function participants
@@ -46,7 +47,8 @@ ParticipantList = function ParticipantList(version, serviceSid, sessionSid) {
    * @returns {Twilio.Proxy.V1.ServiceContext.SessionContext.ParticipantContext}
    */
   /* jshint ignore:end */
-  function ParticipantListInstance(sid) {
+  class ParticipantListInstance {
+  constructor(sid) {
     return ParticipantListInstance.get(sid);
   }
 
@@ -400,15 +402,16 @@ ParticipantList = function ParticipantList(version, serviceSid, sessionSid) {
  * @returns ParticipantPage
  */
 /* jshint ignore:end */
-ParticipantPage = function ParticipantPage(version, response, solution) {
+ParticipantPage = class ParticipantPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ParticipantPage.prototype, Page.prototype);
-ParticipantPage.prototype.constructor = ParticipantPage;
+class ParticipantPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -423,7 +426,7 @@ ParticipantPage.prototype.constructor = ParticipantPage;
  * @returns ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ParticipantInstance(
     this._version,
     payload,
@@ -513,7 +516,7 @@ Object.defineProperty(ParticipantInstance.prototype,
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -530,7 +533,7 @@ ParticipantInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -554,7 +557,7 @@ ParticipantInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -617,7 +620,7 @@ ParticipantContext = function ParticipantContext(version, serviceSid,
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -655,7 +658,7 @@ ParticipantContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -694,7 +697,7 @@ ParticipantContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ParticipantInstance
  */
 /* jshint ignore:end */
-ParticipantContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

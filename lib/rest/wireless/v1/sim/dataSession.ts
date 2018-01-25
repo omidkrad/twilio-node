@@ -31,7 +31,8 @@ var DataSessionInstance;
  * @param {string} simSid - The sim_sid
  */
 /* jshint ignore:end */
-DataSessionList = function DataSessionList(version, simSid) {
+DataSessionList = class DataSessionList {
+  constructor(version, simSid) {
   /* jshint ignore:start */
   /**
    * @function dataSessions
@@ -43,7 +44,8 @@ DataSessionList = function DataSessionList(version, simSid) {
    * @returns {Twilio.Wireless.V1.SimContext.DataSessionContext}
    */
   /* jshint ignore:end */
-  function DataSessionListInstance(sid) {
+  class DataSessionListInstance {
+  constructor(sid) {
     return DataSessionListInstance.get(sid);
   }
 
@@ -321,15 +323,16 @@ DataSessionList = function DataSessionList(version, simSid) {
  * @returns DataSessionPage
  */
 /* jshint ignore:end */
-DataSessionPage = function DataSessionPage(version, response, solution) {
+DataSessionPage = class DataSessionPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(DataSessionPage.prototype, Page.prototype);
-DataSessionPage.prototype.constructor = DataSessionPage;
+class DataSessionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -344,7 +347,7 @@ DataSessionPage.prototype.constructor = DataSessionPage;
  * @returns DataSessionInstance
  */
 /* jshint ignore:end */
-DataSessionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new DataSessionInstance(this._version, payload, this._solution.simSid);
 };
 
@@ -375,7 +378,8 @@ DataSessionPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-DataSessionInstance = function DataSessionInstance(version, payload, simSid) {
+DataSessionInstance = class DataSessionInstance {
+  constructor(version, payload, simSid) {
   this._version = version;
 
   // Marshaled Properties

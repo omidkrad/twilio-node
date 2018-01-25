@@ -31,7 +31,8 @@ var NotificationInstance;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-NotificationList = function NotificationList(version, serviceSid) {
+NotificationList = class NotificationList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function notifications
@@ -43,7 +44,8 @@ NotificationList = function NotificationList(version, serviceSid) {
    * @returns {Twilio.Notify.V1.ServiceContext.NotificationContext}
    */
   /* jshint ignore:end */
-  function NotificationListInstance(sid) {
+  class NotificationListInstance {
+  constructor(sid) {
     return NotificationListInstance.get(sid);
   }
 
@@ -148,15 +150,16 @@ NotificationList = function NotificationList(version, serviceSid) {
  * @returns NotificationPage
  */
 /* jshint ignore:end */
-NotificationPage = function NotificationPage(version, response, solution) {
+NotificationPage = class NotificationPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(NotificationPage.prototype, Page.prototype);
-NotificationPage.prototype.constructor = NotificationPage;
+class NotificationPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -171,7 +174,7 @@ NotificationPage.prototype.constructor = NotificationPage;
  * @returns NotificationInstance
  */
 /* jshint ignore:end */
-NotificationPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new NotificationInstance(this._version, payload, this._solution.serviceSid);
 };
 

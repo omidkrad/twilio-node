@@ -34,7 +34,8 @@ var FeedbackContext;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-FeedbackList = function FeedbackList(version, accountSid, callSid) {
+FeedbackList = class FeedbackList {
+  constructor(version, accountSid, callSid) {
   /* jshint ignore:start */
   /**
    * @function feedback
@@ -46,7 +47,8 @@ FeedbackList = function FeedbackList(version, accountSid, callSid) {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.FeedbackContext}
    */
   /* jshint ignore:end */
-  function FeedbackListInstance(sid) {
+  class FeedbackListInstance {
+  constructor(sid) {
     return FeedbackListInstance.get(sid);
   }
 
@@ -85,15 +87,16 @@ FeedbackList = function FeedbackList(version, accountSid, callSid) {
  * @returns FeedbackPage
  */
 /* jshint ignore:end */
-FeedbackPage = function FeedbackPage(version, response, solution) {
+FeedbackPage = class FeedbackPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FeedbackPage.prototype, Page.prototype);
-FeedbackPage.prototype.constructor = FeedbackPage;
+class FeedbackPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -108,7 +111,7 @@ FeedbackPage.prototype.constructor = FeedbackPage;
  * @returns FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FeedbackInstance(this._version, payload, this._solution.accountSid, this._solution.callSid);
 };
 
@@ -175,7 +178,7 @@ Object.defineProperty(FeedbackInstance.prototype,
  * @returns {Promise} Resolves to processed FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackInstance.prototype.create = function create(opts, callback) {
+create(opts, callback) {
   return this._proxy.create(opts, callback);
 };
 
@@ -192,7 +195,7 @@ FeedbackInstance.prototype.create = function create(opts, callback) {
  * @returns {Promise} Resolves to processed FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -212,7 +215,7 @@ FeedbackInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -227,7 +230,8 @@ FeedbackInstance.prototype.update = function update(opts, callback) {
  * @param {sid} callSid - The call sid that uniquely identifies the call
  */
 /* jshint ignore:end */
-FeedbackContext = function FeedbackContext(version, accountSid, callSid) {
+FeedbackContext = class FeedbackContext {
+  constructor(version, accountSid, callSid) {
   this._version = version;
 
   // Path Solution
@@ -253,7 +257,7 @@ FeedbackContext = function FeedbackContext(version, accountSid, callSid) {
  * @returns {Promise} Resolves to processed FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackContext.prototype.create = function create(opts, callback) {
+create(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }
@@ -302,7 +306,7 @@ FeedbackContext.prototype.create = function create(opts, callback) {
  * @returns {Promise} Resolves to processed FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -342,7 +346,7 @@ FeedbackContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FeedbackInstance
  */
 /* jshint ignore:end */
-FeedbackContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isUndefined(opts)) {
     throw new Error('Required parameter "opts" missing.');
   }

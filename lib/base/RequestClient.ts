@@ -22,7 +22,7 @@ var RequestClient = function() {};
  * @param {boolean} [opts.allowRedirects] - Should the client follow redirects
  * @param {boolean} [opts.forever] - Set to true to use the forever-agent
  */
-RequestClient.prototype.request = function(opts) {
+request(opts) {
   opts = opts || {};
   if (!opts.method) {
     throw new Error('http method is required');

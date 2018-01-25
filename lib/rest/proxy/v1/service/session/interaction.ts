@@ -32,7 +32,8 @@ var InteractionContext;
  * @param {string} sessionSid - Session Sid.
  */
 /* jshint ignore:end */
-InteractionList = function InteractionList(version, serviceSid, sessionSid) {
+InteractionList = class InteractionList {
+  constructor(version, serviceSid, sessionSid) {
   /* jshint ignore:start */
   /**
    * @function interactions
@@ -44,7 +45,8 @@ InteractionList = function InteractionList(version, serviceSid, sessionSid) {
    * @returns {Twilio.Proxy.V1.ServiceContext.SessionContext.InteractionContext}
    */
   /* jshint ignore:end */
-  function InteractionListInstance(sid) {
+  class InteractionListInstance {
+  constructor(sid) {
     return InteractionListInstance.get(sid);
   }
 
@@ -352,15 +354,16 @@ InteractionList = function InteractionList(version, serviceSid, sessionSid) {
  * @returns InteractionPage
  */
 /* jshint ignore:end */
-InteractionPage = function InteractionPage(version, response, solution) {
+InteractionPage = class InteractionPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(InteractionPage.prototype, Page.prototype);
-InteractionPage.prototype.constructor = InteractionPage;
+class InteractionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -375,7 +378,7 @@ InteractionPage.prototype.constructor = InteractionPage;
  * @returns InteractionInstance
  */
 /* jshint ignore:end */
-InteractionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new InteractionInstance(
     this._version,
     payload,
@@ -481,7 +484,7 @@ Object.defineProperty(InteractionInstance.prototype,
  * @returns {Promise} Resolves to processed InteractionInstance
  */
 /* jshint ignore:end */
-InteractionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -498,7 +501,7 @@ InteractionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InteractionInstance
  */
 /* jshint ignore:end */
-InteractionInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -539,7 +542,7 @@ InteractionContext = function InteractionContext(version, serviceSid,
  * @returns {Promise} Resolves to processed InteractionInstance
  */
 /* jshint ignore:end */
-InteractionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -577,7 +580,7 @@ InteractionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed InteractionInstance
  */
 /* jshint ignore:end */
-InteractionContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

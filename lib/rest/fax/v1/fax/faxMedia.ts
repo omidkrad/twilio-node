@@ -31,7 +31,8 @@ var FaxMediaContext;
  * @param {string} faxSid - Fax SID
  */
 /* jshint ignore:end */
-FaxMediaList = function FaxMediaList(version, faxSid) {
+FaxMediaList = class FaxMediaList {
+  constructor(version, faxSid) {
   /* jshint ignore:start */
   /**
    * @function media
@@ -43,7 +44,8 @@ FaxMediaList = function FaxMediaList(version, faxSid) {
    * @returns {Twilio.Fax.V1.FaxContext.FaxMediaContext}
    */
   /* jshint ignore:end */
-  function FaxMediaListInstance(sid) {
+  class FaxMediaListInstance {
+  constructor(sid) {
     return FaxMediaListInstance.get(sid);
   }
 
@@ -324,15 +326,16 @@ FaxMediaList = function FaxMediaList(version, faxSid) {
  * @returns FaxMediaPage
  */
 /* jshint ignore:end */
-FaxMediaPage = function FaxMediaPage(version, response, solution) {
+FaxMediaPage = class FaxMediaPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FaxMediaPage.prototype, Page.prototype);
-FaxMediaPage.prototype.constructor = FaxMediaPage;
+class FaxMediaPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -347,7 +350,7 @@ FaxMediaPage.prototype.constructor = FaxMediaPage;
  * @returns FaxMediaInstance
  */
 /* jshint ignore:end */
-FaxMediaPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FaxMediaInstance(this._version, payload, this._solution.faxSid);
 };
 
@@ -372,7 +375,8 @@ FaxMediaPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - A string that uniquely identifies this fax media
  */
 /* jshint ignore:end */
-FaxMediaInstance = function FaxMediaInstance(version, payload, faxSid, sid) {
+FaxMediaInstance = class FaxMediaInstance {
+  constructor(version, payload, faxSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -413,7 +417,7 @@ Object.defineProperty(FaxMediaInstance.prototype,
  * @returns {Promise} Resolves to processed FaxMediaInstance
  */
 /* jshint ignore:end */
-FaxMediaInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -430,7 +434,7 @@ FaxMediaInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FaxMediaInstance
  */
 /* jshint ignore:end */
-FaxMediaInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -446,7 +450,8 @@ FaxMediaInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - A string that uniquely identifies this fax media
  */
 /* jshint ignore:end */
-FaxMediaContext = function FaxMediaContext(version, faxSid, sid) {
+FaxMediaContext = class FaxMediaContext {
+  constructor(version, faxSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -469,7 +474,7 @@ FaxMediaContext = function FaxMediaContext(version, faxSid, sid) {
  * @returns {Promise} Resolves to processed FaxMediaInstance
  */
 /* jshint ignore:end */
-FaxMediaContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -506,7 +511,7 @@ FaxMediaContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FaxMediaInstance
  */
 /* jshint ignore:end */
-FaxMediaContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

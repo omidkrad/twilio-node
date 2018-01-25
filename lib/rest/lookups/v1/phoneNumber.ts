@@ -28,7 +28,8 @@ var PhoneNumberContext;
  * @param {Twilio.Lookups.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-PhoneNumberList = function PhoneNumberList(version) {
+PhoneNumberList = class PhoneNumberList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function phoneNumbers
@@ -40,7 +41,8 @@ PhoneNumberList = function PhoneNumberList(version) {
    * @returns {Twilio.Lookups.V1.PhoneNumberContext}
    */
   /* jshint ignore:end */
-  function PhoneNumberListInstance(sid) {
+  class PhoneNumberListInstance {
+  constructor(sid) {
     return PhoneNumberListInstance.get(sid);
   }
 
@@ -81,15 +83,16 @@ PhoneNumberList = function PhoneNumberList(version) {
  * @returns PhoneNumberPage
  */
 /* jshint ignore:end */
-PhoneNumberPage = function PhoneNumberPage(version, response, solution) {
+PhoneNumberPage = class PhoneNumberPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(PhoneNumberPage.prototype, Page.prototype);
-PhoneNumberPage.prototype.constructor = PhoneNumberPage;
+class PhoneNumberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -104,7 +107,7 @@ PhoneNumberPage.prototype.constructor = PhoneNumberPage;
  * @returns PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new PhoneNumberInstance(this._version, payload);
 };
 
@@ -174,7 +177,7 @@ Object.defineProperty(PhoneNumberInstance.prototype,
  * @returns {Promise} Resolves to processed PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberInstance.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   return this._proxy.fetch(opts, callback);
 };
 
@@ -188,7 +191,8 @@ PhoneNumberInstance.prototype.fetch = function fetch(opts, callback) {
  * @param {phone_number} phoneNumber - The phone_number
  */
 /* jshint ignore:end */
-PhoneNumberContext = function PhoneNumberContext(version, phoneNumber) {
+PhoneNumberContext = class PhoneNumberContext {
+  constructor(version, phoneNumber) {
   this._version = version;
 
   // Path Solution
@@ -216,7 +220,7 @@ PhoneNumberContext = function PhoneNumberContext(version, phoneNumber) {
  * @returns {Promise} Resolves to processed PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberContext.prototype.fetch = function fetch(opts, callback) {
+fetch(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

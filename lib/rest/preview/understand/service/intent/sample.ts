@@ -32,7 +32,8 @@ var SampleContext;
  * @param {string} intentSid - The intent_sid
  */
 /* jshint ignore:end */
-SampleList = function SampleList(version, serviceSid, intentSid) {
+SampleList = class SampleList {
+  constructor(version, serviceSid, intentSid) {
   /* jshint ignore:start */
   /**
    * @function samples
@@ -44,7 +45,8 @@ SampleList = function SampleList(version, serviceSid, intentSid) {
    * @returns {Twilio.Preview.Understand.ServiceContext.IntentContext.SampleContext}
    */
   /* jshint ignore:end */
-  function SampleListInstance(sid) {
+  class SampleListInstance {
+  constructor(sid) {
     return SampleListInstance.get(sid);
   }
 
@@ -387,15 +389,16 @@ SampleList = function SampleList(version, serviceSid, intentSid) {
  * @returns SamplePage
  */
 /* jshint ignore:end */
-SamplePage = function SamplePage(version, response, solution) {
+SamplePage = class SamplePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SamplePage.prototype, Page.prototype);
-SamplePage.prototype.constructor = SamplePage;
+class SamplePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -410,7 +413,7 @@ SamplePage.prototype.constructor = SamplePage;
  * @returns SampleInstance
  */
 /* jshint ignore:end */
-SamplePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SampleInstance(this._version, payload, this._solution.serviceSid, this._solution.intentSid);
 };
 
@@ -487,7 +490,7 @@ Object.defineProperty(SampleInstance.prototype,
  * @returns {Promise} Resolves to processed SampleInstance
  */
 /* jshint ignore:end */
-SampleInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -507,7 +510,7 @@ SampleInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SampleInstance
  */
 /* jshint ignore:end */
-SampleInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -524,7 +527,7 @@ SampleInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed SampleInstance
  */
 /* jshint ignore:end */
-SampleInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -541,7 +544,8 @@ SampleInstance.prototype.remove = function remove(callback) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-SampleContext = function SampleContext(version, serviceSid, intentSid, sid) {
+SampleContext = class SampleContext {
+  constructor(version, serviceSid, intentSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -564,7 +568,7 @@ SampleContext = function SampleContext(version, serviceSid, intentSid, sid) {
  * @returns {Promise} Resolves to processed SampleInstance
  */
 /* jshint ignore:end */
-SampleContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -605,7 +609,7 @@ SampleContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SampleInstance
  */
 /* jshint ignore:end */
-SampleContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -651,7 +655,7 @@ SampleContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed SampleInstance
  */
 /* jshint ignore:end */
-SampleContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

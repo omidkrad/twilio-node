@@ -30,7 +30,8 @@ var NewKeyInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-NewKeyList = function NewKeyList(version, accountSid) {
+NewKeyList = class NewKeyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function newKeys
@@ -42,7 +43,8 @@ NewKeyList = function NewKeyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.NewKeyContext}
    */
   /* jshint ignore:end */
-  function NewKeyListInstance(sid) {
+  class NewKeyListInstance {
+  constructor(sid) {
     return NewKeyListInstance.get(sid);
   }
 
@@ -112,15 +114,16 @@ NewKeyList = function NewKeyList(version, accountSid) {
  * @returns NewKeyPage
  */
 /* jshint ignore:end */
-NewKeyPage = function NewKeyPage(version, response, solution) {
+NewKeyPage = class NewKeyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(NewKeyPage.prototype, Page.prototype);
-NewKeyPage.prototype.constructor = NewKeyPage;
+class NewKeyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -135,7 +138,7 @@ NewKeyPage.prototype.constructor = NewKeyPage;
  * @returns NewKeyInstance
  */
 /* jshint ignore:end */
-NewKeyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new NewKeyInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -155,7 +158,8 @@ NewKeyPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-NewKeyInstance = function NewKeyInstance(version, payload, accountSid) {
+NewKeyInstance = class NewKeyInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

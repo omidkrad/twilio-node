@@ -43,7 +43,8 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    * @returns {Twilio.Api.V2010.AccountContext.AuthorizedConnectAppContext}
    */
   /* jshint ignore:end */
-  function AuthorizedConnectAppListInstance(sid) {
+  class AuthorizedConnectAppListInstance {
+  constructor(sid) {
     return AuthorizedConnectAppListInstance.get(sid);
   }
 
@@ -332,8 +333,8 @@ AuthorizedConnectAppPage = function AuthorizedConnectAppPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AuthorizedConnectAppPage.prototype, Page.prototype);
-AuthorizedConnectAppPage.prototype.constructor = AuthorizedConnectAppPage;
+class AuthorizedConnectAppPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -348,7 +349,7 @@ AuthorizedConnectAppPage.prototype.constructor = AuthorizedConnectAppPage;
  * @returns AuthorizedConnectAppInstance
  */
 /* jshint ignore:end */
-AuthorizedConnectAppPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AuthorizedConnectAppInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -427,7 +428,7 @@ Object.defineProperty(AuthorizedConnectAppInstance.prototype,
  * @returns {Promise} Resolves to processed AuthorizedConnectAppInstance
  */
 /* jshint ignore:end */
-AuthorizedConnectAppInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -466,7 +467,7 @@ AuthorizedConnectAppContext = function AuthorizedConnectAppContext(version,
  * @returns {Promise} Resolves to processed AuthorizedConnectAppInstance
  */
 /* jshint ignore:end */
-AuthorizedConnectAppContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 

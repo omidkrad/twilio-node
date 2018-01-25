@@ -29,15 +29,16 @@ var V1 = require('./pricing/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Pricing(twilio) {
+class Pricing {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://pricing.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Pricing.prototype, Domain.prototype);
-Pricing.prototype.constructor = Pricing;
+class Pricing extends Domain {
+
 
 Object.defineProperty(Pricing.prototype,
   'v1', {

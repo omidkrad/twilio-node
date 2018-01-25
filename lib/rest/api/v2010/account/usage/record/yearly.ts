@@ -32,7 +32,8 @@ var YearlyInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-YearlyList = function YearlyList(version, accountSid) {
+YearlyList = class YearlyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function yearly
@@ -44,7 +45,8 @@ YearlyList = function YearlyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.YearlyContext}
    */
   /* jshint ignore:end */
-  function YearlyListInstance(sid) {
+  class YearlyListInstance {
+  constructor(sid) {
     return YearlyListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ YearlyList = function YearlyList(version, accountSid) {
  * @returns YearlyPage
  */
 /* jshint ignore:end */
-YearlyPage = function YearlyPage(version, response, solution) {
+YearlyPage = class YearlyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(YearlyPage.prototype, Page.prototype);
-YearlyPage.prototype.constructor = YearlyPage;
+class YearlyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ YearlyPage.prototype.constructor = YearlyPage;
  * @returns YearlyInstance
  */
 /* jshint ignore:end */
-YearlyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new YearlyInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ YearlyPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-YearlyInstance = function YearlyInstance(version, payload, accountSid) {
+YearlyInstance = class YearlyInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

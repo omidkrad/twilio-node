@@ -66,15 +66,16 @@ var V2010 = require('./api/V2010');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Api(twilio) {
+class Api {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://api.twilio.com');
 
   // Versions
   this._v2010 = undefined;
 }
 
-_.extend(Api.prototype, Domain.prototype);
-Api.prototype.constructor = Api;
+class Api extends Domain {
+
 
 Object.defineProperty(Api.prototype,
   'v2010', {

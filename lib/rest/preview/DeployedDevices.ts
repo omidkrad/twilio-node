@@ -25,15 +25,16 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function DeployedDevices(domain) {
+class DeployedDevices {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'DeployedDevices');
 
   // Resources
   this._fleets = undefined;
 }
 
-_.extend(DeployedDevices.prototype, Version.prototype);
-DeployedDevices.prototype.constructor = DeployedDevices;
+class DeployedDevices extends Version {
+
 
 Object.defineProperty(DeployedDevices.prototype,
   'fleets', {

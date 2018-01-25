@@ -32,7 +32,8 @@ var MonthlyInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-MonthlyList = function MonthlyList(version, accountSid) {
+MonthlyList = class MonthlyList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function monthly
@@ -44,7 +45,8 @@ MonthlyList = function MonthlyList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.MonthlyContext}
    */
   /* jshint ignore:end */
-  function MonthlyListInstance(sid) {
+  class MonthlyListInstance {
+  constructor(sid) {
     return MonthlyListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ MonthlyList = function MonthlyList(version, accountSid) {
  * @returns MonthlyPage
  */
 /* jshint ignore:end */
-MonthlyPage = function MonthlyPage(version, response, solution) {
+MonthlyPage = class MonthlyPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MonthlyPage.prototype, Page.prototype);
-MonthlyPage.prototype.constructor = MonthlyPage;
+class MonthlyPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ MonthlyPage.prototype.constructor = MonthlyPage;
  * @returns MonthlyInstance
  */
 /* jshint ignore:end */
-MonthlyPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MonthlyInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ MonthlyPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-MonthlyInstance = function MonthlyInstance(version, payload, accountSid) {
+MonthlyInstance = class MonthlyInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

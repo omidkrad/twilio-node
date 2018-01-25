@@ -12,7 +12,8 @@ var deprecate = require('deprecate');
  * @param {string} options.workerSid - The worker unique ID
  * @param {string} options.role - The role of the grant
  */
-function TaskRouterGrant(options) {
+class TaskRouterGrant {
+  constructor(options) {
   options = options || {};
   this.workspaceSid = options.workspaceSid;
   this.workerSid = options.workerSid;
@@ -41,7 +42,8 @@ _.extend(TaskRouterGrant.prototype, {
  *                 assigned to the user
  * @param {string} options.pushCredentialSid - The Push Credentials SID
  */
-function ChatGrant(options) {
+class ChatGrant {
+  constructor(options) {
   options = options || {};
   this.serviceSid = options.serviceSid;
   this.endpointId = options.endpointId;
@@ -75,7 +77,8 @@ _.extend(ChatGrant.prototype, {
  *                 assigned to the user
  * @param {string} options.pushCredentialSid - The Push Credentials SID
  */
-function IpMessagingGrant(options) {
+class IpMessagingGrant {
+  constructor(options) {
   deprecate('IpMessagingGrant is deprecated, use ChatGrant instead.');
   ChatGrant.call(this, options);
 }
@@ -93,7 +96,8 @@ IpMessagingGrant.prototype.key = 'ip_messaging';
   * @param {string} options.configurationProfileSid - The configuration
   *                 profile unique ID
   */
-function ConversationsGrant(options) {
+class ConversationsGrant {
+  constructor(options) {
   deprecate('ConversationsGrant is deprecated, use VideoGrant instead.');
   options = options || {};
   this.configurationProfileSid = options.configurationProfileSid;
@@ -115,7 +119,8 @@ _.extend(ConversationsGrant.prototype, {
  * @param {object} options - ...
  * @param {string} options.room - The Room name or Room sid.
  */
-function VideoGrant(options) {
+class VideoGrant {
+  constructor(options) {
   options = options || {};
   this.room = options.room;
 }
@@ -134,7 +139,8 @@ _.extend(VideoGrant.prototype, {
  * @param {string} options.serviceSid - The service unique ID
  * @param {string} options.endpointId - The endpoint ID
  */
-function SyncGrant(options) {
+class SyncGrant {
+  constructor(options) {
   options = options || {};
   this.serviceSid = options.serviceSid;
   this.endpointId = options.endpointId;
@@ -160,7 +166,8 @@ _.extend(SyncGrant.prototype, {
  * @param {string} options.endpointId - Specify an endpoint identifier for this device, which will allow the developer
  *                 to direct calls to a specific endpoint when multiple devices are associated with a single identity
  */
-function VoiceGrant(options) {
+class VoiceGrant {
+  constructor(options) {
   options = options || {};
   this.outgoingApplicationSid = options.outgoingApplicationSid;
   this.outgoingApplicationParams = options.outgoingApplicationParams;
@@ -201,7 +208,8 @@ _.extend(VoiceGrant.prototype, {
  * @param {string} [options.identity] - The identity of the first person
  * @param {number} [options.nbf] - Time from epoch in seconds for not before value
  */
-function AccessToken(accountSid, keySid, secret, options) {
+class AccessToken {
+  constructor(accountSid, keySid, secret, options) {
   if (!accountSid) { throw new Error('accountSid is required'); }
   if (!keySid) { throw new Error('keySid is required'); }
   if (!secret) { throw new Error('secret is required'); }

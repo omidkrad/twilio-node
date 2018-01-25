@@ -42,7 +42,8 @@ TaskQueuesStatisticsList = function TaskQueuesStatisticsList(version,
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueuesStatisticsContext}
    */
   /* jshint ignore:end */
-  function TaskQueuesStatisticsListInstance(sid) {
+  class TaskQueuesStatisticsListInstance {
+  constructor(sid) {
     return TaskQueuesStatisticsListInstance.get(sid);
   }
 
@@ -348,8 +349,8 @@ TaskQueuesStatisticsPage = function TaskQueuesStatisticsPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TaskQueuesStatisticsPage.prototype, Page.prototype);
-TaskQueuesStatisticsPage.prototype.constructor = TaskQueuesStatisticsPage;
+class TaskQueuesStatisticsPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -364,7 +365,7 @@ TaskQueuesStatisticsPage.prototype.constructor = TaskQueuesStatisticsPage;
  * @returns TaskQueuesStatisticsInstance
  */
 /* jshint ignore:end */
-TaskQueuesStatisticsPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TaskQueuesStatisticsInstance(this._version, payload, this._solution.workspaceSid);
 };
 

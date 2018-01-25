@@ -32,7 +32,8 @@ var AllTimeInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-AllTimeList = function AllTimeList(version, accountSid) {
+AllTimeList = class AllTimeList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function allTime
@@ -44,7 +45,8 @@ AllTimeList = function AllTimeList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.AllTimeContext}
    */
   /* jshint ignore:end */
-  function AllTimeListInstance(sid) {
+  class AllTimeListInstance {
+  constructor(sid) {
     return AllTimeListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ AllTimeList = function AllTimeList(version, accountSid) {
  * @returns AllTimePage
  */
 /* jshint ignore:end */
-AllTimePage = function AllTimePage(version, response, solution) {
+AllTimePage = class AllTimePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AllTimePage.prototype, Page.prototype);
-AllTimePage.prototype.constructor = AllTimePage;
+class AllTimePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ AllTimePage.prototype.constructor = AllTimePage;
  * @returns AllTimeInstance
  */
 /* jshint ignore:end */
-AllTimePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AllTimeInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ AllTimePage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-AllTimeInstance = function AllTimeInstance(version, payload, accountSid) {
+AllTimeInstance = class AllTimeInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

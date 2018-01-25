@@ -25,7 +25,8 @@ var MessagingInstance;
  * @param {Twilio.Pricing.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-MessagingList = function MessagingList(version) {
+MessagingList = class MessagingList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function messaging
@@ -37,7 +38,8 @@ MessagingList = function MessagingList(version) {
    * @returns {Twilio.Pricing.V1.MessagingContext}
    */
   /* jshint ignore:end */
-  function MessagingListInstance(sid) {
+  class MessagingListInstance {
+  constructor(sid) {
     return MessagingListInstance.get(sid);
   }
 
@@ -76,15 +78,16 @@ MessagingList = function MessagingList(version) {
  * @returns MessagingPage
  */
 /* jshint ignore:end */
-MessagingPage = function MessagingPage(version, response, solution) {
+MessagingPage = class MessagingPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(MessagingPage.prototype, Page.prototype);
-MessagingPage.prototype.constructor = MessagingPage;
+class MessagingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -99,7 +102,7 @@ MessagingPage.prototype.constructor = MessagingPage;
  * @returns MessagingInstance
  */
 /* jshint ignore:end */
-MessagingPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new MessagingInstance(this._version, payload);
 };
 
@@ -117,7 +120,8 @@ MessagingPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-MessagingInstance = function MessagingInstance(version, payload) {
+MessagingInstance = class MessagingInstance {
+  constructor(version, payload) {
   this._version = version;
 
   // Marshaled Properties

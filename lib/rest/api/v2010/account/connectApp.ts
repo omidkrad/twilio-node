@@ -29,7 +29,8 @@ var ConnectAppContext;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-ConnectAppList = function ConnectAppList(version, accountSid) {
+ConnectAppList = class ConnectAppList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function connectApps
@@ -41,7 +42,8 @@ ConnectAppList = function ConnectAppList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.ConnectAppContext}
    */
   /* jshint ignore:end */
-  function ConnectAppListInstance(sid) {
+  class ConnectAppListInstance {
+  constructor(sid) {
     return ConnectAppListInstance.get(sid);
   }
 
@@ -321,15 +323,16 @@ ConnectAppList = function ConnectAppList(version, accountSid) {
  * @returns ConnectAppPage
  */
 /* jshint ignore:end */
-ConnectAppPage = function ConnectAppPage(version, response, solution) {
+ConnectAppPage = class ConnectAppPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ConnectAppPage.prototype, Page.prototype);
-ConnectAppPage.prototype.constructor = ConnectAppPage;
+class ConnectAppPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -344,7 +347,7 @@ ConnectAppPage.prototype.constructor = ConnectAppPage;
  * @returns ConnectAppInstance
  */
 /* jshint ignore:end */
-ConnectAppPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ConnectAppInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -422,7 +425,7 @@ Object.defineProperty(ConnectAppInstance.prototype,
  * @returns {Promise} Resolves to processed ConnectAppInstance
  */
 /* jshint ignore:end */
-ConnectAppInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -452,7 +455,7 @@ ConnectAppInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ConnectAppInstance
  */
 /* jshint ignore:end */
-ConnectAppInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -467,7 +470,8 @@ ConnectAppInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - Fetch by unique connect-app Sid
  */
 /* jshint ignore:end */
-ConnectAppContext = function ConnectAppContext(version, accountSid, sid) {
+ConnectAppContext = class ConnectAppContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -490,7 +494,7 @@ ConnectAppContext = function ConnectAppContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed ConnectAppInstance
  */
 /* jshint ignore:end */
-ConnectAppContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -540,7 +544,7 @@ ConnectAppContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ConnectAppInstance
  */
 /* jshint ignore:end */
-ConnectAppContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

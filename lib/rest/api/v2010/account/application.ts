@@ -31,7 +31,8 @@ var ApplicationContext;
  * @param {string} accountSid - A string that uniquely identifies this resource
  */
 /* jshint ignore:end */
-ApplicationList = function ApplicationList(version, accountSid) {
+ApplicationList = class ApplicationList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function applications
@@ -43,7 +44,8 @@ ApplicationList = function ApplicationList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.ApplicationContext}
    */
   /* jshint ignore:end */
-  function ApplicationListInstance(sid) {
+  class ApplicationListInstance {
+  constructor(sid) {
     return ApplicationListInstance.get(sid);
   }
 
@@ -417,15 +419,16 @@ ApplicationList = function ApplicationList(version, accountSid) {
  * @returns ApplicationPage
  */
 /* jshint ignore:end */
-ApplicationPage = function ApplicationPage(version, response, solution) {
+ApplicationPage = class ApplicationPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ApplicationPage.prototype, Page.prototype);
-ApplicationPage.prototype.constructor = ApplicationPage;
+class ApplicationPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -440,7 +443,7 @@ ApplicationPage.prototype.constructor = ApplicationPage;
  * @returns ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ApplicationInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -539,7 +542,7 @@ Object.defineProperty(ApplicationInstance.prototype,
  * @returns {Promise} Resolves to processed ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -556,7 +559,7 @@ ApplicationInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -597,7 +600,7 @@ ApplicationInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -612,7 +615,8 @@ ApplicationInstance.prototype.update = function update(opts, callback) {
  * @param {sid} sid - Fetch by unique Application Sid
  */
 /* jshint ignore:end */
-ApplicationContext = function ApplicationContext(version, accountSid, sid) {
+ApplicationContext = class ApplicationContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -635,7 +639,7 @@ ApplicationContext = function ApplicationContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -667,7 +671,7 @@ ApplicationContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -728,7 +732,7 @@ ApplicationContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ApplicationInstance
  */
 /* jshint ignore:end */
-ApplicationContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

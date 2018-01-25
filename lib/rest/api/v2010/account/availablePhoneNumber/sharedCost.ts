@@ -33,7 +33,8 @@ var SharedCostInstance;
  * @param {string} countryCode - The ISO Country code to lookup phone numbers for.
  */
 /* jshint ignore:end */
-SharedCostList = function SharedCostList(version, accountSid, countryCode) {
+SharedCostList = class SharedCostList {
+  constructor(version, accountSid, countryCode) {
   /* jshint ignore:start */
   /**
    * @function sharedCost
@@ -45,7 +46,8 @@ SharedCostList = function SharedCostList(version, accountSid, countryCode) {
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.SharedCostContext}
    */
   /* jshint ignore:end */
-  function SharedCostListInstance(sid) {
+  class SharedCostListInstance {
+  constructor(sid) {
     return SharedCostListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ SharedCostList = function SharedCostList(version, accountSid, countryCode) {
  * @returns SharedCostPage
  */
 /* jshint ignore:end */
-SharedCostPage = function SharedCostPage(version, response, solution) {
+SharedCostPage = class SharedCostPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SharedCostPage.prototype, Page.prototype);
-SharedCostPage.prototype.constructor = SharedCostPage;
+class SharedCostPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ SharedCostPage.prototype.constructor = SharedCostPage;
  * @returns SharedCostInstance
  */
 /* jshint ignore:end */
-SharedCostPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SharedCostInstance(
     this._version,
     payload,

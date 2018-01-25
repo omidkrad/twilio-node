@@ -33,7 +33,8 @@ var AddressContext;
  * @param {string} accountSid - The account_sid
  */
 /* jshint ignore:end */
-AddressList = function AddressList(version, accountSid) {
+AddressList = class AddressList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function addresses
@@ -45,7 +46,8 @@ AddressList = function AddressList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.AddressContext}
    */
   /* jshint ignore:end */
-  function AddressListInstance(sid) {
+  class AddressListInstance {
+  constructor(sid) {
     return AddressListInstance.get(sid);
   }
 
@@ -425,15 +427,16 @@ AddressList = function AddressList(version, accountSid) {
  * @returns AddressPage
  */
 /* jshint ignore:end */
-AddressPage = function AddressPage(version, response, solution) {
+AddressPage = class AddressPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(AddressPage.prototype, Page.prototype);
-AddressPage.prototype.constructor = AddressPage;
+class AddressPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -448,7 +451,7 @@ AddressPage.prototype.constructor = AddressPage;
  * @returns AddressInstance
  */
 /* jshint ignore:end */
-AddressPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new AddressInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -479,7 +482,8 @@ AddressPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-AddressInstance = function AddressInstance(version, payload, accountSid, sid) {
+AddressInstance = class AddressInstance {
+  constructor(version, payload, accountSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -527,7 +531,7 @@ Object.defineProperty(AddressInstance.prototype,
  * @returns {Promise} Resolves to processed AddressInstance
  */
 /* jshint ignore:end */
-AddressInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -544,7 +548,7 @@ AddressInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed AddressInstance
  */
 /* jshint ignore:end */
-AddressInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -570,7 +574,7 @@ AddressInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AddressInstance
  */
 /* jshint ignore:end */
-AddressInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -604,7 +608,8 @@ AddressInstance.prototype.dependentPhoneNumbers = function
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-AddressContext = function AddressContext(version, accountSid, sid) {
+AddressContext = class AddressContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -630,7 +635,7 @@ AddressContext = function AddressContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed AddressInstance
  */
 /* jshint ignore:end */
-AddressContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -662,7 +667,7 @@ AddressContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed AddressInstance
  */
 /* jshint ignore:end */
-AddressContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -708,7 +713,7 @@ AddressContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed AddressInstance
  */
 /* jshint ignore:end */
-AddressContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

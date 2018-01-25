@@ -25,7 +25,8 @@ var PhoneNumberInstance;
  * @param {Twilio.Pricing.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-PhoneNumberList = function PhoneNumberList(version) {
+PhoneNumberList = class PhoneNumberList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function phoneNumbers
@@ -37,7 +38,8 @@ PhoneNumberList = function PhoneNumberList(version) {
    * @returns {Twilio.Pricing.V1.PhoneNumberContext}
    */
   /* jshint ignore:end */
-  function PhoneNumberListInstance(sid) {
+  class PhoneNumberListInstance {
+  constructor(sid) {
     return PhoneNumberListInstance.get(sid);
   }
 
@@ -76,15 +78,16 @@ PhoneNumberList = function PhoneNumberList(version) {
  * @returns PhoneNumberPage
  */
 /* jshint ignore:end */
-PhoneNumberPage = function PhoneNumberPage(version, response, solution) {
+PhoneNumberPage = class PhoneNumberPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(PhoneNumberPage.prototype, Page.prototype);
-PhoneNumberPage.prototype.constructor = PhoneNumberPage;
+class PhoneNumberPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -99,7 +102,7 @@ PhoneNumberPage.prototype.constructor = PhoneNumberPage;
  * @returns PhoneNumberInstance
  */
 /* jshint ignore:end */
-PhoneNumberPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new PhoneNumberInstance(this._version, payload);
 };
 
@@ -117,7 +120,8 @@ PhoneNumberPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-PhoneNumberInstance = function PhoneNumberInstance(version, payload) {
+PhoneNumberInstance = class PhoneNumberInstance {
+  constructor(version, payload) {
   this._version = version;
 
   // Marshaled Properties

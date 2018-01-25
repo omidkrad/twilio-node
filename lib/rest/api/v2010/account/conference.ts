@@ -32,7 +32,8 @@ var ConferenceContext;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-ConferenceList = function ConferenceList(version, accountSid) {
+ConferenceList = class ConferenceList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function conferences
@@ -44,7 +45,8 @@ ConferenceList = function ConferenceList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.ConferenceContext}
    */
   /* jshint ignore:end */
-  function ConferenceListInstance(sid) {
+  class ConferenceListInstance {
+  constructor(sid) {
     return ConferenceListInstance.get(sid);
   }
 
@@ -368,15 +370,16 @@ ConferenceList = function ConferenceList(version, accountSid) {
  * @returns ConferencePage
  */
 /* jshint ignore:end */
-ConferencePage = function ConferencePage(version, response, solution) {
+ConferencePage = class ConferencePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ConferencePage.prototype, Page.prototype);
-ConferencePage.prototype.constructor = ConferencePage;
+class ConferencePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -391,7 +394,7 @@ ConferencePage.prototype.constructor = ConferencePage;
  * @returns ConferenceInstance
  */
 /* jshint ignore:end */
-ConferencePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ConferenceInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -463,7 +466,7 @@ Object.defineProperty(ConferenceInstance.prototype,
  * @returns {Promise} Resolves to processed ConferenceInstance
  */
 /* jshint ignore:end */
-ConferenceInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -482,7 +485,7 @@ ConferenceInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ConferenceInstance
  */
 /* jshint ignore:end */
-ConferenceInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -497,7 +500,7 @@ ConferenceInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Api.V2010.AccountContext.ConferenceContext.ParticipantList}
  */
 /* jshint ignore:end */
-ConferenceInstance.prototype.participants = function participants() {
+participants() {
   return this._proxy.participants;
 };
 
@@ -515,7 +518,8 @@ ConferenceInstance.prototype.participants = function participants() {
  * @param {sid} sid - Fetch by unique conference Sid
  */
 /* jshint ignore:end */
-ConferenceContext = function ConferenceContext(version, accountSid, sid) {
+ConferenceContext = class ConferenceContext {
+  constructor(version, accountSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -541,7 +545,7 @@ ConferenceContext = function ConferenceContext(version, accountSid, sid) {
  * @returns {Promise} Resolves to processed ConferenceInstance
  */
 /* jshint ignore:end */
-ConferenceContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -580,7 +584,7 @@ ConferenceContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ConferenceInstance
  */
 /* jshint ignore:end */
-ConferenceContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

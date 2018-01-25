@@ -33,7 +33,8 @@ var NotificationContext;
  * @param {string} callSid - The call_sid
  */
 /* jshint ignore:end */
-NotificationList = function NotificationList(version, accountSid, callSid) {
+NotificationList = class NotificationList {
+  constructor(version, accountSid, callSid) {
   /* jshint ignore:start */
   /**
    * @function notifications
@@ -45,7 +46,8 @@ NotificationList = function NotificationList(version, accountSid, callSid) {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.NotificationContext}
    */
   /* jshint ignore:end */
-  function NotificationListInstance(sid) {
+  class NotificationListInstance {
+  constructor(sid) {
     return NotificationListInstance.get(sid);
   }
 
@@ -349,15 +351,16 @@ NotificationList = function NotificationList(version, accountSid, callSid) {
  * @returns NotificationPage
  */
 /* jshint ignore:end */
-NotificationPage = function NotificationPage(version, response, solution) {
+NotificationPage = class NotificationPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(NotificationPage.prototype, Page.prototype);
-NotificationPage.prototype.constructor = NotificationPage;
+class NotificationPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -372,7 +375,7 @@ NotificationPage.prototype.constructor = NotificationPage;
  * @returns NotificationInstance
  */
 /* jshint ignore:end */
-NotificationPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new NotificationInstance(
     this._version,
     payload,
@@ -470,7 +473,7 @@ Object.defineProperty(NotificationInstance.prototype,
  * @returns {Promise} Resolves to processed NotificationInstance
  */
 /* jshint ignore:end */
-NotificationInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -487,7 +490,7 @@ NotificationInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed NotificationInstance
  */
 /* jshint ignore:end */
-NotificationInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -527,7 +530,7 @@ NotificationContext = function NotificationContext(version, accountSid, callSid,
  * @returns {Promise} Resolves to processed NotificationInstance
  */
 /* jshint ignore:end */
-NotificationContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -565,7 +568,7 @@ NotificationContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed NotificationInstance
  */
 /* jshint ignore:end */
-NotificationContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

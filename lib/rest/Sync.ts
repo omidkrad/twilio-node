@@ -26,15 +26,16 @@ var V1 = require('./sync/V1');  /* jshint ignore:line */
  * @param {Twilio} twilio - The twilio client
  */
 /* jshint ignore:end */
-function Sync(twilio) {
+class Sync {
+  constructor(twilio) {
   Domain.prototype.constructor.call(this, twilio, 'https://sync.twilio.com');
 
   // Versions
   this._v1 = undefined;
 }
 
-_.extend(Sync.prototype, Domain.prototype);
-Sync.prototype.constructor = Sync;
+class Sync extends Domain {
+
 
 Object.defineProperty(Sync.prototype,
   'v1', {

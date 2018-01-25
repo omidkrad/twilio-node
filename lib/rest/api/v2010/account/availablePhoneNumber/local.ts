@@ -33,7 +33,8 @@ var LocalInstance;
  * @param {string} countryCode - The ISO Country code to lookup phone numbers for.
  */
 /* jshint ignore:end */
-LocalList = function LocalList(version, accountSid, countryCode) {
+LocalList = class LocalList {
+  constructor(version, accountSid, countryCode) {
   /* jshint ignore:start */
   /**
    * @function local
@@ -45,7 +46,8 @@ LocalList = function LocalList(version, accountSid, countryCode) {
    * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.LocalContext}
    */
   /* jshint ignore:end */
-  function LocalListInstance(sid) {
+  class LocalListInstance {
+  constructor(sid) {
     return LocalListInstance.get(sid);
   }
 
@@ -414,15 +416,16 @@ LocalList = function LocalList(version, accountSid, countryCode) {
  * @returns LocalPage
  */
 /* jshint ignore:end */
-LocalPage = function LocalPage(version, response, solution) {
+LocalPage = class LocalPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(LocalPage.prototype, Page.prototype);
-LocalPage.prototype.constructor = LocalPage;
+class LocalPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -437,7 +440,7 @@ LocalPage.prototype.constructor = LocalPage;
  * @returns LocalInstance
  */
 /* jshint ignore:end */
-LocalPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new LocalInstance(
     this._version,
     payload,

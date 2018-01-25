@@ -34,7 +34,8 @@ var SessionContext;
  * @param {string} serviceSid - Service Sid.
  */
 /* jshint ignore:end */
-SessionList = function SessionList(version, serviceSid) {
+SessionList = class SessionList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function sessions
@@ -46,7 +47,8 @@ SessionList = function SessionList(version, serviceSid) {
    * @returns {Twilio.Preview.Proxy.ServiceContext.SessionContext}
    */
   /* jshint ignore:end */
-  function SessionListInstance(sid) {
+  class SessionListInstance {
+  constructor(sid) {
     return SessionListInstance.get(sid);
   }
 
@@ -401,15 +403,16 @@ SessionList = function SessionList(version, serviceSid) {
  * @returns SessionPage
  */
 /* jshint ignore:end */
-SessionPage = function SessionPage(version, response, solution) {
+SessionPage = class SessionPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(SessionPage.prototype, Page.prototype);
-SessionPage.prototype.constructor = SessionPage;
+class SessionPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -424,7 +427,7 @@ SessionPage.prototype.constructor = SessionPage;
  * @returns SessionInstance
  */
 /* jshint ignore:end */
-SessionPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new SessionInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -455,7 +458,8 @@ SessionPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid_like} sid - A string that uniquely identifies this Session.
  */
 /* jshint ignore:end */
-SessionInstance = function SessionInstance(version, payload, serviceSid, sid) {
+SessionInstance = class SessionInstance {
+  constructor(version, payload, serviceSid, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -501,7 +505,7 @@ Object.defineProperty(SessionInstance.prototype,
  * @returns {Promise} Resolves to processed SessionInstance
  */
 /* jshint ignore:end */
-SessionInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -518,7 +522,7 @@ SessionInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SessionInstance
  */
 /* jshint ignore:end */
-SessionInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -541,7 +545,7 @@ SessionInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SessionInstance
  */
 /* jshint ignore:end */
-SessionInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -556,7 +560,7 @@ SessionInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Preview.Proxy.ServiceContext.SessionContext.InteractionList}
  */
 /* jshint ignore:end */
-SessionInstance.prototype.interactions = function interactions() {
+interactions() {
   return this._proxy.interactions;
 };
 
@@ -571,7 +575,7 @@ SessionInstance.prototype.interactions = function interactions() {
  * @returns {Twilio.Preview.Proxy.ServiceContext.SessionContext.ParticipantList}
  */
 /* jshint ignore:end */
-SessionInstance.prototype.participants = function participants() {
+participants() {
   return this._proxy.participants;
 };
 
@@ -592,7 +596,8 @@ SessionInstance.prototype.participants = function participants() {
  * @param {sid_like} sid - A string that uniquely identifies this Session.
  */
 /* jshint ignore:end */
-SessionContext = function SessionContext(version, serviceSid, sid) {
+SessionContext = class SessionContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -619,7 +624,7 @@ SessionContext = function SessionContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed SessionInstance
  */
 /* jshint ignore:end */
-SessionContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -656,7 +661,7 @@ SessionContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed SessionInstance
  */
 /* jshint ignore:end */
-SessionContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -694,7 +699,7 @@ SessionContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed SessionInstance
  */
 /* jshint ignore:end */
-SessionContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

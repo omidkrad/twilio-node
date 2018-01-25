@@ -31,7 +31,8 @@ var ModelBuildContext;
  * @param {string} serviceSid - The service_sid
  */
 /* jshint ignore:end */
-ModelBuildList = function ModelBuildList(version, serviceSid) {
+ModelBuildList = class ModelBuildList {
+  constructor(version, serviceSid) {
   /* jshint ignore:start */
   /**
    * @function modelBuilds
@@ -43,7 +44,8 @@ ModelBuildList = function ModelBuildList(version, serviceSid) {
    * @returns {Twilio.Preview.Understand.ServiceContext.ModelBuildContext}
    */
   /* jshint ignore:end */
-  function ModelBuildListInstance(sid) {
+  class ModelBuildListInstance {
+  constructor(sid) {
     return ModelBuildListInstance.get(sid);
   }
 
@@ -375,15 +377,16 @@ ModelBuildList = function ModelBuildList(version, serviceSid) {
  * @returns ModelBuildPage
  */
 /* jshint ignore:end */
-ModelBuildPage = function ModelBuildPage(version, response, solution) {
+ModelBuildPage = class ModelBuildPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(ModelBuildPage.prototype, Page.prototype);
-ModelBuildPage.prototype.constructor = ModelBuildPage;
+class ModelBuildPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -398,7 +401,7 @@ ModelBuildPage.prototype.constructor = ModelBuildPage;
  * @returns ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new ModelBuildInstance(this._version, payload, this._solution.serviceSid);
 };
 
@@ -467,7 +470,7 @@ Object.defineProperty(ModelBuildInstance.prototype,
  * @returns {Promise} Resolves to processed ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -486,7 +489,7 @@ ModelBuildInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -503,7 +506,7 @@ ModelBuildInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -519,7 +522,8 @@ ModelBuildInstance.prototype.remove = function remove(callback) {
  * @param {sid_like} sid - The sid
  */
 /* jshint ignore:end */
-ModelBuildContext = function ModelBuildContext(version, serviceSid, sid) {
+ModelBuildContext = class ModelBuildContext {
+  constructor(version, serviceSid, sid) {
   this._version = version;
 
   // Path Solution
@@ -542,7 +546,7 @@ ModelBuildContext = function ModelBuildContext(version, serviceSid, sid) {
  * @returns {Promise} Resolves to processed ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -581,7 +585,7 @@ ModelBuildContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -626,7 +630,7 @@ ModelBuildContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed ModelBuildInstance
  */
 /* jshint ignore:end */
-ModelBuildContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

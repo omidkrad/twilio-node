@@ -32,7 +32,8 @@ var TodayInstance;
  *          A 34 character string that uniquely identifies this resource.
  */
 /* jshint ignore:end */
-TodayList = function TodayList(version, accountSid) {
+TodayList = class TodayList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function today
@@ -44,7 +45,8 @@ TodayList = function TodayList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.RecordContext.TodayContext}
    */
   /* jshint ignore:end */
-  function TodayListInstance(sid) {
+  class TodayListInstance {
+  constructor(sid) {
     return TodayListInstance.get(sid);
   }
 
@@ -326,15 +328,16 @@ TodayList = function TodayList(version, accountSid) {
  * @returns TodayPage
  */
 /* jshint ignore:end */
-TodayPage = function TodayPage(version, response, solution) {
+TodayPage = class TodayPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TodayPage.prototype, Page.prototype);
-TodayPage.prototype.constructor = TodayPage;
+class TodayPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -349,7 +352,7 @@ TodayPage.prototype.constructor = TodayPage;
  * @returns TodayInstance
  */
 /* jshint ignore:end */
-TodayPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TodayInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -378,7 +381,8 @@ TodayPage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-TodayInstance = function TodayInstance(version, payload, accountSid) {
+TodayInstance = class TodayInstance {
+  constructor(version, payload, accountSid) {
   this._version = version;
 
   // Marshaled Properties

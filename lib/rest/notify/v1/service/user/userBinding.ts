@@ -34,7 +34,8 @@ var UserBindingContext;
  * @param {string} identity - The identity
  */
 /* jshint ignore:end */
-UserBindingList = function UserBindingList(version, serviceSid, identity) {
+UserBindingList = class UserBindingList {
+  constructor(version, serviceSid, identity) {
   /* jshint ignore:start */
   /**
    * @function bindings
@@ -46,7 +47,8 @@ UserBindingList = function UserBindingList(version, serviceSid, identity) {
    * @returns {Twilio.Notify.V1.ServiceContext.UserContext.UserBindingContext}
    */
   /* jshint ignore:end */
-  function UserBindingListInstance(sid) {
+  class UserBindingListInstance {
+  constructor(sid) {
     return UserBindingListInstance.get(sid);
   }
 
@@ -411,15 +413,16 @@ UserBindingList = function UserBindingList(version, serviceSid, identity) {
  * @returns UserBindingPage
  */
 /* jshint ignore:end */
-UserBindingPage = function UserBindingPage(version, response, solution) {
+UserBindingPage = class UserBindingPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(UserBindingPage.prototype, Page.prototype);
-UserBindingPage.prototype.constructor = UserBindingPage;
+class UserBindingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -434,7 +437,7 @@ UserBindingPage.prototype.constructor = UserBindingPage;
  * @returns UserBindingInstance
  */
 /* jshint ignore:end */
-UserBindingPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new UserBindingInstance(
     this._version,
     payload,
@@ -527,7 +530,7 @@ Object.defineProperty(UserBindingInstance.prototype,
  * @returns {Promise} Resolves to processed UserBindingInstance
  */
 /* jshint ignore:end */
-UserBindingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -544,7 +547,7 @@ UserBindingInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed UserBindingInstance
  */
 /* jshint ignore:end */
-UserBindingInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -585,7 +588,7 @@ UserBindingContext = function UserBindingContext(version, serviceSid, identity,
  * @returns {Promise} Resolves to processed UserBindingInstance
  */
 /* jshint ignore:end */
-UserBindingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -623,7 +626,7 @@ UserBindingContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed UserBindingInstance
  */
 /* jshint ignore:end */
-UserBindingContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

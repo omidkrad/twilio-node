@@ -9,7 +9,8 @@ var _ = require('lodash');
  * @param {Twilio} twilio - A Twilio Client
  * @param {string} baseUrl - Base url for this domain
  */
-function Domain(twilio, baseUrl) {
+class Domain {
+  constructor(twilio, baseUrl) {
   this.twilio = twilio;
   this.baseUrl = baseUrl;
 }
@@ -20,7 +21,7 @@ function Domain(twilio, baseUrl) {
  * @param  {string} uri uri to transform
  * @return {string} absolute url
  */
-Domain.prototype.absoluteUrl = function(uri) {
+absoluteUrl(uri) {
   return _.trim(this.baseUrl, '/') + '/' + _.trim(uri, '/');
 };
 
@@ -30,7 +31,7 @@ Domain.prototype.absoluteUrl = function(uri) {
  * @param {object} opts request options
  * @return {Promise} request promise
  */
-Domain.prototype.request = function(opts) {
+request(opts) {
   return this.twilio.request(_.assign({}, opts, {
     uri: this.absoluteUrl(opts.uri),
   }));

@@ -26,7 +26,8 @@ var VoiceInstance;
  * @param {Twilio.Pricing.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-VoiceList = function VoiceList(version) {
+VoiceList = class VoiceList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function voice
@@ -38,7 +39,8 @@ VoiceList = function VoiceList(version) {
    * @returns {Twilio.Pricing.V1.VoiceContext}
    */
   /* jshint ignore:end */
-  function VoiceListInstance(sid) {
+  class VoiceListInstance {
+  constructor(sid) {
     return VoiceListInstance.get(sid);
   }
 
@@ -89,15 +91,16 @@ VoiceList = function VoiceList(version) {
  * @returns VoicePage
  */
 /* jshint ignore:end */
-VoicePage = function VoicePage(version, response, solution) {
+VoicePage = class VoicePage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(VoicePage.prototype, Page.prototype);
-VoicePage.prototype.constructor = VoicePage;
+class VoicePage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -112,7 +115,7 @@ VoicePage.prototype.constructor = VoicePage;
  * @returns VoiceInstance
  */
 /* jshint ignore:end */
-VoicePage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new VoiceInstance(this._version, payload);
 };
 
@@ -130,7 +133,8 @@ VoicePage.prototype.getInstance = function getInstance(payload) {
  * @param {object} payload - The instance payload
  */
 /* jshint ignore:end */
-VoiceInstance = function VoiceInstance(version, payload) {
+VoiceInstance = class VoiceInstance {
+  constructor(version, payload) {
   this._version = version;
 
   // Marshaled Properties

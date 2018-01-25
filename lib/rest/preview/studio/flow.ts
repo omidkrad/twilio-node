@@ -31,7 +31,8 @@ var FlowContext;
  * @param {Twilio.Preview.Studio} version - Version of the resource
  */
 /* jshint ignore:end */
-FlowList = function FlowList(version) {
+FlowList = class FlowList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function flows
@@ -43,7 +44,8 @@ FlowList = function FlowList(version) {
    * @returns {Twilio.Preview.Studio.FlowContext}
    */
   /* jshint ignore:end */
-  function FlowListInstance(sid) {
+  class FlowListInstance {
+  constructor(sid) {
     return FlowListInstance.get(sid);
   }
 
@@ -324,15 +326,16 @@ FlowList = function FlowList(version) {
  * @returns FlowPage
  */
 /* jshint ignore:end */
-FlowPage = function FlowPage(version, response, solution) {
+FlowPage = class FlowPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(FlowPage.prototype, Page.prototype);
-FlowPage.prototype.constructor = FlowPage;
+class FlowPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -347,7 +350,7 @@ FlowPage.prototype.constructor = FlowPage;
  * @returns FlowInstance
  */
 /* jshint ignore:end */
-FlowPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new FlowInstance(this._version, payload);
 };
 
@@ -375,7 +378,8 @@ FlowPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-FlowInstance = function FlowInstance(version, payload, sid) {
+FlowInstance = class FlowInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -419,7 +423,7 @@ Object.defineProperty(FlowInstance.prototype,
  * @returns {Promise} Resolves to processed FlowInstance
  */
 /* jshint ignore:end */
-FlowInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -436,7 +440,7 @@ FlowInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FlowInstance
  */
 /* jshint ignore:end */
-FlowInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -451,7 +455,7 @@ FlowInstance.prototype.remove = function remove(callback) {
  * @returns {Twilio.Preview.Studio.FlowContext.EngagementList}
  */
 /* jshint ignore:end */
-FlowInstance.prototype.engagements = function engagements() {
+engagements() {
   return this._proxy.engagements;
 };
 
@@ -469,7 +473,8 @@ FlowInstance.prototype.engagements = function engagements() {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-FlowContext = function FlowContext(version, sid) {
+FlowContext = class FlowContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -495,7 +500,7 @@ FlowContext = function FlowContext(version, sid) {
  * @returns {Promise} Resolves to processed FlowInstance
  */
 /* jshint ignore:end */
-FlowContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -527,7 +532,7 @@ FlowContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed FlowInstance
  */
 /* jshint ignore:end */
-FlowContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

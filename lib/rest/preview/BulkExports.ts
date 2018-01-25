@@ -29,7 +29,8 @@ var Version = require('../../base/Version');  /* jshint ignore:line */
  * @param {Twilio.Preview} domain - The twilio domain
  */
 /* jshint ignore:end */
-function BulkExports(domain) {
+class BulkExports {
+  constructor(domain) {
   Version.prototype.constructor.call(this, domain, 'BulkExports');
 
   // Resources
@@ -37,8 +38,8 @@ function BulkExports(domain) {
   this._exportConfiguration = undefined;
 }
 
-_.extend(BulkExports.prototype, Version.prototype);
-BulkExports.prototype.constructor = BulkExports;
+class BulkExports extends Version {
+
 
 Object.defineProperty(BulkExports.prototype,
   'exports', {

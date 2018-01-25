@@ -30,7 +30,8 @@ var OutgoingCallerIdContext;
  * @param {string} accountSid - The unique sid that identifies this account
  */
 /* jshint ignore:end */
-OutgoingCallerIdList = function OutgoingCallerIdList(version, accountSid) {
+OutgoingCallerIdList = class OutgoingCallerIdList {
+  constructor(version, accountSid) {
   /* jshint ignore:start */
   /**
    * @function outgoingCallerIds
@@ -42,7 +43,8 @@ OutgoingCallerIdList = function OutgoingCallerIdList(version, accountSid) {
    * @returns {Twilio.Api.V2010.AccountContext.OutgoingCallerIdContext}
    */
   /* jshint ignore:end */
-  function OutgoingCallerIdListInstance(sid) {
+  class OutgoingCallerIdListInstance {
+  constructor(sid) {
     return OutgoingCallerIdListInstance.get(sid);
   }
 
@@ -344,8 +346,8 @@ OutgoingCallerIdPage = function OutgoingCallerIdPage(version, response,
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(OutgoingCallerIdPage.prototype, Page.prototype);
-OutgoingCallerIdPage.prototype.constructor = OutgoingCallerIdPage;
+class OutgoingCallerIdPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -360,7 +362,7 @@ OutgoingCallerIdPage.prototype.constructor = OutgoingCallerIdPage;
  * @returns OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new OutgoingCallerIdInstance(this._version, payload, this._solution.accountSid);
 };
 
@@ -431,7 +433,7 @@ Object.defineProperty(OutgoingCallerIdInstance.prototype,
  * @returns {Promise} Resolves to processed OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -451,7 +453,7 @@ OutgoingCallerIdInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -468,7 +470,7 @@ OutgoingCallerIdInstance.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -507,7 +509,7 @@ OutgoingCallerIdContext = function OutgoingCallerIdContext(version, accountSid,
  * @returns {Promise} Resolves to processed OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -547,7 +549,7 @@ OutgoingCallerIdContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};
@@ -592,7 +594,7 @@ OutgoingCallerIdContext.prototype.update = function update(opts, callback) {
  * @returns {Promise} Resolves to processed OutgoingCallerIdInstance
  */
 /* jshint ignore:end */
-OutgoingCallerIdContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

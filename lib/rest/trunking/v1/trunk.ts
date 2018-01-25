@@ -35,7 +35,8 @@ var TrunkContext;
  * @param {Twilio.Trunking.V1} version - Version of the resource
  */
 /* jshint ignore:end */
-TrunkList = function TrunkList(version) {
+TrunkList = class TrunkList {
+  constructor(version) {
   /* jshint ignore:start */
   /**
    * @function trunks
@@ -47,7 +48,8 @@ TrunkList = function TrunkList(version) {
    * @returns {Twilio.Trunking.V1.TrunkContext}
    */
   /* jshint ignore:end */
-  function TrunkListInstance(sid) {
+  class TrunkListInstance {
+  constructor(sid) {
     return TrunkListInstance.get(sid);
   }
 
@@ -381,15 +383,16 @@ TrunkList = function TrunkList(version) {
  * @returns TrunkPage
  */
 /* jshint ignore:end */
-TrunkPage = function TrunkPage(version, response, solution) {
+TrunkPage = class TrunkPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(TrunkPage.prototype, Page.prototype);
-TrunkPage.prototype.constructor = TrunkPage;
+class TrunkPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -404,7 +407,7 @@ TrunkPage.prototype.constructor = TrunkPage;
  * @returns TrunkInstance
  */
 /* jshint ignore:end */
-TrunkPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new TrunkInstance(this._version, payload);
 };
 
@@ -434,7 +437,8 @@ TrunkPage.prototype.getInstance = function getInstance(payload) {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-TrunkInstance = function TrunkInstance(version, payload, sid) {
+TrunkInstance = class TrunkInstance {
+  constructor(version, payload, sid) {
   this._version = version;
 
   // Marshaled Properties
@@ -482,7 +486,7 @@ Object.defineProperty(TrunkInstance.prototype,
  * @returns {Promise} Resolves to processed TrunkInstance
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -499,7 +503,7 @@ TrunkInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TrunkInstance
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.remove = function remove(callback) {
+remove(callback) {
   return this._proxy.remove(callback);
 };
 
@@ -523,7 +527,7 @@ TrunkInstance.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed TrunkInstance
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   return this._proxy.update(opts, callback);
 };
 
@@ -538,7 +542,7 @@ TrunkInstance.prototype.update = function update(opts, callback) {
  * @returns {Twilio.Trunking.V1.TrunkContext.OriginationUrlList}
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.originationUrls = function originationUrls() {
+originationUrls() {
   return this._proxy.originationUrls;
 };
 
@@ -553,7 +557,7 @@ TrunkInstance.prototype.originationUrls = function originationUrls() {
  * @returns {Twilio.Trunking.V1.TrunkContext.CredentialListList}
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.credentialsLists = function credentialsLists() {
+credentialsLists() {
   return this._proxy.credentialsLists;
 };
 
@@ -568,7 +572,7 @@ TrunkInstance.prototype.credentialsLists = function credentialsLists() {
  * @returns {Twilio.Trunking.V1.TrunkContext.IpAccessControlListList}
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.ipAccessControlLists = function ipAccessControlLists() {
+ipAccessControlLists() {
   return this._proxy.ipAccessControlLists;
 };
 
@@ -583,7 +587,7 @@ TrunkInstance.prototype.ipAccessControlLists = function ipAccessControlLists() {
  * @returns {Twilio.Trunking.V1.TrunkContext.PhoneNumberList}
  */
 /* jshint ignore:end */
-TrunkInstance.prototype.phoneNumbers = function phoneNumbers() {
+phoneNumbers() {
   return this._proxy.phoneNumbers;
 };
 
@@ -606,7 +610,8 @@ TrunkInstance.prototype.phoneNumbers = function phoneNumbers() {
  * @param {sid} sid - The sid
  */
 /* jshint ignore:end */
-TrunkContext = function TrunkContext(version, sid) {
+TrunkContext = class TrunkContext {
+  constructor(version, sid) {
   this._version = version;
 
   // Path Solution
@@ -635,7 +640,7 @@ TrunkContext = function TrunkContext(version, sid) {
  * @returns {Promise} Resolves to processed TrunkInstance
  */
 /* jshint ignore:end */
-TrunkContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -667,7 +672,7 @@ TrunkContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed TrunkInstance
  */
 /* jshint ignore:end */
-TrunkContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 
@@ -706,7 +711,7 @@ TrunkContext.prototype.remove = function remove(callback) {
  * @returns {Promise} Resolves to processed TrunkInstance
  */
 /* jshint ignore:end */
-TrunkContext.prototype.update = function update(opts, callback) {
+update(opts, callback) {
   if (_.isFunction(opts)) {
     callback = opts;
     opts = {};

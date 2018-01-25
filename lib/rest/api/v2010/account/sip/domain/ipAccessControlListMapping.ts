@@ -44,7 +44,8 @@ IpAccessControlListMappingList = function
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext.IpAccessControlListMappingContext}
    */
   /* jshint ignore:end */
-  function IpAccessControlListMappingListInstance(sid) {
+  class IpAccessControlListMappingListInstance {
+  constructor(sid) {
     return IpAccessControlListMappingListInstance.get(sid);
   }
 
@@ -388,8 +389,8 @@ IpAccessControlListMappingPage = function
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(IpAccessControlListMappingPage.prototype, Page.prototype);
-IpAccessControlListMappingPage.prototype.constructor = IpAccessControlListMappingPage;
+class IpAccessControlListMappingPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -483,7 +484,7 @@ Object.defineProperty(IpAccessControlListMappingInstance.prototype,
  * @returns {Promise} Resolves to processed IpAccessControlListMappingInstance
  */
 /* jshint ignore:end */
-IpAccessControlListMappingInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -500,7 +501,7 @@ IpAccessControlListMappingInstance.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListMappingInstance
  */
 /* jshint ignore:end */
-IpAccessControlListMappingInstance.prototype.remove = function remove(callback)
+remove(callback)
     {
   return this._proxy.remove(callback);
 };
@@ -541,7 +542,7 @@ IpAccessControlListMappingContext = function
  * @returns {Promise} Resolves to processed IpAccessControlListMappingInstance
  */
 /* jshint ignore:end */
-IpAccessControlListMappingContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
@@ -579,7 +580,7 @@ IpAccessControlListMappingContext.prototype.fetch = function fetch(callback) {
  * @returns {Promise} Resolves to processed IpAccessControlListMappingInstance
  */
 /* jshint ignore:end */
-IpAccessControlListMappingContext.prototype.remove = function remove(callback) {
+remove(callback) {
   var deferred = Q.defer();
   var promise = this._version.remove({uri: this._uri, method: 'DELETE'});
 

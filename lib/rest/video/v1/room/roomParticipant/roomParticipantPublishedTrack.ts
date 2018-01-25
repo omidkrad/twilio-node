@@ -44,7 +44,8 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    * @returns {Twilio.Video.V1.RoomContext.ParticipantContext.PublishedTrackContext}
    */
   /* jshint ignore:end */
-  function PublishedTrackListInstance(sid) {
+  class PublishedTrackListInstance {
+  constructor(sid) {
     return PublishedTrackListInstance.get(sid);
   }
 
@@ -329,15 +330,16 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
  * @returns PublishedTrackPage
  */
 /* jshint ignore:end */
-PublishedTrackPage = function PublishedTrackPage(version, response, solution) {
+PublishedTrackPage = class PublishedTrackPage {
+  constructor(version, response, solution) {
   // Path Solution
   this._solution = solution;
 
   Page.prototype.constructor.call(this, version, response, this._solution);
 };
 
-_.extend(PublishedTrackPage.prototype, Page.prototype);
-PublishedTrackPage.prototype.constructor = PublishedTrackPage;
+class PublishedTrackPage extends Page {
+
 
 /* jshint ignore:start */
 /**
@@ -352,7 +354,7 @@ PublishedTrackPage.prototype.constructor = PublishedTrackPage;
  * @returns PublishedTrackInstance
  */
 /* jshint ignore:end */
-PublishedTrackPage.prototype.getInstance = function getInstance(payload) {
+getInstance(payload) {
   return new PublishedTrackInstance(
     this._version,
     payload,
@@ -434,7 +436,7 @@ Object.defineProperty(PublishedTrackInstance.prototype,
  * @returns {Promise} Resolves to processed PublishedTrackInstance
  */
 /* jshint ignore:end */
-PublishedTrackInstance.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   return this._proxy.fetch(callback);
 };
 
@@ -474,7 +476,7 @@ PublishedTrackContext = function PublishedTrackContext(version, roomSid,
  * @returns {Promise} Resolves to processed PublishedTrackInstance
  */
 /* jshint ignore:end */
-PublishedTrackContext.prototype.fetch = function fetch(callback) {
+fetch(callback) {
   var deferred = Q.defer();
   var promise = this._version.fetch({uri: this._uri, method: 'GET'});
 
