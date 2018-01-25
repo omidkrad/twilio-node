@@ -18,7 +18,7 @@ export = {};
  * @param  {Date} d date object to format
  * @return {string|object} date formatted in YYYY-MM-DD form
  */
-module.exports.iso8601Date = function(d) {
+export const iso8601Date = function(d) {
   if (_.isUndefined(d) || _.isString(d) || !((d instanceof Date))) {
     return d;
   } else {
@@ -35,7 +35,7 @@ module.exports.iso8601Date = function(d) {
  * @param  {Date} d date object to format
  * @return {string|object} date formatted in YYYY-MM-DD[T]HH:mm:ss[Z] form
  */
-module.exports.iso8601DateTime = function(d) {
+export const iso8601DateTime = function(d) {
   if (_.isUndefined(d) || _.isString(d) || !(d instanceof Date)) {
     return d;
   } else {
@@ -53,7 +53,7 @@ module.exports.iso8601DateTime = function(d) {
  * @param {string|undefined} prefix to append to each flattened value
  * @return {object} flattened map
  */
-module.exports.prefixedCollapsibleMap = function(m, prefix) {
+export const prefixedCollapsibleMap = function(m, prefix) {
   if (_.isUndefined(m) || !_.isPlainObject(m)) {
     return {};
   }
@@ -94,7 +94,7 @@ module.exports.prefixedCollapsibleMap = function(m, prefix) {
  * @param {object|array} o json object or array
  * @returns {string|object} stringified object
  */
-module.exports.object = function(o) {
+export const object = function(o) {
   if (_.isObject(o) || _.isArray(o)) {
     return JSON.stringify(o);
   }
@@ -110,7 +110,7 @@ module.exports.object = function(o) {
  * @param {boolean|string} input boolean or string to be coerced
  * @returns {string} a string "true" or "false"
  */
-module.exports.bool = function(input) {
+export const bool = function(input) {
   if (_.isString(input)) {
     return input;
   }
@@ -131,7 +131,7 @@ module.exports.bool = function(input) {
  * returned as is.
  * @returns {array} new array with transform applied to each element.
  */
-module.exports.map = function(input, transform) {
+export const map = function(input, transform) {
     if (_.isArray(input)) {
         return _.map(input, transform);
     }
