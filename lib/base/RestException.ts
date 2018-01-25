@@ -1,7 +1,7 @@
 'use strict';
 var util = require('util');
 
-class RestException {
+class RestException extends Error {
   constructor(public response) {
   Error.call('[HTTP ' + response.statusCode + '] Failed to execute request');
 
@@ -12,7 +12,5 @@ class RestException {
   this.moreInfo = body.more_info; /* jshint ignore:line */
   this.detail = body.detail;
 }
-
-util.inherits(RestException, Error);
 
 export = RestException;

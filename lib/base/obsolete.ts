@@ -9,53 +9,46 @@ class ObsoleteClient {
 }
 
 
-class RestClient {
+class RestClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  RestClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(RestClient, ObsoleteClient);
 
 
-class IpMessagingClient {
+class IpMessagingClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  IpMessagingClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(IpMessagingClient, ObsoleteClient);
 
 
-class PricingClient {
+class PricingClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  PricingClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(PricingClient, ObsoleteClient);
 
 
-class MonitorClient {
+class MonitorClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  MonitorClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(MonitorClient, ObsoleteClient);
 
 
-class TaskRouterClient {
+class TaskRouterClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  TaskRouterClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(TaskRouterClient, ObsoleteClient);
 
 
-class LookupsClient {
+class LookupsClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  LookupsClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(LookupsClient, ObsoleteClient);
 
 
-class TrunkingClient {
+class TrunkingClient extends ObsoleteClient {
   constructor(public sid, public tkn, public options) {
-  TrunkingClient.super_.call(this, sid, tkn, options);
+  super(sid, tkn, options);
 }
-util.inherits(TrunkingClient, ObsoleteClient);
 
 
 export = {
