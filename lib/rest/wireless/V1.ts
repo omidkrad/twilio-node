@@ -9,11 +9,11 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CommandList = require('./v1/command').CommandList;
-var RatePlanList = require('./v1/ratePlan').RatePlanList;
-var SimList = require('./v1/sim').SimList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CommandList = require('./v1/command').CommandList;
+import RatePlanList = require('./v1/ratePlan').RatePlanList;
+import SimList = require('./v1/sim').SimList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

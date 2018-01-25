@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var ServiceList = require('./acc_security/service').ServiceList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import ServiceList = require('./acc_security/service').ServiceList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

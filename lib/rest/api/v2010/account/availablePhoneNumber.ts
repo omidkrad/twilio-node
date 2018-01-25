@@ -9,19 +9,19 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var LocalList = require('./availablePhoneNumber/local').LocalList;
-var MachineToMachineList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import LocalList = require('./availablePhoneNumber/local').LocalList;
+import MachineToMachineList = require(
     './availablePhoneNumber/machineToMachine').MachineToMachineList;
-var MobileList = require('./availablePhoneNumber/mobile').MobileList;
-var NationalList = require('./availablePhoneNumber/national').NationalList;
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var SharedCostList = require(
+import MobileList = require('./availablePhoneNumber/mobile').MobileList;
+import NationalList = require('./availablePhoneNumber/national').NationalList;
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import SharedCostList = require(
     './availablePhoneNumber/sharedCost').SharedCostList;
-var TollFreeList = require('./availablePhoneNumber/tollFree').TollFreeList;
-var VoipList = require('./availablePhoneNumber/voip').VoipList;
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import TollFreeList = require('./availablePhoneNumber/tollFree').TollFreeList;
+import VoipList = require('./availablePhoneNumber/voip').VoipList;
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var AvailablePhoneNumberCountryList;
 var AvailablePhoneNumberCountryPage;

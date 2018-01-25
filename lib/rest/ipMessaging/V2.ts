@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CredentialList = require('./v2/credential').CredentialList;
-var ServiceList = require('./v2/service').ServiceList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CredentialList = require('./v2/credential').CredentialList;
+import ServiceList = require('./v2/service').ServiceList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

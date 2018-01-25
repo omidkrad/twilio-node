@@ -1,5 +1,5 @@
-var ClientCapability = require('../../../index').jwt.ClientCapability;
-var jwt = require('jsonwebtoken');
+import ClientCapability = require('../../../index').jwt.ClientCapability;
+import jwt = require('jsonwebtoken');
 
 describe('The TwiML Capability Token Object', function () {
   describe('ClientCapability', function() {

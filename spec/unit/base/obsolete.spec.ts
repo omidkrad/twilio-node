@@ -1,4 +1,4 @@
-var obsolete = require('../../../lib/base/obsolete');
+import obsolete = require('../../../lib/base/obsolete');
 
 describe('obsolete client tests', function() {
 

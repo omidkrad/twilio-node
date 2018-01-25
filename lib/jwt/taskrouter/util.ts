@@ -1,7 +1,7 @@
 'use strict';
 
-var _ = require('lodash');
-var Policy = require('./TaskRouterCapability').Policy;
+import _ = require('lodash');
+import Policy = require('./TaskRouterCapability').Policy;
 
 var EVENT_URL_BASE = 'https://event-bridge.twilio.com/v1/wschannels';
 var TASKROUTER_BASE_URL = 'https://taskrouter.twilio.com';
@@ -109,7 +109,7 @@ function tasksUrl(workspaceSid, taskSid) {
 
 /**
  * Generate TaskRouter activity url
- * 
+ *
  * @param {string} workspaceSid workspace sid
  * @param {string} [activitySid] activity sid or '**' for all activities
  * @returns {string} generated url

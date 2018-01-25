@@ -1,8 +1,8 @@
 'use strict';
 
-var _ = require('lodash');
-var jwt = require('jsonwebtoken');
-var qs = require('querystring');
+import _ = require('lodash');
+import jwt = require('jsonwebtoken');
+import qs = require('querystring');
 
 /**
  * @constructor

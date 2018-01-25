@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var FleetList = require('./deployed_devices/fleet').FleetList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import FleetList = require('./deployed_devices/fleet').FleetList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

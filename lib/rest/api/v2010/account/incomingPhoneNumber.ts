@@ -9,18 +9,18 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var AssignedAddOnList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import AssignedAddOnList = require(
     './incomingPhoneNumber/assignedAddOn').AssignedAddOnList;
-var LocalList = require('./incomingPhoneNumber/local').LocalList;
-var MobileList = require('./incomingPhoneNumber/mobile').MobileList;
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var TollFreeList = require('./incomingPhoneNumber/tollFree').TollFreeList;
-var deserialize = require(
+import LocalList = require('./incomingPhoneNumber/local').LocalList;
+import MobileList = require('./incomingPhoneNumber/mobile').MobileList;
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import TollFreeList = require('./incomingPhoneNumber/tollFree').TollFreeList;
+import deserialize = require(
     '../../../../base/deserialize');  /* jshint ignore:line */
-var serialize = require('../../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import serialize = require('../../../../base/serialize');  /* jshint ignore:line */
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var IncomingPhoneNumberList;
 var IncomingPhoneNumberPage;

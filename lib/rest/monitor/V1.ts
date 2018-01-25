@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var AlertList = require('./v1/alert').AlertList;
-var EventList = require('./v1/event').EventList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import AlertList = require('./v1/alert').AlertList;
+import EventList = require('./v1/event').EventList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

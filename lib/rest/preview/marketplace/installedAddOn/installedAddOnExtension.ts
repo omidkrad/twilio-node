@@ -9,11 +9,11 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var serialize = require('../../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import serialize = require('../../../../base/serialize');  /* jshint ignore:line */
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var InstalledAddOnExtensionList;
 var InstalledAddOnExtensionPage;

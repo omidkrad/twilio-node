@@ -1,6 +1,6 @@
 'use strict';
 
-var twilio = require('../lib/index');
+import twilio = require('../lib/index');
 var accountSid = 'ACaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 var token = 'token';
 

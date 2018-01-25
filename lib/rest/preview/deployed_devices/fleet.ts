@@ -9,16 +9,16 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var CertificateList = require('./fleet/certificate').CertificateList;
-var DeploymentList = require('./fleet/deployment').DeploymentList;
-var DeviceList = require('./fleet/device').DeviceList;
-var KeyList = require('./fleet/key').KeyList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
-var deserialize = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CertificateList = require('./fleet/certificate').CertificateList;
+import DeploymentList = require('./fleet/deployment').DeploymentList;
+import DeviceList = require('./fleet/device').DeviceList;
+import KeyList = require('./fleet/key').KeyList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
+import deserialize = require(
     '../../../base/deserialize');  /* jshint ignore:line */
-var values = require('../../../base/values');  /* jshint ignore:line */
+import values = require('../../../base/values');  /* jshint ignore:line */
 
 var FleetList;
 var FleetPage;

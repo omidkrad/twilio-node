@@ -9,12 +9,12 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var AvailableAddOnList = require(
+import _ = require('lodash');  /* jshint ignore:line */
+import AvailableAddOnList = require(
     './marketplace/availableAddOn').AvailableAddOnList;
-var InstalledAddOnList = require(
+import InstalledAddOnList = require(
     './marketplace/installedAddOn').InstalledAddOnList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

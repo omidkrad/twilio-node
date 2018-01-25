@@ -9,22 +9,22 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var AllTimeList = require('./record/allTime').AllTimeList;
-var DailyList = require('./record/daily').DailyList;
-var LastMonthList = require('./record/lastMonth').LastMonthList;
-var MonthlyList = require('./record/monthly').MonthlyList;
-var Page = require('../../../../../base/Page');  /* jshint ignore:line */
-var ThisMonthList = require('./record/thisMonth').ThisMonthList;
-var TodayList = require('./record/today').TodayList;
-var YearlyList = require('./record/yearly').YearlyList;
-var YesterdayList = require('./record/yesterday').YesterdayList;
-var deserialize = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import AllTimeList = require('./record/allTime').AllTimeList;
+import DailyList = require('./record/daily').DailyList;
+import LastMonthList = require('./record/lastMonth').LastMonthList;
+import MonthlyList = require('./record/monthly').MonthlyList;
+import Page = require('../../../../../base/Page');  /* jshint ignore:line */
+import ThisMonthList = require('./record/thisMonth').ThisMonthList;
+import TodayList = require('./record/today').TodayList;
+import YearlyList = require('./record/yearly').YearlyList;
+import YesterdayList = require('./record/yesterday').YesterdayList;
+import deserialize = require(
     '../../../../../base/deserialize');  /* jshint ignore:line */
-var serialize = require(
+import serialize = require(
     '../../../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../../../base/values');  /* jshint ignore:line */
+import values = require('../../../../../base/values');  /* jshint ignore:line */
 
 var RecordList;
 var RecordPage;

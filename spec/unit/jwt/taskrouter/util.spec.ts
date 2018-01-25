@@ -1,5 +1,5 @@
-var _ = require('lodash');
-var util = require('../../../../index').jwt.taskrouter.util;
+import _ = require('lodash');
+import util = require('../../../../index').jwt.taskrouter.util;
 
 describe('util', function() {
 

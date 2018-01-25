@@ -1,7 +1,7 @@
 'use strict';
 
-var jwt = require('jsonwebtoken');
-var _ = require('lodash');
+import jwt = require('jsonwebtoken');
+import _ = require('lodash');
 
 /**
  * Create a new Policy

@@ -1,5 +1,5 @@
-var moment = require('moment');
-var deserialize = require('../../../lib/base/deserialize');
+import moment = require('moment');
+import deserialize = require('../../../lib/base/deserialize');
 
 describe('deserialize date tests', function() {
 
@@ -145,7 +145,7 @@ describe('deserialize integer tests', function() {
   it('should deserialize negative', function() {
     var actual = deserialize.integer(-123);
     expect(actual).toEqual(-123);
-  });  
+  });
 
   it('should truncate float', function() {
     var actual = deserialize.integer(1.23);

@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var RecordingList = require('./v1/recording').RecordingList;
-var RoomList = require('./v1/room').RoomList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import RecordingList = require('./v1/recording').RecordingList;
+import RoomList = require('./v1/room').RoomList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

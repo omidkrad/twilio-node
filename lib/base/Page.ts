@@ -1,8 +1,8 @@
 // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
 'use strict';
 
-var _ = require('lodash');
-var RestException = require('./RestException');
+import _ = require('lodash');
+import RestException = require('./RestException');
 
 /**
  * @constructor

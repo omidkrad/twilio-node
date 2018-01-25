@@ -1,7 +1,7 @@
 'use strict';
 
-var _ = require('lodash');
-var moment = require('moment');
+import _ = require('lodash');
+import moment = require('moment');
 
 export = {};
 

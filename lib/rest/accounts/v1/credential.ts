@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var AwsList = require('./credential/aws').AwsList;
-var PublicKeyList = require('./credential/publicKey').PublicKeyList;
+import _ = require('lodash');  /* jshint ignore:line */
+import AwsList = require('./credential/aws').AwsList;
+import PublicKeyList = require('./credential/publicKey').PublicKeyList;
 
 var CredentialList;
 

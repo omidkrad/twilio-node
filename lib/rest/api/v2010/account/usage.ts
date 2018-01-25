@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var RecordList = require('./usage/record').RecordList;
-var TriggerList = require('./usage/trigger').TriggerList;
+import _ = require('lodash');  /* jshint ignore:line */
+import RecordList = require('./usage/record').RecordList;
+import TriggerList = require('./usage/trigger').TriggerList;
 
 var UsageList;
 

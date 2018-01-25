@@ -9,12 +9,12 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var AuthorizationDocumentList = require(
+import _ = require('lodash');  /* jshint ignore:line */
+import AuthorizationDocumentList = require(
     './hosted_numbers/authorizationDocument').AuthorizationDocumentList;
-var HostedNumberOrderList = require(
+import HostedNumberOrderList = require(
     './hosted_numbers/hostedNumberOrder').HostedNumberOrderList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

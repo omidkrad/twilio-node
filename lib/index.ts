@@ -1,8 +1,8 @@
 'use strict';
 
-var Twilio = require('./rest/Twilio');
-var webhooks = require('./webhooks/webhooks');
-var obsolete = require('./base/obsolete');
+import Twilio = require('./rest/Twilio');
+import webhooks = require('./webhooks/webhooks');
+import obsolete = require('./base/obsolete');
 
 // Shorthand to automatically create a RestClient
 var initializer = function(accountSid, authToken, opts) {

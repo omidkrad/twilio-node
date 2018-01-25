@@ -9,7 +9,7 @@
  */
 /* jshint ignore:end */
 
-var builder = require('xmlbuilder');  /* jshint ignore:line */
+import builder = require('xmlbuilder');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

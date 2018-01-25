@@ -9,20 +9,20 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var AccSecurity = require('./preview/AccSecurity');  /* jshint ignore:line */
-var BulkExports = require('./preview/BulkExports');  /* jshint ignore:line */
-var DeployedDevices = require(
+import _ = require('lodash');  /* jshint ignore:line */
+import AccSecurity = require('./preview/AccSecurity');  /* jshint ignore:line */
+import BulkExports = require('./preview/BulkExports');  /* jshint ignore:line */
+import DeployedDevices = require(
     './preview/DeployedDevices');  /* jshint ignore:line */
-var Domain = require('../base/Domain');  /* jshint ignore:line */
-var HostedNumbers = require(
+import Domain = require('../base/Domain');  /* jshint ignore:line */
+import HostedNumbers = require(
     './preview/HostedNumbers');  /* jshint ignore:line */
-var Marketplace = require('./preview/Marketplace');  /* jshint ignore:line */
-var Proxy = require('./preview/Proxy');  /* jshint ignore:line */
-var Studio = require('./preview/Studio');  /* jshint ignore:line */
-var Sync = require('./preview/Sync');  /* jshint ignore:line */
-var Understand = require('./preview/Understand');  /* jshint ignore:line */
-var Wireless = require('./preview/Wireless');  /* jshint ignore:line */
+import Marketplace = require('./preview/Marketplace');  /* jshint ignore:line */
+import Proxy = require('./preview/Proxy');  /* jshint ignore:line */
+import Studio = require('./preview/Studio');  /* jshint ignore:line */
+import Sync = require('./preview/Sync');  /* jshint ignore:line */
+import Understand = require('./preview/Understand');  /* jshint ignore:line */
+import Wireless = require('./preview/Wireless');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

@@ -9,15 +9,15 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var FeedbackList = require('./message/feedback').FeedbackList;
-var MediaList = require('./message/media').MediaList;
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var deserialize = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import FeedbackList = require('./message/feedback').FeedbackList;
+import MediaList = require('./message/media').MediaList;
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import deserialize = require(
     '../../../../base/deserialize');  /* jshint ignore:line */
-var serialize = require('../../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import serialize = require('../../../../base/serialize');  /* jshint ignore:line */
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var MessageList;
 var MessagePage;

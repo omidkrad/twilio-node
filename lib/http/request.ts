@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('lodash');
+import _ = require('lodash');
 
 var Request = function(opts) {
   opts = opts || {};

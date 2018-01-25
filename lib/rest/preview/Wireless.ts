@@ -9,11 +9,11 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CommandList = require('./wireless/command').CommandList;
-var RatePlanList = require('./wireless/ratePlan').RatePlanList;
-var SimList = require('./wireless/sim').SimList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CommandList = require('./wireless/command').CommandList;
+import RatePlanList = require('./wireless/ratePlan').RatePlanList;
+import SimList = require('./wireless/sim').SimList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

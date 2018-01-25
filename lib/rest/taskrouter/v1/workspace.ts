@@ -9,26 +9,26 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var ActivityList = require('./workspace/activity').ActivityList;
-var EventList = require('./workspace/event').EventList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
-var TaskChannelList = require('./workspace/taskChannel').TaskChannelList;
-var TaskList = require('./workspace/task').TaskList;
-var TaskQueueList = require('./workspace/taskQueue').TaskQueueList;
-var WorkerList = require('./workspace/worker').WorkerList;
-var WorkflowList = require('./workspace/workflow').WorkflowList;
-var WorkspaceCumulativeStatisticsList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import ActivityList = require('./workspace/activity').ActivityList;
+import EventList = require('./workspace/event').EventList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
+import TaskChannelList = require('./workspace/taskChannel').TaskChannelList;
+import TaskList = require('./workspace/task').TaskList;
+import TaskQueueList = require('./workspace/taskQueue').TaskQueueList;
+import WorkerList = require('./workspace/worker').WorkerList;
+import WorkflowList = require('./workspace/workflow').WorkflowList;
+import WorkspaceCumulativeStatisticsList = require(
     './workspace/workspaceCumulativeStatistics').WorkspaceCumulativeStatisticsList;
-var WorkspaceRealTimeStatisticsList = require(
+import WorkspaceRealTimeStatisticsList = require(
     './workspace/workspaceRealTimeStatistics').WorkspaceRealTimeStatisticsList;
-var WorkspaceStatisticsList = require(
+import WorkspaceStatisticsList = require(
     './workspace/workspaceStatistics').WorkspaceStatisticsList;
-var deserialize = require(
+import deserialize = require(
     '../../../base/deserialize');  /* jshint ignore:line */
-var serialize = require('../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../base/values');  /* jshint ignore:line */
+import serialize = require('../../../base/serialize');  /* jshint ignore:line */
+import values = require('../../../base/values');  /* jshint ignore:line */
 
 var WorkspaceList;
 var WorkspacePage;

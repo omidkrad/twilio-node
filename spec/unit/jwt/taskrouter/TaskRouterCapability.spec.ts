@@ -1,7 +1,7 @@
-var _ = require('lodash');
-var TaskRouterCapability = require('../../../../index').jwt.taskrouter.TaskRouterCapability;
-var util = require('../../../../index').jwt.taskrouter.util;
-var jwt = require('jsonwebtoken');
+import _ = require('lodash');
+import TaskRouterCapability = require('../../../../index').jwt.taskrouter.TaskRouterCapability;
+import util = require('../../../../index').jwt.taskrouter.util;
+import jwt = require('jsonwebtoken');
 
 describe('The TaskRouter Capability Token Object', function() {
 

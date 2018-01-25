@@ -9,18 +9,18 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var WorkflowCumulativeStatisticsList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import WorkflowCumulativeStatisticsList = require(
     './workflow/workflowCumulativeStatistics').WorkflowCumulativeStatisticsList;
-var WorkflowRealTimeStatisticsList = require(
+import WorkflowRealTimeStatisticsList = require(
     './workflow/workflowRealTimeStatistics').WorkflowRealTimeStatisticsList;
-var WorkflowStatisticsList = require(
+import WorkflowStatisticsList = require(
     './workflow/workflowStatistics').WorkflowStatisticsList;
-var deserialize = require(
+import deserialize = require(
     '../../../../base/deserialize');  /* jshint ignore:line */
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var WorkflowList;
 var WorkflowPage;

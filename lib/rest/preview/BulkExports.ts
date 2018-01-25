@@ -9,11 +9,11 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var ExportConfigurationList = require(
+import _ = require('lodash');  /* jshint ignore:line */
+import ExportConfigurationList = require(
     './bulk_exports/exportConfiguration').ExportConfigurationList;
-var ExportList = require('./bulk_exports/export').ExportList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import ExportList = require('./bulk_exports/export').ExportList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

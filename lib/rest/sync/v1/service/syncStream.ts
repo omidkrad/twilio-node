@@ -9,13 +9,13 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var StreamMessageList = require('./syncStream/streamMessage').StreamMessageList;
-var deserialize = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import StreamMessageList = require('./syncStream/streamMessage').StreamMessageList;
+import deserialize = require(
     '../../../../base/deserialize');  /* jshint ignore:line */
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var SyncStreamList;
 var SyncStreamPage;

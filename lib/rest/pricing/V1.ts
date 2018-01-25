@@ -9,11 +9,11 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var MessagingList = require('./v1/messaging').MessagingList;
-var PhoneNumberList = require('./v1/phoneNumber').PhoneNumberList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
-var VoiceList = require('./v1/voice').VoiceList;
+import _ = require('lodash');  /* jshint ignore:line */
+import MessagingList = require('./v1/messaging').MessagingList;
+import PhoneNumberList = require('./v1/phoneNumber').PhoneNumberList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
+import VoiceList = require('./v1/voice').VoiceList;
 
 
 /* jshint ignore:start */

@@ -1,8 +1,8 @@
 'use strict';
 
-var _ = require('lodash');
-var jwt = require('jsonwebtoken');
-var deprecate = require('deprecate');
+import _ = require('lodash');
+import jwt = require('jsonwebtoken');
+import deprecate = require('deprecate');
 
 
 /**

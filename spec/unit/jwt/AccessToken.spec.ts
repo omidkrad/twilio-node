@@ -1,6 +1,6 @@
-var twilio = require('../../../index');
-var jwt = require('jsonwebtoken');
-var deprecate = require('deprecate');
+import twilio = require('../../../index');
+import jwt = require('jsonwebtoken');
+import deprecate = require('deprecate');
 
 deprecate.silence = true;
 

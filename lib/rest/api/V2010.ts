@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var AccountContext = require('./v2010/account').AccountContext;
-var AccountList = require('./v2010/account').AccountList;
-var Version = require('../../base/Version');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import AccountContext = require('./v2010/account').AccountContext;
+import AccountList = require('./v2010/account').AccountList;
+import Version = require('../../base/Version');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var Domain = require('../base/Domain');  /* jshint ignore:line */
-var V2010 = require('./api/V2010');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Domain = require('../base/Domain');  /* jshint ignore:line */
+import V2010 = require('./api/V2010');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

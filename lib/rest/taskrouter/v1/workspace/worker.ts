@@ -9,22 +9,22 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var Page = require('../../../../base/Page');  /* jshint ignore:line */
-var ReservationList = require('./worker/reservation').ReservationList;
-var WorkerChannelList = require('./worker/workerChannel').WorkerChannelList;
-var WorkerStatisticsList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Page = require('../../../../base/Page');  /* jshint ignore:line */
+import ReservationList = require('./worker/reservation').ReservationList;
+import WorkerChannelList = require('./worker/workerChannel').WorkerChannelList;
+import WorkerStatisticsList = require(
     './worker/workerStatistics').WorkerStatisticsList;
-var WorkersCumulativeStatisticsList = require(
+import WorkersCumulativeStatisticsList = require(
     './worker/workersCumulativeStatistics').WorkersCumulativeStatisticsList;
-var WorkersRealTimeStatisticsList = require(
+import WorkersRealTimeStatisticsList = require(
     './worker/workersRealTimeStatistics').WorkersRealTimeStatisticsList;
-var WorkersStatisticsList = require(
+import WorkersStatisticsList = require(
     './worker/workersStatistics').WorkersStatisticsList;
-var deserialize = require(
+import deserialize = require(
     '../../../../base/deserialize');  /* jshint ignore:line */
-var values = require('../../../../base/values');  /* jshint ignore:line */
+import values = require('../../../../base/values');  /* jshint ignore:line */
 
 var WorkerList;
 var WorkerPage;

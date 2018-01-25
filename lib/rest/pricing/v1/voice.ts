@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CountryList = require('./voice/country').CountryList;
-var NumberList = require('./voice/number').NumberList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CountryList = require('./voice/country').CountryList;
+import NumberList = require('./voice/number').NumberList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
 
 var VoiceList;
 var VoicePage;

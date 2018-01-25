@@ -1,6 +1,6 @@
 'use strict';
 
-var twilio = require('../lib'),
+import twilio = require('../lib'),
     express = require('express'),
     request = require('request'),
     http = require('http'),
@@ -28,7 +28,7 @@ function createTestSig(signUrl) {
 
 describe('Testing Express request validation', function() {
     // create a local express app
-    var app = require('express')();
+    import app = require('express')();
 
     // Use url-encoded body parser
     app.use(express.urlencoded());

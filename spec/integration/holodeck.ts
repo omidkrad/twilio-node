@@ -1,8 +1,8 @@
 'use strict';
-var _ = require('lodash');
-var Q = require('q');
-var Request = require('../../lib/http/request');
-var RequestClient = require('../../lib/base/RequestClient');
+import _ = require('lodash');
+import Q = require('q');
+import Request = require('../../lib/http/request');
+import RequestClient = require('../../lib/base/RequestClient');
 
 class Hologram {
   constructor(public request, public response) {

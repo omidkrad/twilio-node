@@ -9,17 +9,17 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var BindingList = require('./service/binding').BindingList;
-var ChannelList = require('./service/channel').ChannelList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
-var RoleList = require('./service/role').RoleList;
-var UserList = require('./service/user').UserList;
-var deserialize = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import BindingList = require('./service/binding').BindingList;
+import ChannelList = require('./service/channel').ChannelList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
+import RoleList = require('./service/role').RoleList;
+import UserList = require('./service/user').UserList;
+import deserialize = require(
     '../../../base/deserialize');  /* jshint ignore:line */
-var serialize = require('../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../base/values');  /* jshint ignore:line */
+import serialize = require('../../../base/serialize');  /* jshint ignore:line */
+import values = require('../../../base/values');  /* jshint ignore:line */
 
 var ServiceList;
 var ServicePage;

@@ -9,27 +9,27 @@
  */
 /* jshint ignore:end */
 
-var moduleInfo = require('../../package.json');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var util = require('util');  /* jshint ignore:line */
-var Accounts = require('./Accounts');  /* jshint ignore:line */
-var Api = require('./Api');  /* jshint ignore:line */
-var Chat = require('./Chat');  /* jshint ignore:line */
-var Fax = require('./Fax');  /* jshint ignore:line */
-var IpMessaging = require('./IpMessaging');  /* jshint ignore:line */
-var Lookups = require('./Lookups');  /* jshint ignore:line */
-var Messaging = require('./Messaging');  /* jshint ignore:line */
-var Monitor = require('./Monitor');  /* jshint ignore:line */
-var Notify = require('./Notify');  /* jshint ignore:line */
-var Preview = require('./Preview');  /* jshint ignore:line */
-var Pricing = require('./Pricing');  /* jshint ignore:line */
-var Proxy = require('./Proxy');  /* jshint ignore:line */
-var RequestClient = require('../base/RequestClient');  /* jshint ignore:line */
-var Sync = require('./Sync');  /* jshint ignore:line */
-var Taskrouter = require('./Taskrouter');  /* jshint ignore:line */
-var Trunking = require('./Trunking');  /* jshint ignore:line */
-var Video = require('./Video');  /* jshint ignore:line */
-var Wireless = require('./Wireless');  /* jshint ignore:line */
+import moduleInfo = require('../../package.json');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import util = require('util');  /* jshint ignore:line */
+import Accounts = require('./Accounts');  /* jshint ignore:line */
+import Api = require('./Api');  /* jshint ignore:line */
+import Chat = require('./Chat');  /* jshint ignore:line */
+import Fax = require('./Fax');  /* jshint ignore:line */
+import IpMessaging = require('./IpMessaging');  /* jshint ignore:line */
+import Lookups = require('./Lookups');  /* jshint ignore:line */
+import Messaging = require('./Messaging');  /* jshint ignore:line */
+import Monitor = require('./Monitor');  /* jshint ignore:line */
+import Notify = require('./Notify');  /* jshint ignore:line */
+import Preview = require('./Preview');  /* jshint ignore:line */
+import Pricing = require('./Pricing');  /* jshint ignore:line */
+import Proxy = require('./Proxy');  /* jshint ignore:line */
+import RequestClient = require('../base/RequestClient');  /* jshint ignore:line */
+import Sync = require('./Sync');  /* jshint ignore:line */
+import Taskrouter = require('./Taskrouter');  /* jshint ignore:line */
+import Trunking = require('./Trunking');  /* jshint ignore:line */
+import Video = require('./Video');  /* jshint ignore:line */
+import Wireless = require('./Wireless');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

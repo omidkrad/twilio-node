@@ -9,40 +9,40 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var AddressList = require('./account/address').AddressList;
-var ApplicationList = require('./account/application').ApplicationList;
-var AuthorizedConnectAppList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import AddressList = require('./account/address').AddressList;
+import ApplicationList = require('./account/application').ApplicationList;
+import AuthorizedConnectAppList = require(
     './account/authorizedConnectApp').AuthorizedConnectAppList;
-var AvailablePhoneNumberCountryList = require(
+import AvailablePhoneNumberCountryList = require(
     './account/availablePhoneNumber').AvailablePhoneNumberCountryList;
-var CallList = require('./account/call').CallList;
-var ConferenceList = require('./account/conference').ConferenceList;
-var ConnectAppList = require('./account/connectApp').ConnectAppList;
-var IncomingPhoneNumberList = require(
+import CallList = require('./account/call').CallList;
+import ConferenceList = require('./account/conference').ConferenceList;
+import ConnectAppList = require('./account/connectApp').ConnectAppList;
+import IncomingPhoneNumberList = require(
     './account/incomingPhoneNumber').IncomingPhoneNumberList;
-var KeyList = require('./account/key').KeyList;
-var MessageList = require('./account/message').MessageList;
-var NewKeyList = require('./account/newKey').NewKeyList;
-var NewSigningKeyList = require('./account/newSigningKey').NewSigningKeyList;
-var NotificationList = require('./account/notification').NotificationList;
-var OutgoingCallerIdList = require(
+import KeyList = require('./account/key').KeyList;
+import MessageList = require('./account/message').MessageList;
+import NewKeyList = require('./account/newKey').NewKeyList;
+import NewSigningKeyList = require('./account/newSigningKey').NewSigningKeyList;
+import NotificationList = require('./account/notification').NotificationList;
+import OutgoingCallerIdList = require(
     './account/outgoingCallerId').OutgoingCallerIdList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
-var QueueList = require('./account/queue').QueueList;
-var RecordingList = require('./account/recording').RecordingList;
-var ShortCodeList = require('./account/shortCode').ShortCodeList;
-var SigningKeyList = require('./account/signingKey').SigningKeyList;
-var SipList = require('./account/sip').SipList;
-var TokenList = require('./account/token').TokenList;
-var TranscriptionList = require('./account/transcription').TranscriptionList;
-var UsageList = require('./account/usage').UsageList;
-var ValidationRequestList = require(
+import Page = require('../../../base/Page');  /* jshint ignore:line */
+import QueueList = require('./account/queue').QueueList;
+import RecordingList = require('./account/recording').RecordingList;
+import ShortCodeList = require('./account/shortCode').ShortCodeList;
+import SigningKeyList = require('./account/signingKey').SigningKeyList;
+import SipList = require('./account/sip').SipList;
+import TokenList = require('./account/token').TokenList;
+import TranscriptionList = require('./account/transcription').TranscriptionList;
+import UsageList = require('./account/usage').UsageList;
+import ValidationRequestList = require(
     './account/validationRequest').ValidationRequestList;
-var deserialize = require(
+import deserialize = require(
     '../../../base/deserialize');  /* jshint ignore:line */
-var values = require('../../../base/values');  /* jshint ignore:line */
+import values = require('../../../base/values');  /* jshint ignore:line */
 
 var AccountList;
 var AccountPage;

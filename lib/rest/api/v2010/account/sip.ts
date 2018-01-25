@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CredentialListList = require('./sip/credentialList').CredentialListList;
-var DomainList = require('./sip/domain').DomainList;
-var IpAccessControlListList = require(
+import _ = require('lodash');  /* jshint ignore:line */
+import CredentialListList = require('./sip/credentialList').CredentialListList;
+import DomainList = require('./sip/domain').DomainList;
+import IpAccessControlListList = require(
     './sip/ipAccessControlList').IpAccessControlListList;
 
 var SipList;

@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var Version = require('../../base/Version');  /* jshint ignore:line */
-var WorkspaceList = require('./v1/workspace').WorkspaceList;
+import _ = require('lodash');  /* jshint ignore:line */
+import Version = require('../../base/Version');  /* jshint ignore:line */
+import WorkspaceList = require('./v1/workspace').WorkspaceList;
 
 
 /* jshint ignore:start */

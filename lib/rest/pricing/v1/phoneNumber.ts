@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CountryList = require('./phoneNumber/country').CountryList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CountryList = require('./phoneNumber/country').CountryList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
 
 var PhoneNumberList;
 var PhoneNumberPage;

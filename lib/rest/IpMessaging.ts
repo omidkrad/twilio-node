@@ -9,10 +9,10 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var Domain = require('../base/Domain');  /* jshint ignore:line */
-var V1 = require('./ipMessaging/V1');  /* jshint ignore:line */
-var V2 = require('./ipMessaging/V2');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Domain = require('../base/Domain');  /* jshint ignore:line */
+import V1 = require('./ipMessaging/V1');  /* jshint ignore:line */
+import V2 = require('./ipMessaging/V2');  /* jshint ignore:line */
 
 
 /* jshint ignore:start */

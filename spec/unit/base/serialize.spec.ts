@@ -1,5 +1,5 @@
-var moment = require('moment');
-var serialize = require('../../../lib/base/serialize');
+import moment = require('moment');
+import serialize = require('../../../lib/base/serialize');
 
 describe('serialize date tests', function() {
 
@@ -33,7 +33,7 @@ describe('serialize date tests', function() {
 });
 
 describe('serialize date time tests', function() {
-  
+
   it('should be unable to serialize undefined date time', function() {
     var actual = serialize.iso8601DateTime();
     expect(actual).toBeUndefined();

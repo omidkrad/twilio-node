@@ -1,5 +1,5 @@
 'use strict';
-var util = require('util');
+import util = require('util');
 
 class RestException extends Error {
   constructor(public response) {

@@ -9,13 +9,13 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var Page = require('../../../../../base/Page');  /* jshint ignore:line */
-var PayloadList = require('./addOnResult/payload').PayloadList;
-var deserialize = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import Page = require('../../../../../base/Page');  /* jshint ignore:line */
+import PayloadList = require('./addOnResult/payload').PayloadList;
+import deserialize = require(
     '../../../../../base/deserialize');  /* jshint ignore:line */
-var values = require('../../../../../base/values');  /* jshint ignore:line */
+import values = require('../../../../../base/values');  /* jshint ignore:line */
 
 var AddOnResultList;
 var AddOnResultPage;

@@ -1,9 +1,9 @@
 'use strict';
 
-var crypto = require('crypto');
-var _ = require('lodash');
-var scmp = require('scmp');
-var url = require('url');
+import crypto = require('crypto');
+import _ = require('lodash');
+import scmp = require('scmp');
+import url = require('url');
 
 /**
  Utility function to validate an incoming request is indeed from Twilio

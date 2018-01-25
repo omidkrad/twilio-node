@@ -9,9 +9,9 @@
  */
 /* jshint ignore:end */
 
-var _ = require('lodash');  /* jshint ignore:line */
-var CountryList = require('./messaging/country').CountryList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CountryList = require('./messaging/country').CountryList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
 
 var MessagingList;
 var MessagingPage;

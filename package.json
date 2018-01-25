@@ -33,6 +33,7 @@
     "xmlbuilder": "9.0.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.96",
     "@types/node": "^9.3.0",
     "express": "3.x",
     "jasmine-node": "1.14.5",

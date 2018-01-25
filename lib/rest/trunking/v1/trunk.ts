@@ -9,18 +9,18 @@
  */
 /* jshint ignore:end */
 
-var Q = require('q');  /* jshint ignore:line */
-var _ = require('lodash');  /* jshint ignore:line */
-var CredentialListList = require('./trunk/credentialList').CredentialListList;
-var IpAccessControlListList = require(
+import Q = require('q');  /* jshint ignore:line */
+import _ = require('lodash');  /* jshint ignore:line */
+import CredentialListList = require('./trunk/credentialList').CredentialListList;
+import IpAccessControlListList = require(
     './trunk/ipAccessControlList').IpAccessControlListList;
-var OriginationUrlList = require('./trunk/originationUrl').OriginationUrlList;
-var Page = require('../../../base/Page');  /* jshint ignore:line */
-var PhoneNumberList = require('./trunk/phoneNumber').PhoneNumberList;
-var deserialize = require(
+import OriginationUrlList = require('./trunk/originationUrl').OriginationUrlList;
+import Page = require('../../../base/Page');  /* jshint ignore:line */
+import PhoneNumberList = require('./trunk/phoneNumber').PhoneNumberList;
+import deserialize = require(
     '../../../base/deserialize');  /* jshint ignore:line */
-var serialize = require('../../../base/serialize');  /* jshint ignore:line */
-var values = require('../../../base/values');  /* jshint ignore:line */
+import serialize = require('../../../base/serialize');  /* jshint ignore:line */
+import values = require('../../../base/values');  /* jshint ignore:line */
 
 var TrunkList;
 var TrunkPage;

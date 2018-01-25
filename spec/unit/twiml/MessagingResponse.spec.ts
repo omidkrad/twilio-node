@@ -1,6 +1,6 @@
 'use strict';
 
-var MessagingResponse = require('../../../lib/twiml/MessagingResponse');
+import MessagingResponse = require('../../../lib/twiml/MessagingResponse');
 
 describe('create messaging response TwiML', function() {
 

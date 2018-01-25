@@ -1,5 +1,5 @@
 'use strict';
-var _ = require('lodash');
+import _ = require('lodash');
 
 /**
  * Base domain object

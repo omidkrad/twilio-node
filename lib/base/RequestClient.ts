@@ -1,10 +1,10 @@
 'use strict';
 
-var _ = require('lodash');
-var http = require('request');
-var Q = require('q');
-var Response = require('../http/response');
-var Request = require('../http/request');
+import _ = require('lodash');
+import http = require('request');
+import Q = require('q');
+import Response = require('../http/response');
+import Request = require('../http/request');
 
 var RequestClient = function() {};
 

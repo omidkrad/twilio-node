@@ -1,4 +1,4 @@
-var proxyquire = require('proxyquire');
+import proxyquire = require('proxyquire');
 
 describe('lastResponse and lastRequest defined', function() {
   var client;

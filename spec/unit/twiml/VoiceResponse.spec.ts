@@ -1,6 +1,6 @@
 'use strict';
 
-var VoiceResponse = require('../../../lib/twiml/VoiceResponse');
+import VoiceResponse = require('../../../lib/twiml/VoiceResponse');
 
 describe('create voice response TwiML', function() {
 
