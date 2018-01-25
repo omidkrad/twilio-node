@@ -51,10 +51,10 @@ WorkerChannelList = function WorkerChannelList(version, workspaceSid, workerSid)
     return WorkerChannelListInstance.get(sid);
   }
 
-  WorkerChannelListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkerChannelListInstance._solution = {workspaceSid: workspaceSid, workerSid: workerSid};
-  WorkerChannelListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid, workerSid: workerSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/Workers/<%= workerSid %>/Channels' // jshint ignore:line
   )(WorkerChannelListInstance._solution);
   /* jshint ignore:start */

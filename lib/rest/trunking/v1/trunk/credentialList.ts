@@ -48,10 +48,10 @@ CredentialListList = class CredentialListList {
     return CredentialListListInstance.get(sid);
   }
 
-  CredentialListListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CredentialListListInstance._solution = {trunkSid: trunkSid};
-  CredentialListListInstance._uri = _.template(
+  static _solution = {trunkSid: trunkSid};
+  static _uri = _.template(
     '/Trunks/<%= trunkSid %>/CredentialLists' // jshint ignore:line
   )(CredentialListListInstance._solution);
   /* jshint ignore:start */

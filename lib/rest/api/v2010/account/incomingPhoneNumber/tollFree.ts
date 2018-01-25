@@ -49,10 +49,10 @@ TollFreeList = class TollFreeList {
     return TollFreeListInstance.get(sid);
   }
 
-  TollFreeListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TollFreeListInstance._solution = {accountSid: accountSid};
-  TollFreeListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/IncomingPhoneNumbers/TollFree.json' // jshint ignore:line
   )(TollFreeListInstance._solution);
   /* jshint ignore:start */

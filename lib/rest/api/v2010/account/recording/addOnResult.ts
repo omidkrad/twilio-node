@@ -50,10 +50,10 @@ AddOnResultList = class AddOnResultList {
     return AddOnResultListInstance.get(sid);
   }
 
-  AddOnResultListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AddOnResultListInstance._solution = {accountSid: accountSid, referenceSid: referenceSid};
-  AddOnResultListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, referenceSid: referenceSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Recordings/<%= referenceSid %>/AddOnResults.json' // jshint ignore:line
   )(AddOnResultListInstance._solution);
   /* jshint ignore:start */

@@ -52,10 +52,10 @@ FleetList = class FleetList {
     return FleetListInstance.get(sid);
   }
 
-  FleetListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FleetListInstance._solution = {};
-  FleetListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Fleets' // jshint ignore:line
   )(FleetListInstance._solution);
   /* jshint ignore:start */

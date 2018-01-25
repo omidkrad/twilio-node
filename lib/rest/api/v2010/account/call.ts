@@ -54,15 +54,15 @@ CallList = class CallList {
     return CallListInstance.get(sid);
   }
 
-  CallListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CallListInstance._solution = {accountSid: accountSid};
-  CallListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Calls.json' // jshint ignore:line
   )(CallListInstance._solution);
 
   // Components
-  CallListInstance._feedbackSummaries = undefined;
+  static _feedbackSummaries = undefined;
 
   /* jshint ignore:start */
   /**

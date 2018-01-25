@@ -47,10 +47,10 @@ TaskQueuesStatisticsList = function TaskQueuesStatisticsList(version,
     return TaskQueuesStatisticsListInstance.get(sid);
   }
 
-  TaskQueuesStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskQueuesStatisticsListInstance._solution = {workspaceSid: workspaceSid};
-  TaskQueuesStatisticsListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/TaskQueues/Statistics' // jshint ignore:line
   )(TaskQueuesStatisticsListInstance._solution);
   /* jshint ignore:start */

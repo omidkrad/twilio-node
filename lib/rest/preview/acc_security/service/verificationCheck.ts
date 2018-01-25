@@ -48,10 +48,10 @@ VerificationCheckList = class VerificationCheckList {
     return VerificationCheckListInstance.get(sid);
   }
 
-  VerificationCheckListInstance._version = version;
+  static _version = version;
   // Path Solution
-  VerificationCheckListInstance._solution = {serviceSid: serviceSid};
-  VerificationCheckListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/VerificationCheck' // jshint ignore:line
   )(VerificationCheckListInstance._solution);
   /* jshint ignore:start */

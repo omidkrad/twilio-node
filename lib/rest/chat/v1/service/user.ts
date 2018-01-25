@@ -49,10 +49,10 @@ UserList = class UserList {
     return UserListInstance.get(sid);
   }
 
-  UserListInstance._version = version;
+  static _version = version;
   // Path Solution
-  UserListInstance._solution = {serviceSid: serviceSid};
-  UserListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Users' // jshint ignore:line
   )(UserListInstance._solution);
   /* jshint ignore:start */

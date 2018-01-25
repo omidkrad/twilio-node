@@ -48,10 +48,10 @@ TaskChannelList = class TaskChannelList {
     return TaskChannelListInstance.get(sid);
   }
 
-  TaskChannelListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskChannelListInstance._solution = {workspaceSid: workspaceSid};
-  TaskChannelListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/TaskChannels' // jshint ignore:line
   )(TaskChannelListInstance._solution);
   /* jshint ignore:start */

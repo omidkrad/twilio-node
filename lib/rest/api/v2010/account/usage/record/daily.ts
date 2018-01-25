@@ -50,10 +50,10 @@ DailyList = class DailyList {
     return DailyListInstance.get(sid);
   }
 
-  DailyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DailyListInstance._solution = {accountSid: accountSid};
-  DailyListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/Daily.json' // jshint ignore:line
   )(DailyListInstance._solution);
   /* jshint ignore:start */

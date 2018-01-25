@@ -50,10 +50,10 @@ TodayList = class TodayList {
     return TodayListInstance.get(sid);
   }
 
-  TodayListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TodayListInstance._solution = {accountSid: accountSid};
-  TodayListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/Today.json' // jshint ignore:line
   )(TodayListInstance._solution);
   /* jshint ignore:start */

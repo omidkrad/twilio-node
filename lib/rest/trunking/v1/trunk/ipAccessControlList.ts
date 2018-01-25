@@ -48,10 +48,10 @@ IpAccessControlListList = class IpAccessControlListList {
     return IpAccessControlListListInstance.get(sid);
   }
 
-  IpAccessControlListListInstance._version = version;
+  static _version = version;
   // Path Solution
-  IpAccessControlListListInstance._solution = {trunkSid: trunkSid};
-  IpAccessControlListListInstance._uri = _.template(
+  static _solution = {trunkSid: trunkSid};
+  static _uri = _.template(
     '/Trunks/<%= trunkSid %>/IpAccessControlLists' // jshint ignore:line
   )(IpAccessControlListListInstance._solution);
   /* jshint ignore:start */

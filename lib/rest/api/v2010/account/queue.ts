@@ -49,10 +49,10 @@ QueueList = class QueueList {
     return QueueListInstance.get(sid);
   }
 
-  QueueListInstance._version = version;
+  static _version = version;
   // Path Solution
-  QueueListInstance._solution = {accountSid: accountSid};
-  QueueListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Queues.json' // jshint ignore:line
   )(QueueListInstance._solution);
   /* jshint ignore:start */

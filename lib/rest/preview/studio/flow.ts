@@ -49,10 +49,10 @@ FlowList = class FlowList {
     return FlowListInstance.get(sid);
   }
 
-  FlowListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FlowListInstance._solution = {};
-  FlowListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Flows' // jshint ignore:line
   )(FlowListInstance._solution);
   /* jshint ignore:start */

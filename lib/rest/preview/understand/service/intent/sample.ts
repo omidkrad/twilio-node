@@ -50,10 +50,10 @@ SampleList = class SampleList {
     return SampleListInstance.get(sid);
   }
 
-  SampleListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SampleListInstance._solution = {serviceSid: serviceSid, intentSid: intentSid};
-  SampleListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, intentSid: intentSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Intents/<%= intentSid %>/Samples' // jshint ignore:line
   )(SampleListInstance._solution);
   /* jshint ignore:start */

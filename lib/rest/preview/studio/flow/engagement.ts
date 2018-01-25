@@ -50,10 +50,10 @@ EngagementList = class EngagementList {
     return EngagementListInstance.get(sid);
   }
 
-  EngagementListInstance._version = version;
+  static _version = version;
   // Path Solution
-  EngagementListInstance._solution = {flowSid: flowSid};
-  EngagementListInstance._uri = _.template(
+  static _solution = {flowSid: flowSid};
+  static _uri = _.template(
     '/Flows/<%= flowSid %>/Engagements' // jshint ignore:line
   )(EngagementListInstance._solution);
   /* jshint ignore:start */

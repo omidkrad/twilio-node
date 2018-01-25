@@ -51,10 +51,10 @@ InstalledAddOnList = class InstalledAddOnList {
     return InstalledAddOnListInstance.get(sid);
   }
 
-  InstalledAddOnListInstance._version = version;
+  static _version = version;
   // Path Solution
-  InstalledAddOnListInstance._solution = {};
-  InstalledAddOnListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/InstalledAddOns' // jshint ignore:line
   )(InstalledAddOnListInstance._solution);
   /* jshint ignore:start */

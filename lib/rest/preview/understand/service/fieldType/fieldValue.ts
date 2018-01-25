@@ -50,10 +50,10 @@ FieldValueList = class FieldValueList {
     return FieldValueListInstance.get(sid);
   }
 
-  FieldValueListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FieldValueListInstance._solution = {serviceSid: serviceSid, fieldTypeSid: fieldTypeSid};
-  FieldValueListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, fieldTypeSid: fieldTypeSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/FieldTypes/<%= fieldTypeSid %>/FieldValues' // jshint ignore:line
   )(FieldValueListInstance._solution);
   /* jshint ignore:start */

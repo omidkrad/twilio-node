@@ -47,10 +47,10 @@ ValidationRequestList = class ValidationRequestList {
     return ValidationRequestListInstance.get(sid);
   }
 
-  ValidationRequestListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ValidationRequestListInstance._solution = {accountSid: accountSid};
-  ValidationRequestListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/OutgoingCallerIds.json' // jshint ignore:line
   )(ValidationRequestListInstance._solution);
   /* jshint ignore:start */

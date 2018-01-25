@@ -51,10 +51,10 @@ MemberList = class MemberList {
     return MemberListInstance.get(sid);
   }
 
-  MemberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MemberListInstance._solution = {serviceSid: serviceSid, channelSid: channelSid};
-  MemberListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, channelSid: channelSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Channels/<%= channelSid %>/Members' // jshint ignore:line
   )(MemberListInstance._solution);
   /* jshint ignore:start */

@@ -50,10 +50,10 @@ TaskList = class TaskList {
     return TaskListInstance.get(sid);
   }
 
-  TaskListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskListInstance._solution = {workspaceSid: workspaceSid};
-  TaskListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/Tasks' // jshint ignore:line
   )(TaskListInstance._solution);
   /* jshint ignore:start */

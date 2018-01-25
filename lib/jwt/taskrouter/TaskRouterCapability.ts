@@ -75,7 +75,7 @@ class TaskRouterCapability {
   this.policies = [];
 }
 
-TaskRouterCapability.Policy = Policy;
+static Policy = Policy;
 
 _.extend(TaskRouterCapability.prototype, {
   addPolicy: function(policy) {

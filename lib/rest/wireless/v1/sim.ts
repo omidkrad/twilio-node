@@ -50,10 +50,10 @@ SimList = class SimList {
     return SimListInstance.get(sid);
   }
 
-  SimListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SimListInstance._solution = {};
-  SimListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Sims' // jshint ignore:line
   )(SimListInstance._solution);
   /* jshint ignore:start */

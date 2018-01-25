@@ -49,9 +49,9 @@ WorkflowStatisticsList = function WorkflowStatisticsList(version, workspaceSid,
     return WorkflowStatisticsListInstance.get(sid);
   }
 
-  WorkflowStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkflowStatisticsListInstance._solution = {workspaceSid: workspaceSid, workflowSid: workflowSid};
+  static _solution = {workspaceSid: workspaceSid, workflowSid: workflowSid};
   /* jshint ignore:start */
   /**
    * Constructs a workflow_statistics

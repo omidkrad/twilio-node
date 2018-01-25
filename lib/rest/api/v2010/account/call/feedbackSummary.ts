@@ -51,10 +51,10 @@ FeedbackSummaryList = class FeedbackSummaryList {
     return FeedbackSummaryListInstance.get(sid);
   }
 
-  FeedbackSummaryListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FeedbackSummaryListInstance._solution = {accountSid: accountSid};
-  FeedbackSummaryListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Calls/FeedbackSummary.json' // jshint ignore:line
   )(FeedbackSummaryListInstance._solution);
   /* jshint ignore:start */

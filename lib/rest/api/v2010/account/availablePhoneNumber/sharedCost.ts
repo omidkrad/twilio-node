@@ -51,10 +51,10 @@ SharedCostList = class SharedCostList {
     return SharedCostListInstance.get(sid);
   }
 
-  SharedCostListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SharedCostListInstance._solution = {accountSid: accountSid, countryCode: countryCode};
-  SharedCostListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, countryCode: countryCode};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AvailablePhoneNumbers/<%= countryCode %>/SharedCost.json' // jshint ignore:line
   )(SharedCostListInstance._solution);
   /* jshint ignore:start */

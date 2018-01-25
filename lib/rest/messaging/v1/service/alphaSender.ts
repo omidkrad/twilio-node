@@ -49,10 +49,10 @@ AlphaSenderList = class AlphaSenderList {
     return AlphaSenderListInstance.get(sid);
   }
 
-  AlphaSenderListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AlphaSenderListInstance._solution = {serviceSid: serviceSid};
-  AlphaSenderListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/AlphaSenders' // jshint ignore:line
   )(AlphaSenderListInstance._solution);
   /* jshint ignore:start */

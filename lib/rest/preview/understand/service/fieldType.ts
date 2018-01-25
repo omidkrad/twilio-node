@@ -50,10 +50,10 @@ FieldTypeList = class FieldTypeList {
     return FieldTypeListInstance.get(sid);
   }
 
-  FieldTypeListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FieldTypeListInstance._solution = {serviceSid: serviceSid};
-  FieldTypeListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/FieldTypes' // jshint ignore:line
   )(FieldTypeListInstance._solution);
   /* jshint ignore:start */

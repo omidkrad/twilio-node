@@ -54,10 +54,10 @@ WorkflowList = class WorkflowList {
     return WorkflowListInstance.get(sid);
   }
 
-  WorkflowListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkflowListInstance._solution = {workspaceSid: workspaceSid};
-  WorkflowListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/Workflows' // jshint ignore:line
   )(WorkflowListInstance._solution);
   /* jshint ignore:start */

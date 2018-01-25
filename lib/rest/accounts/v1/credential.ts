@@ -41,13 +41,13 @@ CredentialList = class CredentialList {
     return CredentialListInstance.get(sid);
   }
 
-  CredentialListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CredentialListInstance._solution = {};
+  static _solution = {};
 
   // Components
-  CredentialListInstance._publicKey = undefined;
-  CredentialListInstance._aws = undefined;
+  static _publicKey = undefined;
+  static _aws = undefined;
 
   Object.defineProperty(CredentialListInstance,
     'publicKey', {

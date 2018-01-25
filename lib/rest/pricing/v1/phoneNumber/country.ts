@@ -45,10 +45,10 @@ CountryList = class CountryList {
     return CountryListInstance.get(sid);
   }
 
-  CountryListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CountryListInstance._solution = {};
-  CountryListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/PhoneNumbers/Countries' // jshint ignore:line
   )(CountryListInstance._solution);
   /* jshint ignore:start */

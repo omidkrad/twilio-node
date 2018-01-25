@@ -50,10 +50,10 @@ CredentialListList = class CredentialListList {
     return CredentialListListInstance.get(sid);
   }
 
-  CredentialListListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CredentialListListInstance._solution = {accountSid: accountSid};
-  CredentialListListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/CredentialLists.json' // jshint ignore:line
   )(CredentialListListInstance._solution);
   /* jshint ignore:start */

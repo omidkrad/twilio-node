@@ -50,10 +50,10 @@ DeviceList = class DeviceList {
     return DeviceListInstance.get(sid);
   }
 
-  DeviceListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DeviceListInstance._solution = {fleetSid: fleetSid};
-  DeviceListInstance._uri = _.template(
+  static _solution = {fleetSid: fleetSid};
+  static _uri = _.template(
     '/Fleets/<%= fleetSid %>/Devices' // jshint ignore:line
   )(DeviceListInstance._solution);
   /* jshint ignore:start */

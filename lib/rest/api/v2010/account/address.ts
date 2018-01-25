@@ -51,10 +51,10 @@ AddressList = class AddressList {
     return AddressListInstance.get(sid);
   }
 
-  AddressListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AddressListInstance._solution = {accountSid: accountSid};
-  AddressListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Addresses.json' // jshint ignore:line
   )(AddressListInstance._solution);
   /* jshint ignore:start */

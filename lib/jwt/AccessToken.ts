@@ -83,7 +83,7 @@ class IpMessagingGrant {
   ChatGrant.call(this, options);
 }
 
-IpMessagingGrant.prototype = _.create(ChatGrant.prototype, _.assign({
+static prototype = _.create(ChatGrant.prototype, _.assign({
   '_super': ChatGrant.prototype,
   'constructor': ChatGrant
 }));
@@ -225,15 +225,15 @@ class AccessToken {
 }
 
 // Class level properties
-AccessToken.IpMessagingGrant = IpMessagingGrant;
-AccessToken.ChatGrant = ChatGrant;
-AccessToken.VoiceGrant = VoiceGrant;
-AccessToken.SyncGrant = SyncGrant;
-AccessToken.VideoGrant = VideoGrant;
-AccessToken.ConversationsGrant = ConversationsGrant;
-AccessToken.TaskRouterGrant = TaskRouterGrant;
-AccessToken.DEFAULT_ALGORITHM = 'HS256';
-AccessToken.ALGORITHMS = [
+static IpMessagingGrant = IpMessagingGrant;
+static ChatGrant = ChatGrant;
+static VoiceGrant = VoiceGrant;
+static SyncGrant = SyncGrant;
+static VideoGrant = VideoGrant;
+static ConversationsGrant = ConversationsGrant;
+static TaskRouterGrant = TaskRouterGrant;
+static DEFAULT_ALGORITHM = 'HS256';
+static ALGORITHMS = [
   'HS256',
   'HS384',
   'HS512'

@@ -50,10 +50,10 @@ RoomList = class RoomList {
     return RoomListInstance.get(sid);
   }
 
-  RoomListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RoomListInstance._solution = {};
-  RoomListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Rooms' // jshint ignore:line
   )(RoomListInstance._solution);
   /* jshint ignore:start */

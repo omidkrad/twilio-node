@@ -47,9 +47,9 @@ ExportList = class ExportList {
     return ExportListInstance.get(sid);
   }
 
-  ExportListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ExportListInstance._solution = {};
+  static _solution = {};
   /* jshint ignore:start */
   /**
    * Constructs a export

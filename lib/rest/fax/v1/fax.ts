@@ -50,10 +50,10 @@ FaxList = class FaxList {
     return FaxListInstance.get(sid);
   }
 
-  FaxListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FaxListInstance._solution = {};
-  FaxListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Faxes' // jshint ignore:line
   )(FaxListInstance._solution);
   /* jshint ignore:start */

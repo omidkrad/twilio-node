@@ -51,10 +51,10 @@ MachineToMachineList = function MachineToMachineList(version, accountSid,
     return MachineToMachineListInstance.get(sid);
   }
 
-  MachineToMachineListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MachineToMachineListInstance._solution = {accountSid: accountSid, countryCode: countryCode};
-  MachineToMachineListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, countryCode: countryCode};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AvailablePhoneNumbers/<%= countryCode %>/MachineToMachine.json' // jshint ignore:line
   )(MachineToMachineListInstance._solution);
   /* jshint ignore:start */

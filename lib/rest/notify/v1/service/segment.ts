@@ -48,10 +48,10 @@ SegmentList = class SegmentList {
     return SegmentListInstance.get(sid);
   }
 
-  SegmentListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SegmentListInstance._solution = {serviceSid: serviceSid};
-  SegmentListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Segments' // jshint ignore:line
   )(SegmentListInstance._solution);
   /* jshint ignore:start */

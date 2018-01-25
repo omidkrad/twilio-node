@@ -58,15 +58,15 @@ WorkerList = class WorkerList {
     return WorkerListInstance.get(sid);
   }
 
-  WorkerListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkerListInstance._solution = {workspaceSid: workspaceSid};
-  WorkerListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/Workers' // jshint ignore:line
   )(WorkerListInstance._solution);
 
   // Components
-  WorkerListInstance._statistics = undefined;
+  static _statistics = undefined;
 
   /* jshint ignore:start */
   /**

@@ -52,10 +52,10 @@ SessionList = class SessionList {
     return SessionListInstance.get(sid);
   }
 
-  SessionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SessionListInstance._solution = {serviceSid: serviceSid};
-  SessionListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Sessions' // jshint ignore:line
   )(SessionListInstance._solution);
   /* jshint ignore:start */

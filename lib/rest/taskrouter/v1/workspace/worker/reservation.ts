@@ -51,10 +51,10 @@ ReservationList = class ReservationList {
     return ReservationListInstance.get(sid);
   }
 
-  ReservationListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ReservationListInstance._solution = {workspaceSid: workspaceSid, workerSid: workerSid};
-  ReservationListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid, workerSid: workerSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/Workers/<%= workerSid %>/Reservations' // jshint ignore:line
   )(ReservationListInstance._solution);
   /* jshint ignore:start */

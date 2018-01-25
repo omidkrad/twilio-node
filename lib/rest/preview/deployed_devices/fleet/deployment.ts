@@ -49,10 +49,10 @@ DeploymentList = class DeploymentList {
     return DeploymentListInstance.get(sid);
   }
 
-  DeploymentListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DeploymentListInstance._solution = {fleetSid: fleetSid};
-  DeploymentListInstance._uri = _.template(
+  static _solution = {fleetSid: fleetSid};
+  static _uri = _.template(
     '/Fleets/<%= fleetSid %>/Deployments' // jshint ignore:line
   )(DeploymentListInstance._solution);
   /* jshint ignore:start */

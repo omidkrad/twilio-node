@@ -49,10 +49,10 @@ KeyList = class KeyList {
     return KeyListInstance.get(sid);
   }
 
-  KeyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  KeyListInstance._solution = {fleetSid: fleetSid};
-  KeyListInstance._uri = _.template(
+  static _solution = {fleetSid: fleetSid};
+  static _uri = _.template(
     '/Fleets/<%= fleetSid %>/Keys' // jshint ignore:line
   )(KeyListInstance._solution);
   /* jshint ignore:start */

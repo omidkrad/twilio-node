@@ -50,10 +50,10 @@ AllTimeList = class AllTimeList {
     return AllTimeListInstance.get(sid);
   }
 
-  AllTimeListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AllTimeListInstance._solution = {accountSid: accountSid};
-  AllTimeListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/AllTime.json' // jshint ignore:line
   )(AllTimeListInstance._solution);
   /* jshint ignore:start */

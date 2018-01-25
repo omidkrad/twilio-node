@@ -52,10 +52,10 @@ DocumentList = class DocumentList {
     return DocumentListInstance.get(sid);
   }
 
-  DocumentListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DocumentListInstance._solution = {serviceSid: serviceSid};
-  DocumentListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Documents' // jshint ignore:line
   )(DocumentListInstance._solution);
   /* jshint ignore:start */

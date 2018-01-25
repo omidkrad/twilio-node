@@ -54,17 +54,17 @@ IncomingPhoneNumberList = function IncomingPhoneNumberList(version, accountSid)
     return IncomingPhoneNumberListInstance.get(sid);
   }
 
-  IncomingPhoneNumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  IncomingPhoneNumberListInstance._solution = {accountSid: accountSid};
-  IncomingPhoneNumberListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/IncomingPhoneNumbers.json' // jshint ignore:line
   )(IncomingPhoneNumberListInstance._solution);
 
   // Components
-  IncomingPhoneNumberListInstance._local = undefined;
-  IncomingPhoneNumberListInstance._mobile = undefined;
-  IncomingPhoneNumberListInstance._tollFree = undefined;
+  static _local = undefined;
+  static _mobile = undefined;
+  static _tollFree = undefined;
 
   /* jshint ignore:start */
   /**

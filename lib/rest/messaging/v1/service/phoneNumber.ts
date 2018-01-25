@@ -49,10 +49,10 @@ PhoneNumberList = class PhoneNumberList {
     return PhoneNumberListInstance.get(sid);
   }
 
-  PhoneNumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PhoneNumberListInstance._solution = {serviceSid: serviceSid};
-  PhoneNumberListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/PhoneNumbers' // jshint ignore:line
   )(PhoneNumberListInstance._solution);
   /* jshint ignore:start */

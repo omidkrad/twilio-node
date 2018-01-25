@@ -50,10 +50,10 @@ ConferenceList = class ConferenceList {
     return ConferenceListInstance.get(sid);
   }
 
-  ConferenceListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ConferenceListInstance._solution = {accountSid: accountSid};
-  ConferenceListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Conferences.json' // jshint ignore:line
   )(ConferenceListInstance._solution);
   /* jshint ignore:start */

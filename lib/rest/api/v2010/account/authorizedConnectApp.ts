@@ -48,10 +48,10 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
     return AuthorizedConnectAppListInstance.get(sid);
   }
 
-  AuthorizedConnectAppListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AuthorizedConnectAppListInstance._solution = {accountSid: accountSid};
-  AuthorizedConnectAppListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AuthorizedConnectApps.json' // jshint ignore:line
   )(AuthorizedConnectAppListInstance._solution);
   /* jshint ignore:start */

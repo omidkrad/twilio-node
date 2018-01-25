@@ -46,9 +46,9 @@ PhoneNumberList = class PhoneNumberList {
     return PhoneNumberListInstance.get(sid);
   }
 
-  PhoneNumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PhoneNumberListInstance._solution = {};
+  static _solution = {};
   /* jshint ignore:start */
   /**
    * Constructs a phone_number

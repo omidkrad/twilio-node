@@ -48,10 +48,10 @@ DependentHostedNumberOrderList = function
     return DependentHostedNumberOrderListInstance.get(sid);
   }
 
-  DependentHostedNumberOrderListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DependentHostedNumberOrderListInstance._solution = {signingDocumentSid: signingDocumentSid};
-  DependentHostedNumberOrderListInstance._uri = _.template(
+  static _solution = {signingDocumentSid: signingDocumentSid};
+  static _uri = _.template(
     '/AuthorizationDocuments/<%= signingDocumentSid %>/DependentHostedNumberOrders' // jshint ignore:line
   )(DependentHostedNumberOrderListInstance._solution);
   /* jshint ignore:start */

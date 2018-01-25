@@ -51,10 +51,10 @@ IntentList = class IntentList {
     return IntentListInstance.get(sid);
   }
 
-  IntentListInstance._version = version;
+  static _version = version;
   // Path Solution
-  IntentListInstance._solution = {serviceSid: serviceSid};
-  IntentListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Intents' // jshint ignore:line
   )(IntentListInstance._solution);
   /* jshint ignore:start */

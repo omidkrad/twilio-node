@@ -50,10 +50,10 @@ SyncStreamList = class SyncStreamList {
     return SyncStreamListInstance.get(sid);
   }
 
-  SyncStreamListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SyncStreamListInstance._solution = {serviceSid: serviceSid};
-  SyncStreamListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Streams' // jshint ignore:line
   )(SyncStreamListInstance._solution);
   /* jshint ignore:start */

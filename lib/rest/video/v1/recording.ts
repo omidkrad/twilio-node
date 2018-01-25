@@ -48,10 +48,10 @@ RecordingList = class RecordingList {
     return RecordingListInstance.get(sid);
   }
 
-  RecordingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RecordingListInstance._solution = {};
-  RecordingListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Recordings' // jshint ignore:line
   )(RecordingListInstance._solution);
   /* jshint ignore:start */

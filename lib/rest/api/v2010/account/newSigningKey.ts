@@ -48,10 +48,10 @@ NewSigningKeyList = class NewSigningKeyList {
     return NewSigningKeyListInstance.get(sid);
   }
 
-  NewSigningKeyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  NewSigningKeyListInstance._solution = {accountSid: accountSid};
-  NewSigningKeyListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SigningKeys.json' // jshint ignore:line
   )(NewSigningKeyListInstance._solution);
   /* jshint ignore:start */

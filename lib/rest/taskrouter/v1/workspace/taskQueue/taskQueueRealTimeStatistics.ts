@@ -49,9 +49,9 @@ TaskQueueRealTimeStatisticsList = function
     return TaskQueueRealTimeStatisticsListInstance.get(sid);
   }
 
-  TaskQueueRealTimeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskQueueRealTimeStatisticsListInstance._solution = {
+  static _solution = {
     workspaceSid: workspaceSid,
     taskQueueSid: taskQueueSid
   };

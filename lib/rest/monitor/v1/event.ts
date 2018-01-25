@@ -48,10 +48,10 @@ EventList = class EventList {
     return EventListInstance.get(sid);
   }
 
-  EventListInstance._version = version;
+  static _version = version;
   // Path Solution
-  EventListInstance._solution = {};
-  EventListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Events' // jshint ignore:line
   )(EventListInstance._solution);
   /* jshint ignore:start */

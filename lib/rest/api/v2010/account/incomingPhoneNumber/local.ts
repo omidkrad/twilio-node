@@ -49,10 +49,10 @@ LocalList = class LocalList {
     return LocalListInstance.get(sid);
   }
 
-  LocalListInstance._version = version;
+  static _version = version;
   // Path Solution
-  LocalListInstance._solution = {accountSid: accountSid};
-  LocalListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/IncomingPhoneNumbers/Local.json' // jshint ignore:line
   )(LocalListInstance._solution);
   /* jshint ignore:start */

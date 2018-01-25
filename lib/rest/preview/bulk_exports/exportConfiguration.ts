@@ -47,9 +47,9 @@ ExportConfigurationList = class ExportConfigurationList {
     return ExportConfigurationListInstance.get(sid);
   }
 
-  ExportConfigurationListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ExportConfigurationListInstance._solution = {};
+  static _solution = {};
   /* jshint ignore:start */
   /**
    * Constructs a export_configuration

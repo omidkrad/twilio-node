@@ -48,10 +48,10 @@ VerificationList = class VerificationList {
     return VerificationListInstance.get(sid);
   }
 
-  VerificationListInstance._version = version;
+  static _version = version;
   // Path Solution
-  VerificationListInstance._solution = {serviceSid: serviceSid};
-  VerificationListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Verifications' // jshint ignore:line
   )(VerificationListInstance._solution);
   /* jshint ignore:start */

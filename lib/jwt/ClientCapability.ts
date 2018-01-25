@@ -120,9 +120,9 @@ class ClientCapability {
   this.scopes = [];
 }
 
-ClientCapability.EventStreamScope = EventStreamScope;
-ClientCapability.IncomingClientScope = IncomingClientScope;
-ClientCapability.OutgoingClientScope = OutgoingClientScope;
+static EventStreamScope = EventStreamScope;
+static IncomingClientScope = IncomingClientScope;
+static OutgoingClientScope = OutgoingClientScope;
 
 _.extend(ClientCapability.prototype, {
   addScope: function(scope) {

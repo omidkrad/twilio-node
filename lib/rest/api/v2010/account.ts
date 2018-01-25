@@ -75,10 +75,10 @@ AccountList = class AccountList {
     return AccountListInstance.get(sid);
   }
 
-  AccountListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AccountListInstance._solution = {};
-  AccountListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Accounts.json' // jshint ignore:line
   )(AccountListInstance._solution);
   /* jshint ignore:start */

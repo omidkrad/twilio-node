@@ -50,9 +50,9 @@ TaskQueueStatisticsList = function TaskQueueStatisticsList(version,
     return TaskQueueStatisticsListInstance.get(sid);
   }
 
-  TaskQueueStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskQueueStatisticsListInstance._solution = {workspaceSid: workspaceSid, taskQueueSid: taskQueueSid};
+  static _solution = {workspaceSid: workspaceSid, taskQueueSid: taskQueueSid};
   /* jshint ignore:start */
   /**
    * Constructs a task_queue_statistics

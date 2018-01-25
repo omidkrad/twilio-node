@@ -50,10 +50,10 @@ MonthlyList = class MonthlyList {
     return MonthlyListInstance.get(sid);
   }
 
-  MonthlyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MonthlyListInstance._solution = {accountSid: accountSid};
-  MonthlyListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/Monthly.json' // jshint ignore:line
   )(MonthlyListInstance._solution);
   /* jshint ignore:start */

@@ -43,12 +43,12 @@ PhoneNumberList = class PhoneNumberList {
     return PhoneNumberListInstance.get(sid);
   }
 
-  PhoneNumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PhoneNumberListInstance._solution = {};
+  static _solution = {};
 
   // Components
-  PhoneNumberListInstance._countries = undefined;
+  static _countries = undefined;
 
   Object.defineProperty(PhoneNumberListInstance,
     'countries', {

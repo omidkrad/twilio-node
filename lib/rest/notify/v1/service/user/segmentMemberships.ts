@@ -48,10 +48,10 @@ SegmentMembershipList = function SegmentMembershipList(version, serviceSid,
     return SegmentMembershipListInstance.get(sid);
   }
 
-  SegmentMembershipListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SegmentMembershipListInstance._solution = {serviceSid: serviceSid, identity: identity};
-  SegmentMembershipListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, identity: identity};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Users/<%= identity %>/SegmentMemberships' // jshint ignore:line
   )(SegmentMembershipListInstance._solution);
   /* jshint ignore:start */

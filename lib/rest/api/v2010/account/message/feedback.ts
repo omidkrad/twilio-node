@@ -48,10 +48,10 @@ FeedbackList = class FeedbackList {
     return FeedbackListInstance.get(sid);
   }
 
-  FeedbackListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FeedbackListInstance._solution = {accountSid: accountSid, messageSid: messageSid};
-  FeedbackListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, messageSid: messageSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Messages/<%= messageSid %>/Feedback.json' // jshint ignore:line
   )(FeedbackListInstance._solution);
   /* jshint ignore:start */

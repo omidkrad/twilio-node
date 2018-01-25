@@ -49,10 +49,10 @@ RatePlanList = class RatePlanList {
     return RatePlanListInstance.get(sid);
   }
 
-  RatePlanListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RatePlanListInstance._solution = {};
-  RatePlanListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/RatePlans' // jshint ignore:line
   )(RatePlanListInstance._solution);
   /* jshint ignore:start */

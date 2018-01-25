@@ -49,10 +49,10 @@ OriginationUrlList = class OriginationUrlList {
     return OriginationUrlListInstance.get(sid);
   }
 
-  OriginationUrlListInstance._version = version;
+  static _version = version;
   // Path Solution
-  OriginationUrlListInstance._solution = {trunkSid: trunkSid};
-  OriginationUrlListInstance._uri = _.template(
+  static _solution = {trunkSid: trunkSid};
+  static _uri = _.template(
     '/Trunks/<%= trunkSid %>/OriginationUrls' // jshint ignore:line
   )(OriginationUrlListInstance._solution);
   /* jshint ignore:start */

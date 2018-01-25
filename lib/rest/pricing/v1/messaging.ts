@@ -43,12 +43,12 @@ MessagingList = class MessagingList {
     return MessagingListInstance.get(sid);
   }
 
-  MessagingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MessagingListInstance._solution = {};
+  static _solution = {};
 
   // Components
-  MessagingListInstance._countries = undefined;
+  static _countries = undefined;
 
   Object.defineProperty(MessagingListInstance,
     'countries', {

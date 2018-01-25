@@ -48,10 +48,10 @@ NewKeyList = class NewKeyList {
     return NewKeyListInstance.get(sid);
   }
 
-  NewKeyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  NewKeyListInstance._solution = {accountSid: accountSid};
-  NewKeyListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Keys.json' // jshint ignore:line
   )(NewKeyListInstance._solution);
   /* jshint ignore:start */

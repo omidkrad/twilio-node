@@ -61,10 +61,10 @@ WorkspaceList = class WorkspaceList {
     return WorkspaceListInstance.get(sid);
   }
 
-  WorkspaceListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkspaceListInstance._solution = {};
-  WorkspaceListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Workspaces' // jshint ignore:line
   )(WorkspaceListInstance._solution);
   /* jshint ignore:start */

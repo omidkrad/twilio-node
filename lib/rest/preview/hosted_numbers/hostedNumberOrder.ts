@@ -49,10 +49,10 @@ HostedNumberOrderList = class HostedNumberOrderList {
     return HostedNumberOrderListInstance.get(sid);
   }
 
-  HostedNumberOrderListInstance._version = version;
+  static _version = version;
   // Path Solution
-  HostedNumberOrderListInstance._solution = {};
-  HostedNumberOrderListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/HostedNumberOrders' // jshint ignore:line
   )(HostedNumberOrderListInstance._solution);
   /* jshint ignore:start */

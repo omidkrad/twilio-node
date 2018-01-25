@@ -49,13 +49,13 @@ IpAddressList = function IpAddressList(version, accountSid,
     return IpAddressListInstance.get(sid);
   }
 
-  IpAddressListInstance._version = version;
+  static _version = version;
   // Path Solution
-  IpAddressListInstance._solution = {
+  static _solution = {
     accountSid: accountSid,
     ipAccessControlListSid: ipAccessControlListSid
   };
-  IpAddressListInstance._uri = _.template(
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/IpAccessControlLists/<%= ipAccessControlListSid %>/IpAddresses.json' // jshint ignore:line
   )(IpAddressListInstance._solution);
   /* jshint ignore:start */

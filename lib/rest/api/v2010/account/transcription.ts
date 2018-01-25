@@ -48,10 +48,10 @@ TranscriptionList = class TranscriptionList {
     return TranscriptionListInstance.get(sid);
   }
 
-  TranscriptionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TranscriptionListInstance._solution = {accountSid: accountSid};
-  TranscriptionListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Transcriptions.json' // jshint ignore:line
   )(TranscriptionListInstance._solution);
   /* jshint ignore:start */

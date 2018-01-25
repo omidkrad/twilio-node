@@ -55,10 +55,10 @@ DomainList = class DomainList {
     return DomainListInstance.get(sid);
   }
 
-  DomainListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DomainListInstance._solution = {accountSid: accountSid};
-  DomainListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/Domains.json' // jshint ignore:line
   )(DomainListInstance._solution);
   /* jshint ignore:start */

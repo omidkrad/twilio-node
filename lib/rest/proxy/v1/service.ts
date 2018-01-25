@@ -51,10 +51,10 @@ ServiceList = class ServiceList {
     return ServiceListInstance.get(sid);
   }
 
-  ServiceListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ServiceListInstance._solution = {};
-  ServiceListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Services' // jshint ignore:line
   )(ServiceListInstance._solution);
   /* jshint ignore:start */

@@ -48,10 +48,10 @@ AvailableAddOnList = class AvailableAddOnList {
     return AvailableAddOnListInstance.get(sid);
   }
 
-  AvailableAddOnListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AvailableAddOnListInstance._solution = {};
-  AvailableAddOnListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/AvailableAddOns' // jshint ignore:line
   )(AvailableAddOnListInstance._solution);
   /* jshint ignore:start */

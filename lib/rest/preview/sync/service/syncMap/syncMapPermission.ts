@@ -50,10 +50,10 @@ SyncMapPermissionList = function SyncMapPermissionList(version, serviceSid,
     return SyncMapPermissionListInstance.get(sid);
   }
 
-  SyncMapPermissionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SyncMapPermissionListInstance._solution = {serviceSid: serviceSid, mapSid: mapSid};
-  SyncMapPermissionListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, mapSid: mapSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Maps/<%= mapSid %>/Permissions' // jshint ignore:line
   )(SyncMapPermissionListInstance._solution);
   /* jshint ignore:start */

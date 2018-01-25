@@ -49,10 +49,10 @@ FaxMediaList = class FaxMediaList {
     return FaxMediaListInstance.get(sid);
   }
 
-  FaxMediaListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FaxMediaListInstance._solution = {faxSid: faxSid};
-  FaxMediaListInstance._uri = _.template(
+  static _solution = {faxSid: faxSid};
+  static _uri = _.template(
     '/Faxes/<%= faxSid %>/Media' // jshint ignore:line
   )(FaxMediaListInstance._solution);
   /* jshint ignore:start */

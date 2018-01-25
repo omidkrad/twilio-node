@@ -49,10 +49,10 @@ MemberList = class MemberList {
     return MemberListInstance.get(sid);
   }
 
-  MemberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MemberListInstance._solution = {accountSid: accountSid, queueSid: queueSid};
-  MemberListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, queueSid: queueSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Queues/<%= queueSid %>/Members.json' // jshint ignore:line
   )(MemberListInstance._solution);
   /* jshint ignore:start */

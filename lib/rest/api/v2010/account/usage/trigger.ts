@@ -49,10 +49,10 @@ TriggerList = class TriggerList {
     return TriggerListInstance.get(sid);
   }
 
-  TriggerListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TriggerListInstance._solution = {accountSid: accountSid};
-  TriggerListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Triggers.json' // jshint ignore:line
   )(TriggerListInstance._solution);
   /* jshint ignore:start */

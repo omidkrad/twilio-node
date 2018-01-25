@@ -49,10 +49,10 @@ RoomRecordingList = class RoomRecordingList {
     return RoomRecordingListInstance.get(sid);
   }
 
-  RoomRecordingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RoomRecordingListInstance._solution = {roomSid: roomSid};
-  RoomRecordingListInstance._uri = _.template(
+  static _solution = {roomSid: roomSid};
+  static _uri = _.template(
     '/Rooms/<%= roomSid %>/Recordings' // jshint ignore:line
   )(RoomRecordingListInstance._solution);
   /* jshint ignore:start */

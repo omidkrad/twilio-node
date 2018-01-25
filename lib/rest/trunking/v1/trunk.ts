@@ -53,10 +53,10 @@ TrunkList = class TrunkList {
     return TrunkListInstance.get(sid);
   }
 
-  TrunkListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TrunkListInstance._solution = {};
-  TrunkListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Trunks' // jshint ignore:line
   )(TrunkListInstance._solution);
   /* jshint ignore:start */

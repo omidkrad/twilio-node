@@ -48,10 +48,10 @@ CommandList = class CommandList {
     return CommandListInstance.get(sid);
   }
 
-  CommandListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CommandListInstance._solution = {};
-  CommandListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Commands' // jshint ignore:line
   )(CommandListInstance._solution);
   /* jshint ignore:start */

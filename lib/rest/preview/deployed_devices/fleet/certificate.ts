@@ -49,10 +49,10 @@ CertificateList = class CertificateList {
     return CertificateListInstance.get(sid);
   }
 
-  CertificateListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CertificateListInstance._solution = {fleetSid: fleetSid};
-  CertificateListInstance._uri = _.template(
+  static _solution = {fleetSid: fleetSid};
+  static _uri = _.template(
     '/Fleets/<%= fleetSid %>/Certificates' // jshint ignore:line
   )(CertificateListInstance._solution);
   /* jshint ignore:start */

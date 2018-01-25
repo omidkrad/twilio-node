@@ -51,10 +51,10 @@ NationalList = class NationalList {
     return NationalListInstance.get(sid);
   }
 
-  NationalListInstance._version = version;
+  static _version = version;
   // Path Solution
-  NationalListInstance._solution = {accountSid: accountSid, countryCode: countryCode};
-  NationalListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, countryCode: countryCode};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AvailablePhoneNumbers/<%= countryCode %>/National.json' // jshint ignore:line
   )(NationalListInstance._solution);
   /* jshint ignore:start */

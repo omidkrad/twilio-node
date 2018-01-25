@@ -50,10 +50,10 @@ StepList = class StepList {
     return StepListInstance.get(sid);
   }
 
-  StepListInstance._version = version;
+  static _version = version;
   // Path Solution
-  StepListInstance._solution = {flowSid: flowSid, engagementSid: engagementSid};
-  StepListInstance._uri = _.template(
+  static _solution = {flowSid: flowSid, engagementSid: engagementSid};
+  static _uri = _.template(
     '/Flows/<%= flowSid %>/Engagements/<%= engagementSid %>/Steps' // jshint ignore:line
   )(StepListInstance._solution);
   /* jshint ignore:start */

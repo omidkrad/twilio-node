@@ -48,9 +48,9 @@ WorkersRealTimeStatisticsList = function WorkersRealTimeStatisticsList(version,
     return WorkersRealTimeStatisticsListInstance.get(sid);
   }
 
-  WorkersRealTimeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkersRealTimeStatisticsListInstance._solution = {workspaceSid: workspaceSid};
+  static _solution = {workspaceSid: workspaceSid};
   /* jshint ignore:start */
   /**
    * Constructs a workers_real_time_statistics

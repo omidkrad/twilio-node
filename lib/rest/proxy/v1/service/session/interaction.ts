@@ -50,10 +50,10 @@ InteractionList = class InteractionList {
     return InteractionListInstance.get(sid);
   }
 
-  InteractionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  InteractionListInstance._solution = {serviceSid: serviceSid, sessionSid: sessionSid};
-  InteractionListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, sessionSid: sessionSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Sessions/<%= sessionSid %>/Interactions' // jshint ignore:line
   )(InteractionListInstance._solution);
   /* jshint ignore:start */

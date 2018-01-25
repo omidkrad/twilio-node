@@ -48,10 +48,10 @@ DependentPhoneNumberList = function DependentPhoneNumberList(version,
     return DependentPhoneNumberListInstance.get(sid);
   }
 
-  DependentPhoneNumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DependentPhoneNumberListInstance._solution = {accountSid: accountSid, addressSid: addressSid};
-  DependentPhoneNumberListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, addressSid: addressSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Addresses/<%= addressSid %>/DependentPhoneNumbers.json' // jshint ignore:line
   )(DependentPhoneNumberListInstance._solution);
   /* jshint ignore:start */

@@ -47,10 +47,10 @@ AwsList = class AwsList {
     return AwsListInstance.get(sid);
   }
 
-  AwsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AwsListInstance._solution = {};
-  AwsListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Credentials/AWS' // jshint ignore:line
   )(AwsListInstance._solution);
   /* jshint ignore:start */

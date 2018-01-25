@@ -48,9 +48,9 @@ WorkspaceRealTimeStatisticsList = function
     return WorkspaceRealTimeStatisticsListInstance.get(sid);
   }
 
-  WorkspaceRealTimeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkspaceRealTimeStatisticsListInstance._solution = {workspaceSid: workspaceSid};
+  static _solution = {workspaceSid: workspaceSid};
   /* jshint ignore:start */
   /**
    * Constructs a workspace_real_time_statistics

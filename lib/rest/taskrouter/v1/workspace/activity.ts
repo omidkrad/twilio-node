@@ -49,10 +49,10 @@ ActivityList = class ActivityList {
     return ActivityListInstance.get(sid);
   }
 
-  ActivityListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ActivityListInstance._solution = {workspaceSid: workspaceSid};
-  ActivityListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/Activities' // jshint ignore:line
   )(ActivityListInstance._solution);
   /* jshint ignore:start */

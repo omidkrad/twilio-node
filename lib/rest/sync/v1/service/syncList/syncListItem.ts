@@ -52,10 +52,10 @@ SyncListItemList = class SyncListItemList {
     return SyncListItemListInstance.get(sid);
   }
 
-  SyncListItemListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SyncListItemListInstance._solution = {serviceSid: serviceSid, listSid: listSid};
-  SyncListItemListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, listSid: listSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Lists/<%= listSid %>/Items' // jshint ignore:line
   )(SyncListItemListInstance._solution);
   /* jshint ignore:start */

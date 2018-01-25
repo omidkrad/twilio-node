@@ -51,10 +51,10 @@ InviteList = class InviteList {
     return InviteListInstance.get(sid);
   }
 
-  InviteListInstance._version = version;
+  static _version = version;
   // Path Solution
-  InviteListInstance._solution = {serviceSid: serviceSid, channelSid: channelSid};
-  InviteListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, channelSid: channelSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Channels/<%= channelSid %>/Invites' // jshint ignore:line
   )(InviteListInstance._solution);
   /* jshint ignore:start */

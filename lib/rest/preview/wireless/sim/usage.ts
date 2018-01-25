@@ -47,9 +47,9 @@ UsageList = class UsageList {
     return UsageListInstance.get(sid);
   }
 
-  UsageListInstance._version = version;
+  static _version = version;
   // Path Solution
-  UsageListInstance._solution = {simSid: simSid};
+  static _solution = {simSid: simSid};
   /* jshint ignore:start */
   /**
    * Constructs a usage

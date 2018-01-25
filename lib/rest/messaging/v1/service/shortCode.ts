@@ -49,10 +49,10 @@ ShortCodeList = class ShortCodeList {
     return ShortCodeListInstance.get(sid);
   }
 
-  ShortCodeListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ShortCodeListInstance._solution = {serviceSid: serviceSid};
-  ShortCodeListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/ShortCodes' // jshint ignore:line
   )(ShortCodeListInstance._solution);
   /* jshint ignore:start */

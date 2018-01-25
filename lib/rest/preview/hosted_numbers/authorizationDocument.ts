@@ -51,10 +51,10 @@ AuthorizationDocumentList = class AuthorizationDocumentList {
     return AuthorizationDocumentListInstance.get(sid);
   }
 
-  AuthorizationDocumentListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AuthorizationDocumentListInstance._solution = {};
-  AuthorizationDocumentListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/AuthorizationDocuments' // jshint ignore:line
   )(AuthorizationDocumentListInstance._solution);
   /* jshint ignore:start */

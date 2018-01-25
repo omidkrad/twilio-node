@@ -48,10 +48,10 @@ InstalledAddOnExtensionList = function InstalledAddOnExtensionList(version,
     return InstalledAddOnExtensionListInstance.get(sid);
   }
 
-  InstalledAddOnExtensionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  InstalledAddOnExtensionListInstance._solution = {installedAddOnSid: installedAddOnSid};
-  InstalledAddOnExtensionListInstance._uri = _.template(
+  static _solution = {installedAddOnSid: installedAddOnSid};
+  static _uri = _.template(
     '/InstalledAddOns/<%= installedAddOnSid %>/Extensions' // jshint ignore:line
   )(InstalledAddOnExtensionListInstance._solution);
   /* jshint ignore:start */

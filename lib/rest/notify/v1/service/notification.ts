@@ -49,10 +49,10 @@ NotificationList = class NotificationList {
     return NotificationListInstance.get(sid);
   }
 
-  NotificationListInstance._version = version;
+  static _version = version;
   // Path Solution
-  NotificationListInstance._solution = {serviceSid: serviceSid};
-  NotificationListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Notifications' // jshint ignore:line
   )(NotificationListInstance._solution);
   /* jshint ignore:start */

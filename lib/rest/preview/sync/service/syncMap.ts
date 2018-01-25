@@ -52,10 +52,10 @@ SyncMapList = class SyncMapList {
     return SyncMapListInstance.get(sid);
   }
 
-  SyncMapListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SyncMapListInstance._solution = {serviceSid: serviceSid};
-  SyncMapListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Maps' // jshint ignore:line
   )(SyncMapListInstance._solution);
   /* jshint ignore:start */

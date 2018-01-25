@@ -47,10 +47,10 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
     return AvailableAddOnExtensionListInstance.get(sid);
   }
 
-  AvailableAddOnExtensionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AvailableAddOnExtensionListInstance._solution = {availableAddOnSid: availableAddOnSid};
-  AvailableAddOnExtensionListInstance._uri = _.template(
+  static _solution = {availableAddOnSid: availableAddOnSid};
+  static _uri = _.template(
     '/AvailableAddOns/<%= availableAddOnSid %>/Extensions' // jshint ignore:line
   )(AvailableAddOnExtensionListInstance._solution);
   /* jshint ignore:start */

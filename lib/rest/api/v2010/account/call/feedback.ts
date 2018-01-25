@@ -52,9 +52,9 @@ FeedbackList = class FeedbackList {
     return FeedbackListInstance.get(sid);
   }
 
-  FeedbackListInstance._version = version;
+  static _version = version;
   // Path Solution
-  FeedbackListInstance._solution = {accountSid: accountSid, callSid: callSid};
+  static _solution = {accountSid: accountSid, callSid: callSid};
   /* jshint ignore:start */
   /**
    * Constructs a feedback

@@ -49,10 +49,10 @@ MobileList = class MobileList {
     return MobileListInstance.get(sid);
   }
 
-  MobileListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MobileListInstance._solution = {accountSid: accountSid};
-  MobileListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/IncomingPhoneNumbers/Mobile.json' // jshint ignore:line
   )(MobileListInstance._solution);
   /* jshint ignore:start */

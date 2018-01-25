@@ -50,10 +50,10 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
     return SyncListPermissionListInstance.get(sid);
   }
 
-  SyncListPermissionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SyncListPermissionListInstance._solution = {serviceSid: serviceSid, listSid: listSid};
-  SyncListPermissionListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, listSid: listSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Lists/<%= listSid %>/Permissions' // jshint ignore:line
   )(SyncListPermissionListInstance._solution);
   /* jshint ignore:start */

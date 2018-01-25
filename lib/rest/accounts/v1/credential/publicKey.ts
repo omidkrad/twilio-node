@@ -47,10 +47,10 @@ PublicKeyList = class PublicKeyList {
     return PublicKeyListInstance.get(sid);
   }
 
-  PublicKeyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PublicKeyListInstance._solution = {};
-  PublicKeyListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Credentials/PublicKeys' // jshint ignore:line
   )(PublicKeyListInstance._solution);
   /* jshint ignore:start */

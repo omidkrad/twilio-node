@@ -49,10 +49,10 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
     return PublishedTrackListInstance.get(sid);
   }
 
-  PublishedTrackListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PublishedTrackListInstance._solution = {roomSid: roomSid, participantSid: participantSid};
-  PublishedTrackListInstance._uri = _.template(
+  static _solution = {roomSid: roomSid, participantSid: participantSid};
+  static _uri = _.template(
     '/Rooms/<%= roomSid %>/Participants/<%= participantSid %>/PublishedTracks' // jshint ignore:line
   )(PublishedTrackListInstance._solution);
   /* jshint ignore:start */

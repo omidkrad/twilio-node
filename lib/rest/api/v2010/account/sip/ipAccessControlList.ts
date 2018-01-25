@@ -50,10 +50,10 @@ IpAccessControlListList = function IpAccessControlListList(version, accountSid)
     return IpAccessControlListListInstance.get(sid);
   }
 
-  IpAccessControlListListInstance._version = version;
+  static _version = version;
   // Path Solution
-  IpAccessControlListListInstance._solution = {accountSid: accountSid};
-  IpAccessControlListListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/IpAccessControlLists.json' // jshint ignore:line
   )(IpAccessControlListListInstance._solution);
   /* jshint ignore:start */

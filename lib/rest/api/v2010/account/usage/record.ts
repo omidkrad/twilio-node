@@ -58,22 +58,22 @@ RecordList = class RecordList {
     return RecordListInstance.get(sid);
   }
 
-  RecordListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RecordListInstance._solution = {accountSid: accountSid};
-  RecordListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records.json' // jshint ignore:line
   )(RecordListInstance._solution);
 
   // Components
-  RecordListInstance._allTime = undefined;
-  RecordListInstance._daily = undefined;
-  RecordListInstance._lastMonth = undefined;
-  RecordListInstance._monthly = undefined;
-  RecordListInstance._thisMonth = undefined;
-  RecordListInstance._today = undefined;
-  RecordListInstance._yearly = undefined;
-  RecordListInstance._yesterday = undefined;
+  static _allTime = undefined;
+  static _daily = undefined;
+  static _lastMonth = undefined;
+  static _monthly = undefined;
+  static _thisMonth = undefined;
+  static _today = undefined;
+  static _yearly = undefined;
+  static _yesterday = undefined;
 
   /* jshint ignore:start */
   /**

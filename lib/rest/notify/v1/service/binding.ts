@@ -50,10 +50,10 @@ BindingList = class BindingList {
     return BindingListInstance.get(sid);
   }
 
-  BindingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  BindingListInstance._solution = {serviceSid: serviceSid};
-  BindingListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Bindings' // jshint ignore:line
   )(BindingListInstance._solution);
   /* jshint ignore:start */

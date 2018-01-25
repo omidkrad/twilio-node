@@ -44,13 +44,13 @@ VoiceList = class VoiceList {
     return VoiceListInstance.get(sid);
   }
 
-  VoiceListInstance._version = version;
+  static _version = version;
   // Path Solution
-  VoiceListInstance._solution = {};
+  static _solution = {};
 
   // Components
-  VoiceListInstance._numbers = undefined;
-  VoiceListInstance._countries = undefined;
+  static _numbers = undefined;
+  static _countries = undefined;
 
   Object.defineProperty(VoiceListInstance,
     'numbers', {

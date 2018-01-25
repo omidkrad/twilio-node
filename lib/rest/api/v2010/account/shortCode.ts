@@ -48,10 +48,10 @@ ShortCodeList = class ShortCodeList {
     return ShortCodeListInstance.get(sid);
   }
 
-  ShortCodeListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ShortCodeListInstance._solution = {accountSid: accountSid};
-  ShortCodeListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SMS/ShortCodes.json' // jshint ignore:line
   )(ShortCodeListInstance._solution);
   /* jshint ignore:start */

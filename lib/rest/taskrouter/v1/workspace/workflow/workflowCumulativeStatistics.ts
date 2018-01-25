@@ -51,9 +51,9 @@ WorkflowCumulativeStatisticsList = function
     return WorkflowCumulativeStatisticsListInstance.get(sid);
   }
 
-  WorkflowCumulativeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkflowCumulativeStatisticsListInstance._solution = {
+  static _solution = {
     workspaceSid: workspaceSid,
     workflowSid: workflowSid
   };

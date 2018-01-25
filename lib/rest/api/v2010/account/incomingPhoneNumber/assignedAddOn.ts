@@ -52,10 +52,10 @@ AssignedAddOnList = function AssignedAddOnList(version, accountSid, resourceSid)
     return AssignedAddOnListInstance.get(sid);
   }
 
-  AssignedAddOnListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AssignedAddOnListInstance._solution = {accountSid: accountSid, resourceSid: resourceSid};
-  AssignedAddOnListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, resourceSid: resourceSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/IncomingPhoneNumbers/<%= resourceSid %>/AssignedAddOns.json' // jshint ignore:line
   )(AssignedAddOnListInstance._solution);
   /* jshint ignore:start */

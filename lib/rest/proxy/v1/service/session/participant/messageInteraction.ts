@@ -54,14 +54,14 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
     return MessageInteractionListInstance.get(sid);
   }
 
-  MessageInteractionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MessageInteractionListInstance._solution = {
+  static _solution = {
     serviceSid: serviceSid,
     sessionSid: sessionSid,
     participantSid: participantSid
   };
-  MessageInteractionListInstance._uri = _.template(
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Sessions/<%= sessionSid %>/Participants/<%= participantSid %>/MessageInteractions' // jshint ignore:line
   )(MessageInteractionListInstance._solution);
   /* jshint ignore:start */

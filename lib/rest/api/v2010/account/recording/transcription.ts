@@ -49,10 +49,10 @@ TranscriptionList = function TranscriptionList(version, accountSid,
     return TranscriptionListInstance.get(sid);
   }
 
-  TranscriptionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TranscriptionListInstance._solution = {accountSid: accountSid, recordingSid: recordingSid};
-  TranscriptionListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, recordingSid: recordingSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Recordings/<%= recordingSid %>/Transcriptions.json' // jshint ignore:line
   )(TranscriptionListInstance._solution);
   /* jshint ignore:start */

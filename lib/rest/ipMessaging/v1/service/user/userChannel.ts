@@ -48,10 +48,10 @@ UserChannelList = class UserChannelList {
     return UserChannelListInstance.get(sid);
   }
 
-  UserChannelListInstance._version = version;
+  static _version = version;
   // Path Solution
-  UserChannelListInstance._solution = {serviceSid: serviceSid, userSid: userSid};
-  UserChannelListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, userSid: userSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Users/<%= userSid %>/Channels' // jshint ignore:line
   )(UserChannelListInstance._solution);
   /* jshint ignore:start */

@@ -49,10 +49,10 @@ DataSessionList = class DataSessionList {
     return DataSessionListInstance.get(sid);
   }
 
-  DataSessionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DataSessionListInstance._solution = {simSid: simSid};
-  DataSessionListInstance._uri = _.template(
+  static _solution = {simSid: simSid};
+  static _uri = _.template(
     '/Sims/<%= simSid %>/DataSessions' // jshint ignore:line
   )(DataSessionListInstance._solution);
   /* jshint ignore:start */

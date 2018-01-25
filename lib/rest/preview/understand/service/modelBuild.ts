@@ -49,10 +49,10 @@ ModelBuildList = class ModelBuildList {
     return ModelBuildListInstance.get(sid);
   }
 
-  ModelBuildListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ModelBuildListInstance._solution = {serviceSid: serviceSid};
-  ModelBuildListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/ModelBuilds' // jshint ignore:line
   )(ModelBuildListInstance._solution);
   /* jshint ignore:start */

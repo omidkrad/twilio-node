@@ -50,10 +50,10 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
     return DocumentPermissionListInstance.get(sid);
   }
 
-  DocumentPermissionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DocumentPermissionListInstance._solution = {serviceSid: serviceSid, documentSid: documentSid};
-  DocumentPermissionListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, documentSid: documentSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Documents/<%= documentSid %>/Permissions' // jshint ignore:line
   )(DocumentPermissionListInstance._solution);
   /* jshint ignore:start */

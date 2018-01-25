@@ -52,10 +52,10 @@ ChannelList = class ChannelList {
     return ChannelListInstance.get(sid);
   }
 
-  ChannelListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ChannelListInstance._solution = {serviceSid: serviceSid};
-  ChannelListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Channels' // jshint ignore:line
   )(ChannelListInstance._solution);
   /* jshint ignore:start */

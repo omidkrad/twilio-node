@@ -50,14 +50,14 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
     return AssignedAddOnExtensionListInstance.get(sid);
   }
 
-  AssignedAddOnExtensionListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AssignedAddOnExtensionListInstance._solution = {
+  static _solution = {
     accountSid: accountSid,
     resourceSid: resourceSid,
     assignedAddOnSid: assignedAddOnSid
   };
-  AssignedAddOnExtensionListInstance._uri = _.template(
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/IncomingPhoneNumbers/<%= resourceSid %>/AssignedAddOns/<%= assignedAddOnSid %>/Extensions.json' // jshint ignore:line
   )(AssignedAddOnExtensionListInstance._solution);
   /* jshint ignore:start */

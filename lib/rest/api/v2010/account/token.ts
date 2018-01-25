@@ -47,10 +47,10 @@ TokenList = class TokenList {
     return TokenListInstance.get(sid);
   }
 
-  TokenListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TokenListInstance._solution = {accountSid: accountSid};
-  TokenListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Tokens.json' // jshint ignore:line
   )(TokenListInstance._solution);
   /* jshint ignore:start */

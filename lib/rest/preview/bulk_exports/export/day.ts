@@ -48,10 +48,10 @@ DayList = class DayList {
     return DayListInstance.get(sid);
   }
 
-  DayListInstance._version = version;
+  static _version = version;
   // Path Solution
-  DayListInstance._solution = {resourceType: resourceType};
-  DayListInstance._uri = _.template(
+  static _solution = {resourceType: resourceType};
+  static _uri = _.template(
     '/Exports/<%= resourceType %>/Days' // jshint ignore:line
   )(DayListInstance._solution);
   /* jshint ignore:start */

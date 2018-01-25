@@ -52,10 +52,10 @@ ParticipantList = class ParticipantList {
     return ParticipantListInstance.get(sid);
   }
 
-  ParticipantListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ParticipantListInstance._solution = {serviceSid: serviceSid, sessionSid: sessionSid};
-  ParticipantListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, sessionSid: sessionSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Sessions/<%= sessionSid %>/Participants' // jshint ignore:line
   )(ParticipantListInstance._solution);
   /* jshint ignore:start */

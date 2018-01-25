@@ -45,15 +45,15 @@ SipList = class SipList {
     return SipListInstance.get(sid);
   }
 
-  SipListInstance._version = version;
+  static _version = version;
   // Path Solution
-  SipListInstance._solution = {accountSid: accountSid};
+  static _solution = {accountSid: accountSid};
 
   // Components
-  SipListInstance._domains = undefined;
-  SipListInstance._regions = undefined;
-  SipListInstance._ipAccessControlLists = undefined;
-  SipListInstance._credentialLists = undefined;
+  static _domains = undefined;
+  static _regions = undefined;
+  static _ipAccessControlLists = undefined;
+  static _credentialLists = undefined;
 
   Object.defineProperty(SipListInstance,
     'domains', {

@@ -31,7 +31,7 @@ class Page {
  * @constant META_KEYS
  * @description meta keys returned in a list request
  */
-Page.prototype.META_KEYS = [
+static prototype.META_KEYS = [
   'end',
   'first_page_uri',
   'last_page_uri',

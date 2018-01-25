@@ -51,10 +51,10 @@ MediaList = class MediaList {
     return MediaListInstance.get(sid);
   }
 
-  MediaListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MediaListInstance._solution = {accountSid: accountSid, messageSid: messageSid};
-  MediaListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, messageSid: messageSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Messages/<%= messageSid %>/Media.json' // jshint ignore:line
   )(MediaListInstance._solution);
   /* jshint ignore:start */

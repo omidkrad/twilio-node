@@ -49,10 +49,10 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
     return CredentialListInstance.get(sid);
   }
 
-  CredentialListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CredentialListInstance._solution = {accountSid: accountSid, credentialListSid: credentialListSid};
-  CredentialListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, credentialListSid: credentialListSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/CredentialLists/<%= credentialListSid %>/Credentials.json' // jshint ignore:line
   )(CredentialListInstance._solution);
   /* jshint ignore:start */

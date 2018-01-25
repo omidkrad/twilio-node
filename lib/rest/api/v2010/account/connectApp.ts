@@ -47,10 +47,10 @@ ConnectAppList = class ConnectAppList {
     return ConnectAppListInstance.get(sid);
   }
 
-  ConnectAppListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ConnectAppListInstance._solution = {accountSid: accountSid};
-  ConnectAppListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/ConnectApps.json' // jshint ignore:line
   )(ConnectAppListInstance._solution);
   /* jshint ignore:start */

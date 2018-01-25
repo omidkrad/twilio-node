@@ -51,10 +51,10 @@ RecordingList = class RecordingList {
     return RecordingListInstance.get(sid);
   }
 
-  RecordingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RecordingListInstance._solution = {accountSid: accountSid};
-  RecordingListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Recordings.json' // jshint ignore:line
   )(RecordingListInstance._solution);
   /* jshint ignore:start */

@@ -48,10 +48,10 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
     return OutgoingCallerIdListInstance.get(sid);
   }
 
-  OutgoingCallerIdListInstance._version = version;
+  static _version = version;
   // Path Solution
-  OutgoingCallerIdListInstance._solution = {accountSid: accountSid};
-  OutgoingCallerIdListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/OutgoingCallerIds.json' // jshint ignore:line
   )(OutgoingCallerIdListInstance._solution);
   /* jshint ignore:start */

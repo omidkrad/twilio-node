@@ -50,10 +50,10 @@ YearlyList = class YearlyList {
     return YearlyListInstance.get(sid);
   }
 
-  YearlyListInstance._version = version;
+  static _version = version;
   // Path Solution
-  YearlyListInstance._solution = {accountSid: accountSid};
-  YearlyListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/Yearly.json' // jshint ignore:line
   )(YearlyListInstance._solution);
   /* jshint ignore:start */

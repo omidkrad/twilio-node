@@ -49,10 +49,10 @@ CredentialListMappingList = function CredentialListMappingList(version,
     return CredentialListMappingListInstance.get(sid);
   }
 
-  CredentialListMappingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CredentialListMappingListInstance._solution = {accountSid: accountSid, domainSid: domainSid};
-  CredentialListMappingListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, domainSid: domainSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/Domains/<%= domainSid %>/CredentialListMappings.json' // jshint ignore:line
   )(CredentialListMappingListInstance._solution);
   /* jshint ignore:start */

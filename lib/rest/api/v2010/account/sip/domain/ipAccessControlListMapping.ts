@@ -49,10 +49,10 @@ IpAccessControlListMappingList = function
     return IpAccessControlListMappingListInstance.get(sid);
   }
 
-  IpAccessControlListMappingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  IpAccessControlListMappingListInstance._solution = {accountSid: accountSid, domainSid: domainSid};
-  IpAccessControlListMappingListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, domainSid: domainSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/SIP/Domains/<%= domainSid %>/IpAccessControlListMappings.json' // jshint ignore:line
   )(IpAccessControlListMappingListInstance._solution);
   /* jshint ignore:start */

@@ -50,14 +50,14 @@ PayloadList = function PayloadList(version, accountSid, referenceSid,
     return PayloadListInstance.get(sid);
   }
 
-  PayloadListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PayloadListInstance._solution = {
+  static _solution = {
     accountSid: accountSid,
     referenceSid: referenceSid,
     addOnResultSid: addOnResultSid
   };
-  PayloadListInstance._uri = _.template(
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Recordings/<%= referenceSid %>/AddOnResults/<%= addOnResultSid %>/Payloads.json' // jshint ignore:line
   )(PayloadListInstance._solution);
   /* jshint ignore:start */

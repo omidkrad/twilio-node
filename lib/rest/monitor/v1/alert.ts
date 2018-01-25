@@ -48,10 +48,10 @@ AlertList = class AlertList {
     return AlertListInstance.get(sid);
   }
 
-  AlertListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AlertListInstance._solution = {};
-  AlertListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Alerts' // jshint ignore:line
   )(AlertListInstance._solution);
   /* jshint ignore:start */

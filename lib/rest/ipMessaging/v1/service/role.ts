@@ -49,10 +49,10 @@ RoleList = class RoleList {
     return RoleListInstance.get(sid);
   }
 
-  RoleListInstance._version = version;
+  static _version = version;
   // Path Solution
-  RoleListInstance._solution = {serviceSid: serviceSid};
-  RoleListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Roles' // jshint ignore:line
   )(RoleListInstance._solution);
   /* jshint ignore:start */

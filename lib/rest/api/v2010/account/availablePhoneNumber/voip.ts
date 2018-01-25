@@ -51,10 +51,10 @@ VoipList = class VoipList {
     return VoipListInstance.get(sid);
   }
 
-  VoipListInstance._version = version;
+  static _version = version;
   // Path Solution
-  VoipListInstance._solution = {accountSid: accountSid, countryCode: countryCode};
-  VoipListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, countryCode: countryCode};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AvailablePhoneNumbers/<%= countryCode %>/Voip.json' // jshint ignore:line
   )(VoipListInstance._solution);
   /* jshint ignore:start */

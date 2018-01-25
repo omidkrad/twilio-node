@@ -51,9 +51,9 @@ TaskQueueCumulativeStatisticsList = function
     return TaskQueueCumulativeStatisticsListInstance.get(sid);
   }
 
-  TaskQueueCumulativeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskQueueCumulativeStatisticsListInstance._solution = {
+  static _solution = {
     workspaceSid: workspaceSid,
     taskQueueSid: taskQueueSid
   };

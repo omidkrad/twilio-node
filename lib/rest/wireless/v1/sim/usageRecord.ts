@@ -47,10 +47,10 @@ UsageRecordList = class UsageRecordList {
     return UsageRecordListInstance.get(sid);
   }
 
-  UsageRecordListInstance._version = version;
+  static _version = version;
   // Path Solution
-  UsageRecordListInstance._solution = {simSid: simSid};
-  UsageRecordListInstance._uri = _.template(
+  static _solution = {simSid: simSid};
+  static _uri = _.template(
     '/Sims/<%= simSid %>/UsageRecords' // jshint ignore:line
   )(UsageRecordListInstance._solution);
   /* jshint ignore:start */

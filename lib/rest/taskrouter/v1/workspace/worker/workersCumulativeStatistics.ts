@@ -50,9 +50,9 @@ WorkersCumulativeStatisticsList = function
     return WorkersCumulativeStatisticsListInstance.get(sid);
   }
 
-  WorkersCumulativeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkersCumulativeStatisticsListInstance._solution = {workspaceSid: workspaceSid};
+  static _solution = {workspaceSid: workspaceSid};
   /* jshint ignore:start */
   /**
    * Constructs a workers_cumulative_statistics

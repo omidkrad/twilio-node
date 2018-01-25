@@ -49,10 +49,10 @@ ApplicationList = class ApplicationList {
     return ApplicationListInstance.get(sid);
   }
 
-  ApplicationListInstance._version = version;
+  static _version = version;
   // Path Solution
-  ApplicationListInstance._solution = {accountSid: accountSid};
-  ApplicationListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Applications.json' // jshint ignore:line
   )(ApplicationListInstance._solution);
   /* jshint ignore:start */

@@ -51,10 +51,10 @@ UserBindingList = class UserBindingList {
     return UserBindingListInstance.get(sid);
   }
 
-  UserBindingListInstance._version = version;
+  static _version = version;
   // Path Solution
-  UserBindingListInstance._solution = {serviceSid: serviceSid, userSid: userSid};
-  UserBindingListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, userSid: userSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Users/<%= userSid %>/Bindings' // jshint ignore:line
   )(UserBindingListInstance._solution);
   /* jshint ignore:start */

@@ -51,10 +51,10 @@ NotificationList = class NotificationList {
     return NotificationListInstance.get(sid);
   }
 
-  NotificationListInstance._version = version;
+  static _version = version;
   // Path Solution
-  NotificationListInstance._solution = {accountSid: accountSid, callSid: callSid};
-  NotificationListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, callSid: callSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Calls/<%= callSid %>/Notifications.json' // jshint ignore:line
   )(NotificationListInstance._solution);
   /* jshint ignore:start */

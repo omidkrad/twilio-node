@@ -49,10 +49,10 @@ QueryList = class QueryList {
     return QueryListInstance.get(sid);
   }
 
-  QueryListInstance._version = version;
+  static _version = version;
   // Path Solution
-  QueryListInstance._solution = {serviceSid: serviceSid};
-  QueryListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Queries' // jshint ignore:line
   )(QueryListInstance._solution);
   /* jshint ignore:start */

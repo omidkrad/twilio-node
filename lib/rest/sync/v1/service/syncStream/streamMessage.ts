@@ -49,10 +49,10 @@ StreamMessageList = class StreamMessageList {
     return StreamMessageListInstance.get(sid);
   }
 
-  StreamMessageListInstance._version = version;
+  static _version = version;
   // Path Solution
-  StreamMessageListInstance._solution = {serviceSid: serviceSid, streamSid: streamSid};
-  StreamMessageListInstance._uri = _.template(
+  static _solution = {serviceSid: serviceSid, streamSid: streamSid};
+  static _uri = _.template(
     '/Services/<%= serviceSid %>/Streams/<%= streamSid %>/Messages' // jshint ignore:line
   )(StreamMessageListInstance._solution);
   /* jshint ignore:start */

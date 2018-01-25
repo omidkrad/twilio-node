@@ -45,9 +45,9 @@ NumberList = class NumberList {
     return NumberListInstance.get(sid);
   }
 
-  NumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  NumberListInstance._solution = {};
+  static _solution = {};
   /* jshint ignore:start */
   /**
    * Constructs a number

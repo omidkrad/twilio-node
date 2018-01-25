@@ -51,10 +51,10 @@ MessageList = class MessageList {
     return MessageListInstance.get(sid);
   }
 
-  MessageListInstance._version = version;
+  static _version = version;
   // Path Solution
-  MessageListInstance._solution = {accountSid: accountSid};
-  MessageListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Messages.json' // jshint ignore:line
   )(MessageListInstance._solution);
   /* jshint ignore:start */

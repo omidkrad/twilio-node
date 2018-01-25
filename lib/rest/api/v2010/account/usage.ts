@@ -43,13 +43,13 @@ UsageList = class UsageList {
     return UsageListInstance.get(sid);
   }
 
-  UsageListInstance._version = version;
+  static _version = version;
   // Path Solution
-  UsageListInstance._solution = {accountSid: accountSid};
+  static _solution = {accountSid: accountSid};
 
   // Components
-  UsageListInstance._records = undefined;
-  UsageListInstance._triggers = undefined;
+  static _records = undefined;
+  static _triggers = undefined;
 
   Object.defineProperty(UsageListInstance,
     'records', {

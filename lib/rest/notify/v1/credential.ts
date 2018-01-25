@@ -49,10 +49,10 @@ CredentialList = class CredentialList {
     return CredentialListInstance.get(sid);
   }
 
-  CredentialListInstance._version = version;
+  static _version = version;
   // Path Solution
-  CredentialListInstance._solution = {};
-  CredentialListInstance._uri = _.template(
+  static _solution = {};
+  static _uri = _.template(
     '/Credentials' // jshint ignore:line
   )(CredentialListInstance._solution);
   /* jshint ignore:start */

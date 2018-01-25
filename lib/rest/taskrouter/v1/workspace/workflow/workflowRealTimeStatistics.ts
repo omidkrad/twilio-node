@@ -49,9 +49,9 @@ WorkflowRealTimeStatisticsList = function
     return WorkflowRealTimeStatisticsListInstance.get(sid);
   }
 
-  WorkflowRealTimeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkflowRealTimeStatisticsListInstance._solution = {
+  static _solution = {
     workspaceSid: workspaceSid,
     workflowSid: workflowSid
   };

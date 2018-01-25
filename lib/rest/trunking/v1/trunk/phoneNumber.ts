@@ -48,10 +48,10 @@ PhoneNumberList = class PhoneNumberList {
     return PhoneNumberListInstance.get(sid);
   }
 
-  PhoneNumberListInstance._version = version;
+  static _version = version;
   // Path Solution
-  PhoneNumberListInstance._solution = {trunkSid: trunkSid};
-  PhoneNumberListInstance._uri = _.template(
+  static _solution = {trunkSid: trunkSid};
+  static _uri = _.template(
     '/Trunks/<%= trunkSid %>/PhoneNumbers' // jshint ignore:line
   )(PhoneNumberListInstance._solution);
   /* jshint ignore:start */

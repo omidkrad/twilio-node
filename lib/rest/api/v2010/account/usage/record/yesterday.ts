@@ -50,10 +50,10 @@ YesterdayList = class YesterdayList {
     return YesterdayListInstance.get(sid);
   }
 
-  YesterdayListInstance._version = version;
+  static _version = version;
   // Path Solution
-  YesterdayListInstance._solution = {accountSid: accountSid};
-  YesterdayListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/Yesterday.json' // jshint ignore:line
   )(YesterdayListInstance._solution);
   /* jshint ignore:start */

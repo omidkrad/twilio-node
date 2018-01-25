@@ -51,10 +51,10 @@ TollFreeList = class TollFreeList {
     return TollFreeListInstance.get(sid);
   }
 
-  TollFreeListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TollFreeListInstance._solution = {accountSid: accountSid, countryCode: countryCode};
-  TollFreeListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid, countryCode: countryCode};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AvailablePhoneNumbers/<%= countryCode %>/TollFree.json' // jshint ignore:line
   )(TollFreeListInstance._solution);
   /* jshint ignore:start */

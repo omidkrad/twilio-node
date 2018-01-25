@@ -49,9 +49,9 @@ WorkspaceCumulativeStatisticsList = function
     return WorkspaceCumulativeStatisticsListInstance.get(sid);
   }
 
-  WorkspaceCumulativeStatisticsListInstance._version = version;
+  static _version = version;
   // Path Solution
-  WorkspaceCumulativeStatisticsListInstance._solution = {workspaceSid: workspaceSid};
+  static _solution = {workspaceSid: workspaceSid};
   /* jshint ignore:start */
   /**
    * Constructs a workspace_cumulative_statistics

@@ -50,10 +50,10 @@ LastMonthList = class LastMonthList {
     return LastMonthListInstance.get(sid);
   }
 
-  LastMonthListInstance._version = version;
+  static _version = version;
   // Path Solution
-  LastMonthListInstance._solution = {accountSid: accountSid};
-  LastMonthListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/Usage/Records/LastMonth.json' // jshint ignore:line
   )(LastMonthListInstance._solution);
   /* jshint ignore:start */

@@ -56,15 +56,15 @@ TaskQueueList = class TaskQueueList {
     return TaskQueueListInstance.get(sid);
   }
 
-  TaskQueueListInstance._version = version;
+  static _version = version;
   // Path Solution
-  TaskQueueListInstance._solution = {workspaceSid: workspaceSid};
-  TaskQueueListInstance._uri = _.template(
+  static _solution = {workspaceSid: workspaceSid};
+  static _uri = _.template(
     '/Workspaces/<%= workspaceSid %>/TaskQueues' // jshint ignore:line
   )(TaskQueueListInstance._solution);
 
   // Components
-  TaskQueueListInstance._statistics = undefined;
+  static _statistics = undefined;
 
   /* jshint ignore:start */
   /**

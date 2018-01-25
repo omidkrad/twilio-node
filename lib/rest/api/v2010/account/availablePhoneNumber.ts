@@ -56,10 +56,10 @@ AvailablePhoneNumberCountryList = function
     return AvailablePhoneNumberCountryListInstance.get(sid);
   }
 
-  AvailablePhoneNumberCountryListInstance._version = version;
+  static _version = version;
   // Path Solution
-  AvailablePhoneNumberCountryListInstance._solution = {accountSid: accountSid};
-  AvailablePhoneNumberCountryListInstance._uri = _.template(
+  static _solution = {accountSid: accountSid};
+  static _uri = _.template(
     '/Accounts/<%= accountSid %>/AvailablePhoneNumbers.json' // jshint ignore:line
   )(AvailablePhoneNumberCountryListInstance._solution);
   /* jshint ignore:start */
