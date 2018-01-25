@@ -114,412 +114,292 @@ import Wireless = require('./Wireless');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Twilio {
   constructor(public username, public password, public opts) {
-  opts = opts || {};
-  var env = opts.env || process.env;
+    opts = opts || {};
+    var env = opts.env || process.env;
 
-  this.username = username || env.TWILIO_ACCOUNT_SID;
-  this.password = password || env.TWILIO_AUTH_TOKEN;
-  this.accountSid = opts.accountSid || this.username;
-  this.httpClient = opts.httpClient || new RequestClient();
-  this.region = opts.region;
+    this.username = username || env.TWILIO_ACCOUNT_SID;
+    this.password = password || env.TWILIO_AUTH_TOKEN;
+    this.accountSid = opts.accountSid || this.username;
+    this.httpClient = opts.httpClient || new RequestClient();
+    this.region = opts.region;
 
-  if (!this.username) {
-    throw new Error('username is required');
-  }
+    if (!this.username) {
+      throw new Error('username is required');
+    }
 
-  if (!this.password) {
-    throw new Error('password is required');
-  }
+    if (!this.password) {
+      throw new Error('password is required');
+    }
 
-  if (!_.startsWith(this.accountSid, 'AC')) {
-    throw new Error('accountSid is required');
-  }
-
-  // Domains
-  this._accounts = undefined;
-  this._api = undefined;
-  this._chat = undefined;
-  this._fax = undefined;
-  this._ipMessaging = undefined;
-  this._lookups = undefined;
-  this._monitor = undefined;
-  this._notify = undefined;
-  this._preview = undefined;
-  this._pricing = undefined;
-  this._proxy = undefined;
-  this._taskrouter = undefined;
-  this._trunking = undefined;
-  this._video = undefined;
-  this._messaging = undefined;
-  this._wireless = undefined;
-  this._sync = undefined;
-}
-
-/* jshint ignore:start */
-/**
- * Makes a request to the Twilio API using the configured http client.
- * Authentication information is automatically added if none is provided.
- *
- * @param {object} opts - The options argument
- * @param {string} opts.method - The http method
- * @param {string} opts.uri - The request uri
- * @param {string} [opts.username] - The username used for auth
- * @param {string} [opts.password] - The password used for auth
- * @param {object} [opts.headers] - The request headers
- * @param {object} [opts.params] - The request params
- * @param {object} [opts.data] - The request data
- * @param {int} [opts.timeout] - The request timeout in milliseconds
- * @param {boolean} [opts.allowRedirects] - Should the client follow redirects
- */
-/* jshint ignore:end */
-request(opts) {
-  opts = opts || {};
-
-  if (!opts.method) {
-    throw new Error('method is required');
-  }
-
-  if (!opts.uri) {
-    throw new Error('uri is required');
-  }
-
-  var username = opts.username || this.username;
-  var password = opts.password || this.password;
-
-  var headers = opts.headers || {};
-  headers['User-Agent'] = util.format(
-    'twilio-node/%s (node.js %s)',
-    moduleInfo.version,
-    process.version
-  );
-  headers['Accept-Charset'] = 'utf-8';
-
-  if (opts.method === 'POST' && !headers['Content-Type']) {
-    headers['Content-Type'] = 'application/x-www-form-urlencoded';
-  }
-
-  if (!headers.Accept) {
-    headers.Accept = 'application/json';
-  }
-
-  var uri = opts.uri;
-  if (this.region) {
-    var parts = _.split(uri, '.');
-
-    if (parts.length > 1 && !_.isEqual(parts[1], this.region)) {
-      uri = _.join(_.concat([parts[0], this.region], _.slice(parts, 1)), '.');
+    if (!_.startsWith(this.accountSid, 'AC')) {
+      throw new Error('accountSid is required');
     }
   }
 
-  return this.httpClient.request({
-    method: opts.method,
-    uri: uri,
-    username: username,
-    password: password,
-    headers: headers,
-    params: opts.params,
-    data: opts.data,
-    timeout: opts.timeout,
-    allowRedirects: opts.allowRedirects,
-  });
-};
+  // Domains
+  _accounts: any;
+  _api: any;
+  _chat: any;
+  _fax: any;
+  _ipMessaging: any;
+  _lookups: any;
+  _monitor: any;
+  _notify: any;
+  _preview: any;
+  _pricing: any;
+  _proxy: any;
+  _taskrouter: any;
+  _trunking: any;
+  _video: any;
+  _messaging: any;
+  _wireless: any;
+  _sync: any;
 
-Object.defineProperty(Twilio.prototype,
-  'accounts', {
-  get: function() {
+  /* jshint ignore:start */
+  /**
+   * Makes a request to the Twilio API using the configured http client.
+   * Authentication information is automatically added if none is provided.
+   *
+   * @param {object} opts - The options argument
+   * @param {string} opts.method - The http method
+   * @param {string} opts.uri - The request uri
+   * @param {string} [opts.username] - The username used for auth
+   * @param {string} [opts.password] - The password used for auth
+   * @param {object} [opts.headers] - The request headers
+   * @param {object} [opts.params] - The request params
+   * @param {object} [opts.data] - The request data
+   * @param {int} [opts.timeout] - The request timeout in milliseconds
+   * @param {boolean} [opts.allowRedirects] - Should the client follow redirects
+   */
+  /* jshint ignore:end */
+  request(opts) {
+    opts = opts || {};
+
+    if (!opts.method) {
+      throw new Error('method is required');
+    }
+
+    if (!opts.uri) {
+      throw new Error('uri is required');
+    }
+
+    var username = opts.username || this.username;
+    var password = opts.password || this.password;
+
+    var headers = opts.headers || {};
+    headers['User-Agent'] = util.format(
+      'twilio-node/%s (node.js %s)',
+      moduleInfo.version,
+      process.version
+    );
+    headers['Accept-Charset'] = 'utf-8';
+
+    if (opts.method === 'POST' && !headers['Content-Type']) {
+      headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    }
+
+    if (!headers.Accept) {
+      headers.Accept = 'application/json';
+    }
+
+    var uri = opts.uri;
+    if (this.region) {
+      var parts = _.split(uri, '.');
+
+      if (parts.length > 1 && !_.isEqual(parts[1], this.region)) {
+        uri = _.join(_.concat([parts[0], this.region], _.slice(parts, 1)), '.');
+      }
+    }
+
+    return this.httpClient.request({
+      method: opts.method,
+      uri: uri,
+      username: username,
+      password: password,
+      headers: headers,
+      params: opts.params,
+      data: opts.data,
+      timeout: opts.timeout,
+      allowRedirects: opts.allowRedirects,
+    });
+  }
+
+  get accounts() {
     this._accounts = this._accounts || new Accounts(this);
     return this._accounts;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'api', {
-  get: function() {
+  get api() {
     this._api = this._api || new Api(this);
     return this._api;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'chat', {
-  get: function() {
+  get chat() {
     this._chat = this._chat || new Chat(this);
     return this._chat;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'fax', {
-  get: function() {
+  get fax() {
     this._fax = this._fax || new Fax(this);
     return this._fax;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'ipMessaging', {
-  get: function() {
+  get ipMessaging() {
     this._ipMessaging = this._ipMessaging || new IpMessaging(this);
     return this._ipMessaging;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'lookups', {
-  get: function() {
+  get lookups() {
     this._lookups = this._lookups || new Lookups(this);
     return this._lookups;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'monitor', {
-  get: function() {
+  get monitor() {
     this._monitor = this._monitor || new Monitor(this);
     return this._monitor;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'notify', {
-  get: function() {
+  get notify() {
     this._notify = this._notify || new Notify(this);
     return this._notify;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'preview', {
-  get: function() {
+  get preview() {
     this._preview = this._preview || new Preview(this);
     return this._preview;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'pricing', {
-  get: function() {
+  get pricing() {
     this._pricing = this._pricing || new Pricing(this);
     return this._pricing;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'proxy', {
-  get: function() {
+  get proxy() {
     this._proxy = this._proxy || new Proxy(this);
     return this._proxy;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'taskrouter', {
-  get: function() {
+  get taskrouter() {
     this._taskrouter = this._taskrouter || new Taskrouter(this);
     return this._taskrouter;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'trunking', {
-  get: function() {
+  get trunking() {
     this._trunking = this._trunking || new Trunking(this);
     return this._trunking;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'video', {
-  get: function() {
+  get video() {
     this._video = this._video || new Video(this);
     return this._video;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'messaging', {
-  get: function() {
+  get messaging() {
     this._messaging = this._messaging || new Messaging(this);
     return this._messaging;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'wireless', {
-  get: function() {
+  get wireless() {
     this._wireless = this._wireless || new Wireless(this);
     return this._wireless;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'sync', {
-  get: function() {
+  get sync() {
     this._sync = this._sync || new Sync(this);
     return this._sync;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'addresses', {
-  get: function() {
-    return this.api.account.addresses;
+  get addresses() {
+      return this.api.account.addresses;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'applications', {
-  get: function() {
+  get applications() {
     return this.api.account.applications;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'authorizedConnectApps', {
-  get: function() {
+  get authorizedConnectApps() {
     return this.api.account.authorizedConnectApps;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'availablePhoneNumbers', {
-  get: function() {
+  get availablePhoneNumbers() {
     return this.api.account.availablePhoneNumbers;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'calls', {
-  get: function() {
+  get calls() {
     return this.api.account.calls;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'conferences', {
-  get: function() {
+  get conferences() {
     return this.api.account.conferences;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'connectApps', {
-  get: function() {
+  get connectApps() {
     return this.api.account.connectApps;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'incomingPhoneNumbers', {
-  get: function() {
+  get incomingPhoneNumbers() {
     return this.api.account.incomingPhoneNumbers;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'keys', {
-  get: function() {
+  get keys() {
     return this.api.account.keys;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'messages', {
-  get: function() {
+  get messages() {
     return this.api.account.messages;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'newKeys', {
-  get: function() {
+  get newKeys() {
     return this.api.account.newKeys;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'newSigningKeys', {
-  get: function() {
+  get newSigningKeys() {
     return this.api.account.newSigningKeys;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'notifications', {
-  get: function() {
+  get notifications() {
     return this.api.account.notifications;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'outgoingCallerIds', {
-  get: function() {
+  get outgoingCallerIds() {
     return this.api.account.outgoingCallerIds;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'queues', {
-  get: function() {
+  get queues() {
     return this.api.account.queues;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'recordings', {
-  get: function() {
+  get recordings() {
     return this.api.account.recordings;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'signingKeys', {
-  get: function() {
+  get signingKeys() {
     return this.api.account.signingKeys;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'sip', {
-  get: function() {
+  get sip() {
     return this.api.account.sip;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'shortCodes', {
-  get: function() {
+  get shortCodes() {
     return this.api.account.shortCodes;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'tokens', {
-  get: function() {
+  get tokens() {
     return this.api.account.tokens;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'transcriptions', {
-  get: function() {
+  get transcriptions() {
     return this.api.account.transcriptions;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'usage', {
-  get: function() {
+  get usage() {
     return this.api.account.usage;
   }
-});
 
-Object.defineProperty(Twilio.prototype,
-  'validationRequests', {
-  get: function() {
+  get validationRequests() {
     return this.api.account.validationRequests;
   }
-});
 
 }
 

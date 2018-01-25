@@ -5,7 +5,7 @@ import webhooks = require('./webhooks/webhooks');
 import obsolete = require('./base/obsolete');
 
 // Shorthand to automatically create a RestClient
-var initializer = function(accountSid, authToken, opts) {
+const initializer: any = function(accountSid: string, authToken: string, opts: any) {
   return new Twilio(accountSid, authToken, opts);
 };
 
