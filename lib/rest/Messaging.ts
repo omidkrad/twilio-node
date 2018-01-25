@@ -52,4 +52,6 @@ Object.defineProperty(Messaging.prototype,
   }
 });
 
+}
+
 export = Messaging;

@@ -260,4 +260,6 @@ Object.defineProperty(Api.prototype,
   }
 });
 
+}
+
 export = Api;

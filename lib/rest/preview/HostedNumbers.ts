@@ -59,4 +59,6 @@ Object.defineProperty(HostedNumbers.prototype,
   }
 });
 
+}
+
 export = HostedNumbers;

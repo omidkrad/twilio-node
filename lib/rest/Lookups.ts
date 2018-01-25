@@ -53,4 +53,6 @@ Object.defineProperty(Lookups.prototype,
   }
 });
 
+}
+
 export = Lookups;

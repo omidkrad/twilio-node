@@ -185,4 +185,6 @@ loadPage(payload) {
   throw new Error('Page Records cannot be deserialized');
 };
 
+}
+
 export = Page;

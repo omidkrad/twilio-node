@@ -44,4 +44,6 @@ Object.defineProperty(Understand.prototype,
   }
 });
 
+}
+
 export = Understand;

@@ -52,4 +52,6 @@ Object.defineProperty(Trunking.prototype,
   }
 });
 
+}
+
 export = Trunking;

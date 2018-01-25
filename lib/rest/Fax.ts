@@ -52,4 +52,6 @@ Object.defineProperty(Fax.prototype,
   }
 });
 
+}
+
 export = Fax;

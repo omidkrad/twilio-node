@@ -71,4 +71,6 @@ toString() {
   return auth + this.method + ' ' + this.url + params + data + headers;
 };
 
+}
+
 export = Request;

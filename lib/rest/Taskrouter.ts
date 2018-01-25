@@ -52,4 +52,6 @@ Object.defineProperty(Taskrouter.prototype,
   }
 });
 
+}
+
 export = Taskrouter;

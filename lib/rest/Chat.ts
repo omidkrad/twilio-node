@@ -71,4 +71,6 @@ Object.defineProperty(Chat.prototype,
   }
 });
 
+}
+
 export = Chat;

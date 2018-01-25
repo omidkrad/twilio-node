@@ -466,4 +466,6 @@ sip(attributes, sipUrl) {
   this.dial.ele('Sip', attributes, sipUrl);
 };
 
+}
+
 export = VoiceResponse;

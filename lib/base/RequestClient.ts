@@ -86,4 +86,6 @@ request(opts) {
   return deferred.promise;
 };
 
+}
+
 export = RequestClient;

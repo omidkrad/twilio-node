@@ -70,4 +70,6 @@ request(opts) {
   return deferred.promise;
 };
 
+}
+
 export = Holodeck;

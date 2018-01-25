@@ -44,4 +44,6 @@ Object.defineProperty(DeployedDevices.prototype,
   }
 });
 
+}
+
 export = DeployedDevices;

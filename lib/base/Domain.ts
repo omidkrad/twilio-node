@@ -37,4 +37,6 @@ request(opts) {
   }));
 };
 
+}
+
 export = Domain;

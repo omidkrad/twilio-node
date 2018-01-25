@@ -60,4 +60,6 @@ Object.defineProperty(Notify.prototype,
   }
 });
 
+}
+
 export = Notify;

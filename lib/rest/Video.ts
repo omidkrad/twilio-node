@@ -60,4 +60,6 @@ Object.defineProperty(Video.prototype,
   }
 });
 
+}
+
 export = Video;

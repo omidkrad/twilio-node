@@ -247,4 +247,6 @@ Object.defineProperty(Preview.prototype,
   }
 });
 
+}
+
 export = Preview;

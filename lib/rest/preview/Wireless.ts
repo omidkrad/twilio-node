@@ -66,4 +66,6 @@ Object.defineProperty(Wireless.prototype,
   }
 });
 
+}
+
 export = Wireless;

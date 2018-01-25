@@ -44,4 +44,6 @@ Object.defineProperty(Proxy.prototype,
   }
 });
 
+}
+
 export = Proxy;

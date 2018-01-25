@@ -44,4 +44,6 @@ Object.defineProperty(Studio.prototype,
   }
 });
 
+}
+
 export = Studio;

@@ -9,4 +9,6 @@ toString() {
   return 'HTTP ' + this.statusCode + ' ' + this.body;
 };
 
+}
+
 export = Response;

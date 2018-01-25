@@ -13,4 +13,6 @@ class RestException extends Error {
   this.detail = body.detail;
 }
 
+}
+
 export = RestException;

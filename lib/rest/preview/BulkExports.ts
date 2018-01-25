@@ -57,4 +57,6 @@ Object.defineProperty(BulkExports.prototype,
   }
 });
 
+}
+
 export = BulkExports;

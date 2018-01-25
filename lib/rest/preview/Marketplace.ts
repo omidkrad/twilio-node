@@ -59,4 +59,6 @@ Object.defineProperty(Marketplace.prototype,
   }
 });
 
+}
+
 export = Marketplace;

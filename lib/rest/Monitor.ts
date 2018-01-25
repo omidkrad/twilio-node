@@ -60,4 +60,6 @@ Object.defineProperty(Monitor.prototype,
   }
 });
 
+}
+
 export = Monitor;

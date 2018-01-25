@@ -102,4 +102,6 @@ media(attributes, url) {
   this.message.ele('Media', attributes, url);
 };
 
+}
+
 export = MessagingResponse;

@@ -278,4 +278,6 @@ _.extend(AccessToken.prototype, {
 });
 
 
+}
+
 export = AccessToken;

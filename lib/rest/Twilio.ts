@@ -521,4 +521,6 @@ Object.defineProperty(Twilio.prototype,
   }
 });
 
+}
+
 export = Twilio;

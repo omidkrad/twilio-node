@@ -142,4 +142,6 @@ _.extend(ClientCapability.prototype, {
   }
 });
 
+}
+
 export = ClientCapability;

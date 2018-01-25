@@ -46,4 +46,6 @@ toString() {
   return this.response.end();
 };
 
+}
+
 export = FaxResponse;

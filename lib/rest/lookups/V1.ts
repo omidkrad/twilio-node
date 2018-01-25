@@ -45,4 +45,6 @@ Object.defineProperty(V1.prototype,
   }
 });
 
+}
+
 export = V1;

@@ -44,4 +44,6 @@ Object.defineProperty(AccSecurity.prototype,
   }
 });
 
+}
+
 export = AccSecurity;

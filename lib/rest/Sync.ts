@@ -52,4 +52,6 @@ Object.defineProperty(Sync.prototype,
   }
 });
 
+}
+
 export = Sync;

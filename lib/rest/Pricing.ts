@@ -69,4 +69,6 @@ Object.defineProperty(Pricing.prototype,
   }
 });
 
+}
+
 export = Pricing;

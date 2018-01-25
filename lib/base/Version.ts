@@ -182,4 +182,6 @@ readLimits(opts) {
   };
 };
 
+}
+
 export = Version;

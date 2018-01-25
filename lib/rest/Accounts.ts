@@ -52,4 +52,6 @@ Object.defineProperty(Accounts.prototype,
   }
 });
 
+}
+
 export = Accounts;

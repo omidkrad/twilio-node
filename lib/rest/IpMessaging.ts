@@ -72,4 +72,6 @@ Object.defineProperty(IpMessaging.prototype,
   }
 });
 
+}
+
 export = IpMessaging;
