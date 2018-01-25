@@ -115,7 +115,7 @@ class WorkflowRealTimeStatisticsPage extends Page {
  * @returns WorkflowRealTimeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowRealTimeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new WorkflowRealTimeStatisticsInstance(
     this._version,

@@ -350,7 +350,7 @@ class InstalledAddOnExtensionPage extends Page {
  * @returns InstalledAddOnExtensionInstance
  */
 /* jshint ignore:end */
-InstalledAddOnExtensionPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new InstalledAddOnExtensionInstance(this._version, payload, this._solution.installedAddOnSid);
 };

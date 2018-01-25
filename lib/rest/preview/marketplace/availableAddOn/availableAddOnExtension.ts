@@ -349,7 +349,7 @@ class AvailableAddOnExtensionPage extends Page {
  * @returns AvailableAddOnExtensionInstance
  */
 /* jshint ignore:end */
-AvailableAddOnExtensionPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new AvailableAddOnExtensionInstance(this._version, payload, this._solution.availableAddOnSid);
 };

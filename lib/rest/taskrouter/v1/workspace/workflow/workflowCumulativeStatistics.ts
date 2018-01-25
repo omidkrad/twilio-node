@@ -117,7 +117,7 @@ class WorkflowCumulativeStatisticsPage extends Page {
  * @returns WorkflowCumulativeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkflowCumulativeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new WorkflowCumulativeStatisticsInstance(
     this._version,

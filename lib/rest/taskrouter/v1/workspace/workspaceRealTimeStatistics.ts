@@ -107,7 +107,7 @@ class WorkspaceRealTimeStatisticsPage extends Page {
  * @returns WorkspaceRealTimeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkspaceRealTimeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new WorkspaceRealTimeStatisticsInstance(this._version, payload, this._solution.workspaceSid);
 };

@@ -590,7 +590,7 @@ realTimeStatistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkflowContext.WorkflowCumulativeStatisticsList}
  */
 /* jshint ignore:end */
-WorkflowInstance.prototype.cumulativeStatistics = function
+
     cumulativeStatistics() {
   return this._proxy.cumulativeStatistics;
 };

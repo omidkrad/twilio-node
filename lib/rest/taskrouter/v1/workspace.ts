@@ -686,7 +686,7 @@ realTimeStatistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkspaceCumulativeStatisticsList}
  */
 /* jshint ignore:end */
-WorkspaceInstance.prototype.cumulativeStatistics = function
+
     cumulativeStatistics() {
   return this._proxy.cumulativeStatistics;
 };

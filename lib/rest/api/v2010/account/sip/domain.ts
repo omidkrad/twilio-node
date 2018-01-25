@@ -584,7 +584,7 @@ remove(callback) {
  * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext.IpAccessControlListMappingList}
  */
 /* jshint ignore:end */
-DomainInstance.prototype.ipAccessControlListMappings = function
+
     ipAccessControlListMappings() {
   return this._proxy.ipAccessControlListMappings;
 };
@@ -600,7 +600,7 @@ DomainInstance.prototype.ipAccessControlListMappings = function
  * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext.CredentialListMappingList}
  */
 /* jshint ignore:end */
-DomainInstance.prototype.credentialListMappings = function
+
     credentialListMappings() {
   return this._proxy.credentialListMappings;
 };

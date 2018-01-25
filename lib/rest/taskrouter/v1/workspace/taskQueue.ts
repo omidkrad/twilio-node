@@ -624,7 +624,7 @@ realTimeStatistics() {
  * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueueCumulativeStatisticsList}
  */
 /* jshint ignore:end */
-TaskQueueInstance.prototype.cumulativeStatistics = function
+
     cumulativeStatistics() {
   return this._proxy.cumulativeStatistics;
 };

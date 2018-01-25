@@ -357,7 +357,7 @@ class AvailablePhoneNumberCountryPage extends Page {
  * @returns AvailablePhoneNumberCountryInstance
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new AvailablePhoneNumberCountryInstance(this._version, payload, this._solution.accountSid);
 };
@@ -532,7 +532,7 @@ sharedCost()
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryContext.MachineToMachineList}
  */
 /* jshint ignore:end */
-AvailablePhoneNumberCountryInstance.prototype.machineToMachine = function
+
     machineToMachine() {
   return this._proxy.machineToMachine;
 };

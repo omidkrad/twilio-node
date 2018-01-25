@@ -589,7 +589,7 @@ update(opts, callback) {
  * @returns {Twilio.Api.V2010.AccountContext.AddressContext.DependentPhoneNumberList}
  */
 /* jshint ignore:end */
-AddressInstance.prototype.dependentPhoneNumbers = function
+
     dependentPhoneNumbers() {
   return this._proxy.dependentPhoneNumbers;
 };

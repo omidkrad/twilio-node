@@ -374,7 +374,7 @@ class DependentHostedNumberOrderPage extends Page {
  * @returns DependentHostedNumberOrderInstance
  */
 /* jshint ignore:end */
-DependentHostedNumberOrderPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new DependentHostedNumberOrderInstance(
     this._version,

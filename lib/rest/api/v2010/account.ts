@@ -571,7 +571,7 @@ applications() {
  * @returns {Twilio.Api.V2010.AccountContext.AuthorizedConnectAppList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.authorizedConnectApps = function
+
     authorizedConnectApps() {
   return this._proxy.authorizedConnectApps;
 };
@@ -587,7 +587,7 @@ AccountInstance.prototype.authorizedConnectApps = function
  * @returns {Twilio.Api.V2010.AccountContext.AvailablePhoneNumberCountryList}
  */
 /* jshint ignore:end */
-AccountInstance.prototype.availablePhoneNumbers = function
+
     availablePhoneNumbers() {
   return this._proxy.availablePhoneNumbers;
 };

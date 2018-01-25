@@ -115,7 +115,7 @@ class TaskQueueRealTimeStatisticsPage extends Page {
  * @returns TaskQueueRealTimeStatisticsInstance
  */
 /* jshint ignore:end */
-TaskQueueRealTimeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new TaskQueueRealTimeStatisticsInstance(
     this._version,

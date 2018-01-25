@@ -108,7 +108,7 @@ class WorkspaceCumulativeStatisticsPage extends Page {
  * @returns WorkspaceCumulativeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkspaceCumulativeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new WorkspaceCumulativeStatisticsInstance(this._version, payload, this._solution.workspaceSid);
 };

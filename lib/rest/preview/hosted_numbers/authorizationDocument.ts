@@ -542,7 +542,7 @@ update(opts, callback)
  * @returns {Twilio.Preview.HostedNumbers.AuthorizationDocumentContext.DependentHostedNumberOrderList}
  */
 /* jshint ignore:end */
-AuthorizationDocumentInstance.prototype.dependentHostedNumberOrders = function
+
     dependentHostedNumberOrders() {
   return this._proxy.dependentHostedNumberOrders;
 };

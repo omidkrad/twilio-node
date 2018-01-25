@@ -405,7 +405,7 @@ class IpAccessControlListMappingPage extends Page {
  * @returns IpAccessControlListMappingInstance
  */
 /* jshint ignore:end */
-IpAccessControlListMappingPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new IpAccessControlListMappingInstance(
     this._version,

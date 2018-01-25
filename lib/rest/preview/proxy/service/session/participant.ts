@@ -585,7 +585,7 @@ update(opts, callback) {
  * @returns {Twilio.Preview.Proxy.ServiceContext.SessionContext.ParticipantContext.MessageInteractionList}
  */
 /* jshint ignore:end */
-ParticipantInstance.prototype.messageInteractions = function
+
     messageInteractions() {
   return this._proxy.messageInteractions;
 };

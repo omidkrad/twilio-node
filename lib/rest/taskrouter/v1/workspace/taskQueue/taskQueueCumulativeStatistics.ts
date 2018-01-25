@@ -117,7 +117,7 @@ class TaskQueueCumulativeStatisticsPage extends Page {
  * @returns TaskQueueCumulativeStatisticsInstance
  */
 /* jshint ignore:end */
-TaskQueueCumulativeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new TaskQueueCumulativeStatisticsInstance(
     this._version,

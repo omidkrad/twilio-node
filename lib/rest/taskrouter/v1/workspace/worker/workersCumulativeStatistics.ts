@@ -109,7 +109,7 @@ class WorkersCumulativeStatisticsPage extends Page {
  * @returns WorkersCumulativeStatisticsInstance
  */
 /* jshint ignore:end */
-WorkersCumulativeStatisticsPage.prototype.getInstance = function
+
     getInstance(payload) {
   return new WorkersCumulativeStatisticsInstance(this._version, payload, this._solution.workspaceSid);
 };
