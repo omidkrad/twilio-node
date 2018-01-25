@@ -80,7 +80,7 @@ AddressList = class AddressList {
    * @returns {Promise} Resolves to processed AddressInstance
    */
   /* jshint ignore:end */
-  AddressListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -175,7 +175,7 @@ AddressList = class AddressList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  AddressListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -263,7 +263,7 @@ AddressList = class AddressList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AddressListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -319,7 +319,7 @@ AddressList = class AddressList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AddressListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -373,7 +373,7 @@ AddressList = class AddressList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AddressListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -406,7 +406,7 @@ AddressList = class AddressList {
    * @returns {Twilio.Api.V2010.AccountContext.AddressContext}
    */
   /* jshint ignore:end */
-  AddressListInstance.get = function get(sid) {
+  static get(sid) {
     return new AddressContext(this._version, this._solution.accountSid, sid);
   };
 

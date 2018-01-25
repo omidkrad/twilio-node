@@ -97,7 +97,7 @@ AccountList = class AccountList {
    * @returns {Promise} Resolves to processed AccountInstance
    */
   /* jshint ignore:end */
-  AccountListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -160,7 +160,7 @@ AccountList = class AccountList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  AccountListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -247,7 +247,7 @@ AccountList = class AccountList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AccountListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -302,7 +302,7 @@ AccountList = class AccountList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AccountListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -354,7 +354,7 @@ AccountList = class AccountList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AccountListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -387,7 +387,7 @@ AccountList = class AccountList {
    * @returns {Twilio.Api.V2010.AccountContext}
    */
   /* jshint ignore:end */
-  AccountListInstance.get = function get(sid) {
+  static get(sid) {
     return new AccountContext(this._version, sid);
   };
 

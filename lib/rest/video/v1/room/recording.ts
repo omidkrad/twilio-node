@@ -93,7 +93,7 @@ RoomRecordingList = class RoomRecordingList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  RoomRecordingListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -182,7 +182,7 @@ RoomRecordingList = class RoomRecordingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RoomRecordingListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -239,7 +239,7 @@ RoomRecordingList = class RoomRecordingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RoomRecordingListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -295,7 +295,7 @@ RoomRecordingList = class RoomRecordingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RoomRecordingListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -328,7 +328,7 @@ RoomRecordingList = class RoomRecordingList {
    * @returns {Twilio.Video.V1.RoomContext.RoomRecordingContext}
    */
   /* jshint ignore:end */
-  RoomRecordingListInstance.get = function get(sid) {
+  static get(sid) {
     return new RoomRecordingContext(this._version, this._solution.roomSid, sid);
   };
 

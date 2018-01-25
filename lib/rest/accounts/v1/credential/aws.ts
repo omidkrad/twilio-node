@@ -87,7 +87,7 @@ AwsList = class AwsList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  AwsListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -172,7 +172,7 @@ AwsList = class AwsList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AwsListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -225,7 +225,7 @@ AwsList = class AwsList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AwsListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -269,7 +269,7 @@ AwsList = class AwsList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AwsListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -306,7 +306,7 @@ AwsList = class AwsList {
    * @returns {Promise} Resolves to processed AwsInstance
    */
   /* jshint ignore:end */
-  AwsListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -351,7 +351,7 @@ AwsList = class AwsList {
    * @returns {Twilio.Accounts.V1.CredentialContext.AwsContext}
    */
   /* jshint ignore:end */
-  AwsListInstance.get = function get(sid) {
+  static get(sid) {
     return new AwsContext(this._version, sid);
   };
 

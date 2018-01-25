@@ -88,7 +88,7 @@ TranscriptionList = class TranscriptionList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  TranscriptionListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -173,7 +173,7 @@ TranscriptionList = class TranscriptionList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TranscriptionListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -226,7 +226,7 @@ TranscriptionList = class TranscriptionList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TranscriptionListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -270,7 +270,7 @@ TranscriptionList = class TranscriptionList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TranscriptionListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -303,7 +303,7 @@ TranscriptionList = class TranscriptionList {
    * @returns {Twilio.Api.V2010.AccountContext.TranscriptionContext}
    */
   /* jshint ignore:end */
-  TranscriptionListInstance.get = function get(sid) {
+  static get(sid) {
     return new TranscriptionContext(this._version, this._solution.accountSid, sid);
   };
 

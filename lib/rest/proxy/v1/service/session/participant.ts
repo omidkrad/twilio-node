@@ -93,7 +93,7 @@ ParticipantList = class ParticipantList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ParticipantListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -179,7 +179,7 @@ ParticipantList = class ParticipantList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ParticipantListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -233,7 +233,7 @@ ParticipantList = class ParticipantList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ParticipantListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -283,7 +283,7 @@ ParticipantList = class ParticipantList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ParticipantListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -323,7 +323,7 @@ ParticipantList = class ParticipantList {
    * @returns {Promise} Resolves to processed ParticipantInstance
    */
   /* jshint ignore:end */
-  ParticipantListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -375,7 +375,7 @@ ParticipantList = class ParticipantList {
    * @returns {Twilio.Proxy.V1.ServiceContext.SessionContext.ParticipantContext}
    */
   /* jshint ignore:end */
-  ParticipantListInstance.get = function get(sid) {
+  static get(sid) {
     return new ParticipantContext(
       this._version,
       this._solution.serviceSid,

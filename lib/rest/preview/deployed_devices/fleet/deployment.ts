@@ -73,7 +73,7 @@ DeploymentList = class DeploymentList {
    * @returns {Promise} Resolves to processed DeploymentInstance
    */
   /* jshint ignore:end */
-  DeploymentListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -142,7 +142,7 @@ DeploymentList = class DeploymentList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  DeploymentListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -227,7 +227,7 @@ DeploymentList = class DeploymentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DeploymentListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -280,7 +280,7 @@ DeploymentList = class DeploymentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DeploymentListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -324,7 +324,7 @@ DeploymentList = class DeploymentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DeploymentListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -357,7 +357,7 @@ DeploymentList = class DeploymentList {
    * @returns {Twilio.Preview.DeployedDevices.FleetContext.DeploymentContext}
    */
   /* jshint ignore:end */
-  DeploymentListInstance.get = function get(sid) {
+  static get(sid) {
     return new DeploymentContext(this._version, this._solution.fleetSid, sid);
   };
 

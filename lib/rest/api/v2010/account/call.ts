@@ -107,7 +107,7 @@ CallList = class CallList {
    * @returns {Promise} Resolves to processed CallInstance
    */
   /* jshint ignore:end */
-  CallListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -211,7 +211,7 @@ CallList = class CallList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  CallListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -307,7 +307,7 @@ CallList = class CallList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CallListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -371,7 +371,7 @@ CallList = class CallList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CallListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -440,7 +440,7 @@ CallList = class CallList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CallListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -484,7 +484,7 @@ CallList = class CallList {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext}
    */
   /* jshint ignore:end */
-  CallListInstance.get = function get(sid) {
+  static get(sid) {
     return new CallContext(this._version, this._solution.accountSid, sid);
   };
 

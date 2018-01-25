@@ -68,7 +68,7 @@ SegmentMembershipList = function SegmentMembershipList(version, serviceSid,
    * @returns {Promise} Resolves to processed SegmentMembershipInstance
    */
   /* jshint ignore:end */
-  SegmentMembershipListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -115,7 +115,7 @@ SegmentMembershipList = function SegmentMembershipList(version, serviceSid,
    * @returns {Twilio.Notify.V1.ServiceContext.UserContext.SegmentMembershipContext}
    */
   /* jshint ignore:end */
-  SegmentMembershipListInstance.get = function get(segment) {
+  static get(segment) {
     return new SegmentMembershipContext(
       this._version,
       this._solution.serviceSid,

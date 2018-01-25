@@ -90,7 +90,7 @@ ShortCodeList = class ShortCodeList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ShortCodeListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -177,7 +177,7 @@ ShortCodeList = class ShortCodeList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ShortCodeListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -232,7 +232,7 @@ ShortCodeList = class ShortCodeList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ShortCodeListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -284,7 +284,7 @@ ShortCodeList = class ShortCodeList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ShortCodeListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -317,7 +317,7 @@ ShortCodeList = class ShortCodeList {
    * @returns {Twilio.Api.V2010.AccountContext.ShortCodeContext}
    */
   /* jshint ignore:end */
-  ShortCodeListInstance.get = function get(sid) {
+  static get(sid) {
     return new ShortCodeContext(this._version, this._solution.accountSid, sid);
   };
 

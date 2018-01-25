@@ -89,7 +89,7 @@ ModelBuildList = class ModelBuildList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ModelBuildListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -174,7 +174,7 @@ ModelBuildList = class ModelBuildList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ModelBuildListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -227,7 +227,7 @@ ModelBuildList = class ModelBuildList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ModelBuildListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -271,7 +271,7 @@ ModelBuildList = class ModelBuildList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ModelBuildListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -307,7 +307,7 @@ ModelBuildList = class ModelBuildList {
    * @returns {Promise} Resolves to processed ModelBuildInstance
    */
   /* jshint ignore:end */
-  ModelBuildListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -355,7 +355,7 @@ ModelBuildList = class ModelBuildList {
    * @returns {Twilio.Preview.Understand.ServiceContext.ModelBuildContext}
    */
   /* jshint ignore:end */
-  ModelBuildListInstance.get = function get(sid) {
+  static get(sid) {
     return new ModelBuildContext(this._version, this._solution.serviceSid, sid);
   };
 

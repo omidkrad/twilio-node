@@ -70,7 +70,7 @@ NewKeyList = class NewKeyList {
    * @returns {Promise} Resolves to processed NewKeyInstance
    */
   /* jshint ignore:end */
-  NewKeyListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};

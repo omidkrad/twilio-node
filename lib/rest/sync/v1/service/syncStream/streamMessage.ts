@@ -72,7 +72,7 @@ StreamMessageList = class StreamMessageList {
    * @returns {Promise} Resolves to processed StreamMessageInstance
    */
   /* jshint ignore:end */
-  StreamMessageListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }

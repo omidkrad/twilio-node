@@ -72,7 +72,7 @@ SyncStreamList = class SyncStreamList {
    * @returns {Promise} Resolves to processed SyncStreamInstance
    */
   /* jshint ignore:end */
-  SyncStreamListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -138,7 +138,7 @@ SyncStreamList = class SyncStreamList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  SyncStreamListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -223,7 +223,7 @@ SyncStreamList = class SyncStreamList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncStreamListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -276,7 +276,7 @@ SyncStreamList = class SyncStreamList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncStreamListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -320,7 +320,7 @@ SyncStreamList = class SyncStreamList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncStreamListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -353,7 +353,7 @@ SyncStreamList = class SyncStreamList {
    * @returns {Twilio.Sync.V1.ServiceContext.SyncStreamContext}
    */
   /* jshint ignore:end */
-  SyncStreamListInstance.get = function get(sid) {
+  static get(sid) {
     return new SyncStreamContext(this._version, this._solution.serviceSid, sid);
   };
 

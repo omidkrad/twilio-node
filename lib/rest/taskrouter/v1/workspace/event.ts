@@ -98,7 +98,7 @@ EventList = class EventList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  EventListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -192,7 +192,7 @@ EventList = class EventList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  EventListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -254,7 +254,7 @@ EventList = class EventList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  EventListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -320,7 +320,7 @@ EventList = class EventList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  EventListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -353,7 +353,7 @@ EventList = class EventList {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.EventContext}
    */
   /* jshint ignore:end */
-  EventListInstance.get = function get(sid) {
+  static get(sid) {
     return new EventContext(this._version, this._solution.workspaceSid, sid);
   };
 

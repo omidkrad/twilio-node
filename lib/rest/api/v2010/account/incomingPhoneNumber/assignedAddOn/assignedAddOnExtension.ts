@@ -94,7 +94,7 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  AssignedAddOnExtensionListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -179,7 +179,7 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AssignedAddOnExtensionListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -232,7 +232,7 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AssignedAddOnExtensionListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -276,7 +276,7 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AssignedAddOnExtensionListInstance.getPage = function getPage(targetUrl,
+  static getPage(targetUrl,
       callback) {
     var deferred = Q.defer();
 
@@ -310,7 +310,7 @@ AssignedAddOnExtensionList = function AssignedAddOnExtensionList(version,
    * @returns {Twilio.Api.V2010.AccountContext.IncomingPhoneNumberContext.AssignedAddOnContext.AssignedAddOnExtensionContext}
    */
   /* jshint ignore:end */
-  AssignedAddOnExtensionListInstance.get = function get(sid) {
+  static get(sid) {
     return new AssignedAddOnExtensionContext(
       this._version,
       this._solution.accountSid,

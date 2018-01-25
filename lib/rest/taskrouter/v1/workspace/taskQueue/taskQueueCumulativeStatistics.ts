@@ -68,7 +68,7 @@ TaskQueueCumulativeStatisticsList = function
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueueCumulativeStatisticsContext}
    */
   /* jshint ignore:end */
-  TaskQueueCumulativeStatisticsListInstance.get = function get() {
+  static get() {
     return new TaskQueueCumulativeStatisticsContext(
       this._version,
       this._solution.workspaceSid,

@@ -90,7 +90,7 @@ StepList = class StepList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  StepListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -175,7 +175,7 @@ StepList = class StepList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  StepListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -228,7 +228,7 @@ StepList = class StepList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  StepListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -272,7 +272,7 @@ StepList = class StepList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  StepListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -305,7 +305,7 @@ StepList = class StepList {
    * @returns {Twilio.Preview.Studio.FlowContext.EngagementContext.StepContext}
    */
   /* jshint ignore:end */
-  StepListInstance.get = function get(sid) {
+  static get(sid) {
     return new StepContext(this._version, this._solution.flowSid, this._solution.engagementSid, sid);
   };
 

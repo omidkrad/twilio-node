@@ -85,7 +85,7 @@ CountryList = class CountryList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  CountryListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -170,7 +170,7 @@ CountryList = class CountryList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CountryListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -223,7 +223,7 @@ CountryList = class CountryList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CountryListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -267,7 +267,7 @@ CountryList = class CountryList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CountryListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -300,7 +300,7 @@ CountryList = class CountryList {
    * @returns {Twilio.Pricing.V1.PhoneNumberContext.CountryContext}
    */
   /* jshint ignore:end */
-  CountryListInstance.get = function get(isoCountry) {
+  static get(isoCountry) {
     return new CountryContext(this._version, isoCountry);
   };
 

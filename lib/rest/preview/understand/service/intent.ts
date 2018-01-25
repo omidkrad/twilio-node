@@ -91,7 +91,7 @@ IntentList = class IntentList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  IntentListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -176,7 +176,7 @@ IntentList = class IntentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IntentListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -229,7 +229,7 @@ IntentList = class IntentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IntentListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -273,7 +273,7 @@ IntentList = class IntentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IntentListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -309,7 +309,7 @@ IntentList = class IntentList {
    * @returns {Promise} Resolves to processed IntentInstance
    */
   /* jshint ignore:end */
-  IntentListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -358,7 +358,7 @@ IntentList = class IntentList {
    * @returns {Twilio.Preview.Understand.ServiceContext.IntentContext}
    */
   /* jshint ignore:end */
-  IntentListInstance.get = function get(sid) {
+  static get(sid) {
     return new IntentContext(this._version, this._solution.serviceSid, sid);
   };
 

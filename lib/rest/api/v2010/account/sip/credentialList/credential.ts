@@ -89,7 +89,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  CredentialListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -174,7 +174,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CredentialListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -227,7 +227,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CredentialListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -271,7 +271,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CredentialListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -307,7 +307,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @returns {Promise} Resolves to processed CredentialInstance
    */
   /* jshint ignore:end */
-  CredentialListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -357,7 +357,7 @@ CredentialList = function CredentialList(version, accountSid, credentialListSid)
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.CredentialListContext.CredentialContext}
    */
   /* jshint ignore:end */
-  CredentialListInstance.get = function get(sid) {
+  static get(sid) {
     return new CredentialContext(
       this._version,
       this._solution.accountSid,

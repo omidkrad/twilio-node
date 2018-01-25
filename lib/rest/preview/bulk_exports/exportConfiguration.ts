@@ -63,7 +63,7 @@ ExportConfigurationList = class ExportConfigurationList {
    * @returns {Twilio.Preview.BulkExports.ExportConfigurationContext}
    */
   /* jshint ignore:end */
-  ExportConfigurationListInstance.get = function get(resourceType) {
+  static get(resourceType) {
     return new ExportConfigurationContext(this._version, resourceType);
   };
 

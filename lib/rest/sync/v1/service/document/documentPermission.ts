@@ -90,7 +90,7 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  DocumentPermissionListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -175,7 +175,7 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DocumentPermissionListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -228,7 +228,7 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DocumentPermissionListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -272,7 +272,7 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DocumentPermissionListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -306,7 +306,7 @@ DocumentPermissionList = function DocumentPermissionList(version, serviceSid,
    * @returns {Twilio.Sync.V1.ServiceContext.DocumentContext.DocumentPermissionContext}
    */
   /* jshint ignore:end */
-  DocumentPermissionListInstance.get = function get(identity) {
+  static get(identity) {
     return new DocumentPermissionContext(
       this._version,
       this._solution.serviceSid,

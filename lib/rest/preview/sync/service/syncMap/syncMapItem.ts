@@ -73,7 +73,7 @@ SyncMapItemList = class SyncMapItemList {
    * @returns {Promise} Resolves to processed SyncMapItemInstance
    */
   /* jshint ignore:end */
-  SyncMapItemListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -147,7 +147,7 @@ SyncMapItemList = class SyncMapItemList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  SyncMapItemListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -235,7 +235,7 @@ SyncMapItemList = class SyncMapItemList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncMapItemListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -291,7 +291,7 @@ SyncMapItemList = class SyncMapItemList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncMapItemListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -345,7 +345,7 @@ SyncMapItemList = class SyncMapItemList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncMapItemListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -378,7 +378,7 @@ SyncMapItemList = class SyncMapItemList {
    * @returns {Twilio.Preview.Sync.ServiceContext.SyncMapContext.SyncMapItemContext}
    */
   /* jshint ignore:end */
-  SyncMapItemListInstance.get = function get(key) {
+  static get(key) {
     return new SyncMapItemContext(this._version, this._solution.serviceSid, this._solution.mapSid, key);
   };
 

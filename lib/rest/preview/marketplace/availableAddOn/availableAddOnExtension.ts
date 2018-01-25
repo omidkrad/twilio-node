@@ -87,7 +87,7 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  AvailableAddOnExtensionListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -172,7 +172,7 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AvailableAddOnExtensionListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -225,7 +225,7 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AvailableAddOnExtensionListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -269,7 +269,7 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AvailableAddOnExtensionListInstance.getPage = function getPage(targetUrl,
+  static getPage(targetUrl,
       callback) {
     var deferred = Q.defer();
 
@@ -303,7 +303,7 @@ AvailableAddOnExtensionList = function AvailableAddOnExtensionList(version,
    * @returns {Twilio.Preview.Marketplace.AvailableAddOnContext.AvailableAddOnExtensionContext}
    */
   /* jshint ignore:end */
-  AvailableAddOnExtensionListInstance.get = function get(sid) {
+  static get(sid) {
     return new AvailableAddOnExtensionContext(this._version, this._solution.availableAddOnSid, sid);
   };
 

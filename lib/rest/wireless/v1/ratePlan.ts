@@ -89,7 +89,7 @@ RatePlanList = class RatePlanList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  RatePlanListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -174,7 +174,7 @@ RatePlanList = class RatePlanList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RatePlanListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -227,7 +227,7 @@ RatePlanList = class RatePlanList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RatePlanListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -271,7 +271,7 @@ RatePlanList = class RatePlanList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RatePlanListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -318,7 +318,7 @@ RatePlanList = class RatePlanList {
    * @returns {Promise} Resolves to processed RatePlanInstance
    */
   /* jshint ignore:end */
-  RatePlanListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -370,7 +370,7 @@ RatePlanList = class RatePlanList {
    * @returns {Twilio.Wireless.V1.RatePlanContext}
    */
   /* jshint ignore:end */
-  RatePlanListInstance.get = function get(sid) {
+  static get(sid) {
     return new RatePlanContext(this._version, sid);
   };
 

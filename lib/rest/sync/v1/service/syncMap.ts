@@ -74,7 +74,7 @@ SyncMapList = class SyncMapList {
    * @returns {Promise} Resolves to processed SyncMapInstance
    */
   /* jshint ignore:end */
-  SyncMapListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -140,7 +140,7 @@ SyncMapList = class SyncMapList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  SyncMapListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -225,7 +225,7 @@ SyncMapList = class SyncMapList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncMapListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -278,7 +278,7 @@ SyncMapList = class SyncMapList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncMapListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -322,7 +322,7 @@ SyncMapList = class SyncMapList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncMapListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -355,7 +355,7 @@ SyncMapList = class SyncMapList {
    * @returns {Twilio.Sync.V1.ServiceContext.SyncMapContext}
    */
   /* jshint ignore:end */
-  SyncMapListInstance.get = function get(sid) {
+  static get(sid) {
     return new SyncMapContext(this._version, this._solution.serviceSid, sid);
   };
 

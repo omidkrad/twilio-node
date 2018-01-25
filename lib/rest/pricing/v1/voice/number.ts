@@ -61,7 +61,7 @@ NumberList = class NumberList {
    * @returns {Twilio.Pricing.V1.VoiceContext.NumberContext}
    */
   /* jshint ignore:end */
-  NumberListInstance.get = function get(number) {
+  static get(number) {
     return new NumberContext(this._version, number);
   };
 

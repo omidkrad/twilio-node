@@ -73,7 +73,7 @@ ServiceList = class ServiceList {
    * @returns {Promise} Resolves to processed ServiceInstance
    */
   /* jshint ignore:end */
-  ServiceListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -135,7 +135,7 @@ ServiceList = class ServiceList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ServiceListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -220,7 +220,7 @@ ServiceList = class ServiceList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ServiceListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -273,7 +273,7 @@ ServiceList = class ServiceList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ServiceListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -317,7 +317,7 @@ ServiceList = class ServiceList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ServiceListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -350,7 +350,7 @@ ServiceList = class ServiceList {
    * @returns {Twilio.Chat.V2.ServiceContext}
    */
   /* jshint ignore:end */
-  ServiceListInstance.get = function get(sid) {
+  static get(sid) {
     return new ServiceContext(this._version, sid);
   };
 

@@ -90,7 +90,7 @@ UsageRecordList = class UsageRecordList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  UsageRecordListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -178,7 +178,7 @@ UsageRecordList = class UsageRecordList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  UsageRecordListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -234,7 +234,7 @@ UsageRecordList = class UsageRecordList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  UsageRecordListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -288,7 +288,7 @@ UsageRecordList = class UsageRecordList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  UsageRecordListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});

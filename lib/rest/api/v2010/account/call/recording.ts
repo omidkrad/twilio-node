@@ -94,7 +94,7 @@ RecordingList = class RecordingList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  RecordingListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -182,7 +182,7 @@ RecordingList = class RecordingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RecordingListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -238,7 +238,7 @@ RecordingList = class RecordingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RecordingListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -292,7 +292,7 @@ RecordingList = class RecordingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  RecordingListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -325,7 +325,7 @@ RecordingList = class RecordingList {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.RecordingContext}
    */
   /* jshint ignore:end */
-  RecordingListInstance.get = function get(sid) {
+  static get(sid) {
     return new RecordingContext(this._version, this._solution.accountSid, this._solution.callSid, sid);
   };
 

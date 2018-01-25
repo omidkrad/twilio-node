@@ -66,7 +66,7 @@ TaskQueueRealTimeStatisticsList = function
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext.TaskQueueRealTimeStatisticsContext}
    */
   /* jshint ignore:end */
-  TaskQueueRealTimeStatisticsListInstance.get = function get() {
+  static get() {
     return new TaskQueueRealTimeStatisticsContext(
       this._version,
       this._solution.workspaceSid,

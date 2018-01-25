@@ -66,7 +66,7 @@ FeedbackList = class FeedbackList {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.FeedbackContext}
    */
   /* jshint ignore:end */
-  FeedbackListInstance.get = function get() {
+  static get() {
     return new FeedbackContext(this._version, this._solution.accountSid, this._solution.callSid);
   };
 

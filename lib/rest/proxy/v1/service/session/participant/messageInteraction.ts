@@ -80,7 +80,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @returns {Promise} Resolves to processed MessageInteractionInstance
    */
   /* jshint ignore:end */
-  MessageInteractionListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -151,7 +151,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  MessageInteractionListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -236,7 +236,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MessageInteractionListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -289,7 +289,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MessageInteractionListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -333,7 +333,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MessageInteractionListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -367,7 +367,7 @@ MessageInteractionList = function MessageInteractionList(version, serviceSid,
    * @returns {Twilio.Proxy.V1.ServiceContext.SessionContext.ParticipantContext.MessageInteractionContext}
    */
   /* jshint ignore:end */
-  MessageInteractionListInstance.get = function get(sid) {
+  static get(sid) {
     return new MessageInteractionContext(
       this._version,
       this._solution.serviceSid,

@@ -70,7 +70,7 @@ IpAccessControlListMappingList = function
    * @returns {Promise} Resolves to processed IpAccessControlListMappingInstance
    */
   /* jshint ignore:end */
-  IpAccessControlListMappingListInstance.create = function create(opts, callback)
+  static create(opts, callback)
       {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
@@ -139,7 +139,7 @@ IpAccessControlListMappingList = function
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  IpAccessControlListMappingListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -224,7 +224,7 @@ IpAccessControlListMappingList = function
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IpAccessControlListMappingListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -277,7 +277,7 @@ IpAccessControlListMappingList = function
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IpAccessControlListMappingListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -321,7 +321,7 @@ IpAccessControlListMappingList = function
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IpAccessControlListMappingListInstance.getPage = function getPage(targetUrl,
+  static getPage(targetUrl,
       callback) {
     var deferred = Q.defer();
 
@@ -355,7 +355,7 @@ IpAccessControlListMappingList = function
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext.IpAccessControlListMappingContext}
    */
   /* jshint ignore:end */
-  IpAccessControlListMappingListInstance.get = function get(sid) {
+  static get(sid) {
     return new IpAccessControlListMappingContext(
       this._version,
       this._solution.accountSid,

@@ -73,7 +73,7 @@ MemberList = class MemberList {
    * @returns {Promise} Resolves to processed MemberInstance
    */
   /* jshint ignore:end */
-  MemberListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -142,7 +142,7 @@ MemberList = class MemberList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  MemberListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -228,7 +228,7 @@ MemberList = class MemberList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MemberListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -282,7 +282,7 @@ MemberList = class MemberList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MemberListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -332,7 +332,7 @@ MemberList = class MemberList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MemberListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -365,7 +365,7 @@ MemberList = class MemberList {
    * @returns {Twilio.IpMessaging.V1.ServiceContext.ChannelContext.MemberContext}
    */
   /* jshint ignore:end */
-  MemberListInstance.get = function get(sid) {
+  static get(sid) {
     return new MemberContext(this._version, this._solution.serviceSid, this._solution.channelSid, sid);
   };
 

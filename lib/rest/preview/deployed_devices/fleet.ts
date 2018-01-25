@@ -74,7 +74,7 @@ FleetList = class FleetList {
    * @returns {Promise} Resolves to processed FleetInstance
    */
   /* jshint ignore:end */
-  FleetListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -135,7 +135,7 @@ FleetList = class FleetList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  FleetListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -220,7 +220,7 @@ FleetList = class FleetList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  FleetListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -273,7 +273,7 @@ FleetList = class FleetList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  FleetListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -317,7 +317,7 @@ FleetList = class FleetList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  FleetListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -350,7 +350,7 @@ FleetList = class FleetList {
    * @returns {Twilio.Preview.DeployedDevices.FleetContext}
    */
   /* jshint ignore:end */
-  FleetListInstance.get = function get(sid) {
+  static get(sid) {
     return new FleetContext(this._version, sid);
   };
 

@@ -70,7 +70,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @returns {Promise} Resolves to processed CredentialListMappingInstance
    */
   /* jshint ignore:end */
-  CredentialListMappingListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -138,7 +138,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  CredentialListMappingListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -223,7 +223,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CredentialListMappingListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -276,7 +276,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CredentialListMappingListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -320,7 +320,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CredentialListMappingListInstance.getPage = function getPage(targetUrl,
+  static getPage(targetUrl,
       callback) {
     var deferred = Q.defer();
 
@@ -354,7 +354,7 @@ CredentialListMappingList = function CredentialListMappingList(version,
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext.CredentialListMappingContext}
    */
   /* jshint ignore:end */
-  CredentialListMappingListInstance.get = function get(sid) {
+  static get(sid) {
     return new CredentialListMappingContext(
       this._version,
       this._solution.accountSid,

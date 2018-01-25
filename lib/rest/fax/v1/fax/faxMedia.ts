@@ -89,7 +89,7 @@ FaxMediaList = class FaxMediaList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  FaxMediaListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -174,7 +174,7 @@ FaxMediaList = class FaxMediaList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  FaxMediaListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -227,7 +227,7 @@ FaxMediaList = class FaxMediaList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  FaxMediaListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -271,7 +271,7 @@ FaxMediaList = class FaxMediaList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  FaxMediaListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -304,7 +304,7 @@ FaxMediaList = class FaxMediaList {
    * @returns {Twilio.Fax.V1.FaxContext.FaxMediaContext}
    */
   /* jshint ignore:end */
-  FaxMediaListInstance.get = function get(sid) {
+  static get(sid) {
     return new FaxMediaContext(this._version, this._solution.faxSid, sid);
   };
 

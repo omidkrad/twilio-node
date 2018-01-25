@@ -103,7 +103,7 @@ TaskQueueList = class TaskQueueList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  TaskQueueListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -191,7 +191,7 @@ TaskQueueList = class TaskQueueList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TaskQueueListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -247,7 +247,7 @@ TaskQueueList = class TaskQueueList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TaskQueueListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -301,7 +301,7 @@ TaskQueueList = class TaskQueueList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TaskQueueListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -341,7 +341,7 @@ TaskQueueList = class TaskQueueList {
    * @returns {Promise} Resolves to processed TaskQueueInstance
    */
   /* jshint ignore:end */
-  TaskQueueListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -411,7 +411,7 @@ TaskQueueList = class TaskQueueList {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.TaskQueueContext}
    */
   /* jshint ignore:end */
-  TaskQueueListInstance.get = function get(sid) {
+  static get(sid) {
     return new TaskQueueContext(this._version, this._solution.workspaceSid, sid);
   };
 

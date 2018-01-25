@@ -61,7 +61,7 @@ UsageList = class UsageList {
    * @returns {Twilio.Preview.Wireless.SimContext.UsageContext}
    */
   /* jshint ignore:end */
-  UsageListInstance.get = function get() {
+  static get() {
     return new UsageContext(this._version, this._solution.simSid);
   };
 

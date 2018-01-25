@@ -87,7 +87,7 @@ ConnectAppList = class ConnectAppList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ConnectAppListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -172,7 +172,7 @@ ConnectAppList = class ConnectAppList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ConnectAppListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -225,7 +225,7 @@ ConnectAppList = class ConnectAppList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ConnectAppListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -269,7 +269,7 @@ ConnectAppList = class ConnectAppList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ConnectAppListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -302,7 +302,7 @@ ConnectAppList = class ConnectAppList {
    * @returns {Twilio.Api.V2010.AccountContext.ConnectAppContext}
    */
   /* jshint ignore:end */
-  ConnectAppListInstance.get = function get(sid) {
+  static get(sid) {
     return new ConnectAppContext(this._version, this._solution.accountSid, sid);
   };
 

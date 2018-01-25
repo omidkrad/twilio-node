@@ -79,7 +79,7 @@ ChannelList = class ChannelList {
    * @returns {Promise} Resolves to processed ChannelInstance
    */
   /* jshint ignore:end */
-  ChannelListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -154,7 +154,7 @@ ChannelList = class ChannelList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ChannelListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -240,7 +240,7 @@ ChannelList = class ChannelList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ChannelListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -294,7 +294,7 @@ ChannelList = class ChannelList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ChannelListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -344,7 +344,7 @@ ChannelList = class ChannelList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ChannelListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -377,7 +377,7 @@ ChannelList = class ChannelList {
    * @returns {Twilio.Chat.V2.ServiceContext.ChannelContext}
    */
   /* jshint ignore:end */
-  ChannelListInstance.get = function get(sid) {
+  static get(sid) {
     return new ChannelContext(this._version, this._solution.serviceSid, sid);
   };
 

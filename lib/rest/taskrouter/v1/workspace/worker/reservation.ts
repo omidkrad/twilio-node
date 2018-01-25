@@ -92,7 +92,7 @@ ReservationList = class ReservationList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  ReservationListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -178,7 +178,7 @@ ReservationList = class ReservationList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ReservationListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -232,7 +232,7 @@ ReservationList = class ReservationList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ReservationListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -282,7 +282,7 @@ ReservationList = class ReservationList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  ReservationListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -315,7 +315,7 @@ ReservationList = class ReservationList {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.ReservationContext}
    */
   /* jshint ignore:end */
-  ReservationListInstance.get = function get(sid) {
+  static get(sid) {
     return new ReservationContext(
       this._version,
       this._solution.workspaceSid,

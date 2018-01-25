@@ -90,7 +90,7 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  OutgoingCallerIdListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -177,7 +177,7 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  OutgoingCallerIdListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -232,7 +232,7 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  OutgoingCallerIdListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -284,7 +284,7 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  OutgoingCallerIdListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -317,7 +317,7 @@ OutgoingCallerIdList = class OutgoingCallerIdList {
    * @returns {Twilio.Api.V2010.AccountContext.OutgoingCallerIdContext}
    */
   /* jshint ignore:end */
-  OutgoingCallerIdListInstance.get = function get(sid) {
+  static get(sid) {
     return new OutgoingCallerIdContext(this._version, this._solution.accountSid, sid);
   };
 

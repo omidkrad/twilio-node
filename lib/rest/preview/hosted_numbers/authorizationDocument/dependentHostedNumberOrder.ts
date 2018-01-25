@@ -96,7 +96,7 @@ DependentHostedNumberOrderList = function
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  DependentHostedNumberOrderListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -189,7 +189,7 @@ DependentHostedNumberOrderList = function
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DependentHostedNumberOrderListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -250,7 +250,7 @@ DependentHostedNumberOrderList = function
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DependentHostedNumberOrderListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -311,7 +311,7 @@ DependentHostedNumberOrderList = function
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DependentHostedNumberOrderListInstance.getPage = function getPage(targetUrl,
+  static getPage(targetUrl,
       callback) {
     var deferred = Q.defer();
 

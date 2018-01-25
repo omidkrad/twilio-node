@@ -71,7 +71,7 @@ FeedbackList = class FeedbackList {
    * @returns {Promise} Resolves to processed FeedbackInstance
    */
   /* jshint ignore:end */
-  FeedbackListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};

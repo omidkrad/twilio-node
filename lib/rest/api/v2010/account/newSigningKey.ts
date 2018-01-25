@@ -70,7 +70,7 @@ NewSigningKeyList = class NewSigningKeyList {
    * @returns {Promise} Resolves to processed NewSigningKeyInstance
    */
   /* jshint ignore:end */
-  NewSigningKeyListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};

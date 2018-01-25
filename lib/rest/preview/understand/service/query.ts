@@ -92,7 +92,7 @@ QueryList = class QueryList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  QueryListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -180,7 +180,7 @@ QueryList = class QueryList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  QueryListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -236,7 +236,7 @@ QueryList = class QueryList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  QueryListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -290,7 +290,7 @@ QueryList = class QueryList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  QueryListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -330,7 +330,7 @@ QueryList = class QueryList {
    * @returns {Promise} Resolves to processed QueryInstance
    */
   /* jshint ignore:end */
-  QueryListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -386,7 +386,7 @@ QueryList = class QueryList {
    * @returns {Twilio.Preview.Understand.ServiceContext.QueryContext}
    */
   /* jshint ignore:end */
-  QueryListInstance.get = function get(sid) {
+  static get(sid) {
     return new QueryContext(this._version, this._solution.serviceSid, sid);
   };
 

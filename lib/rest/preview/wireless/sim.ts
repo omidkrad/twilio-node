@@ -94,7 +94,7 @@ SimList = class SimList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  SimListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -184,7 +184,7 @@ SimList = class SimList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SimListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -242,7 +242,7 @@ SimList = class SimList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SimListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -300,7 +300,7 @@ SimList = class SimList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SimListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -333,7 +333,7 @@ SimList = class SimList {
    * @returns {Twilio.Preview.Wireless.SimContext}
    */
   /* jshint ignore:end */
-  SimListInstance.get = function get(sid) {
+  static get(sid) {
     return new SimContext(this._version, sid);
   };
 

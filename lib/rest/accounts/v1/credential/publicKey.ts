@@ -87,7 +87,7 @@ PublicKeyList = class PublicKeyList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  PublicKeyListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -172,7 +172,7 @@ PublicKeyList = class PublicKeyList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  PublicKeyListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -225,7 +225,7 @@ PublicKeyList = class PublicKeyList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  PublicKeyListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -269,7 +269,7 @@ PublicKeyList = class PublicKeyList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  PublicKeyListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -308,7 +308,7 @@ PublicKeyList = class PublicKeyList {
    * @returns {Promise} Resolves to processed PublicKeyInstance
    */
   /* jshint ignore:end */
-  PublicKeyListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -353,7 +353,7 @@ PublicKeyList = class PublicKeyList {
    * @returns {Twilio.Accounts.V1.CredentialContext.PublicKeyContext}
    */
   /* jshint ignore:end */
-  PublicKeyListInstance.get = function get(sid) {
+  static get(sid) {
     return new PublicKeyContext(this._version, sid);
   };
 

@@ -78,7 +78,7 @@ MessageList = class MessageList {
    * @returns {Promise} Resolves to processed MessageInstance
    */
   /* jshint ignore:end */
-  MessageListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -154,7 +154,7 @@ MessageList = class MessageList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  MessageListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -240,7 +240,7 @@ MessageList = class MessageList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MessageListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -294,7 +294,7 @@ MessageList = class MessageList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MessageListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -344,7 +344,7 @@ MessageList = class MessageList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  MessageListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -377,7 +377,7 @@ MessageList = class MessageList {
    * @returns {Twilio.IpMessaging.V2.ServiceContext.ChannelContext.MessageContext}
    */
   /* jshint ignore:end */
-  MessageListInstance.get = function get(sid) {
+  static get(sid) {
     return new MessageContext(this._version, this._solution.serviceSid, this._solution.channelSid, sid);
   };
 

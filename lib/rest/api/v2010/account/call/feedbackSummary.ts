@@ -76,7 +76,7 @@ FeedbackSummaryList = class FeedbackSummaryList {
    * @returns {Promise} Resolves to processed FeedbackSummaryInstance
    */
   /* jshint ignore:end */
-  FeedbackSummaryListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -131,7 +131,7 @@ FeedbackSummaryList = class FeedbackSummaryList {
    * @returns {Twilio.Api.V2010.AccountContext.CallContext.FeedbackSummaryContext}
    */
   /* jshint ignore:end */
-  FeedbackSummaryListInstance.get = function get(sid) {
+  static get(sid) {
     return new FeedbackSummaryContext(this._version, this._solution.accountSid, sid);
   };
 

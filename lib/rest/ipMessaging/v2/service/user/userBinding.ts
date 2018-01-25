@@ -92,7 +92,7 @@ UserBindingList = class UserBindingList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  UserBindingListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -178,7 +178,7 @@ UserBindingList = class UserBindingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  UserBindingListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -232,7 +232,7 @@ UserBindingList = class UserBindingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  UserBindingListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -282,7 +282,7 @@ UserBindingList = class UserBindingList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  UserBindingListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -315,7 +315,7 @@ UserBindingList = class UserBindingList {
    * @returns {Twilio.IpMessaging.V2.ServiceContext.UserContext.UserBindingContext}
    */
   /* jshint ignore:end */
-  UserBindingListInstance.get = function get(sid) {
+  static get(sid) {
     return new UserBindingContext(this._version, this._solution.serviceSid, this._solution.userSid, sid);
   };
 

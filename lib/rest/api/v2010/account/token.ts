@@ -69,7 +69,7 @@ TokenList = class TokenList {
    * @returns {Promise} Resolves to processed TokenInstance
    */
   /* jshint ignore:end */
-  TokenListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};

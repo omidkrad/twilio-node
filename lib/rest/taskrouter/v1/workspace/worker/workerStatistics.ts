@@ -63,7 +63,7 @@ WorkerStatisticsList = function WorkerStatisticsList(version, workspaceSid,
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkerStatisticsContext}
    */
   /* jshint ignore:end */
-  WorkerStatisticsListInstance.get = function get() {
+  static get() {
     return new WorkerStatisticsContext(
       this._version,
       this._solution.workspaceSid,

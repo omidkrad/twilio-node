@@ -74,7 +74,7 @@ OriginationUrlList = class OriginationUrlList {
    * @returns {Promise} Resolves to processed OriginationUrlInstance
    */
   /* jshint ignore:end */
-  OriginationUrlListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -159,7 +159,7 @@ OriginationUrlList = class OriginationUrlList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  OriginationUrlListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -244,7 +244,7 @@ OriginationUrlList = class OriginationUrlList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  OriginationUrlListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -297,7 +297,7 @@ OriginationUrlList = class OriginationUrlList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  OriginationUrlListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -341,7 +341,7 @@ OriginationUrlList = class OriginationUrlList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  OriginationUrlListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -374,7 +374,7 @@ OriginationUrlList = class OriginationUrlList {
    * @returns {Twilio.Trunking.V1.TrunkContext.OriginationUrlContext}
    */
   /* jshint ignore:end */
-  OriginationUrlListInstance.get = function get(sid) {
+  static get(sid) {
     return new OriginationUrlContext(this._version, this._solution.trunkSid, sid);
   };
 

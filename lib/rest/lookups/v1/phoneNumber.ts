@@ -62,7 +62,7 @@ PhoneNumberList = class PhoneNumberList {
    * @returns {Twilio.Lookups.V1.PhoneNumberContext}
    */
   /* jshint ignore:end */
-  PhoneNumberListInstance.get = function get(phoneNumber) {
+  static get(phoneNumber) {
     return new PhoneNumberContext(this._version, phoneNumber);
   };
 

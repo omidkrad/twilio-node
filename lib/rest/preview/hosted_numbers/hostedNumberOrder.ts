@@ -97,7 +97,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  HostedNumberOrderListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -190,7 +190,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  HostedNumberOrderListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -251,7 +251,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  HostedNumberOrderListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -312,7 +312,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  HostedNumberOrderListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -366,7 +366,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    * @returns {Promise} Resolves to processed HostedNumberOrderInstance
    */
   /* jshint ignore:end */
-  HostedNumberOrderListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -428,7 +428,7 @@ HostedNumberOrderList = class HostedNumberOrderList {
    * @returns {Twilio.Preview.HostedNumbers.HostedNumberOrderContext}
    */
   /* jshint ignore:end */
-  HostedNumberOrderListInstance.get = function get(sid) {
+  static get(sid) {
     return new HostedNumberOrderContext(this._version, sid);
   };
 

@@ -102,7 +102,7 @@ WorkspaceList = class WorkspaceList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  WorkspaceListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -188,7 +188,7 @@ WorkspaceList = class WorkspaceList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  WorkspaceListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -242,7 +242,7 @@ WorkspaceList = class WorkspaceList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  WorkspaceListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -292,7 +292,7 @@ WorkspaceList = class WorkspaceList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  WorkspaceListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -333,7 +333,7 @@ WorkspaceList = class WorkspaceList {
    * @returns {Promise} Resolves to processed WorkspaceInstance
    */
   /* jshint ignore:end */
-  WorkspaceListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -381,7 +381,7 @@ WorkspaceList = class WorkspaceList {
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext}
    */
   /* jshint ignore:end */
-  WorkspaceListInstance.get = function get(sid) {
+  static get(sid) {
     return new WorkspaceContext(this._version, sid);
   };
 

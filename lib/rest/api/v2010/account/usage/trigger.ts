@@ -80,7 +80,7 @@ TriggerList = class TriggerList {
    * @returns {Promise} Resolves to processed TriggerInstance
    */
   /* jshint ignore:end */
-  TriggerListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -164,7 +164,7 @@ TriggerList = class TriggerList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  TriggerListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -252,7 +252,7 @@ TriggerList = class TriggerList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TriggerListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -308,7 +308,7 @@ TriggerList = class TriggerList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TriggerListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -362,7 +362,7 @@ TriggerList = class TriggerList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TriggerListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -395,7 +395,7 @@ TriggerList = class TriggerList {
    * @returns {Twilio.Api.V2010.AccountContext.UsageContext.TriggerContext}
    */
   /* jshint ignore:end */
-  TriggerListInstance.get = function get(sid) {
+  static get(sid) {
     return new TriggerContext(this._version, this._solution.accountSid, sid);
   };
 

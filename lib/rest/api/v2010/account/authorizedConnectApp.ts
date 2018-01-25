@@ -88,7 +88,7 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  AuthorizedConnectAppListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -173,7 +173,7 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AuthorizedConnectAppListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -226,7 +226,7 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AuthorizedConnectAppListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -270,7 +270,7 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  AuthorizedConnectAppListInstance.getPage = function getPage(targetUrl, callback)
+  static getPage(targetUrl, callback)
                                                                {
     var deferred = Q.defer();
 
@@ -304,7 +304,7 @@ AuthorizedConnectAppList = function AuthorizedConnectAppList(version,
    * @returns {Twilio.Api.V2010.AccountContext.AuthorizedConnectAppContext}
    */
   /* jshint ignore:end */
-  AuthorizedConnectAppListInstance.get = function get(connectAppSid) {
+  static get(connectAppSid) {
     return new AuthorizedConnectAppContext(this._version, this._solution.accountSid, connectAppSid);
   };
 

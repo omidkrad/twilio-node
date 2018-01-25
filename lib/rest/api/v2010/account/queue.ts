@@ -89,7 +89,7 @@ QueueList = class QueueList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  QueueListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -174,7 +174,7 @@ QueueList = class QueueList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  QueueListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -227,7 +227,7 @@ QueueList = class QueueList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  QueueListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -271,7 +271,7 @@ QueueList = class QueueList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  QueueListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -308,7 +308,7 @@ QueueList = class QueueList {
    * @returns {Promise} Resolves to processed QueueInstance
    */
   /* jshint ignore:end */
-  QueueListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -357,7 +357,7 @@ QueueList = class QueueList {
    * @returns {Twilio.Api.V2010.AccountContext.QueueContext}
    */
   /* jshint ignore:end */
-  QueueListInstance.get = function get(sid) {
+  static get(sid) {
     return new QueueContext(this._version, this._solution.accountSid, sid);
   };
 

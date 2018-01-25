@@ -73,7 +73,7 @@ InviteList = class InviteList {
    * @returns {Promise} Resolves to processed InviteInstance
    */
   /* jshint ignore:end */
-  InviteListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -142,7 +142,7 @@ InviteList = class InviteList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  InviteListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -228,7 +228,7 @@ InviteList = class InviteList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  InviteListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -282,7 +282,7 @@ InviteList = class InviteList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  InviteListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -332,7 +332,7 @@ InviteList = class InviteList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  InviteListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -365,7 +365,7 @@ InviteList = class InviteList {
    * @returns {Twilio.IpMessaging.V2.ServiceContext.ChannelContext.InviteContext}
    */
   /* jshint ignore:end */
-  InviteListInstance.get = function get(sid) {
+  static get(sid) {
     return new InviteContext(this._version, this._solution.serviceSid, this._solution.channelSid, sid);
   };
 

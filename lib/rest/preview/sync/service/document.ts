@@ -74,7 +74,7 @@ DocumentList = class DocumentList {
    * @returns {Promise} Resolves to processed DocumentInstance
    */
   /* jshint ignore:end */
-  DocumentListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -143,7 +143,7 @@ DocumentList = class DocumentList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  DocumentListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -228,7 +228,7 @@ DocumentList = class DocumentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DocumentListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -281,7 +281,7 @@ DocumentList = class DocumentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DocumentListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -325,7 +325,7 @@ DocumentList = class DocumentList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DocumentListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -358,7 +358,7 @@ DocumentList = class DocumentList {
    * @returns {Twilio.Preview.Sync.ServiceContext.DocumentContext}
    */
   /* jshint ignore:end */
-  DocumentListInstance.get = function get(sid) {
+  static get(sid) {
     return new DocumentContext(this._version, this._solution.serviceSid, sid);
   };
 

@@ -87,7 +87,7 @@ NotificationList = class NotificationList {
    * @returns {Promise} Resolves to processed NotificationInstance
    */
   /* jshint ignore:end */
-  NotificationListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};

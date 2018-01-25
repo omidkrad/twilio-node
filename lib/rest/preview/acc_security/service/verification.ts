@@ -72,7 +72,7 @@ VerificationList = class VerificationList {
    * @returns {Promise} Resolves to processed VerificationInstance
    */
   /* jshint ignore:end */
-  VerificationListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }

@@ -79,7 +79,7 @@ TrunkList = class TrunkList {
    * @returns {Promise} Resolves to processed TrunkInstance
    */
   /* jshint ignore:end */
-  TrunkListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -147,7 +147,7 @@ TrunkList = class TrunkList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  TrunkListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -232,7 +232,7 @@ TrunkList = class TrunkList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TrunkListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -285,7 +285,7 @@ TrunkList = class TrunkList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TrunkListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -329,7 +329,7 @@ TrunkList = class TrunkList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  TrunkListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -362,7 +362,7 @@ TrunkList = class TrunkList {
    * @returns {Twilio.Trunking.V1.TrunkContext}
    */
   /* jshint ignore:end */
-  TrunkListInstance.get = function get(sid) {
+  static get(sid) {
     return new TrunkContext(this._version, sid);
   };
 

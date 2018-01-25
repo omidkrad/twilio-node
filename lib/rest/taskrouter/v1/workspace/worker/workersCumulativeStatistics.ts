@@ -64,7 +64,7 @@ WorkersCumulativeStatisticsList = function
    * @returns {Twilio.Taskrouter.V1.WorkspaceContext.WorkerContext.WorkersCumulativeStatisticsContext}
    */
   /* jshint ignore:end */
-  WorkersCumulativeStatisticsListInstance.get = function get() {
+  static get() {
     return new WorkersCumulativeStatisticsContext(this._version, this._solution.workspaceSid);
   };
 

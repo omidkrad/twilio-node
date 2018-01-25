@@ -95,7 +95,7 @@ DomainList = class DomainList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  DomainListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -180,7 +180,7 @@ DomainList = class DomainList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DomainListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -233,7 +233,7 @@ DomainList = class DomainList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DomainListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -277,7 +277,7 @@ DomainList = class DomainList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  DomainListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -328,7 +328,7 @@ DomainList = class DomainList {
    * @returns {Promise} Resolves to processed DomainInstance
    */
   /* jshint ignore:end */
-  DomainListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -385,7 +385,7 @@ DomainList = class DomainList {
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.DomainContext}
    */
   /* jshint ignore:end */
-  DomainListInstance.get = function get(sid) {
+  static get(sid) {
     return new DomainContext(this._version, this._solution.accountSid, sid);
   };
 

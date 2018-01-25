@@ -92,7 +92,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  IpAddressListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -177,7 +177,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IpAddressListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -230,7 +230,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IpAddressListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -274,7 +274,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  IpAddressListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -310,7 +310,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @returns {Promise} Resolves to processed IpAddressInstance
    */
   /* jshint ignore:end */
-  IpAddressListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -363,7 +363,7 @@ IpAddressList = function IpAddressList(version, accountSid,
    * @returns {Twilio.Api.V2010.AccountContext.SipContext.IpAccessControlListContext.IpAddressContext}
    */
   /* jshint ignore:end */
-  IpAddressListInstance.get = function get(sid) {
+  static get(sid) {
     return new IpAddressContext(
       this._version,
       this._solution.accountSid,

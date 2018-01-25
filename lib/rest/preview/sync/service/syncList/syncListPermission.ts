@@ -90,7 +90,7 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  SyncListPermissionListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -175,7 +175,7 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncListPermissionListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -228,7 +228,7 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncListPermissionListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -272,7 +272,7 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  SyncListPermissionListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -306,7 +306,7 @@ SyncListPermissionList = function SyncListPermissionList(version, serviceSid,
    * @returns {Twilio.Preview.Sync.ServiceContext.SyncListContext.SyncListPermissionContext}
    */
   /* jshint ignore:end */
-  SyncListPermissionListInstance.get = function get(identity) {
+  static get(identity) {
     return new SyncListPermissionContext(
       this._version,
       this._solution.serviceSid,

@@ -91,7 +91,7 @@ CommandList = class CommandList {
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  CommandListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -179,7 +179,7 @@ CommandList = class CommandList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CommandListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -235,7 +235,7 @@ CommandList = class CommandList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CommandListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -289,7 +289,7 @@ CommandList = class CommandList {
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  CommandListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -329,7 +329,7 @@ CommandList = class CommandList {
    * @returns {Promise} Resolves to processed CommandInstance
    */
   /* jshint ignore:end */
-  CommandListInstance.create = function create(opts, callback) {
+  static create(opts, callback) {
     if (_.isUndefined(opts)) {
       throw new Error('Required parameter "opts" missing.');
     }
@@ -377,7 +377,7 @@ CommandList = class CommandList {
    * @returns {Twilio.Wireless.V1.CommandContext}
    */
   /* jshint ignore:end */
-  CommandListInstance.get = function get(sid) {
+  static get(sid) {
     return new CommandContext(this._version, sid);
   };
 

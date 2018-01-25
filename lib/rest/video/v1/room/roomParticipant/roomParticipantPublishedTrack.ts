@@ -89,7 +89,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    * @param {Function} [callback] - Function to process each record
    */
   /* jshint ignore:end */
-  PublishedTrackListInstance.each = function each(opts, callback) {
+  static each(opts, callback) {
     opts = opts || {};
     if (_.isFunction(opts)) {
       opts = { callback: opts };
@@ -174,7 +174,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  PublishedTrackListInstance.list = function list(opts, callback) {
+  static list(opts, callback) {
     if (_.isFunction(opts)) {
       callback = opts;
       opts = {};
@@ -227,7 +227,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  PublishedTrackListInstance.page = function page(opts, callback) {
+  static page(opts, callback) {
     opts = opts || {};
 
     var deferred = Q.defer();
@@ -271,7 +271,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    * @returns {Promise} Resolves to a list of records
    */
   /* jshint ignore:end */
-  PublishedTrackListInstance.getPage = function getPage(targetUrl, callback) {
+  static getPage(targetUrl, callback) {
     var deferred = Q.defer();
 
     var promise = this._version._domain.twilio.request({method: 'GET', uri: targetUrl});
@@ -304,7 +304,7 @@ PublishedTrackList = function PublishedTrackList(version, roomSid,
    * @returns {Twilio.Video.V1.RoomContext.ParticipantContext.PublishedTrackContext}
    */
   /* jshint ignore:end */
-  PublishedTrackListInstance.get = function get(sid) {
+  static get(sid) {
     return new PublishedTrackContext(
       this._version,
       this._solution.roomSid,
