@@ -30,7 +30,7 @@ import V1 = require('./wireless/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Wireless {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://wireless.twilio.com');
+  super(twilio, 'https://wireless.twilio.com');
 
   // Versions
   this._v1 = undefined;

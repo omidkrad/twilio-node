@@ -29,7 +29,7 @@ import V1 = require('./video/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Video {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://video.twilio.com');
+  super(twilio, 'https://video.twilio.com');
 
   // Versions
   this._v1 = undefined;

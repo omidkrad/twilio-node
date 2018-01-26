@@ -28,7 +28,7 @@ import V1 = require('./messaging/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Messaging {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://messaging.twilio.com');
+  super(twilio, 'https://messaging.twilio.com');
 
   // Versions
   this._v1 = undefined;

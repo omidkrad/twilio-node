@@ -30,7 +30,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class V2 {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'v2');
+  super(domain, 'v2');
 
   // Resources
   this._credentials = undefined;

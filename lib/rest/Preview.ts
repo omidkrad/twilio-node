@@ -65,7 +65,7 @@ import Wireless = require('./preview/Wireless');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Preview {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://preview.twilio.com');
+  super(twilio, 'https://preview.twilio.com');
 
   // Versions
   this._bulk_exports = undefined;

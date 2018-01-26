@@ -69,7 +69,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class V2010 {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, '2010-04-01');
+  super(domain, '2010-04-01');
 
   // Resources
   this._accounts = undefined;

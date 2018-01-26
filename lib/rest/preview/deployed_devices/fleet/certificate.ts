@@ -400,7 +400,7 @@ CertificatePage = class CertificatePage {
   // Path Solution
   this._solution = solution;
 
-  Page.prototype.constructor.call(this, version, response, this._solution);
+  super(version, response, this._solution);
 };
 
 class CertificatePage extends Page {

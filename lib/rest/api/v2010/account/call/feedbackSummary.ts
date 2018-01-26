@@ -157,7 +157,7 @@ FeedbackSummaryPage = function FeedbackSummaryPage(version, response, solution)
   // Path Solution
   this._solution = solution;
 
-  Page.prototype.constructor.call(this, version, response, this._solution);
+  super(version, response, this._solution);
 };
 
 class FeedbackSummaryPage extends Page {

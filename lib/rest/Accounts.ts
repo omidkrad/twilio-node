@@ -28,7 +28,7 @@ import V1 = require('./accounts/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Accounts {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://accounts.twilio.com');
+  super(twilio, 'https://accounts.twilio.com');
 
   // Versions
   this._v1 = undefined;

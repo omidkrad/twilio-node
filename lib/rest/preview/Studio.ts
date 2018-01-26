@@ -27,7 +27,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Studio {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'Studio');
+  super(domain, 'Studio');
 
   // Resources
   this._flows = undefined;

@@ -28,7 +28,7 @@ import V1 = require('./trunking/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Trunking {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://trunking.twilio.com');
+  super(twilio, 'https://trunking.twilio.com');
 
   // Versions
   this._v1 = undefined;

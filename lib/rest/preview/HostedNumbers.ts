@@ -33,7 +33,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class HostedNumbers {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'HostedNumbers');
+  super(domain, 'HostedNumbers');
 
   // Resources
   this._authorizationDocuments = undefined;

@@ -27,7 +27,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Understand {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'understand');
+  super(domain, 'understand');
 
   // Resources
   this._services = undefined;

@@ -27,7 +27,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class DeployedDevices {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'DeployedDevices');
+  super(domain, 'DeployedDevices');
 
   // Resources
   this._fleets = undefined;

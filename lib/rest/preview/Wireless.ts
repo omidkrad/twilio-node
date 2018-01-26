@@ -31,7 +31,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Wireless {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'wireless');
+  super(domain, 'wireless');
 
   // Resources
   this._commands = undefined;

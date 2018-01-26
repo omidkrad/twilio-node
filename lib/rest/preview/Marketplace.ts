@@ -33,7 +33,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Marketplace {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'marketplace');
+  super(domain, 'marketplace');
 
   // Resources
   this._availableAddOns = undefined;

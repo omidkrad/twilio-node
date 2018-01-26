@@ -403,7 +403,7 @@ MessagePage = class MessagePage {
   // Path Solution
   this._solution = solution;
 
-  Page.prototype.constructor.call(this, version, response, this._solution);
+  super(version, response, this._solution);
 };
 
 class MessagePage extends Page {

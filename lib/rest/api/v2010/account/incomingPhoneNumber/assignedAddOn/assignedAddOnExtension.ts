@@ -343,7 +343,7 @@ AssignedAddOnExtensionPage = function AssignedAddOnExtensionPage(version,
   // Path Solution
   this._solution = solution;
 
-  Page.prototype.constructor.call(this, version, response, this._solution);
+  super(version, response, this._solution);
 };
 
 class AssignedAddOnExtensionPage extends Page {

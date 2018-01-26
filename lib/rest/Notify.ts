@@ -29,7 +29,7 @@ import V1 = require('./notify/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Notify {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://notify.twilio.com');
+  super(twilio, 'https://notify.twilio.com');
 
   // Versions
   this._v1 = undefined;

@@ -27,7 +27,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Proxy {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'Proxy');
+  super(domain, 'Proxy');
 
   // Resources
   this._services = undefined;

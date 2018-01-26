@@ -28,7 +28,7 @@ import V1 = require('./sync/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Sync {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://sync.twilio.com');
+  super(twilio, 'https://sync.twilio.com');
 
   // Versions
   this._v1 = undefined;

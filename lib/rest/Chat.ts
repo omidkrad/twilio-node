@@ -31,7 +31,7 @@ import V2 = require('./chat/V2');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Chat {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://chat.twilio.com');
+  super(twilio, 'https://chat.twilio.com');
 
   // Versions
   this._v1 = undefined;

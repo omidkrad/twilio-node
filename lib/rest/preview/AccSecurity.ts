@@ -27,7 +27,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class AccSecurity {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'Verification');
+  super(domain, 'Verification');
 
   // Resources
   this._services = undefined;

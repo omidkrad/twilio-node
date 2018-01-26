@@ -32,7 +32,7 @@ import V2 = require('./ipMessaging/V2');  /* jshint ignore:line */
 /* jshint ignore:end */
 class IpMessaging {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://ip-messaging.twilio.com');
+  super(twilio, 'https://ip-messaging.twilio.com');
 
   // Versions
   this._v1 = undefined;

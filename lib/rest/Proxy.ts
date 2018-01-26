@@ -28,7 +28,7 @@ import V1 = require('./proxy/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Proxy {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://proxy.twilio.com');
+  super(twilio, 'https://proxy.twilio.com');
 
   // Versions
   this._v1 = undefined;

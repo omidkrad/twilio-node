@@ -28,7 +28,7 @@ import V1 = require('./taskrouter/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Taskrouter {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://taskrouter.twilio.com');
+  super(twilio, 'https://taskrouter.twilio.com');
 
   // Versions
   this._v1 = undefined;

@@ -28,7 +28,7 @@ import V1 = require('./fax/V1');  /* jshint ignore:line */
 /* jshint ignore:end */
 class Fax {
   constructor(public twilio) {
-  Domain.prototype.constructor.call(this, twilio, 'https://fax.twilio.com');
+  super(twilio, 'https://fax.twilio.com');
 
   // Versions
   this._v1 = undefined;

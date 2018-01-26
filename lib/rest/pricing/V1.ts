@@ -32,7 +32,7 @@ import VoiceList = require('./v1/voice').VoiceList;
 /* jshint ignore:end */
 class V1 {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'v1');
+  super(domain, 'v1');
 
   // Resources
   this._messaging = undefined;

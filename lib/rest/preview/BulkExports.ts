@@ -31,7 +31,7 @@ import Version = require('../../base/Version');  /* jshint ignore:line */
 /* jshint ignore:end */
 class BulkExports {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'BulkExports');
+  super(domain, 'BulkExports');
 
   // Resources
   this._exports = undefined;

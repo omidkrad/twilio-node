@@ -27,7 +27,7 @@ import WorkspaceList = require('./v1/workspace').WorkspaceList;
 /* jshint ignore:end */
 class V1 {
   constructor(public domain) {
-  Version.prototype.constructor.call(this, domain, 'v1');
+  super(domain, 'v1');
 
   // Resources
   this._workspaces = undefined;
